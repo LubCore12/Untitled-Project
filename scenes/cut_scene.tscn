@@ -1,9 +1,22 @@
 [gd_scene format=3 uid="uid://cujmbsafhmgny"]
 
-[ext_resource type="Script" uid="uid://ccrds7b8tco3u" path="res://scenes/cut_scene.gd" id="1_5gp8g"]
-[ext_resource type="Shader" uid="uid://bh0gij6m1gdhs" path="res://scenes/transition.gdshader" id="2_ascsr"]
+[ext_resource type="Script" uid="uid://ccrds7b8tco3u" path="res://scenes/scripts/cut_scene.gd" id="1_5gp8g"]
+[ext_resource type="Shader" uid="uid://bh0gij6m1gdhs" path="res://shaders/transition.gdshader" id="2_ascsr"]
+[ext_resource type="FontFile" uid="uid://c64ld6cc2ggth" path="res://fonts/SofiaSans-Regular.ttf" id="2_s8yl3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s8yl3"]
+bg_color = Color(0.156566, 0.15656579, 0.15656582, 1)
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+corner_detail = 14
+
+[sub_resource type="Theme" id="Theme_ascsr"]
+Panel/styles/panel = SubResource("StyleBoxFlat_s8yl3")
 
 [sub_resource type="Theme" id="Theme_iedig"]
+default_font = ExtResource("2_s8yl3")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5gp8g"]
 shader = ExtResource("2_ascsr")
@@ -27,6 +40,17 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.08779136, 0.087791376, 0.087791376, 1)
 
+[node name="DialogBG" type="Panel" parent="." unique_id=299436734]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.03
+anchor_top = 0.73
+anchor_right = 0.97
+anchor_bottom = 0.97
+grow_horizontal = 2
+grow_vertical = 0
+theme = SubResource("Theme_ascsr")
+
 [node name="DialogText" type="RichTextLabel" parent="." unique_id=2071376996]
 layout_mode = 1
 anchors_preset = -1
@@ -37,7 +61,7 @@ anchor_bottom = 0.95
 grow_horizontal = 2
 grow_vertical = 0
 theme = SubResource("Theme_iedig")
-theme_override_font_sizes/normal_font_size = 30
+theme_override_font_sizes/normal_font_size = 36
 bbcode_enabled = true
 text = "НоYjrtjrh Но"
 

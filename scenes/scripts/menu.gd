@@ -9,3 +9,6 @@ func _on_play_pressed() -> void:
 
 func _on_settings_button_pressed() -> void:
 	settings_menu.show()
+
+func _on_give_up_pressed() -> void:
+	get_tree().quit()

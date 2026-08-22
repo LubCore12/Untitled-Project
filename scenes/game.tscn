@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://bs2o8vhxajrgr"]
 
-[ext_resource type="Script" uid="uid://jaenv4g0gqv2" path="res://scenes/game.gd" id="1_lbhrr"]
+[ext_resource type="Script" uid="uid://jaenv4g0gqv2" path="res://scenes/scripts/game.gd" id="1_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://j4vihd1cr0ya" path="res://scenes/ground.tscn" id="1_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://ck5bnij8waq8q" path="res://scenes/choice_menu.tscn" id="1_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://0keq2j52jcvb" path="res://scenes/player.tscn" id="2_lnu2h"]
-[ext_resource type="Shader" uid="uid://bh0gij6m1gdhs" path="res://scenes/transition.gdshader" id="4_iywne"]
+[ext_resource type="Shader" uid="uid://bh0gij6m1gdhs" path="res://shaders/transition.gdshader" id="4_iywne"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_37okk"]
 resource_local_to_scene = true
