@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://cujmbsafhmgny"]
+
+[ext_resource type="Script" uid="uid://ccrds7b8tco3u" path="res://scenes/cut_scene.gd" id="1_5gp8g"]
+[ext_resource type="Shader" uid="uid://bh0gij6m1gdhs" path="res://scenes/transition.gdshader" id="2_ascsr"]
+
+[sub_resource type="Theme" id="Theme_iedig"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5gp8g"]
+shader = ExtResource("2_ascsr")
+shader_parameter/size = 0.0
+
+[node name="CutScene" type="Control" unique_id=1329905073]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5gp8g")
+
+[node name="BG" type="ColorRect" parent="." unique_id=442315166]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.08779136, 0.087791376, 0.087791376, 1)
+
+[node name="DialogText" type="RichTextLabel" parent="." unique_id=2071376996]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.75
+anchor_right = 0.95
+anchor_bottom = 0.95
+grow_horizontal = 2
+grow_vertical = 0
+theme = SubResource("Theme_iedig")
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "НоYjrtjrh Но"
+
+[node name="Transition" type="ColorRect" parent="." unique_id=265652006]
+material = SubResource("ShaderMaterial_5gp8g")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
