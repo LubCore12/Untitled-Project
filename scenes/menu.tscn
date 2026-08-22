@@ -2,21 +2,74 @@
 
 [ext_resource type="Script" uid="uid://eolkuvmrcgi2" path="res://scenes/scripts/menu.gd" id="1_con2f"]
 [ext_resource type="FontFile" uid="uid://ctcf2j8qyyjrw" path="res://fonts/MisterBrush.ttf" id="2_mhnvy"]
-[ext_resource type="FontFile" uid="uid://c1bb63cxvo6pu" path="res://fonts/Exo2-SemiBold.ttf" id="3_4ytvr"]
+[ext_resource type="FontFile" uid="uid://cfkl4jakhub8b" path="res://fonts/Tagesschrift-Regular.ttf" id="3_4ytvr"]
+[ext_resource type="Shader" uid="uid://boht8pr4jrfth" path="res://shaders/levitation.gdshader" id="3_g3eks"]
 [ext_resource type="Texture2D" uid="uid://b85rdp12jyuwp" path="res://assets/settings.png" id="4_mhnvy"]
 [ext_resource type="PackedScene" uid="uid://bh7ne5yqiugv7" path="res://scenes/settings_menu.tscn" id="5_4ytvr"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_13sgg"]
+shader = ExtResource("3_g3eks")
+shader_parameter/strength = 4.999999932944
+shader_parameter/x_speed = 1.999999977648
+shader_parameter/y_speed = 1.52999998815344
 
 [sub_resource type="Theme" id="Theme_oty3i"]
 default_font = ExtResource("2_mhnvy")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4ytvr"]
+shader = ExtResource("3_g3eks")
+shader_parameter/strength = 0.0
+shader_parameter/x_speed = 0.0
+shader_parameter/y_speed = 0.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4ytvr"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v86rl"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g3eks"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_13sgg"]
+bg_color = Color(1, 1, 1, 1)
+
 [sub_resource type="Theme" id="Theme_sm7t5"]
 default_font = ExtResource("3_4ytvr")
+Button/styles/focus = SubResource("StyleBoxFlat_4ytvr")
+Button/styles/hover = SubResource("StyleBoxFlat_v86rl")
+Button/styles/normal = SubResource("StyleBoxFlat_g3eks")
+Button/styles/pressed = SubResource("StyleBoxFlat_13sgg")
 
-[sub_resource type="Theme" id="Theme_nlp0m"]
-default_font = ExtResource("3_4ytvr")
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_g3eks"]
+shader = ExtResource("3_g3eks")
+shader_parameter/strength = 0.0
+shader_parameter/x_speed = 0.0
+shader_parameter/y_speed = 0.0
 
-[sub_resource type="Theme" id="Theme_7xwi4"]
-default_font = ExtResource("3_4ytvr")
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_v86rl"]
+shader = ExtResource("3_g3eks")
+shader_parameter/strength = 0.0
+shader_parameter/x_speed = 0.0
+shader_parameter/y_speed = 0.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fo3dt"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mhnvy"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ila21"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u057j"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Theme" id="Theme_37okk"]
+Button/styles/focus = SubResource("StyleBoxFlat_fo3dt")
+Button/styles/hover = SubResource("StyleBoxFlat_mhnvy")
+Button/styles/normal = SubResource("StyleBoxFlat_ila21")
+Button/styles/pressed = SubResource("StyleBoxFlat_u057j")
 
 [node name="Menu" type="Control" unique_id=989188303]
 layout_mode = 3
@@ -36,60 +89,89 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="GameName" type="Label" parent="." unique_id=2112073918]
+material = SubResource("ShaderMaterial_13sgg")
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.1
-anchor_top = 0.1
-anchor_right = 0.1
-anchor_bottom = 0.1
+anchor_left = 0.5
+anchor_top = 0.2
+anchor_right = 0.5
+anchor_bottom = 0.2
+offset_left = -199.0
+offset_top = -57.5
+offset_right = 199.0
+offset_bottom = 57.5
+grow_horizontal = 2
+grow_vertical = 2
 theme = SubResource("Theme_oty3i")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 60
-text = "dghfnj"
+theme_override_font_sizes/font_size = 100
+text = "Untitled Project 1"
 horizontal_alignment = 2
 
 [node name="ActionButtons" type="VBoxContainer" parent="." unique_id=2024565131]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.1
-anchor_top = 0.35
-anchor_right = 0.1
-anchor_bottom = 0.5
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.7
+offset_left = -155.5
+offset_top = -109.0
+offset_right = 155.5
+offset_bottom = 109.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Play" type="Button" parent="ActionButtons" unique_id=354727038]
+material = SubResource("ShaderMaterial_4ytvr")
 custom_minimum_size = Vector2(200, 70)
 layout_mode = 2
+size_flags_vertical = 3
 theme = SubResource("Theme_sm7t5")
-theme_override_font_sizes/font_size = 30
-text = "Создать"
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 60
+text = "Create"
 
-[node name="Continue" type="Button" parent="ActionButtons" unique_id=341861488]
+[node name="Continue" type="Button" parent="ActionButtons" unique_id=2025708863]
+material = SubResource("ShaderMaterial_g3eks")
 custom_minimum_size = Vector2(200, 70)
 layout_mode = 2
-theme = SubResource("Theme_nlp0m")
-theme_override_font_sizes/font_size = 30
-text = "Продолжить
-"
+size_flags_vertical = 3
+theme = SubResource("Theme_sm7t5")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 60
+text = "Continue"
 
-[node name="GiveUp" type="Button" parent="ActionButtons" unique_id=1032582888]
-custom_minimum_size = Vector2(200, 70)
+[node name="GiveUp" type="Button" parent="ActionButtons" unique_id=345237241]
+material = SubResource("ShaderMaterial_v86rl")
 layout_mode = 2
-theme = SubResource("Theme_7xwi4")
-theme_override_font_sizes/font_size = 30
-text = "Бросить"
+size_flags_vertical = 3
+theme = SubResource("Theme_37okk")
+theme_override_colors/font_color = Color(0.3882353, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0.3882353, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.3882353, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.3882353, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "Give up"
 
 [node name="SettingsButton" type="TextureButton" parent="." unique_id=1199232727]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -70.0
-offset_top = 16.0
-offset_right = 461.0
-offset_bottom = 548.0
+offset_left = -124.0
+offset_top = 20.0
+offset_right = 407.0
+offset_bottom = 552.0
 grow_horizontal = 0
-scale = Vector2(0.1, 0.1)
+scale = Vector2(0.2, 0.2)
 texture_normal = ExtResource("4_mhnvy")
 ignore_texture_size = true
 stretch_mode = 3
@@ -98,6 +180,17 @@ stretch_mode = 3
 visible = false
 layout_mode = 1
 
+[node name="Sounds" type="Node" parent="." unique_id=448867512]
+
+[node name="PressedSound" type="AudioStreamPlayer" parent="Sounds" unique_id=1306161409]
+
+[node name="HoverSound" type="AudioStreamPlayer" parent="Sounds" unique_id=490952242]
+
+[connection signal="mouse_entered" from="ActionButtons/Play" to="." method="_on_play_mouse_entered"]
+[connection signal="mouse_exited" from="ActionButtons/Play" to="." method="_on_play_mouse_exited"]
 [connection signal="pressed" from="ActionButtons/Play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="ActionButtons/GiveUp" to="." method="_on_give_up_pressed"]
+[connection signal="mouse_entered" from="ActionButtons/Continue" to="." method="_on_continue_mouse_entered"]
+[connection signal="mouse_exited" from="ActionButtons/Continue" to="." method="_on_continue_mouse_exited"]
+[connection signal="mouse_entered" from="ActionButtons/GiveUp" to="." method="_on_give_up_mouse_entered"]
+[connection signal="mouse_exited" from="ActionButtons/GiveUp" to="." method="_on_give_up_mouse_exited"]
 [connection signal="pressed" from="SettingsButton" to="." method="_on_settings_button_pressed"]

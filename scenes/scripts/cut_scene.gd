@@ -1,12 +1,11 @@
 extends Control
 
 @export_group("DialogStats")
-@export var letter_time := 0.1
+@export var letter_time := 0.07
 @export var space_time := 0.25
 
-@onready var dialog_text = $DialogText
+@onready var dialogs = $Dialogs
 @onready var transition = $Transition
-@onready var total_characters = $DialogText.get_total_character_count()
 @onready var skip_button = $SkipButton
 
 var game_scene := "res://scenes/game.tscn"
@@ -14,8 +13,8 @@ var transition_time := 1.0
 var skip_button_pressed := false
 
 func _ready() -> void:
-	await display_text(dialog_text)
-	await display_text(dialog_text)
+	for dialog in dialogs.get_children():
+		await display_text(dialog)
 	
 	var tween = create_tween()
 	tween.tween_property(transition.material, "shader_parameter/size", 1.0, transition_time).from(0.0)
@@ -37,8 +36,14 @@ func display_text(text: RichTextLabel):
 			await get_tree().create_timer(letter_time).timeout
 		
 		if skip_button_pressed:
-			skip_button_pressed = false
 			break
+
+	if not skip_button_pressed:
+		await get_tree().create_timer(1.3).timeout
+	else:
+		skip_button_pressed = false
+		
+	text.visible_characters = 0
 
 func _on_skip_button_button_down() -> void:
 	skip_button_pressed = true

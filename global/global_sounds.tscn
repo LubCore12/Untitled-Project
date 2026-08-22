@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://biqjx4lc3eq3k"]
+
+[node name="GlobalSounds" type="Node" unique_id=1328646721]
+
+[node name="PressedSound" type="AudioStreamPlayer" parent="." unique_id=534407885]
+
+[node name="HoverSound" type="AudioStreamPlayer" parent="." unique_id=1547716789]
+volume_db = -71.646

@@ -1,41 +1,6 @@
 [gd_scene format=3 uid="uid://bs2o8vhxajrgr"]
 
-[ext_resource type="Script" uid="uid://jaenv4g0gqv2" path="res://scenes/scripts/game.gd" id="1_lbhrr"]
-[ext_resource type="PackedScene" uid="uid://bsfeq1c4lhvh" path="res://scenes/enimy.tscn" id="5_p57ef"]
+[node name="Game" type="Node3D" unique_id=833938735]
 
-[ext_resource type="PackedScene" uid="uid://j4vihd1cr0ya" path="res://scenes/ground.tscn" id="1_lnu2h"]
-[ext_resource type="PackedScene" uid="uid://ck5bnij8waq8q" path="res://scenes/choice_menu.tscn" id="1_yqjtg"]
-[ext_resource type="PackedScene" uid="uid://0keq2j52jcvb" path="res://scenes/player.tscn" id="2_lnu2h"]
-[ext_resource type="Shader" uid="uid://bh0gij6m1gdhs" path="res://shaders/transition.gdshader" id="4_iywne"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_37okk"]
-resource_local_to_scene = true
-shader = ExtResource("4_iywne")
-shader_parameter/size = 0.999999977648
-
-[node name="Game" type="Node2D" unique_id=842761796]
-script = ExtResource("1_lbhrr")
-
-[node name="Ground" parent="." unique_id=429428900 instance=ExtResource("1_lnu2h")]
-
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2144837108]
-
-[node name="ChoiceMenu" parent="CanvasLayer" unique_id=1031216120 instance=ExtResource("1_yqjtg")]
-
-[node name="Entities" type="Node2D" parent="." unique_id=866472231]
-
-[node name="Enimys" type="Node2D" parent="Entities" unique_id=374848610]
-
-[node name="Enimy" parent="Entities/Enimys" unique_id=2108341500 instance=ExtResource("5_p57ef")]
-position = Vector2(94, 54)
-
-[node name="Player" parent="Entities" unique_id=573671080 instance=ExtResource("2_lnu2h")]
-[node name="Transition" type="ColorRect" parent="CanvasLayer" unique_id=483490334]
-material = SubResource("ShaderMaterial_37okk")
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 1)
-
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1627015961]
+transform = Transform3D(1, 0, 0, 0, 0.8836035, 0.46823582, 0, -0.46823582, 0.8836035, 0, 2.9292495, 2.8939626)
