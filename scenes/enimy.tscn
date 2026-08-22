@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://bsfeq1c4lhvh"]
+
+[ext_resource type="Script" uid="uid://c8f33kv5w0qyh" path="res://scenes/scripts/enimy.gd" id="1_02p84"]
+[ext_resource type="Texture2D" uid="uid://c844ikt6dtcsr" path="res://assets/player_vremenno.png" id="2_y1gix"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3uex5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3uex5"]
+bg_color = Color(0, 0, 0, 0.4745098)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_odv1g"]
+bg_color = Color(1, 0.25882354, 0.15686275, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+corner_detail = 20
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_odv1g"]
+radius = 19.0
+
+[node name="Enimy" type="CharacterBody2D" unique_id=336894353]
+script = ExtResource("1_02p84")
+speed = 50.0
+hp = 100.0
+damage = 40.0
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=1380753607]
+position = Vector2(-1.1920929e-07, 0)
+scale = Vector2(0.007672301, 0.0076723006)
+texture = ExtResource("2_y1gix")
+
+[node name="Shape" type="CollisionShape2D" parent="." unique_id=1128034865]
+shape = SubResource("CapsuleShape2D_3uex5")
+
+[node name="HPBar" type="ProgressBar" parent="." unique_id=1329756377]
+offset_left = -10.0
+offset_top = -15.0
+offset_right = 11.0
+offset_bottom = -12.0
+theme_override_styles/background = SubResource("StyleBoxFlat_3uex5")
+theme_override_styles/fill = SubResource("StyleBoxFlat_odv1g")
+value = 100.0
+show_percentage = false
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1904596456]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=965326206]
+shape = SubResource("CircleShape2D_odv1g")
+
+[node name="Timer" type="Timer" parent="." unique_id=419472082]
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
