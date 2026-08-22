@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://ds51tn52l6rqd"]
 
+[ext_resource type="Script" uid="uid://eolkuvmrcgi2" path="res://scenes/menu.gd" id="1_yqeox"]
+
 [node name="Menu" type="Control" unique_id=989188303]
 layout_mode = 3
 anchors_preset = 15
@@ -7,6 +9,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_yqeox")
 
 [node name="BG" type="ColorRect" parent="." unique_id=1378973409]
 layout_mode = 1
@@ -64,3 +67,5 @@ custom_minimum_size = Vector2(200, 70)
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "Бросить"
+
+[connection signal="pressed" from="Buttons/Play" to="." method="_on_play_pressed"]
