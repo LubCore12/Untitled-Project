@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d2utrih10ui40"
-path="res://.godot/imported/ground_vremenno.jpg-c9f33a00536557e03026e2047278f972.ctex"
+uid="uid://c844ikt6dtcsr"
+path="res://.godot/imported/player_vremenno.png-d173bd8202bb6bc6ee389274f5d74e75.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/ground_vremenno.jpg"
-dest_files=["res://.godot/imported/ground_vremenno.jpg-c9f33a00536557e03026e2047278f972.ctex"]
+source_file="res://assets/player_vremenno.png"
+dest_files=["res://.godot/imported/player_vremenno.png-d173bd8202bb6bc6ee389274f5d74e75.ctex"]
 
 [params]
 
