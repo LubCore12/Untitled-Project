@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://j4vihd1cr0ya"]
+
+[ext_resource type="Texture2D" uid="uid://d2utrih10ui40" path="res://textures/ground_vremenno.jpg" id="1_pybca"]
+
+[node name="Ground" type="Node2D" unique_id=429428900]
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1788437114]
+offset_left = -3664.0
+offset_top = -2052.0
+offset_right = 4817.0
+offset_bottom = 2637.0
+texture = ExtResource("1_pybca")
+expand_mode = 1
+stretch_mode = 1
