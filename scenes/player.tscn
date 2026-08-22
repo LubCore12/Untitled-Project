@@ -3,13 +3,20 @@
 [ext_resource type="Script" uid="uid://5xvifvfwuvt4" path="res://scenes/scripts/player.gd" id="1_3vyb7"]
 [ext_resource type="Texture2D" uid="uid://c844ikt6dtcsr" path="res://assets/player_vremenno.png" id="2_g2els"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_u8vuu"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_odv1g"]
+radius = 5.0
+height = 20.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bdebx"]
+radius = 29.0
 
 [node name="Player" type="CharacterBody2D" unique_id=573671080]
 motion_mode = 1
 script = ExtResource("1_3vyb7")
 speed = 100.0
 run_speed = 200.0
+hp = 100.0
+damage = 20.0
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=457892774]
 position = Vector2(-1.1920929e-07, 0)
@@ -17,7 +24,15 @@ scale = Vector2(0.007672301, 0.0076723006)
 texture = ExtResource("2_g2els")
 
 [node name="Shape" type="CollisionShape2D" parent="." unique_id=1543652613]
-shape = SubResource("RectangleShape2D_u8vuu")
+shape = SubResource("CapsuleShape2D_odv1g")
 
 [node name="Camera" type="Camera2D" parent="." unique_id=1012484877]
 zoom = Vector2(4, 4)
+
+[node name="Area2D" type="Area2D" parent="." unique_id=408605572]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1126920812]
+shape = SubResource("CircleShape2D_bdebx")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
