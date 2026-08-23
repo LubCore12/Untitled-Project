@@ -38,17 +38,17 @@ func _ready() -> void:
 	await get_tree().create_timer(0.5).timeout
 	dialog_panel.show()
 	
-	#for label in dialogs.get_child(1).get_children():
-		#await display_text(label)
-		#
-	#dialog_panel.hide()
-	#await get_tree().create_timer(0.5).timeout
-	#choice_menu.toggle_walk_choice()
-	#choice_menu.show()
-	#await choice_menu.choice_done
-	#choice_menu.toggle_walk_choice()
-	#await get_tree().create_timer(3).timeout
-	#dialog_panel.show()
+	for label in dialogs.get_child(1).get_children():
+		await display_text(label)
+		
+	dialog_panel.hide()
+	await get_tree().create_timer(0.5).timeout
+	choice_menu.toggle_walk_choice()
+	choice_menu.show()
+	await choice_menu.choice_done
+	choice_menu.toggle_walk_choice()
+	await get_tree().create_timer(3).timeout
+	dialog_panel.show()
 	#
 	#for label in dialogs.get_child(2).get_children():
 		#await display_text(label)
@@ -97,6 +97,7 @@ func _ready() -> void:
 	choice_menu.toggle_health_choice()
 	await get_tree().create_timer(2).timeout
 	dialog_panel.show()
+	
 	
 func display_text(text: RichTextLabel):
 	text.visible_characters = 0
@@ -154,6 +155,6 @@ func _on_choice_menu_add_circle_health() -> void:
 func _on_choice_menu_add_line_health() -> void:
 	player_ui.show_line()
 
-func _on_player_damaged(dam: Variant) -> void:
+func _on_player_damaged() -> void:
 	player_ui.discard_health(player.hp)
 	

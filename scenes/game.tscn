@@ -531,6 +531,7 @@ visible_ratio = 0.0
 [node name="ChoiceMenu" parent="CanvasLayer" unique_id=1031216120 instance=ExtResource("4_lbhrr")]
 visible = false
 
+[connection signal="player_damaged" from="Player" to="." method="_on_player_damaged"]
 [connection signal="add_bottle_health" from="CanvasLayer/ChoiceMenu" to="." method="_on_choice_menu_add_bottle_health"]
 [connection signal="add_circle_health" from="CanvasLayer/ChoiceMenu" to="." method="_on_choice_menu_add_circle_health"]
 [connection signal="add_line_health" from="CanvasLayer/ChoiceMenu" to="." method="_on_choice_menu_add_line_health"]

@@ -4,7 +4,7 @@
 [ext_resource type="Shader" uid="uid://cbm7mbvuaibec" path="res://shaders/enemy.gdshader" id="2_md0e3"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p57ef"]
-albedo_color = Color(1, 0, 0, 1)
+albedo_color = Color(1, 0, 1, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_md0e3"]
 material = SubResource("StandardMaterial3D_p57ef")
@@ -20,8 +20,6 @@ shader_parameter/val = 0.0
 
 [node name="Enemy" type="CharacterBody3D" unique_id=1271975245]
 script = ExtResource("1_7p1mj")
-speed = 20.0
-damage = 120.0
 
 [node name="Timer" type="Timer" parent="." unique_id=700358242]
 
@@ -39,14 +37,13 @@ shape = SubResource("BoxShape3D_4ra3w")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("SphereShape3D_37okk")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=615404384]
-
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=489930778]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=489930778]
 material = SubResource("ShaderMaterial_7p1mj")
 offset_left = -40.980568
 offset_top = -7.5626144
 offset_right = 38.789436
 offset_bottom = 32.437386
 
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]
