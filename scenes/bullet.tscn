@@ -7,7 +7,7 @@ radius = 0.044433594
 height = 0.22052002
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_odv1g"]
-radius = 0.030273438
+radius = 0.043945313
 height = 0.1362915
 
 [node name="Bullet" type="Area3D" unique_id=951081638]

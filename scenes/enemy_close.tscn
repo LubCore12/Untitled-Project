@@ -8,7 +8,7 @@
 [sub_resource type="SphereShape3D" id="SphereShape3D_37okk"]
 radius = 1.2700145
 
-[node name="EnemyClose" type="CharacterBody3D" unique_id=1271975245]
+[node name="EnemyClose" type="CharacterBody3D" unique_id=1271975245 groups=["enemy"]]
 script = ExtResource("1_7a4ji")
 speed = 200.0
 
