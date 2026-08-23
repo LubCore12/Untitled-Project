@@ -8,7 +8,7 @@
 [sub_resource type="SphereShape3D" id="SphereShape3D_37okk"]
 radius = 9.738586
 
-[node name="EnemyLong" type="CharacterBody3D" unique_id=1271975245]
+[node name="EnemyLong" type="CharacterBody3D" unique_id=1271975245 groups=["enemy"]]
 script = ExtResource("1_53pvp")
 
 [node name="Timer" type="Timer" parent="." unique_id=700358242]

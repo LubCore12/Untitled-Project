@@ -33,7 +33,8 @@ func _physics_process(_delta: float) -> void:
 	
 func move() -> void:
 	if Input.is_action_just_pressed("attack") and can_attack:
-		attack()
+		if target_enemy:
+			attack()
 	velocity.x = direction * speed
 	velocity.y -= gravity
 	move_and_slide()
@@ -61,7 +62,7 @@ func show_sprite() -> void:
 	sprite.show()
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
-	if body.is_in_group("enemy"):
+	if body.is_in_group(&"enemy"):
 		target_enemy = body
 
 func _on_area_3d_body_exited(body: Node3D) -> void:
@@ -69,10 +70,11 @@ func _on_area_3d_body_exited(body: Node3D) -> void:
 		target_enemy = null
 
 func get_damage(self_damage):
-	hp -= self_damage
-	player_damaged.emit(hp * (1.0 / max_hp))
-	
-	if hp <= 0:
-		collision_layer = 2
-		collision_mask = 2
-		set_physics_process(false)
+	if can_attack:
+		hp -= self_damage
+		player_damaged.emit(hp * (1.0 / max_hp))
+		
+		if hp <= 0:
+			collision_layer = 2
+			collision_mask = 2
+			set_physics_process(false)
