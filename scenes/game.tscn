@@ -97,7 +97,6 @@ dialog_wait_time = 0.0
 
 [node name="Night" type="DirectionalLight3D" parent="DirectionalLights" unique_id=1193258410]
 transform = Transform3D(-0.8660254, 0.08682416, -0.49240392, -0.49309474, -0.31141257, 0.8123299, -0.0828109, 0.9463001, 0.3125037, 0, 55.350777, 11.56872)
-visible = false
 light_color = Color(1.1792034e-06, 0.33317125, 0.33317128, 1)
 light_energy = 2.0
 shadow_enabled = true

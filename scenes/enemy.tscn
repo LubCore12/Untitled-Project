@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://bx0jjxx2ao832"]
+
+[ext_resource type="Script" path="res://scenes/scripts/enemy.gd" id="1_7p1mj"]
+[ext_resource type="Texture2D" uid="uid://m6240jc0vq28" path="res://icon.svg" id="2_md0e3"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4ra3w"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_37okk"]
+radius = 1.2700145
+
+[node name="Enemy" type="CharacterBody3D" unique_id=1271975245]
+script = ExtResource("1_7p1mj")
+
+[node name="Timer" type="Timer" parent="." unique_id=700358242]
+autostart = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1628307242]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_4ra3w")
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1174268899]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+texture = ExtResource("2_md0e3")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=408551951]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=26500318]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("SphereShape3D_37okk")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]

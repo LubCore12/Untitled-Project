@@ -10,9 +10,10 @@ radius = 2.0766363
 
 [node name="Player" type="CharacterBody3D" unique_id=1400254759]
 script = ExtResource("1_3vyb7")
-run_speed = 5.0
+walk_speed = 4.0
+run_speed = 7.0
 jump_strength = 30.0
-gravity = 2.0
+gravity = 1.7
 
 [node name="Shape" type="CollisionShape3D" parent="." unique_id=570095511]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)

@@ -174,6 +174,33 @@ shader_parameter/x_pos = 1.8
 shader_parameter/y_pos = 0.0
 shader_parameter/thikness = 0.07
 
+[sub_resource type="Shader" id="Shader_kkagw"]
+code = "shader_type canvas_item;
+
+uniform float angle = -70.0;
+uniform float x_pos = 1.8;
+uniform float y_pos = 0.0;
+uniform float thikness = 0.07;
+
+void fragment() {
+	vec2 uv = 2. * UV - 1.;
+	
+	float slope = tan(angle);
+	float line = (uv.y + y_pos) - slope * (uv.x + x_pos);
+	float distance_to_line = abs(line) / sqrt(1.0 + pow(slope, 2));
+	float shine_mask = step(distance_to_line, thikness);
+	COLOR.rgb = mix(COLOR.rgb, vec3(1.), shine_mask);
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_a2q6r"]
+resource_local_to_scene = true
+shader = SubResource("Shader_kkagw")
+shader_parameter/angle = -70.0
+shader_parameter/x_pos = 1.8
+shader_parameter/y_pos = 0.0
+shader_parameter/thikness = 0.07
+
 [sub_resource type="Shader" id="Shader_2oyqo"]
 code = "shader_type canvas_item;
 
@@ -263,6 +290,578 @@ shader_parameter/x_pos = 1.8
 shader_parameter/y_pos = 0.0
 shader_parameter/thikness = 0.07
 
+[sub_resource type="Shader" id="Shader_cb2gh"]
+code = "shader_type canvas_item;
+
+uniform float angle = -70.0;
+uniform float x_pos = 1.8;
+uniform float y_pos = 0.0;
+uniform float thikness = 0.07;
+
+void fragment() {
+	vec2 uv = 2. * UV - 1.;
+	
+	float slope = tan(angle);
+	float line = (uv.y + y_pos) - slope * (uv.x + x_pos);
+	float distance_to_line = abs(line) / sqrt(1.0 + pow(slope, 2));
+	float shine_mask = step(distance_to_line, thikness);
+	COLOR.rgb = mix(COLOR.rgb, vec3(1.), shine_mask);
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_v5d2q"]
+shader = SubResource("Shader_cb2gh")
+shader_parameter/angle = -70.0
+shader_parameter/x_pos = 1.8
+shader_parameter/y_pos = 0.0
+shader_parameter/thikness = 0.07
+
+[sub_resource type="Shader" id="Shader_v5d2q"]
+code = "shader_type canvas_item;
+
+uniform float angle = -70.0;
+uniform float x_pos = 1.8;
+uniform float y_pos = 0.0;
+uniform float thikness = 0.07;
+
+void fragment() {
+	vec2 uv = 2. * UV - 1.;
+	
+	float slope = tan(angle);
+	float line = (uv.y + y_pos) - slope * (uv.x + x_pos);
+	float distance_to_line = abs(line) / sqrt(1.0 + pow(slope, 2));
+	float shine_mask = step(distance_to_line, thikness);
+	COLOR.rgb = mix(COLOR.rgb, vec3(1.), shine_mask);
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0jqir"]
+shader = SubResource("Shader_v5d2q")
+shader_parameter/angle = -70.0
+shader_parameter/x_pos = 1.8
+shader_parameter/y_pos = 0.0
+shader_parameter/thikness = 0.07
+
+[sub_resource type="Shader" id="Shader_3fn43"]
+code = "shader_type canvas_item;
+
+uniform float angle = -70.0;
+uniform float x_pos = 1.8;
+uniform float y_pos = 0.0;
+uniform float thikness = 0.07;
+
+void fragment() {
+	vec2 uv = 2. * UV - 1.;
+	
+	float slope = tan(angle);
+	float line = (uv.y + y_pos) - slope * (uv.x + x_pos);
+	float distance_to_line = abs(line) / sqrt(1.0 + pow(slope, 2));
+	float shine_mask = step(distance_to_line, thikness);
+	COLOR.rgb = mix(COLOR.rgb, vec3(1.), shine_mask);
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_eiu3a"]
+shader = SubResource("Shader_3fn43")
+shader_parameter/angle = -70.0
+shader_parameter/x_pos = 1.8
+shader_parameter/y_pos = 0.0
+shader_parameter/thikness = 0.07
+
+[sub_resource type="Shader" id="Shader_4rvgb"]
+code = "shader_type canvas_item;
+
+uniform float angle = -70.0;
+uniform float x_pos = 1.8;
+uniform float y_pos = 0.0;
+uniform float thikness = 0.07;
+
+void fragment() {
+	vec2 uv = 2. * UV - 1.;
+	
+	float slope = tan(angle);
+	float line = (uv.y + y_pos) - slope * (uv.x + x_pos);
+	float distance_to_line = abs(line) / sqrt(1.0 + pow(slope, 2));
+	float shine_mask = step(distance_to_line, thikness);
+	COLOR.rgb = mix(COLOR.rgb, vec3(1.), shine_mask);
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_x5i6y"]
+shader = SubResource("Shader_4rvgb")
+shader_parameter/angle = -70.0
+shader_parameter/x_pos = 1.8
+shader_parameter/y_pos = 0.0
+shader_parameter/thikness = 0.07
+
+[sub_resource type="Shader" id="Shader_x5i6y"]
+code = "shader_type canvas_item;
+
+uniform float angle = -70.0;
+uniform float x_pos = 1.8;
+uniform float y_pos = 0.0;
+uniform float thikness = 0.07;
+
+void fragment() {
+	vec2 uv = 2. * UV - 1.;
+	
+	float slope = tan(angle);
+	float line = (uv.y + y_pos) - slope * (uv.x + x_pos);
+	float distance_to_line = abs(line) / sqrt(1.0 + pow(slope, 2));
+	float shine_mask = step(distance_to_line, thikness);
+	COLOR.rgb = mix(COLOR.rgb, vec3(1.), shine_mask);
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6idyf"]
+shader = SubResource("Shader_x5i6y")
+shader_parameter/angle = -70.0
+shader_parameter/x_pos = 1.8
+shader_parameter/y_pos = 0.0
+shader_parameter/thikness = 0.07
+
+[sub_resource type="Shader" id="Shader_f5a2k"]
+code = "shader_type canvas_item;
+
+uniform float angle = -70.0;
+uniform float x_pos = 1.8;
+uniform float y_pos = 0.0;
+uniform float thikness = 0.07;
+
+void fragment() {
+	vec2 uv = 2. * UV - 1.;
+	
+	float slope = tan(angle);
+	float line = (uv.y + y_pos) - slope * (uv.x + x_pos);
+	float distance_to_line = abs(line) / sqrt(1.0 + pow(slope, 2));
+	float shine_mask = step(distance_to_line, thikness);
+	COLOR.rgb = mix(COLOR.rgb, vec3(1.), shine_mask);
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xwlrl"]
+shader = SubResource("Shader_f5a2k")
+shader_parameter/angle = -70.0
+shader_parameter/x_pos = 1.8
+shader_parameter/y_pos = 0.0
+shader_parameter/thikness = 0.07
+
+[sub_resource type="Shader" id="Shader_6idyf"]
+code = "shader_type canvas_item;
+
+uniform float angle = -70.0;
+uniform float x_pos = 1.8;
+uniform float y_pos = 0.0;
+uniform float thikness = 0.07;
+
+void fragment() {
+	vec2 uv = 2. * UV - 1.;
+	
+	float slope = tan(angle);
+	float line = (uv.y + y_pos) - slope * (uv.x + x_pos);
+	float distance_to_line = abs(line) / sqrt(1.0 + pow(slope, 2));
+	float shine_mask = step(distance_to_line, thikness);
+	COLOR.rgb = mix(COLOR.rgb, vec3(1.), shine_mask);
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_453tc"]
+shader = SubResource("Shader_6idyf")
+shader_parameter/angle = -70.0
+shader_parameter/x_pos = 1.8
+shader_parameter/y_pos = 0.0
+shader_parameter/thikness = 0.07
+
+[sub_resource type="Shader" id="Shader_0jqir"]
+code = "shader_type canvas_item;
+
+uniform float angle = -70.0;
+uniform float x_pos = 1.8;
+uniform float y_pos = 0.0;
+uniform float thikness = 0.07;
+
+void fragment() {
+	vec2 uv = 2. * UV - 1.;
+	
+	float slope = tan(angle);
+	float line = (uv.y + y_pos) - slope * (uv.x + x_pos);
+	float distance_to_line = abs(line) / sqrt(1.0 + pow(slope, 2));
+	float shine_mask = step(distance_to_line, thikness);
+	COLOR.rgb = mix(COLOR.rgb, vec3(1.), shine_mask);
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_f5a2k"]
+shader = SubResource("Shader_0jqir")
+shader_parameter/angle = -70.0
+shader_parameter/x_pos = 1.8
+shader_parameter/y_pos = 0.0
+shader_parameter/thikness = 0.07
+
+[sub_resource type="Shader" id="Shader_r03mh"]
+code = "shader_type canvas_item;
+
+uniform float angle = -70.0;
+uniform float x_pos = 1.8;
+uniform float y_pos = 0.0;
+uniform float thikness = 0.07;
+
+void fragment() {
+	vec2 uv = 2. * UV - 1.;
+	
+	float slope = tan(angle);
+	float line = (uv.y + y_pos) - slope * (uv.x + x_pos);
+	float distance_to_line = abs(line) / sqrt(1.0 + pow(slope, 2));
+	float shine_mask = step(distance_to_line, thikness);
+	COLOR.rgb = mix(COLOR.rgb, vec3(1.), shine_mask);
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jnvme"]
+shader = SubResource("Shader_r03mh")
+shader_parameter/angle = -70.0
+shader_parameter/x_pos = 1.8
+shader_parameter/y_pos = 0.0
+shader_parameter/thikness = 0.07
+
+[sub_resource type="Shader" id="Shader_eiu3a"]
+code = "shader_type canvas_item;
+
+uniform float angle = -70.0;
+uniform float x_pos = 1.8;
+uniform float y_pos = 0.0;
+uniform float thikness = 0.07;
+
+void fragment() {
+	vec2 uv = 2. * UV - 1.;
+	
+	float slope = tan(angle);
+	float line = (uv.y + y_pos) - slope * (uv.x + x_pos);
+	float distance_to_line = abs(line) / sqrt(1.0 + pow(slope, 2));
+	float shine_mask = step(distance_to_line, thikness);
+	COLOR.rgb = mix(COLOR.rgb, vec3(1.), shine_mask);
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4rvgb"]
+shader = SubResource("Shader_eiu3a")
+shader_parameter/angle = -70.0
+shader_parameter/x_pos = 1.8
+shader_parameter/y_pos = 0.0
+shader_parameter/thikness = 0.07
+
+[sub_resource type="Shader" id="Shader_wfj4a"]
+code = "shader_type canvas_item;
+
+uniform float angle = -70.0;
+uniform float x_pos = 1.8;
+uniform float y_pos = 0.0;
+uniform float thikness = 0.07;
+
+void fragment() {
+	vec2 uv = 2. * UV - 1.;
+	
+	float slope = tan(angle);
+	float line = (uv.y + y_pos) - slope * (uv.x + x_pos);
+	float distance_to_line = abs(line) / sqrt(1.0 + pow(slope, 2));
+	float shine_mask = step(distance_to_line, thikness);
+	COLOR.rgb = mix(COLOR.rgb, vec3(1.), shine_mask);
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cb2gh"]
+shader = SubResource("Shader_wfj4a")
+shader_parameter/angle = -70.0
+shader_parameter/x_pos = 1.8
+shader_parameter/y_pos = 0.0
+shader_parameter/thikness = 0.07
+
+[sub_resource type="Shader" id="Shader_jnvme"]
+code = "shader_type canvas_item;
+
+uniform float angle = -70.0;
+uniform float x_pos = 1.8;
+uniform float y_pos = 0.0;
+uniform float thikness = 0.07;
+
+void fragment() {
+	vec2 uv = 2. * UV - 1.;
+	
+	float slope = tan(angle);
+	float line = (uv.y + y_pos) - slope * (uv.x + x_pos);
+	float distance_to_line = abs(line) / sqrt(1.0 + pow(slope, 2));
+	float shine_mask = step(distance_to_line, thikness);
+	COLOR.rgb = mix(COLOR.rgb, vec3(1.), shine_mask);
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3fn43"]
+shader = SubResource("Shader_jnvme")
+shader_parameter/angle = -70.0
+shader_parameter/x_pos = 1.8
+shader_parameter/y_pos = 0.0
+shader_parameter/thikness = 0.07
+
+[sub_resource type="Shader" id="Shader_xwlrl"]
+code = "shader_type canvas_item;
+
+uniform float angle = -70.0;
+uniform float x_pos = 1.8;
+uniform float y_pos = 0.0;
+uniform float thikness = 0.07;
+
+void fragment() {
+	vec2 uv = 2. * UV - 1.;
+	
+	float slope = tan(angle);
+	float line = (uv.y + y_pos) - slope * (uv.x + x_pos);
+	float distance_to_line = abs(line) / sqrt(1.0 + pow(slope, 2));
+	float shine_mask = step(distance_to_line, thikness);
+	COLOR.rgb = mix(COLOR.rgb, vec3(1.), shine_mask);
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6jrsi"]
+shader = SubResource("Shader_xwlrl")
+shader_parameter/angle = -70.0
+shader_parameter/x_pos = 1.8
+shader_parameter/y_pos = 0.0
+shader_parameter/thikness = 0.07
+
+[sub_resource type="Shader" id="Shader_453tc"]
+code = "shader_type canvas_item;
+
+uniform float angle = -70.0;
+uniform float x_pos = 1.8;
+uniform float y_pos = 0.0;
+uniform float thikness = 0.07;
+
+void fragment() {
+	vec2 uv = 2. * UV - 1.;
+	
+	float slope = tan(angle);
+	float line = (uv.y + y_pos) - slope * (uv.x + x_pos);
+	float distance_to_line = abs(line) / sqrt(1.0 + pow(slope, 2));
+	float shine_mask = step(distance_to_line, thikness);
+	COLOR.rgb = mix(COLOR.rgb, vec3(1.), shine_mask);
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_01ap0"]
+shader = SubResource("Shader_453tc")
+shader_parameter/angle = -70.0
+shader_parameter/x_pos = 1.8
+shader_parameter/y_pos = 0.0
+shader_parameter/thikness = 0.07
+
+[sub_resource type="Shader" id="Shader_ao4ng"]
+code = "shader_type canvas_item;
+
+uniform float angle = -70.0;
+uniform float x_pos = 1.8;
+uniform float y_pos = 0.0;
+uniform float thikness = 0.07;
+
+void fragment() {
+	vec2 uv = 2. * UV - 1.;
+	
+	float slope = tan(angle);
+	float line = (uv.y + y_pos) - slope * (uv.x + x_pos);
+	float distance_to_line = abs(line) / sqrt(1.0 + pow(slope, 2));
+	float shine_mask = step(distance_to_line, thikness);
+	COLOR.rgb = mix(COLOR.rgb, vec3(1.), shine_mask);
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_b32xk"]
+shader = SubResource("Shader_ao4ng")
+shader_parameter/angle = -70.0
+shader_parameter/x_pos = 1.8
+shader_parameter/y_pos = 0.0
+shader_parameter/thikness = 0.07
+
+[sub_resource type="Shader" id="Shader_b32xk"]
+code = "shader_type canvas_item;
+
+uniform float angle = -70.0;
+uniform float x_pos = 1.8;
+uniform float y_pos = 0.0;
+uniform float thikness = 0.07;
+
+void fragment() {
+	vec2 uv = 2. * UV - 1.;
+	
+	float slope = tan(angle);
+	float line = (uv.y + y_pos) - slope * (uv.x + x_pos);
+	float distance_to_line = abs(line) / sqrt(1.0 + pow(slope, 2));
+	float shine_mask = step(distance_to_line, thikness);
+	COLOR.rgb = mix(COLOR.rgb, vec3(1.), shine_mask);
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_b5e78"]
+shader = SubResource("Shader_b32xk")
+shader_parameter/angle = -70.0
+shader_parameter/x_pos = 1.8
+shader_parameter/y_pos = 0.0
+shader_parameter/thikness = 0.07
+
+[sub_resource type="Shader" id="Shader_6eaxf"]
+code = "shader_type canvas_item;
+
+uniform float angle = -70.0;
+uniform float x_pos = 1.8;
+uniform float y_pos = 0.0;
+uniform float thikness = 0.07;
+
+void fragment() {
+	vec2 uv = 2. * UV - 1.;
+	
+	float slope = tan(angle);
+	float line = (uv.y + y_pos) - slope * (uv.x + x_pos);
+	float distance_to_line = abs(line) / sqrt(1.0 + pow(slope, 2));
+	float shine_mask = step(distance_to_line, thikness);
+	COLOR.rgb = mix(COLOR.rgb, vec3(1.), shine_mask);
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_n5n8k"]
+shader = SubResource("Shader_6eaxf")
+shader_parameter/angle = -70.0
+shader_parameter/x_pos = 1.8
+shader_parameter/y_pos = 0.0
+shader_parameter/thikness = 0.07
+
+[sub_resource type="Shader" id="Shader_o8iia"]
+code = "shader_type canvas_item;
+
+uniform float angle = -70.0;
+uniform float x_pos = 1.8;
+uniform float y_pos = 0.0;
+uniform float thikness = 0.07;
+
+void fragment() {
+	vec2 uv = 2. * UV - 1.;
+	
+	float slope = tan(angle);
+	float line = (uv.y + y_pos) - slope * (uv.x + x_pos);
+	float distance_to_line = abs(line) / sqrt(1.0 + pow(slope, 2));
+	float shine_mask = step(distance_to_line, thikness);
+	COLOR.rgb = mix(COLOR.rgb, vec3(1.), shine_mask);
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6eaxf"]
+shader = SubResource("Shader_o8iia")
+shader_parameter/angle = -70.0
+shader_parameter/x_pos = 1.8
+shader_parameter/y_pos = 0.0
+shader_parameter/thikness = 0.07
+
+[sub_resource type="Shader" id="Shader_n104y"]
+code = "shader_type canvas_item;
+
+uniform float angle = -70.0;
+uniform float x_pos = 1.8;
+uniform float y_pos = 0.0;
+uniform float thikness = 0.07;
+
+void fragment() {
+	vec2 uv = 2. * UV - 1.;
+	
+	float slope = tan(angle);
+	float line = (uv.y + y_pos) - slope * (uv.x + x_pos);
+	float distance_to_line = abs(line) / sqrt(1.0 + pow(slope, 2));
+	float shine_mask = step(distance_to_line, thikness);
+	COLOR.rgb = mix(COLOR.rgb, vec3(1.), shine_mask);
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_o8iia"]
+shader = SubResource("Shader_n104y")
+shader_parameter/angle = -70.0
+shader_parameter/x_pos = 1.8
+shader_parameter/y_pos = 0.0
+shader_parameter/thikness = 0.07
+
+[sub_resource type="Shader" id="Shader_oau5p"]
+code = "shader_type canvas_item;
+
+uniform float angle = -70.0;
+uniform float x_pos = 1.8;
+uniform float y_pos = 0.0;
+uniform float thikness = 0.07;
+
+void fragment() {
+	vec2 uv = 2. * UV - 1.;
+	
+	float slope = tan(angle);
+	float line = (uv.y + y_pos) - slope * (uv.x + x_pos);
+	float distance_to_line = abs(line) / sqrt(1.0 + pow(slope, 2));
+	float shine_mask = step(distance_to_line, thikness);
+	COLOR.rgb = mix(COLOR.rgb, vec3(1.), shine_mask);
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ao4ng"]
+shader = SubResource("Shader_oau5p")
+shader_parameter/angle = -70.0
+shader_parameter/x_pos = 1.8
+shader_parameter/y_pos = 0.0
+shader_parameter/thikness = 0.07
+
+[sub_resource type="Shader" id="Shader_6jrsi"]
+code = "shader_type canvas_item;
+
+uniform float angle = -70.0;
+uniform float x_pos = 1.8;
+uniform float y_pos = 0.0;
+uniform float thikness = 0.07;
+
+void fragment() {
+	vec2 uv = 2. * UV - 1.;
+	
+	float slope = tan(angle);
+	float line = (uv.y + y_pos) - slope * (uv.x + x_pos);
+	float distance_to_line = abs(line) / sqrt(1.0 + pow(slope, 2));
+	float shine_mask = step(distance_to_line, thikness);
+	COLOR.rgb = mix(COLOR.rgb, vec3(1.), shine_mask);
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_oau5p"]
+shader = SubResource("Shader_6jrsi")
+shader_parameter/angle = -70.0
+shader_parameter/x_pos = 1.8
+shader_parameter/y_pos = 0.0
+shader_parameter/thikness = 0.07
+
+[sub_resource type="Shader" id="Shader_01ap0"]
+code = "shader_type canvas_item;
+
+uniform float angle = -70.0;
+uniform float x_pos = 1.8;
+uniform float y_pos = 0.0;
+uniform float thikness = 0.07;
+
+void fragment() {
+	vec2 uv = 2. * UV - 1.;
+	
+	float slope = tan(angle);
+	float line = (uv.y + y_pos) - slope * (uv.x + x_pos);
+	float distance_to_line = abs(line) / sqrt(1.0 + pow(slope, 2));
+	float shine_mask = step(distance_to_line, thikness);
+	COLOR.rgb = mix(COLOR.rgb, vec3(1.), shine_mask);
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_n104y"]
+shader = SubResource("Shader_01ap0")
+shader_parameter/angle = -70.0
+shader_parameter/x_pos = 1.8
+shader_parameter/y_pos = 0.0
+shader_parameter/thikness = 0.07
+
 [node name="ChoiceMenu" type="Control" unique_id=1031216120]
 layout_mode = 3
 anchors_preset = 15
@@ -281,23 +880,30 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.2253859, 0.2253859, 0.2253859, 0.39215687)
 
-[node name="ChoiceCards" type="HBoxContainer" parent="." unique_id=731604326]
+[node name="ChoiceCards" type="Control" parent="." unique_id=1972947902]
 layout_mode = 1
-anchors_preset = -1
 anchor_top = 0.2
 anchor_right = 1.0
 anchor_bottom = 0.8
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="WalkButton" type="Button" parent="ChoiceCards" unique_id=480095387]
+[node name="StoryChoices" type="HBoxContainer" parent="ChoiceCards" unique_id=2030506375]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="WalkButton" type="Button" parent="ChoiceCards/StoryChoices" unique_id=480095387]
 visible = false
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
 size_flags_horizontal = 6
 theme = SubResource("Theme_37okk")
 
-[node name="Panel" type="Panel" parent="ChoiceCards/WalkButton" unique_id=346431012]
+[node name="Panel" type="Panel" parent="ChoiceCards/StoryChoices/WalkButton" unique_id=346431012]
 material = SubResource("ShaderMaterial_gwhgv")
 layout_mode = 1
 anchors_preset = 15
@@ -308,7 +914,7 @@ grow_vertical = 2
 mouse_behavior_recursive = 1
 theme = ExtResource("4_h2egi")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ChoiceCards/WalkButton/Panel" unique_id=940944937]
+[node name="VBoxContainer" type="VBoxContainer" parent="ChoiceCards/StoryChoices/WalkButton/Panel" unique_id=940944937]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.05
@@ -319,7 +925,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_behavior_recursive = 1
 
-[node name="Label" type="Label" parent="ChoiceCards/WalkButton/Panel/VBoxContainer" unique_id=931445995]
+[node name="Label" type="Label" parent="ChoiceCards/StoryChoices/WalkButton/Panel/VBoxContainer" unique_id=931445995]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 2
@@ -327,7 +933,7 @@ theme = SubResource("Theme_fo3dt")
 theme_override_font_sizes/font_size = 45
 text = "Первый шаг!"
 
-[node name="TextureRect" type="TextureRect" parent="ChoiceCards/WalkButton/Panel/VBoxContainer" unique_id=400439581]
+[node name="TextureRect" type="TextureRect" parent="ChoiceCards/StoryChoices/WalkButton/Panel/VBoxContainer" unique_id=400439581]
 custom_maximum_size = Vector2(156, 245)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -336,7 +942,7 @@ offset_transform_enabled = true
 offset_transform_position = Vector2(0, -50)
 texture = ExtResource("4_al8qj")
 
-[node name="Label2" type="Label" parent="ChoiceCards/WalkButton/Panel/VBoxContainer" unique_id=1534913960]
+[node name="Label2" type="Label" parent="ChoiceCards/StoryChoices/WalkButton/Panel/VBoxContainer" unique_id=1534913960]
 layout_mode = 2
 size_flags_vertical = 10
 theme = SubResource("Theme_8c0wf")
@@ -345,14 +951,14 @@ text = "Добавляет главный игровой аспект в игр�
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="CharacterSpriteButton" type="Button" parent="ChoiceCards" unique_id=25810472]
+[node name="CharacterSpriteButton" type="Button" parent="ChoiceCards/StoryChoices" unique_id=25810472]
 visible = false
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
 size_flags_horizontal = 6
 theme = SubResource("Theme_37okk")
 
-[node name="Panel" type="Panel" parent="ChoiceCards/CharacterSpriteButton" unique_id=1989319896]
+[node name="Panel" type="Panel" parent="ChoiceCards/StoryChoices/CharacterSpriteButton" unique_id=1989319896]
 material = SubResource("ShaderMaterial_al8qj")
 layout_mode = 1
 anchors_preset = 15
@@ -363,7 +969,7 @@ grow_vertical = 2
 mouse_behavior_recursive = 1
 theme = ExtResource("4_h2egi")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ChoiceCards/CharacterSpriteButton/Panel" unique_id=1227223602]
+[node name="VBoxContainer" type="VBoxContainer" parent="ChoiceCards/StoryChoices/CharacterSpriteButton/Panel" unique_id=1227223602]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.05
@@ -374,7 +980,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_behavior_recursive = 1
 
-[node name="Label" type="Label" parent="ChoiceCards/CharacterSpriteButton/Panel/VBoxContainer" unique_id=1314397955]
+[node name="Label" type="Label" parent="ChoiceCards/StoryChoices/CharacterSpriteButton/Panel/VBoxContainer" unique_id=1314397955]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 2
@@ -382,7 +988,7 @@ theme = SubResource("Theme_fo3dt")
 theme_override_font_sizes/font_size = 45
 text = "Создать персонажа"
 
-[node name="TextureRect" type="TextureRect" parent="ChoiceCards/CharacterSpriteButton/Panel/VBoxContainer" unique_id=1439135477]
+[node name="TextureRect" type="TextureRect" parent="ChoiceCards/StoryChoices/CharacterSpriteButton/Panel/VBoxContainer" unique_id=1439135477]
 custom_maximum_size = Vector2(300, 300)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -391,7 +997,7 @@ offset_transform_enabled = true
 offset_transform_position = Vector2(15, -30)
 texture = ExtResource("5_2djck")
 
-[node name="Label2" type="Label" parent="ChoiceCards/CharacterSpriteButton/Panel/VBoxContainer" unique_id=992729003]
+[node name="Label2" type="Label" parent="ChoiceCards/StoryChoices/CharacterSpriteButton/Panel/VBoxContainer" unique_id=992729003]
 layout_mode = 2
 size_flags_vertical = 10
 theme = SubResource("Theme_8c0wf")
@@ -400,14 +1006,14 @@ text = "Для того, чтобы видеть персонажа и его д
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="WoodEnvironmentButton" type="Button" parent="ChoiceCards" unique_id=1759972993]
+[node name="WoodEnvironmentButton" type="Button" parent="ChoiceCards/StoryChoices" unique_id=1759972993]
 visible = false
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
 size_flags_horizontal = 6
 theme = SubResource("Theme_37okk")
 
-[node name="Panel" type="Panel" parent="ChoiceCards/WoodEnvironmentButton" unique_id=1042147882]
+[node name="Panel" type="Panel" parent="ChoiceCards/StoryChoices/WoodEnvironmentButton" unique_id=1042147882]
 material = SubResource("ShaderMaterial_h2egi")
 layout_mode = 1
 anchors_preset = -1
@@ -418,7 +1024,7 @@ grow_vertical = 2
 mouse_behavior_recursive = 1
 theme = ExtResource("4_h2egi")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ChoiceCards/WoodEnvironmentButton/Panel" unique_id=1053131140]
+[node name="VBoxContainer" type="VBoxContainer" parent="ChoiceCards/StoryChoices/WoodEnvironmentButton/Panel" unique_id=1053131140]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.05
@@ -429,7 +1035,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_behavior_recursive = 1
 
-[node name="Label" type="Label" parent="ChoiceCards/WoodEnvironmentButton/Panel/VBoxContainer" unique_id=79264573]
+[node name="Label" type="Label" parent="ChoiceCards/StoryChoices/WoodEnvironmentButton/Panel/VBoxContainer" unique_id=79264573]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 2
@@ -437,7 +1043,7 @@ theme = SubResource("Theme_fo3dt")
 theme_override_font_sizes/font_size = 45
 text = "Дерево"
 
-[node name="TextureRect" type="TextureRect" parent="ChoiceCards/WoodEnvironmentButton/Panel/VBoxContainer" unique_id=54261657]
+[node name="TextureRect" type="TextureRect" parent="ChoiceCards/StoryChoices/WoodEnvironmentButton/Panel/VBoxContainer" unique_id=54261657]
 custom_maximum_size = Vector2(300, 300)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -446,7 +1052,7 @@ offset_transform_enabled = true
 offset_transform_position = Vector2(0, -20)
 texture = ExtResource("8_bigfd")
 
-[node name="Label2" type="Label" parent="ChoiceCards/WoodEnvironmentButton/Panel/VBoxContainer" unique_id=605040007]
+[node name="Label2" type="Label" parent="ChoiceCards/StoryChoices/WoodEnvironmentButton/Panel/VBoxContainer" unique_id=605040007]
 layout_mode = 2
 size_flags_vertical = 10
 theme = SubResource("Theme_8c0wf")
@@ -455,14 +1061,14 @@ text = "Дерево - это довольно атмосферный матер
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="RockEnvironmentButton" type="Button" parent="ChoiceCards" unique_id=1928072668]
+[node name="RockEnvironmentButton" type="Button" parent="ChoiceCards/StoryChoices" unique_id=1928072668]
 visible = false
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
 size_flags_horizontal = 6
 theme = SubResource("Theme_37okk")
 
-[node name="Panel" type="Panel" parent="ChoiceCards/RockEnvironmentButton" unique_id=622378311]
+[node name="Panel" type="Panel" parent="ChoiceCards/StoryChoices/RockEnvironmentButton" unique_id=622378311]
 material = SubResource("ShaderMaterial_7pfxc")
 layout_mode = 1
 anchors_preset = -1
@@ -473,7 +1079,7 @@ grow_vertical = 2
 mouse_behavior_recursive = 1
 theme = ExtResource("4_h2egi")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ChoiceCards/RockEnvironmentButton/Panel" unique_id=1764600440]
+[node name="VBoxContainer" type="VBoxContainer" parent="ChoiceCards/StoryChoices/RockEnvironmentButton/Panel" unique_id=1764600440]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.05
@@ -484,7 +1090,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_behavior_recursive = 1
 
-[node name="Label" type="Label" parent="ChoiceCards/RockEnvironmentButton/Panel/VBoxContainer" unique_id=554512948]
+[node name="Label" type="Label" parent="ChoiceCards/StoryChoices/RockEnvironmentButton/Panel/VBoxContainer" unique_id=554512948]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 2
@@ -492,7 +1098,7 @@ theme = SubResource("Theme_fo3dt")
 theme_override_font_sizes/font_size = 45
 text = "Камень"
 
-[node name="TextureRect" type="TextureRect" parent="ChoiceCards/RockEnvironmentButton/Panel/VBoxContainer" unique_id=1142941368]
+[node name="TextureRect" type="TextureRect" parent="ChoiceCards/StoryChoices/RockEnvironmentButton/Panel/VBoxContainer" unique_id=1142941368]
 custom_maximum_size = Vector2(300, 300)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -501,7 +1107,7 @@ offset_transform_enabled = true
 offset_transform_position = Vector2(-20, -20)
 texture = ExtResource("9_2oyqo")
 
-[node name="Label2" type="Label" parent="ChoiceCards/RockEnvironmentButton/Panel/VBoxContainer" unique_id=555042334]
+[node name="Label2" type="Label" parent="ChoiceCards/StoryChoices/RockEnvironmentButton/Panel/VBoxContainer" unique_id=555042334]
 layout_mode = 2
 size_flags_vertical = 10
 theme = SubResource("Theme_8c0wf")
@@ -510,14 +1116,14 @@ text = "Камень - это довольно мрачный материал, 
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="DayLightButton" type="Button" parent="ChoiceCards" unique_id=1976629739]
+[node name="DayLightButton" type="Button" parent="ChoiceCards/StoryChoices" unique_id=1976629739]
 visible = false
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
 size_flags_horizontal = 6
 theme = SubResource("Theme_37okk")
 
-[node name="Panel" type="Panel" parent="ChoiceCards/DayLightButton" unique_id=1186607210]
+[node name="Panel" type="Panel" parent="ChoiceCards/StoryChoices/DayLightButton" unique_id=1186607210]
 material = SubResource("ShaderMaterial_2oyqo")
 layout_mode = 1
 anchors_preset = -1
@@ -528,7 +1134,7 @@ grow_vertical = 2
 mouse_behavior_recursive = 1
 theme = ExtResource("4_h2egi")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ChoiceCards/DayLightButton/Panel" unique_id=171769121]
+[node name="VBoxContainer" type="VBoxContainer" parent="ChoiceCards/StoryChoices/DayLightButton/Panel" unique_id=171769121]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.05
@@ -539,7 +1145,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_behavior_recursive = 1
 
-[node name="Label" type="Label" parent="ChoiceCards/DayLightButton/Panel/VBoxContainer" unique_id=72149727]
+[node name="Label" type="Label" parent="ChoiceCards/StoryChoices/DayLightButton/Panel/VBoxContainer" unique_id=72149727]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 2
@@ -547,7 +1153,7 @@ theme = SubResource("Theme_fo3dt")
 theme_override_font_sizes/font_size = 45
 text = "Дневной свет"
 
-[node name="TextureRect" type="TextureRect" parent="ChoiceCards/DayLightButton/Panel/VBoxContainer" unique_id=24201933]
+[node name="TextureRect" type="TextureRect" parent="ChoiceCards/StoryChoices/DayLightButton/Panel/VBoxContainer" unique_id=24201933]
 custom_maximum_size = Vector2(300, 300)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -556,7 +1162,7 @@ offset_transform_enabled = true
 offset_transform_position = Vector2(0, -30)
 texture = ExtResource("10_axv1t")
 
-[node name="Label2" type="Label" parent="ChoiceCards/DayLightButton/Panel/VBoxContainer" unique_id=1792898502]
+[node name="Label2" type="Label" parent="ChoiceCards/StoryChoices/DayLightButton/Panel/VBoxContainer" unique_id=1792898502]
 layout_mode = 2
 size_flags_vertical = 10
 theme = SubResource("Theme_8c0wf")
@@ -565,14 +1171,14 @@ text = "Дневной свет идеально подойдет для про�
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="NightLightButton" type="Button" parent="ChoiceCards" unique_id=1175293381]
+[node name="NightLightButton" type="Button" parent="ChoiceCards/StoryChoices" unique_id=1175293381]
 visible = false
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
 size_flags_horizontal = 6
 theme = SubResource("Theme_37okk")
 
-[node name="Panel" type="Panel" parent="ChoiceCards/NightLightButton" unique_id=1315177927]
+[node name="Panel" type="Panel" parent="ChoiceCards/StoryChoices/NightLightButton" unique_id=1315177927]
 material = SubResource("ShaderMaterial_jrdjb")
 layout_mode = 1
 anchors_preset = -1
@@ -583,7 +1189,7 @@ grow_vertical = 2
 mouse_behavior_recursive = 1
 theme = ExtResource("4_h2egi")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ChoiceCards/NightLightButton/Panel" unique_id=546950246]
+[node name="VBoxContainer" type="VBoxContainer" parent="ChoiceCards/StoryChoices/NightLightButton/Panel" unique_id=546950246]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.05
@@ -594,7 +1200,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_behavior_recursive = 1
 
-[node name="Label" type="Label" parent="ChoiceCards/NightLightButton/Panel/VBoxContainer" unique_id=1033923596]
+[node name="Label" type="Label" parent="ChoiceCards/StoryChoices/NightLightButton/Panel/VBoxContainer" unique_id=1033923596]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 2
@@ -602,7 +1208,7 @@ theme = SubResource("Theme_fo3dt")
 theme_override_font_sizes/font_size = 45
 text = "Ночной свет"
 
-[node name="TextureRect" type="TextureRect" parent="ChoiceCards/NightLightButton/Panel/VBoxContainer" unique_id=1230610206]
+[node name="TextureRect" type="TextureRect" parent="ChoiceCards/StoryChoices/NightLightButton/Panel/VBoxContainer" unique_id=1230610206]
 custom_maximum_size = Vector2(300, 331)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -611,7 +1217,7 @@ offset_transform_enabled = true
 offset_transform_position = Vector2(0, -20)
 texture = ExtResource("11_jrdjb")
 
-[node name="Label2" type="Label" parent="ChoiceCards/NightLightButton/Panel/VBoxContainer" unique_id=8565832]
+[node name="Label2" type="Label" parent="ChoiceCards/StoryChoices/NightLightButton/Panel/VBoxContainer" unique_id=8565832]
 layout_mode = 2
 size_flags_vertical = 10
 theme = SubResource("Theme_8c0wf")
@@ -620,15 +1226,15 @@ text = "Представь, каким атмосферным будет так�
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="EnemyCloseCreationButton" type="Button" parent="ChoiceCards" unique_id=847278461]
+[node name="EnemyCloseCreationButton" type="Button" parent="ChoiceCards/StoryChoices" unique_id=847278461]
 visible = false
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
 size_flags_horizontal = 6
 theme = SubResource("Theme_37okk")
 
-[node name="Panel" type="Panel" parent="ChoiceCards/EnemyCloseCreationButton" unique_id=684675746]
-material = SubResource("ShaderMaterial_axv1t")
+[node name="Panel" type="Panel" parent="ChoiceCards/StoryChoices/EnemyCloseCreationButton" unique_id=684675746]
+material = SubResource("ShaderMaterial_a2q6r")
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
@@ -638,7 +1244,7 @@ grow_vertical = 2
 mouse_behavior_recursive = 1
 theme = ExtResource("4_h2egi")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ChoiceCards/EnemyCloseCreationButton/Panel" unique_id=1175650727]
+[node name="VBoxContainer" type="VBoxContainer" parent="ChoiceCards/StoryChoices/EnemyCloseCreationButton/Panel" unique_id=1175650727]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.05
@@ -649,7 +1255,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_behavior_recursive = 1
 
-[node name="Label" type="Label" parent="ChoiceCards/EnemyCloseCreationButton/Panel/VBoxContainer" unique_id=1907447853]
+[node name="Label" type="Label" parent="ChoiceCards/StoryChoices/EnemyCloseCreationButton/Panel/VBoxContainer" unique_id=1907447853]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 2
@@ -657,7 +1263,7 @@ theme = SubResource("Theme_fo3dt")
 theme_override_font_sizes/font_size = 45
 text = "Враг-ближник"
 
-[node name="TextureRect" type="TextureRect" parent="ChoiceCards/EnemyCloseCreationButton/Panel/VBoxContainer" unique_id=5108732]
+[node name="TextureRect" type="TextureRect" parent="ChoiceCards/StoryChoices/EnemyCloseCreationButton/Panel/VBoxContainer" unique_id=5108732]
 custom_maximum_size = Vector2(300, 300)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -666,7 +1272,7 @@ offset_transform_enabled = true
 offset_transform_position = Vector2(0, -20)
 texture = ExtResource("12_kkagw")
 
-[node name="Label2" type="Label" parent="ChoiceCards/EnemyCloseCreationButton/Panel/VBoxContainer" unique_id=1568408296]
+[node name="Label2" type="Label" parent="ChoiceCards/StoryChoices/EnemyCloseCreationButton/Panel/VBoxContainer" unique_id=1568408296]
 layout_mode = 2
 size_flags_vertical = 10
 theme = SubResource("Theme_8c0wf")
@@ -675,14 +1281,14 @@ text = "Первая часть игры, которая добавляет в �
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="EnemyLongCreationButton" type="Button" parent="ChoiceCards" unique_id=1947399964]
+[node name="EnemyLongCreationButton" type="Button" parent="ChoiceCards/StoryChoices" unique_id=1947399964]
 visible = false
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
 size_flags_horizontal = 6
 theme = SubResource("Theme_37okk")
 
-[node name="Panel" type="Panel" parent="ChoiceCards/EnemyLongCreationButton" unique_id=1575262575]
+[node name="Panel" type="Panel" parent="ChoiceCards/StoryChoices/EnemyLongCreationButton" unique_id=1575262575]
 material = SubResource("ShaderMaterial_axv1t")
 layout_mode = 1
 anchors_preset = -1
@@ -693,7 +1299,7 @@ grow_vertical = 2
 mouse_behavior_recursive = 1
 theme = ExtResource("4_h2egi")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ChoiceCards/EnemyLongCreationButton/Panel" unique_id=984642109]
+[node name="VBoxContainer" type="VBoxContainer" parent="ChoiceCards/StoryChoices/EnemyLongCreationButton/Panel" unique_id=984642109]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.05
@@ -704,7 +1310,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_behavior_recursive = 1
 
-[node name="Label" type="Label" parent="ChoiceCards/EnemyLongCreationButton/Panel/VBoxContainer" unique_id=610709712]
+[node name="Label" type="Label" parent="ChoiceCards/StoryChoices/EnemyLongCreationButton/Panel/VBoxContainer" unique_id=610709712]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 2
@@ -712,7 +1318,7 @@ theme = SubResource("Theme_fo3dt")
 theme_override_font_sizes/font_size = 45
 text = "Враг-дальник"
 
-[node name="TextureRect" type="TextureRect" parent="ChoiceCards/EnemyLongCreationButton/Panel/VBoxContainer" unique_id=1312358275]
+[node name="TextureRect" type="TextureRect" parent="ChoiceCards/StoryChoices/EnemyLongCreationButton/Panel/VBoxContainer" unique_id=1312358275]
 custom_maximum_size = Vector2(300, 300)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -721,7 +1327,7 @@ offset_transform_enabled = true
 offset_transform_position = Vector2(0, -20)
 texture = ExtResource("12_kkagw")
 
-[node name="Label2" type="Label" parent="ChoiceCards/EnemyLongCreationButton/Panel/VBoxContainer" unique_id=1634178377]
+[node name="Label2" type="Label" parent="ChoiceCards/StoryChoices/EnemyLongCreationButton/Panel/VBoxContainer" unique_id=1634178377]
 layout_mode = 2
 size_flags_vertical = 10
 theme = SubResource("Theme_8c0wf")
@@ -730,14 +1336,14 @@ text = "Первая часть игры, которая добавляет в �
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="CircleHealthButton" type="Button" parent="ChoiceCards" unique_id=637318674]
+[node name="CircleHealthButton" type="Button" parent="ChoiceCards/StoryChoices" unique_id=637318674]
 visible = false
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
 size_flags_horizontal = 6
 theme = SubResource("Theme_37okk")
 
-[node name="Panel" type="Panel" parent="ChoiceCards/CircleHealthButton" unique_id=1936777696]
+[node name="Panel" type="Panel" parent="ChoiceCards/StoryChoices/CircleHealthButton" unique_id=1936777696]
 material = SubResource("ShaderMaterial_r03mh")
 layout_mode = 1
 anchors_preset = -1
@@ -748,7 +1354,7 @@ grow_vertical = 2
 mouse_behavior_recursive = 1
 theme = ExtResource("4_h2egi")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ChoiceCards/CircleHealthButton/Panel" unique_id=92572741]
+[node name="VBoxContainer" type="VBoxContainer" parent="ChoiceCards/StoryChoices/CircleHealthButton/Panel" unique_id=92572741]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.05
@@ -759,14 +1365,14 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_behavior_recursive = 1
 
-[node name="Label" type="Label" parent="ChoiceCards/CircleHealthButton/Panel/VBoxContainer" unique_id=1336941468]
+[node name="Label" type="Label" parent="ChoiceCards/StoryChoices/CircleHealthButton/Panel/VBoxContainer" unique_id=1336941468]
 layout_mode = 2
 size_flags_horizontal = 4
 theme = SubResource("Theme_fo3dt")
 theme_override_font_sizes/font_size = 45
 text = "Круглое здоровье"
 
-[node name="Label2" type="Label" parent="ChoiceCards/CircleHealthButton/Panel/VBoxContainer" unique_id=1608658229]
+[node name="Label2" type="Label" parent="ChoiceCards/StoryChoices/CircleHealthButton/Panel/VBoxContainer" unique_id=1608658229]
 layout_mode = 2
 size_flags_vertical = 10
 theme = SubResource("Theme_8c0wf")
@@ -775,14 +1381,14 @@ text = "Интересный вариант отрисовки текущего 
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="LineHealthButton" type="Button" parent="ChoiceCards" unique_id=1677500102]
+[node name="LineHealthButton" type="Button" parent="ChoiceCards/StoryChoices" unique_id=1677500102]
 visible = false
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
 size_flags_horizontal = 6
 theme = SubResource("Theme_37okk")
 
-[node name="Panel" type="Panel" parent="ChoiceCards/LineHealthButton" unique_id=1090503277]
+[node name="Panel" type="Panel" parent="ChoiceCards/StoryChoices/LineHealthButton" unique_id=1090503277]
 material = SubResource("ShaderMaterial_wfj4a")
 layout_mode = 1
 anchors_preset = -1
@@ -793,7 +1399,7 @@ grow_vertical = 2
 mouse_behavior_recursive = 1
 theme = ExtResource("4_h2egi")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ChoiceCards/LineHealthButton/Panel" unique_id=2081131397]
+[node name="VBoxContainer" type="VBoxContainer" parent="ChoiceCards/StoryChoices/LineHealthButton/Panel" unique_id=2081131397]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.05
@@ -804,14 +1410,14 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_behavior_recursive = 1
 
-[node name="Label" type="Label" parent="ChoiceCards/LineHealthButton/Panel/VBoxContainer" unique_id=2127198097]
+[node name="Label" type="Label" parent="ChoiceCards/StoryChoices/LineHealthButton/Panel/VBoxContainer" unique_id=2127198097]
 layout_mode = 2
 size_flags_horizontal = 4
 theme = SubResource("Theme_fo3dt")
 theme_override_font_sizes/font_size = 45
 text = "Полоска"
 
-[node name="Label2" type="Label" parent="ChoiceCards/LineHealthButton/Panel/VBoxContainer" unique_id=1498510363]
+[node name="Label2" type="Label" parent="ChoiceCards/StoryChoices/LineHealthButton/Panel/VBoxContainer" unique_id=1498510363]
 layout_mode = 2
 size_flags_vertical = 10
 theme = SubResource("Theme_8c0wf")
@@ -820,14 +1426,14 @@ text = "Обыкновенный вариант здоровья, который
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="BottleHealthButton" type="Button" parent="ChoiceCards" unique_id=539123230]
+[node name="BottleHealthButton" type="Button" parent="ChoiceCards/StoryChoices" unique_id=539123230]
 visible = false
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
 size_flags_horizontal = 6
 theme = SubResource("Theme_37okk")
 
-[node name="Panel" type="Panel" parent="ChoiceCards/BottleHealthButton" unique_id=1781397272]
+[node name="Panel" type="Panel" parent="ChoiceCards/StoryChoices/BottleHealthButton" unique_id=1781397272]
 material = SubResource("ShaderMaterial_kkagw")
 layout_mode = 1
 anchors_preset = -1
@@ -838,7 +1444,7 @@ grow_vertical = 2
 mouse_behavior_recursive = 1
 theme = ExtResource("4_h2egi")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ChoiceCards/BottleHealthButton/Panel" unique_id=414703171]
+[node name="VBoxContainer" type="VBoxContainer" parent="ChoiceCards/StoryChoices/BottleHealthButton/Panel" unique_id=414703171]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.05
@@ -849,14 +1455,14 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_behavior_recursive = 1
 
-[node name="Label" type="Label" parent="ChoiceCards/BottleHealthButton/Panel/VBoxContainer" unique_id=1409837327]
+[node name="Label" type="Label" parent="ChoiceCards/StoryChoices/BottleHealthButton/Panel/VBoxContainer" unique_id=1409837327]
 layout_mode = 2
 size_flags_horizontal = 4
 theme = SubResource("Theme_fo3dt")
 theme_override_font_sizes/font_size = 45
 text = "Колба"
 
-[node name="Label2" type="Label" parent="ChoiceCards/BottleHealthButton/Panel/VBoxContainer" unique_id=63405850]
+[node name="Label2" type="Label" parent="ChoiceCards/StoryChoices/BottleHealthButton/Panel/VBoxContainer" unique_id=63405850]
 layout_mode = 2
 size_flags_vertical = 10
 theme = SubResource("Theme_8c0wf")
@@ -865,14 +1471,1372 @@ text = "Чем-то напоминает круглое здоровье, но �
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[connection signal="pressed" from="ChoiceCards/WalkButton" to="." method="_on_walk_button_pressed"]
-[connection signal="pressed" from="ChoiceCards/CharacterSpriteButton" to="." method="_on_character_sprite_button_pressed"]
-[connection signal="pressed" from="ChoiceCards/WoodEnvironmentButton" to="." method="_on_wood_environment_button_pressed"]
-[connection signal="pressed" from="ChoiceCards/RockEnvironmentButton" to="." method="_on_rock_environment_button_pressed"]
-[connection signal="pressed" from="ChoiceCards/DayLightButton" to="." method="_on_day_light_button_pressed"]
-[connection signal="pressed" from="ChoiceCards/NightLightButton" to="." method="_on_night_light_button_pressed"]
-[connection signal="pressed" from="ChoiceCards/EnemyCloseCreationButton" to="." method="_on_enemy_close_creation_button_pressed"]
-[connection signal="pressed" from="ChoiceCards/EnemyLongCreationButton" to="." method="_on_enemy_long_creation_button_pressed"]
-[connection signal="pressed" from="ChoiceCards/CircleHealthButton" to="." method="_on_circle_health_button_pressed"]
-[connection signal="pressed" from="ChoiceCards/LineHealthButton" to="." method="_on_line_health_bar_pressed"]
-[connection signal="pressed" from="ChoiceCards/BottleHealthButton" to="." method="_on_bottle_health_bar_pressed"]
+[node name="GoodChoices" type="HBoxContainer" parent="ChoiceCards" unique_id=2130473830]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="FlashButton" type="Button" parent="ChoiceCards/GoodChoices" unique_id=22367618]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+theme = SubResource("Theme_37okk")
+
+[node name="Panel" type="Panel" parent="ChoiceCards/GoodChoices/FlashButton" unique_id=874212246]
+material = SubResource("ShaderMaterial_v5d2q")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_behavior_recursive = 1
+theme = ExtResource("4_h2egi")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ChoiceCards/GoodChoices/FlashButton/Panel" unique_id=705167644]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.05
+anchor_right = 0.95
+anchor_bottom = 0.95
+grow_horizontal = 2
+grow_vertical = 2
+mouse_behavior_recursive = 1
+
+[node name="Label" type="Label" parent="ChoiceCards/GoodChoices/FlashButton/Panel/VBoxContainer" unique_id=767182448]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 2
+theme = SubResource("Theme_fo3dt")
+theme_override_font_sizes/font_size = 45
+text = "Флэш"
+
+[node name="TextureRect" type="TextureRect" parent="ChoiceCards/GoodChoices/FlashButton/Panel/VBoxContainer" unique_id=24912561]
+custom_maximum_size = Vector2(300, 300)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+offset_transform_enabled = true
+offset_transform_position = Vector2(15, -30)
+texture = ExtResource("5_2djck")
+
+[node name="Label2" type="Label" parent="ChoiceCards/GoodChoices/FlashButton/Panel/VBoxContainer" unique_id=1609187698]
+layout_mode = 2
+size_flags_vertical = 10
+theme = SubResource("Theme_8c0wf")
+theme_override_font_sizes/font_size = 32
+text = "Добавляет рывок на Q. Рывок откидывает врагов и наносит им урон при столкновении"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="SpecialAgentButton" type="Button" parent="ChoiceCards/GoodChoices" unique_id=1417292488]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+theme = SubResource("Theme_37okk")
+
+[node name="Panel" type="Panel" parent="ChoiceCards/GoodChoices/SpecialAgentButton" unique_id=1109017341]
+material = SubResource("ShaderMaterial_0jqir")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_behavior_recursive = 1
+theme = ExtResource("4_h2egi")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ChoiceCards/GoodChoices/SpecialAgentButton/Panel" unique_id=647980270]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.05
+anchor_right = 0.95
+anchor_bottom = 0.95
+grow_horizontal = 2
+grow_vertical = 2
+mouse_behavior_recursive = 1
+
+[node name="Label" type="Label" parent="ChoiceCards/GoodChoices/SpecialAgentButton/Panel/VBoxContainer" unique_id=806791687]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 2
+theme = SubResource("Theme_fo3dt")
+theme_override_font_sizes/font_size = 45
+text = "Спецагент"
+
+[node name="TextureRect" type="TextureRect" parent="ChoiceCards/GoodChoices/SpecialAgentButton/Panel/VBoxContainer" unique_id=228253277]
+custom_maximum_size = Vector2(300, 300)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+offset_transform_enabled = true
+offset_transform_position = Vector2(15, -30)
+texture = ExtResource("5_2djck")
+
+[node name="Label2" type="Label" parent="ChoiceCards/GoodChoices/SpecialAgentButton/Panel/VBoxContainer" unique_id=1892785356]
+layout_mode = 2
+size_flags_vertical = 10
+theme = SubResource("Theme_8c0wf")
+theme_override_font_sizes/font_size = 32
+text = "+30% к стамине
++40% к крутости"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="SeriousPunchButton" type="Button" parent="ChoiceCards/GoodChoices" unique_id=734932287]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+theme = SubResource("Theme_37okk")
+
+[node name="Panel" type="Panel" parent="ChoiceCards/GoodChoices/SeriousPunchButton" unique_id=1577395391]
+material = SubResource("ShaderMaterial_eiu3a")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_behavior_recursive = 1
+theme = ExtResource("4_h2egi")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ChoiceCards/GoodChoices/SeriousPunchButton/Panel" unique_id=1814273112]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.05
+anchor_right = 0.95
+anchor_bottom = 0.95
+grow_horizontal = 2
+grow_vertical = 2
+mouse_behavior_recursive = 1
+
+[node name="Label" type="Label" parent="ChoiceCards/GoodChoices/SeriousPunchButton/Panel/VBoxContainer" unique_id=787546314]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 2
+theme = SubResource("Theme_fo3dt")
+theme_override_font_sizes/font_size = 45
+text = "Серьезный удар"
+
+[node name="TextureRect" type="TextureRect" parent="ChoiceCards/GoodChoices/SeriousPunchButton/Panel/VBoxContainer" unique_id=2059583165]
+custom_maximum_size = Vector2(300, 300)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+offset_transform_enabled = true
+offset_transform_position = Vector2(15, -30)
+texture = ExtResource("5_2djck")
+
+[node name="Label2" type="Label" parent="ChoiceCards/GoodChoices/SeriousPunchButton/Panel/VBoxContainer" unique_id=23888057]
+layout_mode = 2
+size_flags_vertical = 10
+theme = SubResource("Theme_8c0wf")
+theme_override_font_sizes/font_size = 32
+text = "Удары тратят стамину, увеличивая урон. -20% к макс. стамине. -15% к скорости. Нельзя отключить."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="IronDudeButton" type="Button" parent="ChoiceCards/GoodChoices" unique_id=1676669153]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+theme = SubResource("Theme_37okk")
+
+[node name="Panel" type="Panel" parent="ChoiceCards/GoodChoices/IronDudeButton" unique_id=743456137]
+material = SubResource("ShaderMaterial_x5i6y")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_behavior_recursive = 1
+theme = ExtResource("4_h2egi")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ChoiceCards/GoodChoices/IronDudeButton/Panel" unique_id=1967468925]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.05
+anchor_right = 0.95
+anchor_bottom = 0.95
+grow_horizontal = 2
+grow_vertical = 2
+mouse_behavior_recursive = 1
+
+[node name="Label" type="Label" parent="ChoiceCards/GoodChoices/IronDudeButton/Panel/VBoxContainer" unique_id=28778867]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 2
+theme = SubResource("Theme_fo3dt")
+theme_override_font_sizes/font_size = 45
+text = "Железный Чувак"
+
+[node name="TextureRect" type="TextureRect" parent="ChoiceCards/GoodChoices/IronDudeButton/Panel/VBoxContainer" unique_id=36654387]
+custom_maximum_size = Vector2(300, 300)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+offset_transform_enabled = true
+offset_transform_position = Vector2(15, -30)
+texture = ExtResource("5_2djck")
+
+[node name="Label2" type="Label" parent="ChoiceCards/GoodChoices/IronDudeButton/Panel/VBoxContainer" unique_id=1656249471]
+layout_mode = 2
+size_flags_vertical = 10
+theme = SubResource("Theme_8c0wf")
+theme_override_font_sizes/font_size = 32
+text = "+10% к защите
+-5% к скорости
++3% к железу в организме"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="VampireButton" type="Button" parent="ChoiceCards/GoodChoices" unique_id=1609183021]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+theme = SubResource("Theme_37okk")
+
+[node name="Panel" type="Panel" parent="ChoiceCards/GoodChoices/VampireButton" unique_id=405030333]
+material = SubResource("ShaderMaterial_6idyf")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_behavior_recursive = 1
+theme = ExtResource("4_h2egi")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ChoiceCards/GoodChoices/VampireButton/Panel" unique_id=936787967]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.05
+anchor_right = 0.95
+anchor_bottom = 0.95
+grow_horizontal = 2
+grow_vertical = 2
+mouse_behavior_recursive = 1
+
+[node name="Label" type="Label" parent="ChoiceCards/GoodChoices/VampireButton/Panel/VBoxContainer" unique_id=1148264334]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 2
+theme = SubResource("Theme_fo3dt")
+theme_override_font_sizes/font_size = 45
+text = "Вурдалак"
+
+[node name="TextureRect" type="TextureRect" parent="ChoiceCards/GoodChoices/VampireButton/Panel/VBoxContainer" unique_id=151499297]
+custom_maximum_size = Vector2(300, 300)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+offset_transform_enabled = true
+offset_transform_position = Vector2(15, -30)
+texture = ExtResource("5_2djck")
+
+[node name="Label2" type="Label" parent="ChoiceCards/GoodChoices/VampireButton/Panel/VBoxContainer" unique_id=1190228604]
+layout_mode = 2
+size_flags_vertical = 10
+theme = SubResource("Theme_8c0wf")
+theme_override_font_sizes/font_size = 32
+text = "+15 к хп после убийства. Нельзя выйти за максимальное здоровье.
+Вы чувствуете прилив сил."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="RageButton" type="Button" parent="ChoiceCards/GoodChoices" unique_id=822147823]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+theme = SubResource("Theme_37okk")
+
+[node name="Panel" type="Panel" parent="ChoiceCards/GoodChoices/RageButton" unique_id=187776370]
+material = SubResource("ShaderMaterial_6idyf")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_behavior_recursive = 1
+theme = ExtResource("4_h2egi")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ChoiceCards/GoodChoices/RageButton/Panel" unique_id=1313233469]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.05
+anchor_right = 0.95
+anchor_bottom = 0.95
+grow_horizontal = 2
+grow_vertical = 2
+mouse_behavior_recursive = 1
+
+[node name="Label" type="Label" parent="ChoiceCards/GoodChoices/RageButton/Panel/VBoxContainer" unique_id=4363018]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 2
+theme = SubResource("Theme_fo3dt")
+theme_override_font_sizes/font_size = 45
+text = "Ярость"
+
+[node name="TextureRect" type="TextureRect" parent="ChoiceCards/GoodChoices/RageButton/Panel/VBoxContainer" unique_id=1923376893]
+custom_maximum_size = Vector2(300, 300)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+offset_transform_enabled = true
+offset_transform_position = Vector2(15, -30)
+texture = ExtResource("5_2djck")
+
+[node name="Label2" type="Label" parent="ChoiceCards/GoodChoices/RageButton/Panel/VBoxContainer" unique_id=12226521]
+layout_mode = 2
+size_flags_vertical = 10
+theme = SubResource("Theme_8c0wf")
+theme_override_font_sizes/font_size = 32
+text = "+20% к урону после убийства на 5 секунд.
+-10% к защите."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="ZombieWithBucketButton" type="Button" parent="ChoiceCards/GoodChoices" unique_id=424192078]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+theme = SubResource("Theme_37okk")
+
+[node name="Panel" type="Panel" parent="ChoiceCards/GoodChoices/ZombieWithBucketButton" unique_id=512410751]
+material = SubResource("ShaderMaterial_xwlrl")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_behavior_recursive = 1
+theme = ExtResource("4_h2egi")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ChoiceCards/GoodChoices/ZombieWithBucketButton/Panel" unique_id=846707088]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.05
+anchor_right = 0.95
+anchor_bottom = 0.95
+grow_horizontal = 2
+grow_vertical = 2
+mouse_behavior_recursive = 1
+
+[node name="Label" type="Label" parent="ChoiceCards/GoodChoices/ZombieWithBucketButton/Panel/VBoxContainer" unique_id=874263931]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 2
+theme = SubResource("Theme_fo3dt")
+theme_override_font_sizes/font_size = 45
+text = "Зобми с ведром"
+
+[node name="TextureRect" type="TextureRect" parent="ChoiceCards/GoodChoices/ZombieWithBucketButton/Panel/VBoxContainer" unique_id=1089932004]
+custom_maximum_size = Vector2(300, 300)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+offset_transform_enabled = true
+offset_transform_position = Vector2(15, -30)
+texture = ExtResource("5_2djck")
+
+[node name="Label2" type="Label" parent="ChoiceCards/GoodChoices/ZombieWithBucketButton/Panel/VBoxContainer" unique_id=444140031]
+layout_mode = 2
+size_flags_vertical = 10
+theme = SubResource("Theme_8c0wf")
+theme_override_font_sizes/font_size = 32
+text = "+20% к защите
+-15% к макс. здоровью
+Ненависть ходит вокруг вас."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="PerfectButton" type="Button" parent="ChoiceCards/GoodChoices" unique_id=643750035]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+theme = SubResource("Theme_37okk")
+
+[node name="Panel" type="Panel" parent="ChoiceCards/GoodChoices/PerfectButton" unique_id=1358240473]
+material = SubResource("ShaderMaterial_453tc")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_behavior_recursive = 1
+theme = ExtResource("4_h2egi")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ChoiceCards/GoodChoices/PerfectButton/Panel" unique_id=489340569]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.05
+anchor_right = 0.95
+anchor_bottom = 0.95
+grow_horizontal = 2
+grow_vertical = 2
+mouse_behavior_recursive = 1
+
+[node name="Label" type="Label" parent="ChoiceCards/GoodChoices/PerfectButton/Panel/VBoxContainer" unique_id=462749389]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 2
+theme = SubResource("Theme_fo3dt")
+theme_override_font_sizes/font_size = 45
+text = "Идеал"
+
+[node name="TextureRect" type="TextureRect" parent="ChoiceCards/GoodChoices/PerfectButton/Panel/VBoxContainer" unique_id=556790072]
+custom_maximum_size = Vector2(300, 300)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+offset_transform_enabled = true
+offset_transform_position = Vector2(15, -30)
+texture = ExtResource("5_2djck")
+
+[node name="Label2" type="Label" parent="ChoiceCards/GoodChoices/PerfectButton/Panel/VBoxContainer" unique_id=1398934901]
+layout_mode = 2
+size_flags_vertical = 10
+theme = SubResource("Theme_8c0wf")
+theme_override_font_sizes/font_size = 32
+text = "+10% к урону
++10% к макс. здоровью
++10% к защите"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="RedeemerButton" type="Button" parent="ChoiceCards/GoodChoices" unique_id=1105104696]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+theme = SubResource("Theme_37okk")
+
+[node name="Panel" type="Panel" parent="ChoiceCards/GoodChoices/RedeemerButton" unique_id=903430385]
+material = SubResource("ShaderMaterial_f5a2k")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_behavior_recursive = 1
+theme = ExtResource("4_h2egi")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ChoiceCards/GoodChoices/RedeemerButton/Panel" unique_id=1150791479]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.05
+anchor_right = 0.95
+anchor_bottom = 0.95
+grow_horizontal = 2
+grow_vertical = 2
+mouse_behavior_recursive = 1
+
+[node name="Label" type="Label" parent="ChoiceCards/GoodChoices/RedeemerButton/Panel/VBoxContainer" unique_id=254610122]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 2
+theme = SubResource("Theme_fo3dt")
+theme_override_font_sizes/font_size = 45
+text = "Redeemer"
+
+[node name="TextureRect" type="TextureRect" parent="ChoiceCards/GoodChoices/RedeemerButton/Panel/VBoxContainer" unique_id=312480570]
+custom_maximum_size = Vector2(300, 300)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+offset_transform_enabled = true
+offset_transform_position = Vector2(15, -30)
+texture = ExtResource("5_2djck")
+
+[node name="Label2" type="Label" parent="ChoiceCards/GoodChoices/RedeemerButton/Panel/VBoxContainer" unique_id=520827047]
+layout_mode = 2
+size_flags_vertical = 10
+theme = SubResource("Theme_8c0wf")
+theme_override_font_sizes/font_size = 32
+text = "При убийстве враго добавляет пулю, которую можно выстрелить на ПКМ."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="FatGuyButton" type="Button" parent="ChoiceCards/GoodChoices" unique_id=993135567]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+theme = SubResource("Theme_37okk")
+
+[node name="Panel" type="Panel" parent="ChoiceCards/GoodChoices/FatGuyButton" unique_id=1574394706]
+material = SubResource("ShaderMaterial_jnvme")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_behavior_recursive = 1
+theme = ExtResource("4_h2egi")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ChoiceCards/GoodChoices/FatGuyButton/Panel" unique_id=1940077517]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.05
+anchor_right = 0.95
+anchor_bottom = 0.95
+grow_horizontal = 2
+grow_vertical = 2
+mouse_behavior_recursive = 1
+
+[node name="Label" type="Label" parent="ChoiceCards/GoodChoices/FatGuyButton/Panel/VBoxContainer" unique_id=690284366]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 2
+theme = SubResource("Theme_fo3dt")
+theme_override_font_sizes/font_size = 45
+text = "Толстяк"
+
+[node name="TextureRect" type="TextureRect" parent="ChoiceCards/GoodChoices/FatGuyButton/Panel/VBoxContainer" unique_id=633558210]
+custom_maximum_size = Vector2(300, 300)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+offset_transform_enabled = true
+offset_transform_position = Vector2(15, -30)
+texture = ExtResource("5_2djck")
+
+[node name="Label2" type="Label" parent="ChoiceCards/GoodChoices/FatGuyButton/Panel/VBoxContainer" unique_id=254789468]
+layout_mode = 2
+size_flags_vertical = 10
+theme = SubResource("Theme_8c0wf")
+theme_override_font_sizes/font_size = 32
+text = "+40% к макс. здоровью
+-15% к урону
+Диету между прочит стоило бы и пособлюдать, Стенли!"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="67Button" type="Button" parent="ChoiceCards/GoodChoices" unique_id=1496058917]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+theme = SubResource("Theme_37okk")
+
+[node name="Panel" type="Panel" parent="ChoiceCards/GoodChoices/67Button" unique_id=906240568]
+material = SubResource("ShaderMaterial_4rvgb")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_behavior_recursive = 1
+theme = ExtResource("4_h2egi")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ChoiceCards/GoodChoices/67Button/Panel" unique_id=1060595629]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.05
+anchor_right = 0.95
+anchor_bottom = 0.95
+grow_horizontal = 2
+grow_vertical = 2
+mouse_behavior_recursive = 1
+
+[node name="Label" type="Label" parent="ChoiceCards/GoodChoices/67Button/Panel/VBoxContainer" unique_id=36680550]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 2
+theme = SubResource("Theme_fo3dt")
+theme_override_font_sizes/font_size = 45
+text = "67"
+
+[node name="TextureRect" type="TextureRect" parent="ChoiceCards/GoodChoices/67Button/Panel/VBoxContainer" unique_id=166720228]
+custom_maximum_size = Vector2(300, 300)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+offset_transform_enabled = true
+offset_transform_position = Vector2(15, -30)
+texture = ExtResource("5_2djck")
+
+[node name="Label2" type="Label" parent="ChoiceCards/GoodChoices/67Button/Panel/VBoxContainer" unique_id=1762414936]
+layout_mode = 2
+size_flags_vertical = 10
+theme = SubResource("Theme_8c0wf")
+theme_override_font_sizes/font_size = 32
+text = "-50% к клеткам мозга
++5% к урону"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="SonicButton" type="Button" parent="ChoiceCards/GoodChoices" unique_id=1214112723]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+theme = SubResource("Theme_37okk")
+
+[node name="Panel" type="Panel" parent="ChoiceCards/GoodChoices/SonicButton" unique_id=159474161]
+material = SubResource("ShaderMaterial_cb2gh")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_behavior_recursive = 1
+theme = ExtResource("4_h2egi")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ChoiceCards/GoodChoices/SonicButton/Panel" unique_id=386911701]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.05
+anchor_right = 0.95
+anchor_bottom = 0.95
+grow_horizontal = 2
+grow_vertical = 2
+mouse_behavior_recursive = 1
+
+[node name="Label" type="Label" parent="ChoiceCards/GoodChoices/SonicButton/Panel/VBoxContainer" unique_id=1973868629]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 2
+theme = SubResource("Theme_fo3dt")
+theme_override_font_sizes/font_size = 45
+text = "Соник"
+
+[node name="TextureRect" type="TextureRect" parent="ChoiceCards/GoodChoices/SonicButton/Panel/VBoxContainer" unique_id=1480074489]
+custom_maximum_size = Vector2(300, 300)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+offset_transform_enabled = true
+offset_transform_position = Vector2(15, -30)
+texture = ExtResource("5_2djck")
+
+[node name="Label2" type="Label" parent="ChoiceCards/GoodChoices/SonicButton/Panel/VBoxContainer" unique_id=1947240838]
+layout_mode = 2
+size_flags_vertical = 10
+theme = SubResource("Theme_8c0wf")
+theme_override_font_sizes/font_size = 32
+text = "+35% к скорости
+Я скорость!"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="BadChoices" type="HBoxContainer" parent="ChoiceCards" unique_id=1848607151]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BrokenBoneButton" type="Button" parent="ChoiceCards/BadChoices" unique_id=176987538]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+theme = SubResource("Theme_37okk")
+
+[node name="Panel" type="Panel" parent="ChoiceCards/BadChoices/BrokenBoneButton" unique_id=1856182348]
+material = SubResource("ShaderMaterial_3fn43")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_behavior_recursive = 1
+theme = ExtResource("4_h2egi")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ChoiceCards/BadChoices/BrokenBoneButton/Panel" unique_id=1926007899]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.05
+anchor_right = 0.95
+anchor_bottom = 0.95
+grow_horizontal = 2
+grow_vertical = 2
+mouse_behavior_recursive = 1
+
+[node name="Label" type="Label" parent="ChoiceCards/BadChoices/BrokenBoneButton/Panel/VBoxContainer" unique_id=500336927]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 2
+theme = SubResource("Theme_fo3dt")
+theme_override_font_sizes/font_size = 45
+text = "Перелом"
+
+[node name="TextureRect" type="TextureRect" parent="ChoiceCards/BadChoices/BrokenBoneButton/Panel/VBoxContainer" unique_id=947533100]
+custom_maximum_size = Vector2(300, 300)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+offset_transform_enabled = true
+offset_transform_position = Vector2(15, -30)
+texture = ExtResource("5_2djck")
+
+[node name="Label2" type="Label" parent="ChoiceCards/BadChoices/BrokenBoneButton/Panel/VBoxContainer" unique_id=1666236586]
+layout_mode = 2
+size_flags_vertical = 10
+theme = SubResource("Theme_8c0wf")
+theme_override_font_sizes/font_size = 32
+text = "-10% к макс. здоровью
+-10% к скорости
+Мизинчиком о тубмочку"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="SpawnrateButton" type="Button" parent="ChoiceCards/BadChoices" unique_id=1814009457]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+theme = SubResource("Theme_37okk")
+
+[node name="Panel" type="Panel" parent="ChoiceCards/BadChoices/SpawnrateButton" unique_id=1001210319]
+material = SubResource("ShaderMaterial_6jrsi")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_behavior_recursive = 1
+theme = ExtResource("4_h2egi")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ChoiceCards/BadChoices/SpawnrateButton/Panel" unique_id=51784139]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.05
+anchor_right = 0.95
+anchor_bottom = 0.95
+grow_horizontal = 2
+grow_vertical = 2
+mouse_behavior_recursive = 1
+
+[node name="Label" type="Label" parent="ChoiceCards/BadChoices/SpawnrateButton/Panel/VBoxContainer" unique_id=595084888]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 2
+theme = SubResource("Theme_fo3dt")
+theme_override_font_sizes/font_size = 45
+text = "Elden Ring"
+
+[node name="TextureRect" type="TextureRect" parent="ChoiceCards/BadChoices/SpawnrateButton/Panel/VBoxContainer" unique_id=1560422506]
+custom_maximum_size = Vector2(300, 300)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+offset_transform_enabled = true
+offset_transform_position = Vector2(15, -30)
+texture = ExtResource("5_2djck")
+
+[node name="Label2" type="Label" parent="ChoiceCards/BadChoices/SpawnrateButton/Panel/VBoxContainer" unique_id=261983675]
+layout_mode = 2
+size_flags_vertical = 10
+theme = SubResource("Theme_8c0wf")
+theme_override_font_sizes/font_size = 32
+text = "+30% к частоте появления врагов"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="ThinButton" type="Button" parent="ChoiceCards/BadChoices" unique_id=50802735]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+theme = SubResource("Theme_37okk")
+
+[node name="Panel" type="Panel" parent="ChoiceCards/BadChoices/ThinButton" unique_id=1028692086]
+material = SubResource("ShaderMaterial_01ap0")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_behavior_recursive = 1
+theme = ExtResource("4_h2egi")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ChoiceCards/BadChoices/ThinButton/Panel" unique_id=924240668]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.05
+anchor_right = 0.95
+anchor_bottom = 0.95
+grow_horizontal = 2
+grow_vertical = 2
+mouse_behavior_recursive = 1
+
+[node name="Label" type="Label" parent="ChoiceCards/BadChoices/ThinButton/Panel/VBoxContainer" unique_id=2069258816]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 2
+theme = SubResource("Theme_fo3dt")
+theme_override_font_sizes/font_size = 45
+text = "Тохляк"
+
+[node name="TextureRect" type="TextureRect" parent="ChoiceCards/BadChoices/ThinButton/Panel/VBoxContainer" unique_id=152388214]
+custom_maximum_size = Vector2(300, 300)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+offset_transform_enabled = true
+offset_transform_position = Vector2(15, -30)
+texture = ExtResource("5_2djck")
+
+[node name="Label2" type="Label" parent="ChoiceCards/BadChoices/ThinButton/Panel/VBoxContainer" unique_id=1497045983]
+layout_mode = 2
+size_flags_vertical = 10
+theme = SubResource("Theme_8c0wf")
+theme_override_font_sizes/font_size = 32
+text = "-20% к макс. здоровью
+билет к бабушке в деревню"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="DisabledButton" type="Button" parent="ChoiceCards/BadChoices" unique_id=1751001512]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+theme = SubResource("Theme_37okk")
+
+[node name="Panel" type="Panel" parent="ChoiceCards/BadChoices/DisabledButton" unique_id=1552485497]
+material = SubResource("ShaderMaterial_01ap0")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_behavior_recursive = 1
+theme = ExtResource("4_h2egi")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ChoiceCards/BadChoices/DisabledButton/Panel" unique_id=2133886461]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.05
+anchor_right = 0.95
+anchor_bottom = 0.95
+grow_horizontal = 2
+grow_vertical = 2
+mouse_behavior_recursive = 1
+
+[node name="Label" type="Label" parent="ChoiceCards/BadChoices/DisabledButton/Panel/VBoxContainer" unique_id=1280584875]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 2
+theme = SubResource("Theme_fo3dt")
+theme_override_font_sizes/font_size = 45
+text = "Инвалид"
+
+[node name="TextureRect" type="TextureRect" parent="ChoiceCards/BadChoices/DisabledButton/Panel/VBoxContainer" unique_id=428818003]
+custom_maximum_size = Vector2(300, 300)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+offset_transform_enabled = true
+offset_transform_position = Vector2(15, -30)
+texture = ExtResource("5_2djck")
+
+[node name="Label2" type="Label" parent="ChoiceCards/BadChoices/DisabledButton/Panel/VBoxContainer" unique_id=318829746]
+layout_mode = 2
+size_flags_vertical = 10
+theme = SubResource("Theme_8c0wf")
+theme_override_font_sizes/font_size = 32
+text = "-40% к скорости
+Не спрашивайте, почему он может ходить."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="BlindButton" type="Button" parent="ChoiceCards/BadChoices" unique_id=191452039]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+theme = SubResource("Theme_37okk")
+
+[node name="Panel" type="Panel" parent="ChoiceCards/BadChoices/BlindButton" unique_id=2025556286]
+material = SubResource("ShaderMaterial_b32xk")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_behavior_recursive = 1
+theme = ExtResource("4_h2egi")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ChoiceCards/BadChoices/BlindButton/Panel" unique_id=536969768]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.05
+anchor_right = 0.95
+anchor_bottom = 0.95
+grow_horizontal = 2
+grow_vertical = 2
+mouse_behavior_recursive = 1
+
+[node name="Label" type="Label" parent="ChoiceCards/BadChoices/BlindButton/Panel/VBoxContainer" unique_id=145205107]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 2
+theme = SubResource("Theme_fo3dt")
+theme_override_font_sizes/font_size = 45
+text = "Слепота"
+
+[node name="TextureRect" type="TextureRect" parent="ChoiceCards/BadChoices/BlindButton/Panel/VBoxContainer" unique_id=1662659930]
+custom_maximum_size = Vector2(300, 300)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+offset_transform_enabled = true
+offset_transform_position = Vector2(15, -30)
+texture = ExtResource("5_2djck")
+
+[node name="Label2" type="Label" parent="ChoiceCards/BadChoices/BlindButton/Panel/VBoxContainer" unique_id=1941778200]
+layout_mode = 2
+size_flags_vertical = 10
+theme = SubResource("Theme_8c0wf")
+theme_override_font_sizes/font_size = 32
+text = "На экране появляются темные пятна, из-за которых область экрана не видно"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="FlashbangButton" type="Button" parent="ChoiceCards/BadChoices" unique_id=1891614772]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+theme = SubResource("Theme_37okk")
+
+[node name="Panel" type="Panel" parent="ChoiceCards/BadChoices/FlashbangButton" unique_id=161426638]
+material = SubResource("ShaderMaterial_b5e78")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_behavior_recursive = 1
+theme = ExtResource("4_h2egi")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ChoiceCards/BadChoices/FlashbangButton/Panel" unique_id=804593197]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.05
+anchor_right = 0.95
+anchor_bottom = 0.95
+grow_horizontal = 2
+grow_vertical = 2
+mouse_behavior_recursive = 1
+
+[node name="Label" type="Label" parent="ChoiceCards/BadChoices/FlashbangButton/Panel/VBoxContainer" unique_id=1364214388]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 2
+theme = SubResource("Theme_fo3dt")
+theme_override_font_sizes/font_size = 45
+text = "Flashbang!"
+
+[node name="TextureRect" type="TextureRect" parent="ChoiceCards/BadChoices/FlashbangButton/Panel/VBoxContainer" unique_id=2066305759]
+custom_maximum_size = Vector2(300, 300)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+offset_transform_enabled = true
+offset_transform_position = Vector2(15, -30)
+texture = ExtResource("5_2djck")
+
+[node name="Label2" type="Label" parent="ChoiceCards/BadChoices/FlashbangButton/Panel/VBoxContainer" unique_id=2058833091]
+layout_mode = 2
+size_flags_vertical = 10
+theme = SubResource("Theme_8c0wf")
+theme_override_font_sizes/font_size = 32
+text = "Делает свет невероятно ярким. Ослепительно-восхитительно"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="BestFriendButton" type="Button" parent="ChoiceCards/BadChoices" unique_id=916534797]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+theme = SubResource("Theme_37okk")
+
+[node name="Panel" type="Panel" parent="ChoiceCards/BadChoices/BestFriendButton" unique_id=250967603]
+material = SubResource("ShaderMaterial_n5n8k")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_behavior_recursive = 1
+theme = ExtResource("4_h2egi")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ChoiceCards/BadChoices/BestFriendButton/Panel" unique_id=643085734]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.05
+anchor_right = 0.95
+anchor_bottom = 0.95
+grow_horizontal = 2
+grow_vertical = 2
+mouse_behavior_recursive = 1
+
+[node name="Label" type="Label" parent="ChoiceCards/BadChoices/BestFriendButton/Panel/VBoxContainer" unique_id=2047988068]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 2
+theme = SubResource("Theme_fo3dt")
+theme_override_font_sizes/font_size = 45
+text = "Это Боб!"
+
+[node name="TextureRect" type="TextureRect" parent="ChoiceCards/BadChoices/BestFriendButton/Panel/VBoxContainer" unique_id=2021721786]
+custom_maximum_size = Vector2(300, 300)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+offset_transform_enabled = true
+offset_transform_position = Vector2(15, -30)
+texture = ExtResource("5_2djck")
+
+[node name="Label2" type="Label" parent="ChoiceCards/BadChoices/BestFriendButton/Panel/VBoxContainer" unique_id=1549867209]
+layout_mode = 2
+size_flags_vertical = 10
+theme = SubResource("Theme_8c0wf")
+theme_override_font_sizes/font_size = 32
+text = "Спавним бессмертного врага. Но урон и скорость у него сильно понижены"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="DementiaButton" type="Button" parent="ChoiceCards/BadChoices" unique_id=726192487]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+theme = SubResource("Theme_37okk")
+
+[node name="Panel" type="Panel" parent="ChoiceCards/BadChoices/DementiaButton" unique_id=257800691]
+material = SubResource("ShaderMaterial_6eaxf")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_behavior_recursive = 1
+theme = ExtResource("4_h2egi")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ChoiceCards/BadChoices/DementiaButton/Panel" unique_id=1651046643]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.05
+anchor_right = 0.95
+anchor_bottom = 0.95
+grow_horizontal = 2
+grow_vertical = 2
+mouse_behavior_recursive = 1
+
+[node name="Label" type="Label" parent="ChoiceCards/BadChoices/DementiaButton/Panel/VBoxContainer" unique_id=153657953]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 2
+theme = SubResource("Theme_fo3dt")
+theme_override_font_sizes/font_size = 45
+text = "Деменция"
+
+[node name="TextureRect" type="TextureRect" parent="ChoiceCards/BadChoices/DementiaButton/Panel/VBoxContainer" unique_id=1162082469]
+custom_maximum_size = Vector2(300, 300)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+offset_transform_enabled = true
+offset_transform_position = Vector2(15, -30)
+texture = ExtResource("5_2djck")
+
+[node name="Label2" type="Label" parent="ChoiceCards/BadChoices/DementiaButton/Panel/VBoxContainer" unique_id=1316936146]
+layout_mode = 2
+size_flags_vertical = 10
+theme = SubResource("Theme_8c0wf")
+theme_override_font_sizes/font_size = 32
+text = "Скрывает описание у всех предметов. Помните ли вы что делают эти карты?)"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="DyspneaButton" type="Button" parent="ChoiceCards/BadChoices" unique_id=1369627467]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+theme = SubResource("Theme_37okk")
+
+[node name="Panel" type="Panel" parent="ChoiceCards/BadChoices/DyspneaButton" unique_id=1977993701]
+material = SubResource("ShaderMaterial_o8iia")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_behavior_recursive = 1
+theme = ExtResource("4_h2egi")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ChoiceCards/BadChoices/DyspneaButton/Panel" unique_id=1250811339]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.05
+anchor_right = 0.95
+anchor_bottom = 0.95
+grow_horizontal = 2
+grow_vertical = 2
+mouse_behavior_recursive = 1
+
+[node name="Label" type="Label" parent="ChoiceCards/BadChoices/DyspneaButton/Panel/VBoxContainer" unique_id=979543486]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 2
+theme = SubResource("Theme_fo3dt")
+theme_override_font_sizes/font_size = 45
+text = "Отдышка"
+
+[node name="TextureRect" type="TextureRect" parent="ChoiceCards/BadChoices/DyspneaButton/Panel/VBoxContainer" unique_id=1435922136]
+custom_maximum_size = Vector2(300, 300)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+offset_transform_enabled = true
+offset_transform_position = Vector2(15, -30)
+texture = ExtResource("5_2djck")
+
+[node name="Label2" type="Label" parent="ChoiceCards/BadChoices/DyspneaButton/Panel/VBoxContainer" unique_id=2044517628]
+layout_mode = 2
+size_flags_vertical = 10
+theme = SubResource("Theme_8c0wf")
+theme_override_font_sizes/font_size = 32
+text = "-50% к максимальной стамине."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="BlackButton" type="Button" parent="ChoiceCards/BadChoices" unique_id=2091571880]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+theme = SubResource("Theme_37okk")
+
+[node name="Panel" type="Panel" parent="ChoiceCards/BadChoices/BlackButton" unique_id=326041618]
+material = SubResource("ShaderMaterial_ao4ng")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_behavior_recursive = 1
+theme = ExtResource("4_h2egi")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ChoiceCards/BadChoices/BlackButton/Panel" unique_id=1591408075]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.05
+anchor_right = 0.95
+anchor_bottom = 0.95
+grow_horizontal = 2
+grow_vertical = 2
+mouse_behavior_recursive = 1
+
+[node name="Label" type="Label" parent="ChoiceCards/BadChoices/BlackButton/Panel/VBoxContainer" unique_id=1469882095]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 2
+theme = SubResource("Theme_fo3dt")
+theme_override_font_sizes/font_size = 45
+text = "Черный"
+
+[node name="TextureRect" type="TextureRect" parent="ChoiceCards/BadChoices/BlackButton/Panel/VBoxContainer" unique_id=101645738]
+custom_maximum_size = Vector2(300, 300)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+offset_transform_enabled = true
+offset_transform_position = Vector2(15, -30)
+texture = ExtResource("5_2djck")
+
+[node name="Label2" type="Label" parent="ChoiceCards/BadChoices/BlackButton/Panel/VBoxContainer" unique_id=1403874642]
+layout_mode = 2
+size_flags_vertical = 10
+theme = SubResource("Theme_8c0wf")
+theme_override_font_sizes/font_size = 32
+text = "-10% к защите
++20% к дискриминации"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="StudentButton" type="Button" parent="ChoiceCards/BadChoices" unique_id=1955939036]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+theme = SubResource("Theme_37okk")
+
+[node name="Panel" type="Panel" parent="ChoiceCards/BadChoices/StudentButton" unique_id=759649860]
+material = SubResource("ShaderMaterial_oau5p")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_behavior_recursive = 1
+theme = ExtResource("4_h2egi")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ChoiceCards/BadChoices/StudentButton/Panel" unique_id=887526211]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.05
+anchor_right = 0.95
+anchor_bottom = 0.95
+grow_horizontal = 2
+grow_vertical = 2
+mouse_behavior_recursive = 1
+
+[node name="Label" type="Label" parent="ChoiceCards/BadChoices/StudentButton/Panel/VBoxContainer" unique_id=90122457]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 2
+theme = SubResource("Theme_fo3dt")
+theme_override_font_sizes/font_size = 45
+text = "Школьник"
+
+[node name="TextureRect" type="TextureRect" parent="ChoiceCards/BadChoices/StudentButton/Panel/VBoxContainer" unique_id=670096956]
+custom_maximum_size = Vector2(300, 300)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+offset_transform_enabled = true
+offset_transform_position = Vector2(15, -30)
+texture = ExtResource("5_2djck")
+
+[node name="Label2" type="Label" parent="ChoiceCards/BadChoices/StudentButton/Panel/VBoxContainer" unique_id=561197072]
+layout_mode = 2
+size_flags_vertical = 10
+theme = SubResource("Theme_8c0wf")
+theme_override_font_sizes/font_size = 32
+text = "-10% к урону
+-15% к макс. здоровью
+Бро, тебе надо тренироваться!"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="GamerButton" type="Button" parent="ChoiceCards/BadChoices" unique_id=1477611769]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+theme = SubResource("Theme_37okk")
+
+[node name="Panel" type="Panel" parent="ChoiceCards/BadChoices/GamerButton" unique_id=1880185828]
+material = SubResource("ShaderMaterial_n104y")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_behavior_recursive = 1
+theme = ExtResource("4_h2egi")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ChoiceCards/BadChoices/GamerButton/Panel" unique_id=1953768402]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.05
+anchor_right = 0.95
+anchor_bottom = 0.95
+grow_horizontal = 2
+grow_vertical = 2
+mouse_behavior_recursive = 1
+
+[node name="Label" type="Label" parent="ChoiceCards/BadChoices/GamerButton/Panel/VBoxContainer" unique_id=650593045]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 2
+theme = SubResource("Theme_fo3dt")
+theme_override_font_sizes/font_size = 45
+text = "Геймер"
+
+[node name="TextureRect" type="TextureRect" parent="ChoiceCards/BadChoices/GamerButton/Panel/VBoxContainer" unique_id=809806985]
+custom_maximum_size = Vector2(300, 300)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+offset_transform_enabled = true
+offset_transform_position = Vector2(15, -30)
+texture = ExtResource("5_2djck")
+
+[node name="Label2" type="Label" parent="ChoiceCards/BadChoices/GamerButton/Panel/VBoxContainer" unique_id=1217801748]
+layout_mode = 2
+size_flags_vertical = 10
+theme = SubResource("Theme_8c0wf")
+theme_override_font_sizes/font_size = 32
+text = "-15% к защите
+Недостаток витамина D"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[connection signal="pressed" from="ChoiceCards/StoryChoices/WalkButton" to="." method="_on_walk_button_pressed"]
+[connection signal="pressed" from="ChoiceCards/StoryChoices/CharacterSpriteButton" to="." method="_on_character_sprite_button_pressed"]
+[connection signal="pressed" from="ChoiceCards/StoryChoices/WoodEnvironmentButton" to="." method="_on_wood_environment_button_pressed"]
+[connection signal="pressed" from="ChoiceCards/StoryChoices/RockEnvironmentButton" to="." method="_on_rock_environment_button_pressed"]
+[connection signal="pressed" from="ChoiceCards/StoryChoices/DayLightButton" to="." method="_on_day_light_button_pressed"]
+[connection signal="pressed" from="ChoiceCards/StoryChoices/NightLightButton" to="." method="_on_night_light_button_pressed"]
+[connection signal="pressed" from="ChoiceCards/StoryChoices/EnemyCloseCreationButton" to="." method="_on_enemy_close_creation_button_pressed"]
+[connection signal="pressed" from="ChoiceCards/StoryChoices/EnemyLongCreationButton" to="." method="_on_enemy_long_creation_button_pressed"]
+[connection signal="pressed" from="ChoiceCards/StoryChoices/CircleHealthButton" to="." method="_on_circle_health_button_pressed"]
+[connection signal="pressed" from="ChoiceCards/StoryChoices/LineHealthButton" to="." method="_on_line_health_bar_pressed"]
+[connection signal="pressed" from="ChoiceCards/StoryChoices/BottleHealthButton" to="." method="_on_bottle_health_bar_pressed"]
+[connection signal="pressed" from="ChoiceCards/GoodChoices/FlashButton" to="." method="_on_flash_button_pressed"]
+[connection signal="pressed" from="ChoiceCards/GoodChoices/SpecialAgentButton" to="." method="_on_special_agent_button_pressed"]
+[connection signal="pressed" from="ChoiceCards/GoodChoices/SeriousPunchButton" to="." method="_on_serious_punch_button_pressed"]
+[connection signal="pressed" from="ChoiceCards/GoodChoices/IronDudeButton" to="." method="_on_iron_dude_button_pressed"]
+[connection signal="pressed" from="ChoiceCards/GoodChoices/VampireButton" to="." method="_on_vampire_button_pressed"]
+[connection signal="pressed" from="ChoiceCards/GoodChoices/RageButton" to="." method="_on_rage_button_pressed"]
+[connection signal="pressed" from="ChoiceCards/GoodChoices/ZombieWithBucketButton" to="." method="_on_zombie_with_bucket_button_pressed"]
+[connection signal="pressed" from="ChoiceCards/GoodChoices/PerfectButton" to="." method="_on_perfect_button_pressed"]
+[connection signal="pressed" from="ChoiceCards/GoodChoices/RedeemerButton" to="." method="_on_redeemer_button_pressed"]
+[connection signal="pressed" from="ChoiceCards/GoodChoices/FatGuyButton" to="." method="_on_fat_guy_button_pressed"]
+[connection signal="pressed" from="ChoiceCards/GoodChoices/67Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="ChoiceCards/GoodChoices/SonicButton" to="." method="_on_sonic_button_pressed"]
+[connection signal="pressed" from="ChoiceCards/BadChoices/BrokenBoneButton" to="." method="_on_broken_bone_button_pressed"]
+[connection signal="pressed" from="ChoiceCards/BadChoices/SpawnrateButton" to="." method="_on_spawnrate_button_pressed"]
+[connection signal="pressed" from="ChoiceCards/BadChoices/ThinButton" to="." method="_on_thin_button_pressed"]
+[connection signal="pressed" from="ChoiceCards/BadChoices/DisabledButton" to="." method="_on_disabled_button_pressed"]
+[connection signal="pressed" from="ChoiceCards/BadChoices/BlindButton" to="." method="_on_blind_button_pressed"]
+[connection signal="pressed" from="ChoiceCards/BadChoices/FlashbangButton" to="." method="_on_flashbang_button_pressed"]
+[connection signal="pressed" from="ChoiceCards/BadChoices/BestFriendButton" to="." method="_on_best_friend_button_pressed"]
+[connection signal="pressed" from="ChoiceCards/BadChoices/DementiaButton" to="." method="_on_dementia_button_pressed"]
+[connection signal="pressed" from="ChoiceCards/BadChoices/DyspneaButton" to="." method="_on_dyspnea_button_pressed"]
+[connection signal="pressed" from="ChoiceCards/BadChoices/BlackButton" to="." method="_on_black_button_pressed"]
+[connection signal="pressed" from="ChoiceCards/BadChoices/StudentButton" to="." method="_on_student_button_pressed"]
+[connection signal="pressed" from="ChoiceCards/BadChoices/GamerButton" to="." method="_on_gamer_button_pressed"]

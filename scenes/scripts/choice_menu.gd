@@ -3,17 +3,17 @@ extends Control
 @onready var cards = $ChoiceCards
 @onready var button_child = "Panel"
 
-@onready var sprite_button = $ChoiceCards/CharacterSpriteButton
-@onready var walk_button = $ChoiceCards/WalkButton
-@onready var wood_environment_button = $ChoiceCards/WoodEnvironmentButton
-@onready var rock_environment_button = $ChoiceCards/RockEnvironmentButton
-@onready var day_light_button = $ChoiceCards/DayLightButton
-@onready var night_light_button = $ChoiceCards/NightLightButton
-@onready var enemy_close_creation_button = $ChoiceCards/EnemyCloseCreationButton
-@onready var enemy_long_creation_button = $ChoiceCards/EnemyLongCreationButton
-@onready var circle_health_button = $ChoiceCards/CircleHealthButton
-@onready var line_health_button = $ChoiceCards/LineHealthButton
-@onready var bottle_health_button = $ChoiceCards/BottleHealthButton
+@onready var sprite_button = $ChoiceCards/StoryChoices/CharacterSpriteButton
+@onready var walk_button = $ChoiceCards/StoryChoices/WalkButton
+@onready var wood_environment_button = $ChoiceCards/StoryChoices/WoodEnvironmentButton
+@onready var rock_environment_button = $ChoiceCards/StoryChoices/RockEnvironmentButton
+@onready var day_light_button = $ChoiceCards/StoryChoices/DayLightButton
+@onready var night_light_button = $ChoiceCards/StoryChoices/NightLightButton
+@onready var enemy_close_creation_button = $ChoiceCards/StoryChoices/EnemyCloseCreationButton
+@onready var enemy_long_creation_button = $ChoiceCards/StoryChoices/EnemyLongCreationButton
+@onready var circle_health_button = $ChoiceCards/StoryChoices/CircleHealthButton
+@onready var line_health_button = $ChoiceCards/StoryChoices/LineHealthButton
+@onready var bottle_health_button = $ChoiceCards/StoryChoices/BottleHealthButton
 
 signal give_walk_ability
 signal create_character_sprite
@@ -27,13 +27,40 @@ signal add_line_health
 signal add_bottle_health
 signal make_enemy_long_creation
 
+signal flash
+signal special_agent
+signal serious_punch
+signal iron_dude
+signal vampire
+signal rage
+signal zombie_with_bucket
+signal perfect
+signal redeemer
+signal fat_guy
+signal SIX_SEEEEVENAAAAAA
+signal sonic
+
+signal broken_bone
+signal spawnrate
+signal thin
+signal disabled
+signal blind
+signal flashbang
+signal best_friend
+signal dementia
+signal dyspnea
+signal black
+signal student
+signal gamer
+
 signal choice_done
 
 func _ready() -> void:
-	for button in cards.get_children():
-		button.mouse_entered.connect(entered_event.bind(button))
-		button.mouse_exited.connect(exited_event.bind(button))
-		button.pressed.connect(pressed_event)
+	for card_selection in cards.get_children():
+		for button in card_selection.get_children():
+			button.mouse_entered.connect(entered_event.bind(button))
+			button.mouse_exited.connect(exited_event.bind(button))
+			button.pressed.connect(pressed_event)
 
 func entered_event(button: Button) -> void:
 	button.pivot_offset = button.size / 2
@@ -130,3 +157,75 @@ func _on_bottle_health_bar_pressed() -> void:
 
 func _on_character_sprite_button_pressed() -> void:
 	create_character_sprite.emit()
+
+func _on_flash_button_pressed() -> void:
+	flash.emit()
+
+func _on_special_agent_button_pressed() -> void:
+	special_agent.emit()
+	
+func _on_serious_punch_button_pressed() -> void:
+	serious_punch.emit()
+
+func _on_iron_dude_button_pressed() -> void:
+	iron_dude.emit()
+
+func _on_vampire_button_pressed() -> void:
+	vampire.emit()
+	
+func _on_rage_button_pressed() -> void:
+	rage.emit()
+
+func _on_zombie_with_bucket_button_pressed() -> void:
+	zombie_with_bucket.emit()
+
+func _on_perfect_button_pressed() -> void:
+	perfect.emit()
+
+func _on_redeemer_button_pressed() -> void:
+	redeemer.emit()
+
+func _on_fat_guy_button_pressed() -> void:
+	fat_guy.emit()
+
+func _on_button_pressed() -> void:
+	SIX_SEEEEVENAAAAAA.emit()
+
+func _on_sonic_button_pressed() -> void:
+	sonic.emit()
+
+func _on_broken_bone_button_pressed() -> void:
+	broken_bone.emit()
+
+func _on_spawnrate_button_pressed() -> void:
+	spawnrate.emit()
+
+func _on_thin_button_pressed() -> void:
+	thin.emit()
+
+func _on_disabled_button_pressed() -> void:
+	disabled.emit()
+
+func _on_blind_button_pressed() -> void:
+	blind.emit()
+	
+func _on_flashbang_button_pressed() -> void:
+	flashbang.emit()
+
+func _on_best_friend_button_pressed() -> void:
+	best_friend.emit()
+
+func _on_dementia_button_pressed() -> void:
+	dementia.emit()
+
+func _on_dyspnea_button_pressed() -> void:
+	dyspnea.emit()
+
+func _on_black_button_pressed() -> void:
+	black.emit()
+
+func _on_student_button_pressed() -> void:
+	student.emit()
+
+func _on_gamer_button_pressed() -> void:
+	gamer.emit()

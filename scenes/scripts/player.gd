@@ -34,6 +34,7 @@ func _physics_process(_delta: float) -> void:
 func move() -> void:
 	if Input.is_action_just_pressed("attack") and can_attack:
 		attack()
+		
 	velocity.x = direction * speed
 	velocity.y -= gravity
 	move_and_slide()
@@ -42,7 +43,7 @@ func get_input() -> void:
 	speed = walk_speed
 	direction = Input.get_axis("left", "right")
 	
-	if Input.is_action_just_pressed("jump"):
+	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y += jump_strength
 		
 	if Input.is_action_pressed("run"):
@@ -50,7 +51,7 @@ func get_input() -> void:
 	
 func start_walking() -> void:
 	can_walk = true
-	
+
 func start_attack() -> void:
 	can_attack = true
 	
