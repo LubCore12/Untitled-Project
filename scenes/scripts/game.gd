@@ -12,7 +12,8 @@ extends Node3D
 @onready var rock_environment = $RockEnvironment
 @onready var day_light = $DirectionalLights/Day
 @onready var night_light = $DirectionalLights/Night
-@onready var enemy_scene = preload("res://scenes/enemy.tscn")
+@onready var enemy_close_scene = preload("res://scenes/enemy_close.tscn")
+@onready var enemy_long_scene = preload("res://scenes/enemy_long.tscn")
 
 @export_group("DialogStats")
 @export var letter_time := 0.05
@@ -138,8 +139,14 @@ func _on_choice_menu_set_day_light() -> void:
 func _on_choice_menu_set_night_light() -> void:
 	night_light.show()
 
-func _on_choice_menu_make_enemy_creation() -> void:
-	var enemy = enemy_scene.instantiate()
+func _on_choice_menu_make_enemy_close_creation() -> void:
+	var enemy = enemy_close_scene.instantiate()
+	enemy.setup(player)
+	enemy.position.x = -10
+	enemies.add_child(enemy)
+
+func _on_choice_menu_make_enemy_long_creation() -> void:
+	var enemy = enemy_long_scene.instantiate()
 	enemy.setup(player)
 	enemy.position.x = -10
 	enemies.add_child(enemy)

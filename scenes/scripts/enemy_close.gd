@@ -1,4 +1,4 @@
-class_name Enemy
+class_name EnemyClose
 extends CharacterBody3D
 
 @onready var timer = $Timer
