@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://bekspov68sk0e" path="res://assets/card_icons/firstSteps.svg" id="4_al8qj"]
 [ext_resource type="Theme" uid="uid://bqeshx52nxy27" path="res://themes/card_theme.tres" id="4_h2egi"]
 [ext_resource type="Texture2D" uid="uid://cu0gjoauqmfen" path="res://assets/card_icons/cube.svg" id="5_2djck"]
-[ext_resource type="Texture2D" uid="uid://dber2nhtf3g6c" path="res://assets/card_icons/sphere.svg" id="6_7pfxc"]
 [ext_resource type="Texture2D" uid="uid://dk6jrnsce1lad" path="res://assets/card_icons/neonNew.svg" id="8_bigfd"]
 [ext_resource type="Texture2D" uid="uid://cse01h3kcady6" path="res://assets/card_icons/minimalism.svg" id="9_2oyqo"]
 [ext_resource type="Texture2D" uid="uid://ex6lreg86ahq" path="res://assets/card_icons/day.svg" id="10_axv1t"]
@@ -85,32 +84,6 @@ void fragment() {
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_al8qj"]
 shader = SubResource("Shader_2djck")
-shader_parameter/angle = -70.0
-shader_parameter/x_pos = 1.8
-shader_parameter/y_pos = 0.0
-shader_parameter/thikness = 0.07
-
-[sub_resource type="Shader" id="Shader_h2egi"]
-code = "shader_type canvas_item;
-
-uniform float angle = -70.0;
-uniform float x_pos = 1.8;
-uniform float y_pos = 0.0;
-uniform float thikness = 0.07;
-
-void fragment() {
-	vec2 uv = 2. * UV - 1.;
-	
-	float slope = tan(angle);
-	float line = (uv.y + y_pos) - slope * (uv.x + x_pos);
-	float distance_to_line = abs(line) / sqrt(1.0 + pow(slope, 2));
-	float shine_mask = step(distance_to_line, thikness);
-	COLOR.rgb = mix(COLOR.rgb, vec3(1.), shine_mask);
-}
-"
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_2djck"]
-shader = SubResource("Shader_h2egi")
 shader_parameter/angle = -70.0
 shader_parameter/x_pos = 1.8
 shader_parameter/y_pos = 0.0
@@ -221,6 +194,7 @@ void fragment() {
 "
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_axv1t"]
+resource_local_to_scene = true
 shader = SubResource("Shader_2oyqo")
 shader_parameter/angle = -70.0
 shader_parameter/x_pos = 1.8
@@ -246,8 +220,44 @@ void fragment() {
 }
 "
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_kkagw"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_r03mh"]
+resource_local_to_scene = true
 shader = SubResource("Shader_jrdjb")
+shader_parameter/angle = -70.0
+shader_parameter/x_pos = 1.8
+shader_parameter/y_pos = 0.0
+shader_parameter/thikness = 0.07
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wfj4a"]
+resource_local_to_scene = true
+shader = SubResource("Shader_jrdjb")
+shader_parameter/angle = -70.0
+shader_parameter/x_pos = 1.8
+shader_parameter/y_pos = 0.0
+shader_parameter/thikness = 0.07
+
+[sub_resource type="Shader" id="Shader_a2q6r"]
+code = "shader_type canvas_item;
+
+uniform float angle = -70.0;
+uniform float x_pos = 1.8;
+uniform float y_pos = 0.0;
+uniform float thikness = 0.07;
+
+void fragment() {
+	vec2 uv = 2. * UV - 1.;
+	
+	float slope = tan(angle);
+	float line = (uv.y + y_pos) - slope * (uv.x + x_pos);
+	float distance_to_line = abs(line) / sqrt(1.0 + pow(slope, 2));
+	float shine_mask = step(distance_to_line, thikness);
+	COLOR.rgb = mix(COLOR.rgb, vec3(1.), shine_mask);
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kkagw"]
+resource_local_to_scene = true
+shader = SubResource("Shader_a2q6r")
 shader_parameter/angle = -70.0
 shader_parameter/x_pos = 1.8
 shader_parameter/y_pos = 0.0
@@ -335,14 +345,14 @@ text = "Добавляет главный игровой аспект в игр�
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="CharacterCubeMeshButton" type="Button" parent="ChoiceCards" unique_id=25810472]
+[node name="CharacterSpriteButton" type="Button" parent="ChoiceCards" unique_id=25810472]
 visible = false
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
 size_flags_horizontal = 6
 theme = SubResource("Theme_37okk")
 
-[node name="Panel" type="Panel" parent="ChoiceCards/CharacterCubeMeshButton" unique_id=1989319896]
+[node name="Panel" type="Panel" parent="ChoiceCards/CharacterSpriteButton" unique_id=1989319896]
 material = SubResource("ShaderMaterial_al8qj")
 layout_mode = 1
 anchors_preset = 15
@@ -353,7 +363,7 @@ grow_vertical = 2
 mouse_behavior_recursive = 1
 theme = ExtResource("4_h2egi")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ChoiceCards/CharacterCubeMeshButton/Panel" unique_id=1227223602]
+[node name="VBoxContainer" type="VBoxContainer" parent="ChoiceCards/CharacterSpriteButton/Panel" unique_id=1227223602]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.05
@@ -364,15 +374,15 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_behavior_recursive = 1
 
-[node name="Label" type="Label" parent="ChoiceCards/CharacterCubeMeshButton/Panel/VBoxContainer" unique_id=1314397955]
+[node name="Label" type="Label" parent="ChoiceCards/CharacterSpriteButton/Panel/VBoxContainer" unique_id=1314397955]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 2
 theme = SubResource("Theme_fo3dt")
 theme_override_font_sizes/font_size = 45
-text = "Создать куб"
+text = "Создать персонажа"
 
-[node name="TextureRect" type="TextureRect" parent="ChoiceCards/CharacterCubeMeshButton/Panel/VBoxContainer" unique_id=1439135477]
+[node name="TextureRect" type="TextureRect" parent="ChoiceCards/CharacterSpriteButton/Panel/VBoxContainer" unique_id=1439135477]
 custom_maximum_size = Vector2(300, 300)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -381,67 +391,12 @@ offset_transform_enabled = true
 offset_transform_position = Vector2(15, -30)
 texture = ExtResource("5_2djck")
 
-[node name="Label2" type="Label" parent="ChoiceCards/CharacterCubeMeshButton/Panel/VBoxContainer" unique_id=992729003]
+[node name="Label2" type="Label" parent="ChoiceCards/CharacterSpriteButton/Panel/VBoxContainer" unique_id=992729003]
 layout_mode = 2
 size_flags_vertical = 10
 theme = SubResource("Theme_8c0wf")
 theme_override_font_sizes/font_size = 32
-text = "Куб - это идеальный временный меш во время начала разработки игры"
-horizontal_alignment = 1
-autowrap_mode = 2
-
-[node name="CharacterSphereMeshButton" type="Button" parent="ChoiceCards" unique_id=412387328]
-visible = false
-custom_minimum_size = Vector2(500, 0)
-layout_mode = 2
-size_flags_horizontal = 6
-theme = SubResource("Theme_37okk")
-
-[node name="Panel" type="Panel" parent="ChoiceCards/CharacterSphereMeshButton" unique_id=1469094053]
-material = SubResource("ShaderMaterial_2djck")
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_behavior_recursive = 1
-theme = ExtResource("4_h2egi")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="ChoiceCards/CharacterSphereMeshButton/Panel" unique_id=2032433987]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.05
-anchor_top = 0.05
-anchor_right = 0.95
-anchor_bottom = 0.95
-grow_horizontal = 2
-grow_vertical = 2
-mouse_behavior_recursive = 1
-
-[node name="Label" type="Label" parent="ChoiceCards/CharacterSphereMeshButton/Panel/VBoxContainer" unique_id=1727361239]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 2
-theme = SubResource("Theme_fo3dt")
-theme_override_font_sizes/font_size = 45
-text = "Создать шар"
-
-[node name="TextureRect" type="TextureRect" parent="ChoiceCards/CharacterSphereMeshButton/Panel/VBoxContainer" unique_id=2139095999]
-custom_maximum_size = Vector2(300, 300)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 6
-offset_transform_enabled = true
-offset_transform_position = Vector2(0, -30)
-texture = ExtResource("6_7pfxc")
-
-[node name="Label2" type="Label" parent="ChoiceCards/CharacterSphereMeshButton/Panel/VBoxContainer" unique_id=1523229429]
-layout_mode = 2
-size_flags_vertical = 10
-theme = SubResource("Theme_8c0wf")
-theme_override_font_sizes/font_size = 32
-text = "Более интересный вариант для меша, который будет присвоен нашему персонажу"
+text = "Для того, чтобы видеть персонажа и его действия, разумеется, нужен его спрайт."
 horizontal_alignment = 1
 autowrap_mode = 2
 
@@ -728,7 +683,7 @@ size_flags_horizontal = 6
 theme = SubResource("Theme_37okk")
 
 [node name="Panel" type="Panel" parent="ChoiceCards/CircleHealthButton" unique_id=1936777696]
-material = SubResource("ShaderMaterial_kkagw")
+material = SubResource("ShaderMaterial_r03mh")
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
@@ -773,7 +728,7 @@ size_flags_horizontal = 6
 theme = SubResource("Theme_37okk")
 
 [node name="Panel" type="Panel" parent="ChoiceCards/LineHealthButton" unique_id=1090503277]
-material = SubResource("ShaderMaterial_kkagw")
+material = SubResource("ShaderMaterial_wfj4a")
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
@@ -856,8 +811,7 @@ horizontal_alignment = 1
 autowrap_mode = 2
 
 [connection signal="pressed" from="ChoiceCards/WalkButton" to="." method="_on_walk_button_pressed"]
-[connection signal="pressed" from="ChoiceCards/CharacterCubeMeshButton" to="." method="_on_character_cube_mesh_button_pressed"]
-[connection signal="pressed" from="ChoiceCards/CharacterSphereMeshButton" to="." method="_on_character_sphere_mesh_button_pressed"]
+[connection signal="pressed" from="ChoiceCards/CharacterSpriteButton" to="." method="_on_character_sprite_button_pressed"]
 [connection signal="pressed" from="ChoiceCards/NeonEnvironmentButton" to="." method="_on_neon_environment_button_pressed"]
 [connection signal="pressed" from="ChoiceCards/MinimalEnvironmentButton" to="." method="_on_minimal_environment_button_pressed"]
 [connection signal="pressed" from="ChoiceCards/DayLightButton" to="." method="_on_day_light_button_pressed"]

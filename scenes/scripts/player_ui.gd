@@ -18,8 +18,8 @@ func show_bottle() -> void:
 	current_bar = bottle_bar
 	bottle_bar.show()
 
-func discard_health(value: float):
-	var tween = create_tween()
-	var current_hp = current_bar.material.get_shader_parameter("value")
-	tween.tween_property(current_bar.material, "shader_parameter/value", current_hp - value * 0.01, 0.3)
+func set_health(value: float):
+	if current_bar:
+		var tween = create_tween()
+		tween.tween_property(current_bar.material, "shader_parameter/value", value, 0.3)
 	

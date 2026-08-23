@@ -1,8 +1,7 @@
+class_name Enemy
 extends CharacterBody3D
 
 @onready var timer = $Timer
-@onready var hp_bar = $CanvasLayer/ColorRect
-@onready var material = $CanvasLayer/ColorRect.material as ShaderMaterial
 
 @export_group("Movement")
 @export var speed: float = 1.0
@@ -10,19 +9,13 @@ extends CharacterBody3D
 @export var damage: float = 10.0
 
 var player: CharacterBody3D
-var direction: Vector3
+var direction: float
 var current_speed: float
 var is_in_area: bool
 
 func setup(body):
 	player = body
 	current_speed = speed
-
-func _process(_delta: float) -> void:
-	var screen_pos = player.get_node("Camera").unproject_position(global_position)
-	hp_bar.position = screen_pos
-	hp_bar.size = Vector2(100, 15)
-	hp_bar.position.y = -100
 
 func _physics_process(delta: float) -> void:
 	get_input(delta)
@@ -31,28 +24,25 @@ func _physics_process(delta: float) -> void:
 func get_input(_delta) -> void:
 	current_speed = speed
 	if player:
-		direction = (player.position - position).normalized()
+		direction = (player.position - position).normalized().x
 
 func move() -> void:
-	velocity = direction * current_speed
+	velocity.x = direction * current_speed
 	move_and_slide()
+
+func attack() -> void:
+	player.get_damage(damage)
 
 func get_damage(self_damage):
 	hp -= self_damage
-	material.set_shader_parameter("val", hp)
 	if hp <= 0:
 		collision_layer = 2
 		collision_mask = 2
 		set_physics_process(false)
 
-func attack():
-	player.get_damage(damage)
-	timer.start()
-
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body == player:
 		is_in_area = true
-		attack()
 
 func _on_area_3d_body_exited(body: Node3D) -> void:
 	if body == player:

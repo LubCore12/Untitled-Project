@@ -3,8 +3,7 @@ extends Control
 @onready var cards = $ChoiceCards
 @onready var button_child = "Panel"
 
-@onready var cube_mesh_button = $ChoiceCards/CharacterCubeMeshButton
-@onready var cube_sphere_button = $ChoiceCards/CharacterSphereMeshButton
+@onready var sprite_button = $ChoiceCards/CharacterSpriteButton
 @onready var walk_button = $ChoiceCards/WalkButton
 @onready var neon_environment_button = $ChoiceCards/NeonEnvironmentButton
 @onready var minimal_environment_button = $ChoiceCards/MinimalEnvironmentButton
@@ -16,8 +15,7 @@ extends Control
 @onready var bottle_health_button = $ChoiceCards/BottleHealthButton
 
 signal give_walk_ability
-signal create_character_cube_mesh
-signal create_character_sphere_mesh
+signal create_character_sprite
 signal make_neon_environment
 signal make_minimal_environment
 signal set_day_light
@@ -52,13 +50,11 @@ func pressed_event() -> void:
 	choice_done.emit()
 	hide()
 
-func toggle_mesh_choice() -> void:
-	if cube_mesh_button.visible:
-		cube_mesh_button.hide()
-		cube_sphere_button.hide()
+func toggle_sprite_choice() -> void:
+	if sprite_button.visible:
+		sprite_button.hide()
 	else:
-		cube_mesh_button.show()
-		cube_sphere_button.show()
+		sprite_button.show()
 
 func toggle_walk_choice() -> void:
 	if walk_button.visible:
@@ -101,12 +97,6 @@ func toggle_health_choice() -> void:
 func _on_walk_button_pressed() -> void:
 	give_walk_ability.emit()
 
-func _on_character_cube_mesh_button_pressed() -> void:
-	create_character_cube_mesh.emit()
-
-func _on_character_sphere_mesh_button_pressed() -> void:
-	create_character_sphere_mesh.emit()
-
 func _on_neon_environment_button_pressed() -> void:
 	make_neon_environment.emit()
 
@@ -130,3 +120,6 @@ func _on_line_health_bar_pressed() -> void:
 
 func _on_bottle_health_bar_pressed() -> void:
 	add_bottle_health.emit()
+
+func _on_character_sprite_button_pressed() -> void:
+	create_character_sprite.emit()

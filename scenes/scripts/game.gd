@@ -8,6 +8,9 @@ extends Node3D
 @onready var player = $Player
 @onready var enemies = $Enemies
 @onready var player_ui = $CanvasLayer/PlayerUI
+@onready var environment = $Environment
+@onready var day_light = $DirectionalLights/Day
+@onready var night_light = $DirectionalLights/Night
 @onready var enemy_scene = preload("res://scenes/enemy.tscn")
 
 @export_group("DialogStats")
@@ -31,48 +34,48 @@ func _ready() -> void:
 		
 	dialog_panel.hide()
 	await get_tree().create_timer(0.5).timeout
-	choice_menu.toggle_mesh_choice()
+	choice_menu.toggle_sprite_choice()
 	choice_menu.show()
 	await choice_menu.choice_done
-	choice_menu.toggle_mesh_choice()
+	choice_menu.toggle_sprite_choice()
 	await get_tree().create_timer(0.5).timeout
 	dialog_panel.show()
 	
-	#for label in dialogs.get_child(1).get_children():
-		#await display_text(label)
-		#
-	#dialog_panel.hide()
-	#await get_tree().create_timer(0.5).timeout
-	#choice_menu.toggle_walk_choice()
-	#choice_menu.show()
-	#await choice_menu.choice_done
-	#choice_menu.toggle_walk_choice()
-	#await get_tree().create_timer(3).timeout
-	#dialog_panel.show()
-	#
-	#for label in dialogs.get_child(2).get_children():
-		#await display_text(label)
-		#
-	#dialog_panel.hide()
-	#await get_tree().create_timer(0.5).timeout
-	#choice_menu.toggle_environment_choice()
-	#choice_menu.show()
-	#await choice_menu.choice_done
-	#choice_menu.toggle_environment_choice()
-	#await get_tree().create_timer(3).timeout
-	#dialog_panel.show()
-	#
-	#for label in dialogs.get_child(3).get_children():
-		#await display_text(label)
-		#
-	#dialog_panel.hide()
-	#await get_tree().create_timer(0.5).timeout
-	#choice_menu.toggle_light_choice()
-	#choice_menu.show()
-	#await choice_menu.choice_done
-	#choice_menu.toggle_light_choice()
-	#await get_tree().create_timer(2).timeout
-	#dialog_panel.show()
+	for label in dialogs.get_child(1).get_children():
+		await display_text(label)
+		
+	dialog_panel.hide()
+	await get_tree().create_timer(0.5).timeout
+	choice_menu.toggle_walk_choice()
+	choice_menu.show()
+	await choice_menu.choice_done
+	choice_menu.toggle_walk_choice()
+	await get_tree().create_timer(3).timeout
+	dialog_panel.show()
+	
+	for label in dialogs.get_child(2).get_children():
+		await display_text(label)
+		
+	dialog_panel.hide()
+	await get_tree().create_timer(0.5).timeout
+	choice_menu.toggle_environment_choice()
+	choice_menu.show()
+	await choice_menu.choice_done
+	choice_menu.toggle_environment_choice()
+	await get_tree().create_timer(3).timeout
+	dialog_panel.show()
+	
+	for label in dialogs.get_child(3).get_children():
+		await display_text(label)
+		
+	dialog_panel.hide()
+	await get_tree().create_timer(0.5).timeout
+	choice_menu.toggle_light_choice()
+	choice_menu.show()
+	await choice_menu.choice_done
+	choice_menu.toggle_light_choice()
+	await get_tree().create_timer(2).timeout
+	dialog_panel.show()
 	
 	for label in dialogs.get_child(4).get_children():
 		await display_text(label)
@@ -121,23 +124,17 @@ func display_text(text: RichTextLabel):
 func _on_choice_menu_give_walk_ability() -> void:
 	player.start_walking()
 
-func _on_choice_menu_create_character_cube_mesh() -> void:
-	player.create_cube_mesh()
-
-func _on_choice_menu_create_character_sphere_mesh() -> void:
-	player.create_sphere_mesh()
-
 func _on_choice_menu_make_minimal_environment() -> void:
-	pass
+	environment.show()
 
 func _on_choice_menu_make_neon_environment() -> void:
-	pass
+	environment.show()
 
 func _on_choice_menu_set_day_light() -> void:
-	pass
+	day_light.show()
 
 func _on_choice_menu_set_night_light() -> void:
-	pass
+	night_light.show()
 
 func _on_choice_menu_make_enemy_creation() -> void:
 	var enemy = enemy_scene.instantiate()
@@ -153,7 +150,9 @@ func _on_choice_menu_add_circle_health() -> void:
 
 func _on_choice_menu_add_line_health() -> void:
 	player_ui.show_line()
-
-func _on_player_damaged(dam: Variant) -> void:
-	player_ui.discard_health(player.hp)
 	
+func _on_choice_menu_create_character_sprite() -> void:
+	player.show_sprite()
+
+func _on_player_player_damaged(damage: float) -> void:
+	player_ui.set_health(damage)

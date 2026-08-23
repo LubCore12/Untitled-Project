@@ -20,18 +20,32 @@ sky = SubResource("Sky_yqjtg")
 glow_enabled = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fo3dt"]
-albedo_color = Color(1, 0.34509805, 0, 1)
+albedo_color = Color(1, 0.86052245, 0.81341904, 1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_37okk"]
 material = SubResource("StandardMaterial3D_fo3dt")
-size = Vector2(1000, 1000)
+size = Vector2(1000, 5)
 
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_uwrxv"]
-data = PackedVector3Array(500, 0, 500, -500, 0, 500, 500, 0, -500, -500, 0, 500, -500, 0, -500, 500, 0, -500)
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_p57ef"]
+data = PackedVector3Array(500, 0, 2.5, -500, 0, 2.5, 500, 0, -2.5, -500, 0, 2.5, -500, 0, -2.5, 500, 0, -2.5)
 
-[sub_resource type="CylinderMesh" id="CylinderMesh_37okk"]
+[sub_resource type="BoxMesh" id="BoxMesh_37okk"]
+size = Vector3(100, 100, 1)
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_lbhrr"]
+[sub_resource type="BoxMesh" id="BoxMesh_fo3dt"]
+size = Vector3(1, 1, 3.4990234)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_u5sy4"]
+data = PackedVector3Array(-0.5, 0.5, 1.7494999, 0.5, 0.5, 1.7494999, -0.5, -0.5, 1.7494999, 0.5, 0.5, 1.7494999, 0.5, -0.5, 1.7494999, -0.5, -0.5, 1.7494999, 0.5, 0.5, -1.7494999, -0.5, 0.5, -1.7494999, 0.5, -0.5, -1.7494999, -0.5, 0.5, -1.7494999, -0.5, -0.5, -1.7494999, 0.5, -0.5, -1.7494999, 0.5, 0.5, 1.7494999, 0.5, 0.5, -1.7494999, 0.5, -0.5, 1.7494999, 0.5, 0.5, -1.7494999, 0.5, -0.5, -1.7494999, 0.5, -0.5, 1.7494999, -0.5, 0.5, -1.7494999, -0.5, 0.5, 1.7494999, -0.5, -0.5, -1.7494999, -0.5, 0.5, 1.7494999, -0.5, -0.5, 1.7494999, -0.5, -0.5, -1.7494999, 0.5, 0.5, 1.7494999, -0.5, 0.5, 1.7494999, 0.5, 0.5, -1.7494999, -0.5, 0.5, 1.7494999, -0.5, 0.5, -1.7494999, 0.5, 0.5, -1.7494999, -0.5, -0.5, 1.7494999, 0.5, -0.5, 1.7494999, -0.5, -0.5, -1.7494999, 0.5, -0.5, 1.7494999, 0.5, -0.5, -1.7494999, -0.5, -0.5, -1.7494999)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_gee14"]
+data = PackedVector3Array(-0.5, 0.5, 1.7494999, 0.5, 0.5, 1.7494999, -0.5, -0.5, 1.7494999, 0.5, 0.5, 1.7494999, 0.5, -0.5, 1.7494999, -0.5, -0.5, 1.7494999, 0.5, 0.5, -1.7494999, -0.5, 0.5, -1.7494999, 0.5, -0.5, -1.7494999, -0.5, 0.5, -1.7494999, -0.5, -0.5, -1.7494999, 0.5, -0.5, -1.7494999, 0.5, 0.5, 1.7494999, 0.5, 0.5, -1.7494999, 0.5, -0.5, 1.7494999, 0.5, 0.5, -1.7494999, 0.5, -0.5, -1.7494999, 0.5, -0.5, 1.7494999, -0.5, 0.5, -1.7494999, -0.5, 0.5, 1.7494999, -0.5, -0.5, -1.7494999, -0.5, 0.5, 1.7494999, -0.5, -0.5, 1.7494999, -0.5, -0.5, -1.7494999, 0.5, 0.5, 1.7494999, -0.5, 0.5, 1.7494999, 0.5, 0.5, -1.7494999, -0.5, 0.5, 1.7494999, -0.5, 0.5, -1.7494999, 0.5, 0.5, -1.7494999, -0.5, -0.5, 1.7494999, 0.5, -0.5, 1.7494999, -0.5, -0.5, -1.7494999, 0.5, -0.5, 1.7494999, 0.5, -0.5, -1.7494999, -0.5, -0.5, -1.7494999)
+
+[sub_resource type="BoxMesh" id="BoxMesh_2gruq"]
+size = Vector3(11.875366, 1, 6.055664)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_0tnpc"]
+data = PackedVector3Array(-5.9377, 0.5, 3.0277998, 5.9377, 0.5, 3.0277998, -5.9377, -0.5, 3.0277998, 5.9377, 0.5, 3.0277998, 5.9377, -0.5, 3.0277998, -5.9377, -0.5, 3.0277998, 5.9377, 0.5, -3.0277998, -5.9377, 0.5, -3.0277998, 5.9377, -0.5, -3.0277998, -5.9377, 0.5, -3.0277998, -5.9377, -0.5, -3.0277998, 5.9377, -0.5, -3.0277998, 5.9377, 0.5, 3.0277998, 5.9377, 0.5, -3.0277998, 5.9377, -0.5, 3.0277998, 5.9377, 0.5, -3.0277998, 5.9377, -0.5, -3.0277998, 5.9377, -0.5, 3.0277998, -5.9377, 0.5, -3.0277998, -5.9377, 0.5, 3.0277998, -5.9377, -0.5, -3.0277998, -5.9377, 0.5, 3.0277998, -5.9377, -0.5, 3.0277998, -5.9377, -0.5, -3.0277998, 5.9377, 0.5, 3.0277998, -5.9377, 0.5, 3.0277998, 5.9377, 0.5, -3.0277998, -5.9377, 0.5, 3.0277998, -5.9377, 0.5, -3.0277998, 5.9377, 0.5, -3.0277998, -5.9377, -0.5, 3.0277998, 5.9377, -0.5, 3.0277998, -5.9377, -0.5, -3.0277998, 5.9377, -0.5, 3.0277998, 5.9377, -0.5, -3.0277998, -5.9377, -0.5, -3.0277998)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_37okk"]
 shader = ExtResource("2_yqjtg")
@@ -59,33 +73,79 @@ comma_time = 0.0
 space_time = 0.0
 dialog_wait_time = 0.0
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1193258410]
-transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 10.395413, 29.990355)
+[node name="DirectionalLights" type="Node3D" parent="." unique_id=243151245]
+
+[node name="Night" type="DirectionalLight3D" parent="DirectionalLights" unique_id=1193258410]
+transform = Transform3D(-0.8660254, 0.08682416, -0.49240392, -0.49309474, -0.31141257, 0.8123299, -0.0828109, 0.9463001, 0.3125037, 0, 55.350777, 11.56872)
+visible = false
+light_color = Color(0, 0.15709323, 0.15709323, 1)
+light_energy = 2.0
+shadow_enabled = true
+
+[node name="Day" type="DirectionalLight3D" parent="DirectionalLights" unique_id=1774535806]
+transform = Transform3D(-0.8660254, 0.08682416, -0.49240392, -0.49309474, -0.31141257, 0.8123299, -0.0828109, 0.9463001, 0.3125037, 0, 55.350777, 11.56872)
+visible = false
+light_color = Color(1, 0.9137255, 0.33333334, 1)
+light_energy = 2.0
 shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1619049830]
 environment = SubResource("Environment_lnu2h")
-
-[node name="Player" parent="." unique_id=132662011 instance=ExtResource("1_uwrxv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.75721, 0, -0.07981348)
 
 [node name="Floor" type="StaticBody3D" parent="." unique_id=969261638]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Floor" unique_id=1279481240]
 mesh = SubResource("PlaneMesh_37okk")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor" unique_id=1562142076]
-shape = SubResource("ConcavePolygonShape3D_uwrxv")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor" unique_id=1233260330]
+shape = SubResource("ConcavePolygonShape3D_p57ef")
 
-[node name="StaticBody3D2" type="StaticBody3D" parent="." unique_id=575346912]
+[node name="Environment" type="Node3D" parent="." unique_id=323183304]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.1101048)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D2" unique_id=1132131986]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3485203, 0.77097654, 3.1012936)
-mesh = SubResource("CylinderMesh_37okk")
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Environment" unique_id=1916507809]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.878141)
+mesh = SubResource("BoxMesh_37okk")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2" unique_id=436460349]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3485203, 0.77097654, 3.1012936)
-shape = SubResource("CylinderShape3D_lbhrr")
+[node name="SpotLight3D" type="SpotLight3D" parent="Environment" unique_id=391141703]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.980569, 3.7103195, 5.082719)
+light_color = Color(0.9569717, 1.35728715e-05, 0.62582296, 1)
+spot_range = 18.585
+spot_attenuation = 0.06
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Environment" unique_id=1928229815]
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Environment/StaticBody3D" unique_id=1240052337]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.6348248, 2.1315536, -1.2495117)
+mesh = SubResource("BoxMesh_fo3dt")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Environment/StaticBody3D" unique_id=1957858040]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.6348248, 2.1315536, -1.2495117)
+shape = SubResource("ConcavePolygonShape3D_u5sy4")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="Environment" unique_id=604149528]
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Environment/StaticBody3D2" unique_id=997065628]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.448553, 4.329687, -1.2495117)
+mesh = SubResource("BoxMesh_fo3dt")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/StaticBody3D2" unique_id=1889492761]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.448553, 4.329687, -1.2495117)
+shape = SubResource("ConcavePolygonShape3D_gee14")
+
+[node name="StaticBody3D3" type="StaticBody3D" parent="Environment" unique_id=558752333]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.944585, 4.952041, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Environment/StaticBody3D3" unique_id=71736713]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.437683, 0, -2.527832)
+mesh = SubResource("BoxMesh_2gruq")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/StaticBody3D3" unique_id=1348661425]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.437683, 0, -2.527832)
+shape = SubResource("ConcavePolygonShape3D_0tnpc")
+
+[node name="Player" parent="." unique_id=132662011 instance=ExtResource("1_uwrxv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.75721, 0, -0.07981348)
 
 [node name="Enemies" type="Node3D" parent="." unique_id=1781416593]
 
@@ -531,11 +591,11 @@ visible_ratio = 0.0
 [node name="ChoiceMenu" parent="CanvasLayer" unique_id=1031216120 instance=ExtResource("4_lbhrr")]
 visible = false
 
+[connection signal="player_damaged" from="Player" to="." method="_on_player_player_damaged"]
 [connection signal="add_bottle_health" from="CanvasLayer/ChoiceMenu" to="." method="_on_choice_menu_add_bottle_health"]
 [connection signal="add_circle_health" from="CanvasLayer/ChoiceMenu" to="." method="_on_choice_menu_add_circle_health"]
 [connection signal="add_line_health" from="CanvasLayer/ChoiceMenu" to="." method="_on_choice_menu_add_line_health"]
-[connection signal="create_character_cube_mesh" from="CanvasLayer/ChoiceMenu" to="." method="_on_choice_menu_create_character_cube_mesh"]
-[connection signal="create_character_sphere_mesh" from="CanvasLayer/ChoiceMenu" to="." method="_on_choice_menu_create_character_sphere_mesh"]
+[connection signal="create_character_sprite" from="CanvasLayer/ChoiceMenu" to="." method="_on_choice_menu_create_character_sprite"]
 [connection signal="give_walk_ability" from="CanvasLayer/ChoiceMenu" to="." method="_on_choice_menu_give_walk_ability"]
 [connection signal="make_enemy_creation" from="CanvasLayer/ChoiceMenu" to="." method="_on_choice_menu_make_enemy_creation"]
 [connection signal="make_minimal_environment" from="CanvasLayer/ChoiceMenu" to="." method="_on_choice_menu_make_minimal_environment"]
