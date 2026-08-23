@@ -11,6 +11,9 @@ extends Control
 @onready var day_light_button = $ChoiceCards/DayLightButton
 @onready var night_light_button = $ChoiceCards/NightLightButton
 @onready var enemy_creation_button = $ChoiceCards/EnemyCreationButton
+@onready var circle_health_button = $ChoiceCards/CircleHealthButton
+@onready var line_health_button = $ChoiceCards/LineHealthButton
+@onready var bottle_health_button = $ChoiceCards/BottleHealthButton
 
 signal give_walk_ability
 signal create_character_cube_mesh
@@ -20,6 +23,9 @@ signal make_minimal_environment
 signal set_day_light
 signal set_night_light
 signal make_enemy_creation
+signal add_circle_health
+signal add_line_health
+signal add_bottle_health
 
 signal choice_done
 
@@ -82,6 +88,16 @@ func toggle_enemy_choice() -> void:
 	else:
 		enemy_creation_button.show()
 
+func toggle_health_choice() -> void:
+	if circle_health_button.visible:
+		circle_health_button.hide()
+		line_health_button.hide()
+		bottle_health_button.hide()
+	else:
+		circle_health_button.show()
+		line_health_button.show()
+		bottle_health_button.show()
+
 func _on_walk_button_pressed() -> void:
 	give_walk_ability.emit()
 
@@ -105,3 +121,12 @@ func _on_night_light_button_pressed() -> void:
 
 func _on_enemy_creation_button_pressed() -> void:
 	make_enemy_creation.emit()
+
+func _on_circle_health_button_pressed() -> void:
+	add_circle_health.emit()
+
+func _on_line_health_bar_pressed() -> void:
+	add_line_health.emit()
+
+func _on_bottle_health_bar_pressed() -> void:
+	add_bottle_health.emit()

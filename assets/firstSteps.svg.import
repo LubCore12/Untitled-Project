@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c844ikt6dtcsr"
-path="res://.godot/imported/player_vremenno.png-d173bd8202bb6bc6ee389274f5d74e75.ctex"
+uid="uid://7o7s2yitaadx"
+path="res://.godot/imported/firstSteps.svg-a93668e5eed1af707fa27152acb6191c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/player_vremenno.png"
-dest_files=["res://.godot/imported/player_vremenno.png-d173bd8202bb6bc6ee389274f5d74e75.ctex"]
+source_file="res://assets/firstSteps.svg"
+dest_files=["res://.godot/imported/firstSteps.svg-a93668e5eed1af707fa27152acb6191c.ctex"]
 
 [params]
 
@@ -38,3 +38,6 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
+svg/scale=1.0
+editor/scale_with_editor_scale=false
+editor/convert_colors_with_editor_theme=false

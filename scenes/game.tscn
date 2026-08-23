@@ -5,6 +5,7 @@
 [ext_resource type="Shader" uid="uid://bh0gij6m1gdhs" path="res://shaders/transition.gdshader" id="2_yqjtg"]
 [ext_resource type="FontFile" uid="uid://c64ld6cc2ggth" path="res://fonts/SofiaSans-Regular.ttf" id="3_iywne"]
 [ext_resource type="PackedScene" uid="uid://ck5bnij8waq8q" path="res://scenes/choice_menu.tscn" id="4_lbhrr"]
+[ext_resource type="PackedScene" uid="uid://o4i0n352u43r" path="res://scenes/player_ui.tscn" id="6_p57ef"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_uwrxv"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -504,7 +505,7 @@ grow_vertical = 2
 theme = SubResource("Theme_37okk")
 theme_override_font_sizes/normal_font_size = 40
 bbcode_enabled = true
-text = "Интере"
+text = "Интереcный выбор."
 visible_characters = 0
 visible_ratio = 0.0
 
@@ -524,9 +525,14 @@ text = "Так давай же добавим здоровье и интерфе
 visible_characters = 0
 visible_ratio = 0.0
 
+[node name="PlayerUI" parent="CanvasLayer" unique_id=1791843228 instance=ExtResource("6_p57ef")]
+
 [node name="ChoiceMenu" parent="CanvasLayer" unique_id=1031216120 instance=ExtResource("4_lbhrr")]
 visible = false
 
+[connection signal="add_bottle_health" from="CanvasLayer/ChoiceMenu" to="." method="_on_choice_menu_add_bottle_health"]
+[connection signal="add_circle_health" from="CanvasLayer/ChoiceMenu" to="." method="_on_choice_menu_add_circle_health"]
+[connection signal="add_line_health" from="CanvasLayer/ChoiceMenu" to="." method="_on_choice_menu_add_line_health"]
 [connection signal="create_character_cube_mesh" from="CanvasLayer/ChoiceMenu" to="." method="_on_choice_menu_create_character_cube_mesh"]
 [connection signal="create_character_sphere_mesh" from="CanvasLayer/ChoiceMenu" to="." method="_on_choice_menu_create_character_sphere_mesh"]
 [connection signal="give_walk_ability" from="CanvasLayer/ChoiceMenu" to="." method="_on_choice_menu_give_walk_ability"]

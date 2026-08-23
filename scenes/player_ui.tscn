@@ -1,5 +1,29 @@
 [gd_scene format=3 uid="uid://o4i0n352u43r"]
 
+[ext_resource type="Script" uid="uid://ddv4ntygufv57" path="res://scenes/scripts/player_ui.gd" id="1_8isll"]
+[ext_resource type="Shader" uid="uid://dobxy1cmc3igh" path="res://shaders/line_bar.gdshader" id="1_jkj6h"]
+[ext_resource type="Shader" uid="uid://dev70a6sltn5f" path="res://shaders/circle_bar.gdshader" id="2_sk4pr"]
+[ext_resource type="Shader" uid="uid://s6j0675xdx51" path="res://shaders/bottle_bar.gdshader" id="3_48xfa"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_guxnq"]
+shader = ExtResource("1_jkj6h")
+shader_parameter/value = 0.999999977648
+shader_parameter/background_color = Color(0.13567707, 0.1356771, 0.13567707, 1)
+shader_parameter/health_color = Color(0.8799865, 0.83677167, 0.8445649, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jkj6h"]
+shader = ExtResource("2_sk4pr")
+shader_parameter/circle_width = 0.27999999374144
+shader_parameter/value = 0.23999999463552
+shader_parameter/background_color = Color(0.13725491, 0.13725491, 0.13725491, 1)
+shader_parameter/health_color = Color(0.8784314, 0.8352941, 0.84313726, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_sk4pr"]
+shader = ExtResource("3_48xfa")
+shader_parameter/value = 0.68999998457712
+shader_parameter/background_color = Color(0.13725491, 0.13725491, 0.13725491, 1)
+shader_parameter/health_color = Color(0.8784314, 0.8352941, 0.84313726, 1)
+
 [node name="PlayerUI" type="Control" unique_id=1791843228]
 layout_mode = 3
 anchors_preset = 15
@@ -7,20 +31,37 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_8isll")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1582138688]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.03
+anchor_top = 0.03
+anchor_right = 0.3
+anchor_bottom = 1.0
 
 [node name="HealthBarTypes" type="HBoxContainer" parent="VBoxContainer" unique_id=211166009]
 layout_mode = 2
+size_flags_vertical = 3
 
 [node name="LineBar" type="ColorRect" parent="VBoxContainer/HealthBarTypes" unique_id=2117184087]
+visible = false
+material = SubResource("ShaderMaterial_guxnq")
+custom_maximum_size = Vector2(-1, 40)
 layout_mode = 2
+size_flags_horizontal = 3
 
 [node name="CircleBar" type="ColorRect" parent="VBoxContainer/HealthBarTypes" unique_id=693975217]
+visible = false
+material = SubResource("ShaderMaterial_jkj6h")
+custom_maximum_size = Vector2(100, 100)
 layout_mode = 2
+size_flags_horizontal = 3
 
 [node name="BottleBar" type="ColorRect" parent="VBoxContainer/HealthBarTypes" unique_id=158028984]
+visible = false
+material = SubResource("ShaderMaterial_sk4pr")
+custom_maximum_size = Vector2(100, 100)
 layout_mode = 2
+size_flags_horizontal = 3

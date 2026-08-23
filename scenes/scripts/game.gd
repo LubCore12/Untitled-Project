@@ -7,6 +7,7 @@ extends Node3D
 @onready var dialogs = $CanvasLayer/Dialogs
 @onready var player = $Player
 @onready var enemies = $Enemies
+@onready var player_ui = $CanvasLayer/PlayerUI
 @onready var enemy_scene = preload("res://scenes/enemy.tscn")
 
 @export_group("DialogStats")
@@ -85,6 +86,18 @@ func _ready() -> void:
 	await get_tree().create_timer(2).timeout
 	dialog_panel.show()
 	
+	for label in dialogs.get_child(5).get_children():
+		await display_text(label)
+		
+	dialog_panel.hide()
+	await get_tree().create_timer(0.5).timeout
+	choice_menu.toggle_health_choice()
+	choice_menu.show()
+	await choice_menu.choice_done
+	choice_menu.toggle_health_choice()
+	await get_tree().create_timer(2).timeout
+	dialog_panel.show()
+	
 func display_text(text: RichTextLabel):
 	text.visible_characters = 0
 	var total_chars = text.get_total_character_count()
@@ -131,3 +144,12 @@ func _on_choice_menu_make_enemy_creation() -> void:
 	enemy.setup(player)
 	enemy.position.x = -10
 	enemies.add_child(enemy)
+
+func _on_choice_menu_add_bottle_health() -> void:
+	player_ui.show_bottle()
+
+func _on_choice_menu_add_circle_health() -> void:
+	player_ui.show_circle()
+
+func _on_choice_menu_add_line_health() -> void:
+	player_ui.show_line()

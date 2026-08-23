@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://o0da632e8oqy" path="res://scenes/scripts/choice_menu.gd" id="1_8c0wf"]
 [ext_resource type="FontFile" uid="uid://c64ld6cc2ggth" path="res://fonts/SofiaSans-Regular.ttf" id="1_rjk36"]
 [ext_resource type="Shader" uid="uid://b2tfi3qos3bvn" path="res://shaders/shine.gdshader" id="2_gwhgv"]
+[ext_resource type="Texture2D" uid="uid://7o7s2yitaadx" path="res://assets/firstSteps.svg" id="4_al8qj"]
 [ext_resource type="Theme" uid="uid://bqeshx52nxy27" path="res://themes/card_theme.tres" id="4_h2egi"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ila21"]
@@ -266,14 +267,9 @@ color = Color(0.2253859, 0.2253859, 0.2253859, 0.39215687)
 [node name="ChoiceCards" type="HBoxContainer" parent="." unique_id=731604326]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.2
 anchor_top = 0.2
-anchor_right = 0.8
+anchor_right = 1.0
 anchor_bottom = 0.8
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -312,6 +308,14 @@ size_flags_horizontal = 4
 theme = SubResource("Theme_fo3dt")
 theme_override_font_sizes/font_size = 45
 text = "Первый шаг!"
+
+[node name="TextureRect" type="TextureRect" parent="ChoiceCards/WalkButton/Panel/VBoxContainer" unique_id=400439581]
+custom_minimum_size = Vector2(300, 300)
+custom_maximum_size = Vector2(300, 300)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 10
+texture = ExtResource("4_al8qj")
 
 [node name="Label2" type="Label" parent="ChoiceCards/WalkButton/Panel/VBoxContainer" unique_id=1534913960]
 layout_mode = 2
@@ -671,25 +675,25 @@ layout_mode = 2
 size_flags_horizontal = 4
 theme = SubResource("Theme_fo3dt")
 theme_override_font_sizes/font_size = 45
-text = "Враг"
+text = "Круглое здоровье"
 
 [node name="Label2" type="Label" parent="ChoiceCards/CircleHealthButton/Panel/VBoxContainer" unique_id=1608658229]
 layout_mode = 2
 size_flags_vertical = 10
 theme = SubResource("Theme_8c0wf")
 theme_override_font_sizes/font_size = 32
-text = "Первая часть игры, которая добавляет в нее реальный геймплей"
+text = "Интересный вариант отрисовки текущего здоровья в виде круга с вырезом по середине"
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="LineHealthBar" type="Button" parent="ChoiceCards" unique_id=1677500102]
+[node name="LineHealthButton" type="Button" parent="ChoiceCards" unique_id=1677500102]
 visible = false
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
 size_flags_horizontal = 6
 theme = SubResource("Theme_37okk")
 
-[node name="Panel" type="Panel" parent="ChoiceCards/LineHealthBar" unique_id=1090503277]
+[node name="Panel" type="Panel" parent="ChoiceCards/LineHealthButton" unique_id=1090503277]
 material = SubResource("ShaderMaterial_kkagw")
 layout_mode = 1
 anchors_preset = -1
@@ -700,7 +704,7 @@ grow_vertical = 2
 mouse_behavior_recursive = 1
 theme = ExtResource("4_h2egi")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ChoiceCards/LineHealthBar/Panel" unique_id=2081131397]
+[node name="VBoxContainer" type="VBoxContainer" parent="ChoiceCards/LineHealthButton/Panel" unique_id=2081131397]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.05
@@ -711,30 +715,30 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_behavior_recursive = 1
 
-[node name="Label" type="Label" parent="ChoiceCards/LineHealthBar/Panel/VBoxContainer" unique_id=2127198097]
+[node name="Label" type="Label" parent="ChoiceCards/LineHealthButton/Panel/VBoxContainer" unique_id=2127198097]
 layout_mode = 2
 size_flags_horizontal = 4
 theme = SubResource("Theme_fo3dt")
 theme_override_font_sizes/font_size = 45
-text = "Враг"
+text = "Полоска"
 
-[node name="Label2" type="Label" parent="ChoiceCards/LineHealthBar/Panel/VBoxContainer" unique_id=1498510363]
+[node name="Label2" type="Label" parent="ChoiceCards/LineHealthButton/Panel/VBoxContainer" unique_id=1498510363]
 layout_mode = 2
 size_flags_vertical = 10
 theme = SubResource("Theme_8c0wf")
 theme_override_font_sizes/font_size = 32
-text = "Первая часть игры, которая добавляет в нее реальный геймплей"
+text = "Обыкновенный вариант здоровья, который есть в доброй половине игр с такой механикой"
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="SphereHealthBar" type="Button" parent="ChoiceCards" unique_id=539123230]
+[node name="BottleHealthButton" type="Button" parent="ChoiceCards" unique_id=539123230]
 visible = false
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
 size_flags_horizontal = 6
 theme = SubResource("Theme_37okk")
 
-[node name="Panel" type="Panel" parent="ChoiceCards/SphereHealthBar" unique_id=1781397272]
+[node name="Panel" type="Panel" parent="ChoiceCards/BottleHealthButton" unique_id=1781397272]
 material = SubResource("ShaderMaterial_kkagw")
 layout_mode = 1
 anchors_preset = -1
@@ -745,7 +749,7 @@ grow_vertical = 2
 mouse_behavior_recursive = 1
 theme = ExtResource("4_h2egi")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ChoiceCards/SphereHealthBar/Panel" unique_id=414703171]
+[node name="VBoxContainer" type="VBoxContainer" parent="ChoiceCards/BottleHealthButton/Panel" unique_id=414703171]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.05
@@ -756,19 +760,19 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_behavior_recursive = 1
 
-[node name="Label" type="Label" parent="ChoiceCards/SphereHealthBar/Panel/VBoxContainer" unique_id=1409837327]
+[node name="Label" type="Label" parent="ChoiceCards/BottleHealthButton/Panel/VBoxContainer" unique_id=1409837327]
 layout_mode = 2
 size_flags_horizontal = 4
 theme = SubResource("Theme_fo3dt")
 theme_override_font_sizes/font_size = 45
-text = "Враг"
+text = "Колба"
 
-[node name="Label2" type="Label" parent="ChoiceCards/SphereHealthBar/Panel/VBoxContainer" unique_id=63405850]
+[node name="Label2" type="Label" parent="ChoiceCards/BottleHealthButton/Panel/VBoxContainer" unique_id=63405850]
 layout_mode = 2
 size_flags_vertical = 10
 theme = SubResource("Theme_8c0wf")
 theme_override_font_sizes/font_size = 32
-text = "Первая часть игры, которая добавляет в нее реальный геймплей"
+text = "Чем-то напоминает круглое здоровье, но с более интересной реализацией в виде бутылки"
 horizontal_alignment = 1
 autowrap_mode = 2
 
@@ -780,6 +784,6 @@ autowrap_mode = 2
 [connection signal="pressed" from="ChoiceCards/DayLightButton" to="." method="_on_day_light_button_pressed"]
 [connection signal="pressed" from="ChoiceCards/NightLightButton" to="." method="_on_night_light_button_pressed"]
 [connection signal="pressed" from="ChoiceCards/EnemyCreationButton" to="." method="_on_enemy_creation_button_pressed"]
-[connection signal="pressed" from="ChoiceCards/CircleHealthButton" to="." method="_on_enemy_creation_button_pressed"]
-[connection signal="pressed" from="ChoiceCards/LineHealthBar" to="." method="_on_enemy_creation_button_pressed"]
-[connection signal="pressed" from="ChoiceCards/SphereHealthBar" to="." method="_on_enemy_creation_button_pressed"]
+[connection signal="pressed" from="ChoiceCards/CircleHealthButton" to="." method="_on_circle_health_button_pressed"]
+[connection signal="pressed" from="ChoiceCards/LineHealthButton" to="." method="_on_line_health_bar_pressed"]
+[connection signal="pressed" from="ChoiceCards/BottleHealthButton" to="." method="_on_bottle_health_bar_pressed"]
