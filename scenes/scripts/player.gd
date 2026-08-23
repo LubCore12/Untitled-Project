@@ -28,7 +28,8 @@ func _ready() -> void:
 
 func _physics_process(_delta: float) -> void:
 	get_input()
-	move()
+	if can_walk:
+		move()
 	
 func move() -> void:
 	if Input.is_action_just_pressed("attack") and can_attack:

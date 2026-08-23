@@ -1,4 +1,4 @@
-class_name Enemy
+class_name EnemyClose
 extends CharacterBody3D
 
 @onready var timer = $Timer
@@ -50,5 +50,4 @@ func _on_area_3d_body_exited(body: Node3D) -> void:
 
 func _on_timer_timeout() -> void:
 	if is_in_area:
-		print('a')
 		attack()

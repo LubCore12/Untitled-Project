@@ -9,7 +9,8 @@ extends Control
 @onready var minimal_environment_button = $ChoiceCards/MinimalEnvironmentButton
 @onready var day_light_button = $ChoiceCards/DayLightButton
 @onready var night_light_button = $ChoiceCards/NightLightButton
-@onready var enemy_creation_button = $ChoiceCards/EnemyCreationButton
+@onready var enemy_close_creation_button = $ChoiceCards/EnemyCloseCreationButton
+@onready var enemy_long_creation_button = $ChoiceCards/EnemyLongCreationButton
 @onready var circle_health_button = $ChoiceCards/CircleHealthButton
 @onready var line_health_button = $ChoiceCards/LineHealthButton
 @onready var bottle_health_button = $ChoiceCards/BottleHealthButton
@@ -20,10 +21,11 @@ signal make_neon_environment
 signal make_minimal_environment
 signal set_day_light
 signal set_night_light
-signal make_enemy_creation
+signal make_enemy_close_creation
 signal add_circle_health
 signal add_line_health
 signal add_bottle_health
+signal make_enemy_long_creation
 
 signal choice_done
 
@@ -79,10 +81,12 @@ func toggle_light_choice() -> void:
 		night_light_button.show()
 		
 func toggle_enemy_choice() -> void:
-	if enemy_creation_button.visible:
-		enemy_creation_button.hide()
+	if enemy_close_creation_button.visible:
+		enemy_close_creation_button.hide()
+		enemy_long_creation_button.hide()
 	else:
-		enemy_creation_button.show()
+		enemy_close_creation_button.show()
+		enemy_long_creation_button.show()
 
 func toggle_health_choice() -> void:
 	if circle_health_button.visible:
@@ -109,8 +113,11 @@ func _on_day_light_button_pressed() -> void:
 func _on_night_light_button_pressed() -> void:
 	set_night_light.emit()
 
-func _on_enemy_creation_button_pressed() -> void:
-	make_enemy_creation.emit()
+func _on_enemy_close_creation_button_pressed() -> void:
+	make_enemy_close_creation.emit()
+
+func _on_enemy_long_creation_button_pressed() -> void:
+	make_enemy_long_creation.emit()
 
 func _on_circle_health_button_pressed() -> void:
 	add_circle_health.emit()

@@ -620,14 +620,14 @@ text = "Представь, каким атмосферным будет так�
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="EnemyCreationButton" type="Button" parent="ChoiceCards" unique_id=847278461]
+[node name="EnemyCloseCreationButton" type="Button" parent="ChoiceCards" unique_id=847278461]
 visible = false
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
 size_flags_horizontal = 6
 theme = SubResource("Theme_37okk")
 
-[node name="Panel" type="Panel" parent="ChoiceCards/EnemyCreationButton" unique_id=684675746]
+[node name="Panel" type="Panel" parent="ChoiceCards/EnemyCloseCreationButton" unique_id=684675746]
 material = SubResource("ShaderMaterial_axv1t")
 layout_mode = 1
 anchors_preset = -1
@@ -638,7 +638,7 @@ grow_vertical = 2
 mouse_behavior_recursive = 1
 theme = ExtResource("4_h2egi")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ChoiceCards/EnemyCreationButton/Panel" unique_id=1175650727]
+[node name="VBoxContainer" type="VBoxContainer" parent="ChoiceCards/EnemyCloseCreationButton/Panel" unique_id=1175650727]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.05
@@ -649,15 +649,15 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_behavior_recursive = 1
 
-[node name="Label" type="Label" parent="ChoiceCards/EnemyCreationButton/Panel/VBoxContainer" unique_id=1907447853]
+[node name="Label" type="Label" parent="ChoiceCards/EnemyCloseCreationButton/Panel/VBoxContainer" unique_id=1907447853]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 2
 theme = SubResource("Theme_fo3dt")
 theme_override_font_sizes/font_size = 45
-text = "Враг"
+text = "Враг-ближник"
 
-[node name="TextureRect" type="TextureRect" parent="ChoiceCards/EnemyCreationButton/Panel/VBoxContainer" unique_id=5108732]
+[node name="TextureRect" type="TextureRect" parent="ChoiceCards/EnemyCloseCreationButton/Panel/VBoxContainer" unique_id=5108732]
 custom_maximum_size = Vector2(300, 300)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -666,7 +666,62 @@ offset_transform_enabled = true
 offset_transform_position = Vector2(0, -20)
 texture = ExtResource("12_kkagw")
 
-[node name="Label2" type="Label" parent="ChoiceCards/EnemyCreationButton/Panel/VBoxContainer" unique_id=1568408296]
+[node name="Label2" type="Label" parent="ChoiceCards/EnemyCloseCreationButton/Panel/VBoxContainer" unique_id=1568408296]
+layout_mode = 2
+size_flags_vertical = 10
+theme = SubResource("Theme_8c0wf")
+theme_override_font_sizes/font_size = 32
+text = "Первая часть игры, которая добавляет в нее реальный геймплей"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="EnemyLongCreationButton" type="Button" parent="ChoiceCards" unique_id=1947399964]
+visible = false
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+theme = SubResource("Theme_37okk")
+
+[node name="Panel" type="Panel" parent="ChoiceCards/EnemyLongCreationButton" unique_id=1575262575]
+material = SubResource("ShaderMaterial_axv1t")
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_behavior_recursive = 1
+theme = ExtResource("4_h2egi")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ChoiceCards/EnemyLongCreationButton/Panel" unique_id=984642109]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.05
+anchor_right = 0.95
+anchor_bottom = 0.95
+grow_horizontal = 2
+grow_vertical = 2
+mouse_behavior_recursive = 1
+
+[node name="Label" type="Label" parent="ChoiceCards/EnemyLongCreationButton/Panel/VBoxContainer" unique_id=610709712]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 2
+theme = SubResource("Theme_fo3dt")
+theme_override_font_sizes/font_size = 45
+text = "Враг-дальник"
+
+[node name="TextureRect" type="TextureRect" parent="ChoiceCards/EnemyLongCreationButton/Panel/VBoxContainer" unique_id=1312358275]
+custom_maximum_size = Vector2(300, 300)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, -20)
+texture = ExtResource("12_kkagw")
+
+[node name="Label2" type="Label" parent="ChoiceCards/EnemyLongCreationButton/Panel/VBoxContainer" unique_id=1634178377]
 layout_mode = 2
 size_flags_vertical = 10
 theme = SubResource("Theme_8c0wf")
@@ -816,7 +871,8 @@ autowrap_mode = 2
 [connection signal="pressed" from="ChoiceCards/MinimalEnvironmentButton" to="." method="_on_minimal_environment_button_pressed"]
 [connection signal="pressed" from="ChoiceCards/DayLightButton" to="." method="_on_day_light_button_pressed"]
 [connection signal="pressed" from="ChoiceCards/NightLightButton" to="." method="_on_night_light_button_pressed"]
-[connection signal="pressed" from="ChoiceCards/EnemyCreationButton" to="." method="_on_enemy_creation_button_pressed"]
+[connection signal="pressed" from="ChoiceCards/EnemyCloseCreationButton" to="." method="_on_enemy_close_creation_button_pressed"]
+[connection signal="pressed" from="ChoiceCards/EnemyLongCreationButton" to="." method="_on_enemy_long_creation_button_pressed"]
 [connection signal="pressed" from="ChoiceCards/CircleHealthButton" to="." method="_on_circle_health_button_pressed"]
 [connection signal="pressed" from="ChoiceCards/LineHealthButton" to="." method="_on_line_health_bar_pressed"]
 [connection signal="pressed" from="ChoiceCards/BottleHealthButton" to="." method="_on_bottle_health_bar_pressed"]
