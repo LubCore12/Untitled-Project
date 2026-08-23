@@ -66,6 +66,7 @@ shadow_enabled = true
 environment = SubResource("Environment_lnu2h")
 
 [node name="Player" parent="." unique_id=132662011 instance=ExtResource("1_uwrxv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.75721, 0, -0.07981348)
 
 [node name="Floor" type="StaticBody3D" parent="." unique_id=969261638]
 
@@ -527,6 +528,15 @@ visible_ratio = 0.0
 [node name="ChoiceMenu" parent="CanvasLayer" unique_id=1031216120 instance=ExtResource("4_lbhrr")]
 visible = false
 
+[node name="HPBar" type="ProgressBar" parent="CanvasLayer" unique_id=1205200750]
+offset_left = 26.0
+offset_top = 28.0
+offset_right = 513.0
+offset_bottom = 97.0
+value = 100.0
+show_percentage = false
+
+[connection signal="player_damaged" from="Player" to="." method="_on_player_damaged"]
 [connection signal="create_character_cube_mesh" from="CanvasLayer/ChoiceMenu" to="." method="_on_choice_menu_create_character_cube_mesh"]
 [connection signal="create_character_sphere_mesh" from="CanvasLayer/ChoiceMenu" to="." method="_on_choice_menu_create_character_sphere_mesh"]
 [connection signal="give_walk_ability" from="CanvasLayer/ChoiceMenu" to="." method="_on_choice_menu_give_walk_ability"]

@@ -7,6 +7,7 @@ extends Node3D
 @onready var dialogs = $CanvasLayer/Dialogs
 @onready var player = $Player
 @onready var enemies = $Enemies
+@onready var hp_bar = $CanvasLayer/HPBar
 @onready var enemy_scene = preload("res://scenes/enemy.tscn")
 
 @export_group("DialogStats")
@@ -17,6 +18,7 @@ extends Node3D
 @export var dialog_wait_time := 0.7
 
 var transition_time := 1.0
+var hp := 100.0
 
 func _ready() -> void:
 	var tween = create_tween()
@@ -131,3 +133,10 @@ func _on_choice_menu_make_enemy_creation() -> void:
 	enemy.setup(player)
 	enemy.position.x = -10
 	enemies.add_child(enemy)
+
+func _on_player_damaged(dam: Variant) -> void:
+	hp -= dam
+	hp_bar.value = hp
+	
+	if hp <= 0:
+		pass
