@@ -67,6 +67,7 @@ shadow_enabled = true
 environment = SubResource("Environment_lnu2h")
 
 [node name="Player" parent="." unique_id=132662011 instance=ExtResource("1_uwrxv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.75721, 0, -0.07981348)
 
 [node name="Floor" type="StaticBody3D" parent="." unique_id=969261638]
 
@@ -533,6 +534,7 @@ visible = false
 [connection signal="add_bottle_health" from="CanvasLayer/ChoiceMenu" to="." method="_on_choice_menu_add_bottle_health"]
 [connection signal="add_circle_health" from="CanvasLayer/ChoiceMenu" to="." method="_on_choice_menu_add_circle_health"]
 [connection signal="add_line_health" from="CanvasLayer/ChoiceMenu" to="." method="_on_choice_menu_add_line_health"]
+
 [connection signal="create_character_cube_mesh" from="CanvasLayer/ChoiceMenu" to="." method="_on_choice_menu_create_character_cube_mesh"]
 [connection signal="create_character_sphere_mesh" from="CanvasLayer/ChoiceMenu" to="." method="_on_choice_menu_create_character_sphere_mesh"]
 [connection signal="give_walk_ability" from="CanvasLayer/ChoiceMenu" to="." method="_on_choice_menu_give_walk_ability"]

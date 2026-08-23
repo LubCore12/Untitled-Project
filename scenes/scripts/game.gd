@@ -18,6 +18,7 @@ extends Node3D
 @export var dialog_wait_time := 0.7
 
 var transition_time := 1.0
+var hp := 100.0
 
 func _ready() -> void:
 	var tween = create_tween()
@@ -153,3 +154,10 @@ func _on_choice_menu_add_circle_health() -> void:
 
 func _on_choice_menu_add_line_health() -> void:
 	player_ui.show_line()
+
+func _on_player_damaged(dam: Variant) -> void:
+	hp -= dam
+	hp_bar.value = hp
+	
+	if hp <= 0:
+		pass
