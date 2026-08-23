@@ -1472,6 +1472,7 @@ horizontal_alignment = 1
 autowrap_mode = 2
 
 [node name="GoodChoices" type="HBoxContainer" parent="ChoiceCards" unique_id=2130473830]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1480,6 +1481,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="FlashButton" type="Button" parent="ChoiceCards/GoodChoices" unique_id=22367618]
+visible = false
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
 size_flags_horizontal = 6
@@ -1534,6 +1536,7 @@ horizontal_alignment = 1
 autowrap_mode = 2
 
 [node name="SpecialAgentButton" type="Button" parent="ChoiceCards/GoodChoices" unique_id=1417292488]
+visible = false
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
 size_flags_horizontal = 6
@@ -1589,6 +1592,7 @@ horizontal_alignment = 1
 autowrap_mode = 2
 
 [node name="SeriousPunchButton" type="Button" parent="ChoiceCards/GoodChoices" unique_id=734932287]
+visible = false
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
 size_flags_horizontal = 6
@@ -1643,6 +1647,7 @@ horizontal_alignment = 1
 autowrap_mode = 2
 
 [node name="IronDudeButton" type="Button" parent="ChoiceCards/GoodChoices" unique_id=1676669153]
+visible = false
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
 size_flags_horizontal = 6
@@ -1699,6 +1704,7 @@ horizontal_alignment = 1
 autowrap_mode = 2
 
 [node name="VampireButton" type="Button" parent="ChoiceCards/GoodChoices" unique_id=1609183021]
+visible = false
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
 size_flags_horizontal = 6
@@ -1754,6 +1760,7 @@ horizontal_alignment = 1
 autowrap_mode = 2
 
 [node name="RageButton" type="Button" parent="ChoiceCards/GoodChoices" unique_id=822147823]
+visible = false
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
 size_flags_horizontal = 6
@@ -1809,6 +1816,7 @@ horizontal_alignment = 1
 autowrap_mode = 2
 
 [node name="ZombieWithBucketButton" type="Button" parent="ChoiceCards/GoodChoices" unique_id=424192078]
+visible = false
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
 size_flags_horizontal = 6
@@ -1865,6 +1873,7 @@ horizontal_alignment = 1
 autowrap_mode = 2
 
 [node name="PerfectButton" type="Button" parent="ChoiceCards/GoodChoices" unique_id=643750035]
+visible = false
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
 size_flags_horizontal = 6
@@ -1921,6 +1930,7 @@ horizontal_alignment = 1
 autowrap_mode = 2
 
 [node name="RedeemerButton" type="Button" parent="ChoiceCards/GoodChoices" unique_id=1105104696]
+visible = false
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
 size_flags_horizontal = 6
@@ -1975,6 +1985,7 @@ horizontal_alignment = 1
 autowrap_mode = 2
 
 [node name="FatGuyButton" type="Button" parent="ChoiceCards/GoodChoices" unique_id=993135567]
+visible = false
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
 size_flags_horizontal = 6
@@ -2031,6 +2042,7 @@ horizontal_alignment = 1
 autowrap_mode = 2
 
 [node name="67Button" type="Button" parent="ChoiceCards/GoodChoices" unique_id=1496058917]
+visible = false
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
 size_flags_horizontal = 6
@@ -2086,6 +2098,7 @@ horizontal_alignment = 1
 autowrap_mode = 2
 
 [node name="SonicButton" type="Button" parent="ChoiceCards/GoodChoices" unique_id=1214112723]
+visible = false
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
 size_flags_horizontal = 6
@@ -2150,6 +2163,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="BrokenBoneButton" type="Button" parent="ChoiceCards/BadChoices" unique_id=176987538]
+visible = false
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
 size_flags_horizontal = 6
@@ -2206,6 +2220,7 @@ horizontal_alignment = 1
 autowrap_mode = 2
 
 [node name="SpawnrateButton" type="Button" parent="ChoiceCards/BadChoices" unique_id=1814009457]
+visible = false
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
 size_flags_horizontal = 6
@@ -2260,6 +2275,7 @@ horizontal_alignment = 1
 autowrap_mode = 2
 
 [node name="ThinButton" type="Button" parent="ChoiceCards/BadChoices" unique_id=50802735]
+visible = false
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
 size_flags_horizontal = 6
@@ -2315,6 +2331,7 @@ horizontal_alignment = 1
 autowrap_mode = 2
 
 [node name="DisabledButton" type="Button" parent="ChoiceCards/BadChoices" unique_id=1751001512]
+visible = false
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
 size_flags_horizontal = 6
@@ -2370,6 +2387,7 @@ horizontal_alignment = 1
 autowrap_mode = 2
 
 [node name="BlindButton" type="Button" parent="ChoiceCards/BadChoices" unique_id=191452039]
+visible = false
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
 size_flags_horizontal = 6
@@ -2424,6 +2442,7 @@ horizontal_alignment = 1
 autowrap_mode = 2
 
 [node name="FlashbangButton" type="Button" parent="ChoiceCards/BadChoices" unique_id=1891614772]
+visible = false
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
 size_flags_horizontal = 6
@@ -2478,6 +2497,7 @@ horizontal_alignment = 1
 autowrap_mode = 2
 
 [node name="BestFriendButton" type="Button" parent="ChoiceCards/BadChoices" unique_id=916534797]
+visible = false
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
 size_flags_horizontal = 6
@@ -2532,6 +2552,7 @@ horizontal_alignment = 1
 autowrap_mode = 2
 
 [node name="DementiaButton" type="Button" parent="ChoiceCards/BadChoices" unique_id=726192487]
+visible = false
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
 size_flags_horizontal = 6
@@ -2586,6 +2607,7 @@ horizontal_alignment = 1
 autowrap_mode = 2
 
 [node name="DyspneaButton" type="Button" parent="ChoiceCards/BadChoices" unique_id=1369627467]
+visible = false
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
 size_flags_horizontal = 6
@@ -2640,6 +2662,7 @@ horizontal_alignment = 1
 autowrap_mode = 2
 
 [node name="BlackButton" type="Button" parent="ChoiceCards/BadChoices" unique_id=2091571880]
+visible = false
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
 size_flags_horizontal = 6
@@ -2695,6 +2718,7 @@ horizontal_alignment = 1
 autowrap_mode = 2
 
 [node name="StudentButton" type="Button" parent="ChoiceCards/BadChoices" unique_id=1955939036]
+visible = false
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
 size_flags_horizontal = 6
@@ -2751,6 +2775,7 @@ horizontal_alignment = 1
 autowrap_mode = 2
 
 [node name="GamerButton" type="Button" parent="ChoiceCards/BadChoices" unique_id=1477611769]
+visible = false
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
 size_flags_horizontal = 6
