@@ -8,7 +8,8 @@ extends Node3D
 @onready var player = $Player
 @onready var enemies = $Enemies
 @onready var player_ui = $CanvasLayer/PlayerUI
-@onready var environment = $Environment
+@onready var wood_environment = $WoodEnvironment
+@onready var rock_environment = $RockEnvironment
 @onready var day_light = $DirectionalLights/Day
 @onready var night_light = $DirectionalLights/Night
 @onready var enemy_close_scene = preload("res://scenes/enemy_close.tscn")
@@ -126,11 +127,11 @@ func display_text(text: RichTextLabel):
 func _on_choice_menu_give_walk_ability() -> void:
 	player.start_walking()
 
-func _on_choice_menu_make_minimal_environment() -> void:
-	environment.show()
+func _on_choice_menu_make_rock_environment() -> void:
+	rock_environment.show()
 
-func _on_choice_menu_make_neon_environment() -> void:
-	environment.show()
+func _on_choice_menu_make_wood_environment() -> void:
+	wood_environment.show()
 
 func _on_choice_menu_set_day_light() -> void:
 	day_light.show()
