@@ -5,8 +5,8 @@ extends CharacterBody3D
 @export var speed: float
 
 @export_group("Stats")
-@export var damage: float
-@export var hp: float
+@export var damage: float = 30
+@export var max_hp: float = 100
 
 @onready var mesh = $Mesh
 
@@ -14,8 +14,12 @@ var direction: Vector2
 var target_enemy: CharacterBody3D
 var can_walk := false
 var can_attack := false
+var hp: float
 
 signal player_damaged(dam)
+
+func _ready() -> void:
+	hp = max_hp
 
 func _physics_process(_delta: float) -> void:
 	get_input()
@@ -59,7 +63,9 @@ func _on_area_3d_body_exited(body: Node3D) -> void:
 func get_damage(self_damage):
 	player_damaged.emit(self_damage)
 	hp -= self_damage
+	print(456)
 	if hp <= 0:
 		collision_layer = 2
 		collision_mask = 2
 		set_physics_process(false)
+		print(123)

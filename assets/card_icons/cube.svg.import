@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://7o7s2yitaadx"
-path="res://.godot/imported/firstSteps.svg-a93668e5eed1af707fa27152acb6191c.ctex"
+uid="uid://cu0gjoauqmfen"
+path="res://.godot/imported/cube.svg-871025b28d270f3a1530721bfddc96b8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/firstSteps.svg"
-dest_files=["res://.godot/imported/firstSteps.svg-a93668e5eed1af707fa27152acb6191c.ctex"]
+source_file="res://assets/card_icons/cube.svg"
+dest_files=["res://.godot/imported/cube.svg-871025b28d270f3a1530721bfddc96b8.ctex"]
 
 [params]
 

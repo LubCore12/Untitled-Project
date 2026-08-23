@@ -14,13 +14,13 @@ shader_parameter/health_color = Color(0.8799865, 0.83677167, 0.8445649, 1)
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jkj6h"]
 shader = ExtResource("2_sk4pr")
 shader_parameter/circle_width = 0.27999999374144
-shader_parameter/value = 0.23999999463552
+shader_parameter/value = 0.999999977648
 shader_parameter/background_color = Color(0.13725491, 0.13725491, 0.13725491, 1)
 shader_parameter/health_color = Color(0.8784314, 0.8352941, 0.84313726, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_sk4pr"]
 shader = ExtResource("3_48xfa")
-shader_parameter/value = 0.68999998457712
+shader_parameter/value = 1.0
 shader_parameter/background_color = Color(0.13725491, 0.13725491, 0.13725491, 1)
 shader_parameter/health_color = Color(0.8784314, 0.8352941, 0.84313726, 1)
 

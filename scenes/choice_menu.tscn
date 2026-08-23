@@ -3,8 +3,15 @@
 [ext_resource type="Script" uid="uid://o0da632e8oqy" path="res://scenes/scripts/choice_menu.gd" id="1_8c0wf"]
 [ext_resource type="FontFile" uid="uid://c64ld6cc2ggth" path="res://fonts/SofiaSans-Regular.ttf" id="1_rjk36"]
 [ext_resource type="Shader" uid="uid://b2tfi3qos3bvn" path="res://shaders/shine.gdshader" id="2_gwhgv"]
-[ext_resource type="Texture2D" uid="uid://7o7s2yitaadx" path="res://assets/firstSteps.svg" id="4_al8qj"]
+[ext_resource type="Texture2D" uid="uid://bekspov68sk0e" path="res://assets/card_icons/firstSteps.svg" id="4_al8qj"]
 [ext_resource type="Theme" uid="uid://bqeshx52nxy27" path="res://themes/card_theme.tres" id="4_h2egi"]
+[ext_resource type="Texture2D" uid="uid://cu0gjoauqmfen" path="res://assets/card_icons/cube.svg" id="5_2djck"]
+[ext_resource type="Texture2D" uid="uid://dber2nhtf3g6c" path="res://assets/card_icons/sphere.svg" id="6_7pfxc"]
+[ext_resource type="Texture2D" uid="uid://dk6jrnsce1lad" path="res://assets/card_icons/neonNew.svg" id="8_bigfd"]
+[ext_resource type="Texture2D" uid="uid://cse01h3kcady6" path="res://assets/card_icons/minimalism.svg" id="9_2oyqo"]
+[ext_resource type="Texture2D" uid="uid://ex6lreg86ahq" path="res://assets/card_icons/day.svg" id="10_axv1t"]
+[ext_resource type="Texture2D" uid="uid://dym03f4x2bkhm" path="res://assets/card_icons/night.svg" id="11_jrdjb"]
+[ext_resource type="Texture2D" uid="uid://iwnctwh6w1jr" path="res://assets/card_icons/enemy.svg" id="12_kkagw"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ila21"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -305,16 +312,18 @@ mouse_behavior_recursive = 1
 [node name="Label" type="Label" parent="ChoiceCards/WalkButton/Panel/VBoxContainer" unique_id=931445995]
 layout_mode = 2
 size_flags_horizontal = 4
+size_flags_vertical = 2
 theme = SubResource("Theme_fo3dt")
 theme_override_font_sizes/font_size = 45
 text = "Первый шаг!"
 
 [node name="TextureRect" type="TextureRect" parent="ChoiceCards/WalkButton/Panel/VBoxContainer" unique_id=400439581]
-custom_minimum_size = Vector2(300, 300)
-custom_maximum_size = Vector2(300, 300)
+custom_maximum_size = Vector2(156, 245)
 layout_mode = 2
 size_flags_horizontal = 4
-size_flags_vertical = 10
+size_flags_vertical = 6
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, -50)
 texture = ExtResource("4_al8qj")
 
 [node name="Label2" type="Label" parent="ChoiceCards/WalkButton/Panel/VBoxContainer" unique_id=1534913960]
@@ -358,9 +367,19 @@ mouse_behavior_recursive = 1
 [node name="Label" type="Label" parent="ChoiceCards/CharacterCubeMeshButton/Panel/VBoxContainer" unique_id=1314397955]
 layout_mode = 2
 size_flags_horizontal = 4
+size_flags_vertical = 2
 theme = SubResource("Theme_fo3dt")
 theme_override_font_sizes/font_size = 45
 text = "Создать куб"
+
+[node name="TextureRect" type="TextureRect" parent="ChoiceCards/CharacterCubeMeshButton/Panel/VBoxContainer" unique_id=1439135477]
+custom_maximum_size = Vector2(300, 300)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+offset_transform_enabled = true
+offset_transform_position = Vector2(15, -30)
+texture = ExtResource("5_2djck")
 
 [node name="Label2" type="Label" parent="ChoiceCards/CharacterCubeMeshButton/Panel/VBoxContainer" unique_id=992729003]
 layout_mode = 2
@@ -403,9 +422,19 @@ mouse_behavior_recursive = 1
 [node name="Label" type="Label" parent="ChoiceCards/CharacterSphereMeshButton/Panel/VBoxContainer" unique_id=1727361239]
 layout_mode = 2
 size_flags_horizontal = 4
+size_flags_vertical = 2
 theme = SubResource("Theme_fo3dt")
 theme_override_font_sizes/font_size = 45
 text = "Создать шар"
+
+[node name="TextureRect" type="TextureRect" parent="ChoiceCards/CharacterSphereMeshButton/Panel/VBoxContainer" unique_id=2139095999]
+custom_maximum_size = Vector2(300, 300)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, -30)
+texture = ExtResource("6_7pfxc")
 
 [node name="Label2" type="Label" parent="ChoiceCards/CharacterSphereMeshButton/Panel/VBoxContainer" unique_id=1523229429]
 layout_mode = 2
@@ -448,9 +477,19 @@ mouse_behavior_recursive = 1
 [node name="Label" type="Label" parent="ChoiceCards/NeonEnvironmentButton/Panel/VBoxContainer" unique_id=79264573]
 layout_mode = 2
 size_flags_horizontal = 4
+size_flags_vertical = 2
 theme = SubResource("Theme_fo3dt")
 theme_override_font_sizes/font_size = 45
 text = "Неон"
+
+[node name="TextureRect" type="TextureRect" parent="ChoiceCards/NeonEnvironmentButton/Panel/VBoxContainer" unique_id=54261657]
+custom_maximum_size = Vector2(300, 300)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, -20)
+texture = ExtResource("8_bigfd")
 
 [node name="Label2" type="Label" parent="ChoiceCards/NeonEnvironmentButton/Panel/VBoxContainer" unique_id=605040007]
 layout_mode = 2
@@ -493,9 +532,19 @@ mouse_behavior_recursive = 1
 [node name="Label" type="Label" parent="ChoiceCards/MinimalEnvironmentButton/Panel/VBoxContainer" unique_id=554512948]
 layout_mode = 2
 size_flags_horizontal = 4
+size_flags_vertical = 2
 theme = SubResource("Theme_fo3dt")
 theme_override_font_sizes/font_size = 45
 text = "Минимализм"
+
+[node name="TextureRect" type="TextureRect" parent="ChoiceCards/MinimalEnvironmentButton/Panel/VBoxContainer" unique_id=1142941368]
+custom_maximum_size = Vector2(300, 300)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+offset_transform_enabled = true
+offset_transform_position = Vector2(-20, -20)
+texture = ExtResource("9_2oyqo")
 
 [node name="Label2" type="Label" parent="ChoiceCards/MinimalEnvironmentButton/Panel/VBoxContainer" unique_id=555042334]
 layout_mode = 2
@@ -538,9 +587,19 @@ mouse_behavior_recursive = 1
 [node name="Label" type="Label" parent="ChoiceCards/DayLightButton/Panel/VBoxContainer" unique_id=72149727]
 layout_mode = 2
 size_flags_horizontal = 4
+size_flags_vertical = 2
 theme = SubResource("Theme_fo3dt")
 theme_override_font_sizes/font_size = 45
 text = "Дневной свет"
+
+[node name="TextureRect" type="TextureRect" parent="ChoiceCards/DayLightButton/Panel/VBoxContainer" unique_id=24201933]
+custom_maximum_size = Vector2(300, 300)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, -30)
+texture = ExtResource("10_axv1t")
 
 [node name="Label2" type="Label" parent="ChoiceCards/DayLightButton/Panel/VBoxContainer" unique_id=1792898502]
 layout_mode = 2
@@ -583,16 +642,26 @@ mouse_behavior_recursive = 1
 [node name="Label" type="Label" parent="ChoiceCards/NightLightButton/Panel/VBoxContainer" unique_id=1033923596]
 layout_mode = 2
 size_flags_horizontal = 4
+size_flags_vertical = 2
 theme = SubResource("Theme_fo3dt")
 theme_override_font_sizes/font_size = 45
 text = "Ночной свет"
+
+[node name="TextureRect" type="TextureRect" parent="ChoiceCards/NightLightButton/Panel/VBoxContainer" unique_id=1230610206]
+custom_maximum_size = Vector2(300, 331)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, -20)
+texture = ExtResource("11_jrdjb")
 
 [node name="Label2" type="Label" parent="ChoiceCards/NightLightButton/Panel/VBoxContainer" unique_id=8565832]
 layout_mode = 2
 size_flags_vertical = 10
 theme = SubResource("Theme_8c0wf")
 theme_override_font_sizes/font_size = 32
-text = "Представь, как хорошо будет сочетаться ночной свет и неон, который ты выбрал!.. Ты же выбрал неон, да?"
+text = "Представь, каким атмосферным будет такой свет!"
 horizontal_alignment = 1
 autowrap_mode = 2
 
@@ -628,9 +697,19 @@ mouse_behavior_recursive = 1
 [node name="Label" type="Label" parent="ChoiceCards/EnemyCreationButton/Panel/VBoxContainer" unique_id=1907447853]
 layout_mode = 2
 size_flags_horizontal = 4
+size_flags_vertical = 2
 theme = SubResource("Theme_fo3dt")
 theme_override_font_sizes/font_size = 45
 text = "Враг"
+
+[node name="TextureRect" type="TextureRect" parent="ChoiceCards/EnemyCreationButton/Panel/VBoxContainer" unique_id=5108732]
+custom_maximum_size = Vector2(300, 300)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, -20)
+texture = ExtResource("12_kkagw")
 
 [node name="Label2" type="Label" parent="ChoiceCards/EnemyCreationButton/Panel/VBoxContainer" unique_id=1568408296]
 layout_mode = 2
