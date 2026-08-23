@@ -145,12 +145,15 @@ func _on_choice_menu_make_enemy_creation() -> void:
 	enemies.add_child(enemy)
 
 func _on_choice_menu_add_bottle_health() -> void:
+	player.set_health(player.hp)
 	player_ui.show_bottle()
 
 func _on_choice_menu_add_circle_health() -> void:
+	player.set_health(player.hp)
 	player_ui.show_circle()
 
 func _on_choice_menu_add_line_health() -> void:
+	player.set_health(player.hp)
 	player_ui.show_line()
 	
 func _on_choice_menu_create_character_sprite() -> void:

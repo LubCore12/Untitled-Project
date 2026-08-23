@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dhpy0b78pdfxv" path="res://scenes/scripts/game.gd" id="1_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://0keq2j52jcvb" path="res://scenes/player.tscn" id="1_uwrxv"]
+[ext_resource type="Texture2D" uid="uid://de4sqfjwtgvv4" path="res://assets/bark_texture.png" id="2_0tnpc"]
 [ext_resource type="Texture2D" uid="uid://bbeqwab38wwtl" path="res://assets/wood_texture.jpg" id="2_u5sy4"]
 [ext_resource type="Shader" uid="uid://bh0gij6m1gdhs" path="res://shaders/transition.gdshader" id="2_yqjtg"]
 [ext_resource type="Texture2D" uid="uid://cmy2yn5d5nwkb" path="res://assets/lamp.png" id="3_gee14"]
@@ -23,10 +24,12 @@ glow_enabled = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fo3dt"]
 albedo_color = Color(1, 0.86052245, 0.81341904, 1)
+albedo_texture = ExtResource("2_0tnpc")
+uv1_scale = Vector3(32, 4, 1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_37okk"]
 material = SubResource("StandardMaterial3D_fo3dt")
-size = Vector2(1000, 20)
+size = Vector2(100, 20)
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_p57ef"]
 data = PackedVector3Array(500, 0, 2.5, -500, 0, 2.5, 500, 0, -2.5, -500, 0, 2.5, -500, 0, -2.5, 500, 0, -2.5)
@@ -39,7 +42,12 @@ uv1_scale = Vector3(24, 24, 24)
 material = SubResource("StandardMaterial3D_md0e3")
 size = Vector3(100, 100, 1)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vtaks"]
+albedo_texture = ExtResource("2_0tnpc")
+uv1_scale = Vector3(1.5, 1.5, 1)
+
 [sub_resource type="BoxMesh" id="BoxMesh_fo3dt"]
+material = SubResource("StandardMaterial3D_vtaks")
 size = Vector3(1, 1, 3.4990234)
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_u5sy4"]
@@ -48,7 +56,12 @@ data = PackedVector3Array(-0.5, 0.5, 1.7494999, 0.5, 0.5, 1.7494999, -0.5, -0.5,
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_gee14"]
 data = PackedVector3Array(-0.5, 0.5, 1.7494999, 0.5, 0.5, 1.7494999, -0.5, -0.5, 1.7494999, 0.5, 0.5, 1.7494999, 0.5, -0.5, 1.7494999, -0.5, -0.5, 1.7494999, 0.5, 0.5, -1.7494999, -0.5, 0.5, -1.7494999, 0.5, -0.5, -1.7494999, -0.5, 0.5, -1.7494999, -0.5, -0.5, -1.7494999, 0.5, -0.5, -1.7494999, 0.5, 0.5, 1.7494999, 0.5, 0.5, -1.7494999, 0.5, -0.5, 1.7494999, 0.5, 0.5, -1.7494999, 0.5, -0.5, -1.7494999, 0.5, -0.5, 1.7494999, -0.5, 0.5, -1.7494999, -0.5, 0.5, 1.7494999, -0.5, -0.5, -1.7494999, -0.5, 0.5, 1.7494999, -0.5, -0.5, 1.7494999, -0.5, -0.5, -1.7494999, 0.5, 0.5, 1.7494999, -0.5, 0.5, 1.7494999, 0.5, 0.5, -1.7494999, -0.5, 0.5, 1.7494999, -0.5, 0.5, -1.7494999, 0.5, 0.5, -1.7494999, -0.5, -0.5, 1.7494999, 0.5, -0.5, 1.7494999, -0.5, -0.5, -1.7494999, 0.5, -0.5, 1.7494999, 0.5, -0.5, -1.7494999, -0.5, -0.5, -1.7494999)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jrdjb"]
+albedo_texture = ExtResource("2_0tnpc")
+uv1_scale = Vector3(12, 1.5, 10)
+
 [sub_resource type="BoxMesh" id="BoxMesh_2gruq"]
+material = SubResource("StandardMaterial3D_jrdjb")
 size = Vector3(11.875366, 1, 6.055664)
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_0tnpc"]
@@ -85,15 +98,15 @@ dialog_wait_time = 0.0
 [node name="Night" type="DirectionalLight3D" parent="DirectionalLights" unique_id=1193258410]
 transform = Transform3D(-0.8660254, 0.08682416, -0.49240392, -0.49309474, -0.31141257, 0.8123299, -0.0828109, 0.9463001, 0.3125037, 0, 55.350777, 11.56872)
 visible = false
-light_color = Color(0, 0.15709323, 0.15709323, 1)
+light_color = Color(1.1792034e-06, 0.33317125, 0.33317128, 1)
 light_energy = 2.0
 shadow_enabled = true
 
 [node name="Day" type="DirectionalLight3D" parent="DirectionalLights" unique_id=1774535806]
 transform = Transform3D(-0.8660254, 0.08682416, -0.49240392, -0.49309474, -0.31141257, 0.8123299, -0.0828109, 0.9463001, 0.3125037, 0, 55.350777, 11.56872)
 visible = false
-light_color = Color(1, 0.9137255, 0.33333334, 1)
-light_energy = 2.0
+light_color = Color(1, 0.9137255, 0.9529412, 1)
+light_energy = 1.2
 shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1619049830]
