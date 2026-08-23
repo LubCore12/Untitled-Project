@@ -4,9 +4,9 @@ extends CharacterBody3D
 @onready var timer = $Timer
 
 @export_group("Movement")
-@export var speed: float = 1.0
-@export var hp: float = 20.0
-@export var damage: float = 10.0
+@export var speed: float = 100.0
+@export var hp: float = 100.0
+@export var damage: float = 20.0
 
 var player: CharacterBody3D
 var direction: float
@@ -21,8 +21,8 @@ func _physics_process(delta: float) -> void:
 	get_input(delta)
 	move()
 	
-func get_input(_delta) -> void:
-	current_speed = speed
+func get_input(delta) -> void:
+	current_speed = speed * delta
 	if player:
 		direction = (player.position - position).normalized().x
 
@@ -50,4 +50,5 @@ func _on_area_3d_body_exited(body: Node3D) -> void:
 
 func _on_timer_timeout() -> void:
 	if is_in_area:
+		print('a')
 		attack()

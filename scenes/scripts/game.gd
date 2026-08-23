@@ -101,6 +101,7 @@ func _ready() -> void:
 	await get_tree().create_timer(2).timeout
 	dialog_panel.show()
 	
+	
 func display_text(text: RichTextLabel):
 	text.visible_characters = 0
 	var total_chars = text.get_total_character_count()
