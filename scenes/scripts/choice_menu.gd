@@ -5,8 +5,8 @@ extends Control
 
 @onready var sprite_button = $ChoiceCards/CharacterSpriteButton
 @onready var walk_button = $ChoiceCards/WalkButton
-@onready var neon_environment_button = $ChoiceCards/NeonEnvironmentButton
-@onready var minimal_environment_button = $ChoiceCards/MinimalEnvironmentButton
+@onready var wood_environment_button = $ChoiceCards/WoodEnvironmentButton
+@onready var rock_environment_button = $ChoiceCards/RockEnvironmentButton
 @onready var day_light_button = $ChoiceCards/DayLightButton
 @onready var night_light_button = $ChoiceCards/NightLightButton
 @onready var enemy_creation_button = $ChoiceCards/EnemyCreationButton
@@ -16,8 +16,8 @@ extends Control
 
 signal give_walk_ability
 signal create_character_sprite
-signal make_neon_environment
-signal make_minimal_environment
+signal make_wood_environment
+signal make_rock_environment
 signal set_day_light
 signal set_night_light
 signal make_enemy_creation
@@ -63,12 +63,12 @@ func toggle_walk_choice() -> void:
 		walk_button.show()
 
 func toggle_environment_choice() -> void:
-	if neon_environment_button.visible:
-		neon_environment_button.hide()
-		minimal_environment_button.hide()
+	if wood_environment_button.visible:
+		wood_environment_button.hide()
+		rock_environment_button.hide()
 	else:
-		neon_environment_button.show()
-		minimal_environment_button.show()
+		wood_environment_button.show()
+		rock_environment_button.show()
 
 func toggle_light_choice() -> void:
 	if day_light_button.visible:
@@ -97,11 +97,11 @@ func toggle_health_choice() -> void:
 func _on_walk_button_pressed() -> void:
 	give_walk_ability.emit()
 
-func _on_neon_environment_button_pressed() -> void:
-	make_neon_environment.emit()
+func _on_wood_environment_button_pressed() -> void:
+	make_wood_environment.emit()
 
-func _on_minimal_environment_button_pressed() -> void:
-	make_minimal_environment.emit()
+func _on_rock_environment_button_pressed() -> void:
+	make_rock_environment.emit()
 
 func _on_day_light_button_pressed() -> void:
 	set_day_light.emit()

@@ -4,7 +4,7 @@ extends CharacterBody3D
 @onready var timer = $Timer
 
 @export_group("Movement")
-@export var speed: float = 100.0
+@export var speed: float = 2.5
 @export var hp: float = 100.0
 @export var damage: float = 20.0
 
@@ -50,5 +50,4 @@ func _on_area_3d_body_exited(body: Node3D) -> void:
 
 func _on_timer_timeout() -> void:
 	if is_in_area:
-		print('a')
 		attack()

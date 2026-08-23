@@ -10,7 +10,6 @@ radius = 1.2700145
 
 [node name="Enemy" type="CharacterBody3D" unique_id=1271975245]
 script = ExtResource("1_7p1mj")
-speed = 2.5
 
 [node name="Timer" type="Timer" parent="." unique_id=700358242]
 autostart = true

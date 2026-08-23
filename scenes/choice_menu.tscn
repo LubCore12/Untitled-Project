@@ -400,14 +400,14 @@ text = "Для того, чтобы видеть персонажа и его д
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="NeonEnvironmentButton" type="Button" parent="ChoiceCards" unique_id=1759972993]
+[node name="WoodEnvironmentButton" type="Button" parent="ChoiceCards" unique_id=1759972993]
 visible = false
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
 size_flags_horizontal = 6
 theme = SubResource("Theme_37okk")
 
-[node name="Panel" type="Panel" parent="ChoiceCards/NeonEnvironmentButton" unique_id=1042147882]
+[node name="Panel" type="Panel" parent="ChoiceCards/WoodEnvironmentButton" unique_id=1042147882]
 material = SubResource("ShaderMaterial_h2egi")
 layout_mode = 1
 anchors_preset = -1
@@ -418,7 +418,7 @@ grow_vertical = 2
 mouse_behavior_recursive = 1
 theme = ExtResource("4_h2egi")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ChoiceCards/NeonEnvironmentButton/Panel" unique_id=1053131140]
+[node name="VBoxContainer" type="VBoxContainer" parent="ChoiceCards/WoodEnvironmentButton/Panel" unique_id=1053131140]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.05
@@ -429,15 +429,15 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_behavior_recursive = 1
 
-[node name="Label" type="Label" parent="ChoiceCards/NeonEnvironmentButton/Panel/VBoxContainer" unique_id=79264573]
+[node name="Label" type="Label" parent="ChoiceCards/WoodEnvironmentButton/Panel/VBoxContainer" unique_id=79264573]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 2
 theme = SubResource("Theme_fo3dt")
 theme_override_font_sizes/font_size = 45
-text = "Неон"
+text = "Дерево"
 
-[node name="TextureRect" type="TextureRect" parent="ChoiceCards/NeonEnvironmentButton/Panel/VBoxContainer" unique_id=54261657]
+[node name="TextureRect" type="TextureRect" parent="ChoiceCards/WoodEnvironmentButton/Panel/VBoxContainer" unique_id=54261657]
 custom_maximum_size = Vector2(300, 300)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -446,23 +446,23 @@ offset_transform_enabled = true
 offset_transform_position = Vector2(0, -20)
 texture = ExtResource("8_bigfd")
 
-[node name="Label2" type="Label" parent="ChoiceCards/NeonEnvironmentButton/Panel/VBoxContainer" unique_id=605040007]
+[node name="Label2" type="Label" parent="ChoiceCards/WoodEnvironmentButton/Panel/VBoxContainer" unique_id=605040007]
 layout_mode = 2
 size_flags_vertical = 10
 theme = SubResource("Theme_8c0wf")
 theme_override_font_sizes/font_size = 32
-text = "Неон - это очень простой эффект, но сколько же атмосферы он может добавить!"
+text = "Дерево - это довольно атмосферный материал, который модет дополнить практически любую игру."
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="MinimalEnvironmentButton" type="Button" parent="ChoiceCards" unique_id=1928072668]
+[node name="RockEnvironmentButton" type="Button" parent="ChoiceCards" unique_id=1928072668]
 visible = false
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
 size_flags_horizontal = 6
 theme = SubResource("Theme_37okk")
 
-[node name="Panel" type="Panel" parent="ChoiceCards/MinimalEnvironmentButton" unique_id=622378311]
+[node name="Panel" type="Panel" parent="ChoiceCards/RockEnvironmentButton" unique_id=622378311]
 material = SubResource("ShaderMaterial_7pfxc")
 layout_mode = 1
 anchors_preset = -1
@@ -473,7 +473,7 @@ grow_vertical = 2
 mouse_behavior_recursive = 1
 theme = ExtResource("4_h2egi")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ChoiceCards/MinimalEnvironmentButton/Panel" unique_id=1764600440]
+[node name="VBoxContainer" type="VBoxContainer" parent="ChoiceCards/RockEnvironmentButton/Panel" unique_id=1764600440]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.05
@@ -484,15 +484,15 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_behavior_recursive = 1
 
-[node name="Label" type="Label" parent="ChoiceCards/MinimalEnvironmentButton/Panel/VBoxContainer" unique_id=554512948]
+[node name="Label" type="Label" parent="ChoiceCards/RockEnvironmentButton/Panel/VBoxContainer" unique_id=554512948]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 2
 theme = SubResource("Theme_fo3dt")
 theme_override_font_sizes/font_size = 45
-text = "Минимализм"
+text = "Камень"
 
-[node name="TextureRect" type="TextureRect" parent="ChoiceCards/MinimalEnvironmentButton/Panel/VBoxContainer" unique_id=1142941368]
+[node name="TextureRect" type="TextureRect" parent="ChoiceCards/RockEnvironmentButton/Panel/VBoxContainer" unique_id=1142941368]
 custom_maximum_size = Vector2(300, 300)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -501,12 +501,12 @@ offset_transform_enabled = true
 offset_transform_position = Vector2(-20, -20)
 texture = ExtResource("9_2oyqo")
 
-[node name="Label2" type="Label" parent="ChoiceCards/MinimalEnvironmentButton/Panel/VBoxContainer" unique_id=555042334]
+[node name="Label2" type="Label" parent="ChoiceCards/RockEnvironmentButton/Panel/VBoxContainer" unique_id=555042334]
 layout_mode = 2
 size_flags_vertical = 10
 theme = SubResource("Theme_8c0wf")
 theme_override_font_sizes/font_size = 32
-text = "Минимализм может очень помочь Стенли, ведь, к сожалению, в графике он не силен."
+text = "Камень - это довольно мрачный материал, который идеально подходит под игры с магической, темной тематикой."
 horizontal_alignment = 1
 autowrap_mode = 2
 
@@ -812,8 +812,8 @@ autowrap_mode = 2
 
 [connection signal="pressed" from="ChoiceCards/WalkButton" to="." method="_on_walk_button_pressed"]
 [connection signal="pressed" from="ChoiceCards/CharacterSpriteButton" to="." method="_on_character_sprite_button_pressed"]
-[connection signal="pressed" from="ChoiceCards/NeonEnvironmentButton" to="." method="_on_neon_environment_button_pressed"]
-[connection signal="pressed" from="ChoiceCards/MinimalEnvironmentButton" to="." method="_on_minimal_environment_button_pressed"]
+[connection signal="pressed" from="ChoiceCards/WoodEnvironmentButton" to="." method="_on_wood_environment_button_pressed"]
+[connection signal="pressed" from="ChoiceCards/RockEnvironmentButton" to="." method="_on_rock_environment_button_pressed"]
 [connection signal="pressed" from="ChoiceCards/DayLightButton" to="." method="_on_day_light_button_pressed"]
 [connection signal="pressed" from="ChoiceCards/NightLightButton" to="." method="_on_night_light_button_pressed"]
 [connection signal="pressed" from="ChoiceCards/EnemyCreationButton" to="." method="_on_enemy_creation_button_pressed"]
