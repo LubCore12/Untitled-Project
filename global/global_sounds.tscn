@@ -1,6 +1,9 @@
 [gd_scene format=3 uid="uid://biqjx4lc3eq3k"]
 
+[ext_resource type="Script" uid="uid://djkahcekvvfvk" path="res://global/global_sounds.gd" id="1_lxfrn"]
+
 [node name="GlobalSounds" type="Node" unique_id=1328646721]
+script = ExtResource("1_lxfrn")
 
 [node name="PressedSound" type="AudioStreamPlayer" parent="." unique_id=534407885]
 

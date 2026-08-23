@@ -73,7 +73,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="DialogText" type="RichTextLabel" parent="Dialogs" unique_id=2071376996]
+[node name="NeverGonnaGiveYouUp" type="RichTextLabel" parent="Dialogs" unique_id=2071376996]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.05
@@ -85,11 +85,11 @@ grow_vertical = 0
 theme = SubResource("Theme_iedig")
 theme_override_font_sizes/normal_font_size = 40
 bbcode_enabled = true
-text = "Это - Стенли."
+text = "Это - Стенли. Он обычный офисный работник."
 visible_characters = 0
 visible_ratio = 0.0
 
-[node name="DialogText2" type="RichTextLabel" parent="Dialogs" unique_id=296940805]
+[node name="NeverGonnaLetYouDown" type="RichTextLabel" parent="Dialogs" unique_id=296940805]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.05
@@ -101,7 +101,103 @@ grow_vertical = 0
 theme = SubResource("Theme_iedig")
 theme_override_font_sizes/normal_font_size = 40
 bbcode_enabled = true
-text = "Стенли любит делать игры, он горит этим занятием, но..."
+text = "Он любит делать игры, он горит этим занятием, но..."
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="NeverGonnaRunAroundAndDesertYou" type="RichTextLabel" parent="Dialogs" unique_id=1335402960]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.75
+anchor_right = 0.95
+anchor_bottom = 0.95
+grow_horizontal = 2
+grow_vertical = 0
+theme = SubResource("Theme_iedig")
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+text = "К сожалению, у него никогда не было возможности и времени для реализации своей мечты - обыкновенной игры."
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="NeverGonnaMakeYouCry" type="RichTextLabel" parent="Dialogs" unique_id=68641732]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.75
+anchor_right = 0.95
+anchor_bottom = 0.95
+grow_horizontal = 2
+grow_vertical = 0
+theme = SubResource("Theme_iedig")
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+text = "А ведь он с самого дестсва мечтал создать творение, которым все будут восхищаться и востаргаться геймеры по всему миру."
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="NeverGonnaSayGoodbye" type="RichTextLabel" parent="Dialogs" unique_id=1746989639]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.75
+anchor_right = 0.95
+anchor_bottom = 0.95
+grow_horizontal = 2
+grow_vertical = 0
+theme = SubResource("Theme_iedig")
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+text = "И в возрасте тридцати семи лет, Стенли понял что он не хочет проживать жизнь обыкновенного, серого офисного клерка."
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="NeverGonnaTellALieAndHurtYou" type="RichTextLabel" parent="Dialogs" unique_id=1551285675]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.75
+anchor_right = 0.95
+anchor_bottom = 0.95
+grow_horizontal = 2
+grow_vertical = 0
+theme = SubResource("Theme_iedig")
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+text = "И в возрасте тридцати семи лет, Стенли понял что он не хочет проживать жизнь обыкновенного, серого офисного клерка. Он понял, что что-то в его жизни должно измениться."
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="We\'veKnownEachOtherForSoLong" type="RichTextLabel" parent="Dialogs" unique_id=675703750]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.75
+anchor_right = 0.95
+anchor_bottom = 0.95
+grow_horizontal = 2
+grow_vertical = 0
+theme = SubResource("Theme_iedig")
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+text = "Именно в этот момент Стенли вспомнил о своей давней мечте, которой суждено было не сбыться, но именно в этот день все изменилось."
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="YourHeart\'sBeenAchingButYou\'reTooShyToSayIt" type="RichTextLabel" parent="Dialogs" unique_id=1165914770]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.75
+anchor_right = 0.95
+anchor_bottom = 0.95
+grow_horizontal = 2
+grow_vertical = 0
+theme = SubResource("Theme_iedig")
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+text = "В этот день он уволился с работы, поссорился в женой и променял свою карьеру, на какую-то... детскую мечту. Какая жалость."
 visible_characters = 0
 visible_ratio = 0.0
 

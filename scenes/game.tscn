@@ -1,6 +1,450 @@
 [gd_scene format=3 uid="uid://bs2o8vhxajrgr"]
 
-[node name="Game" type="Node3D" unique_id=833938735]
+[ext_resource type="Script" uid="uid://dhpy0b78pdfxv" path="res://scenes/scripts/game.gd" id="1_lnu2h"]
+[ext_resource type="PackedScene" uid="uid://0keq2j52jcvb" path="res://scenes/player.tscn" id="1_uwrxv"]
+[ext_resource type="Shader" uid="uid://bh0gij6m1gdhs" path="res://shaders/transition.gdshader" id="2_yqjtg"]
+[ext_resource type="FontFile" uid="uid://c64ld6cc2ggth" path="res://fonts/SofiaSans-Regular.ttf" id="3_iywne"]
+[ext_resource type="PackedScene" uid="uid://ck5bnij8waq8q" path="res://scenes/choice_menu.tscn" id="4_lbhrr"]
 
-[node name="Camera3D" type="Camera3D" parent="." unique_id=1627015961]
-transform = Transform3D(1, 0, 0, 0, 0.8836035, 0.46823582, 0, -0.46823582, 0.8836035, 0, 2.9292495, 2.8939626)
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_uwrxv"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_yqjtg"]
+sky_material = SubResource("ProceduralSkyMaterial_uwrxv")
+
+[sub_resource type="Environment" id="Environment_lnu2h"]
+background_mode = 2
+sky = SubResource("Sky_yqjtg")
+glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fo3dt"]
+albedo_color = Color(1, 0.34509805, 0, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_37okk"]
+material = SubResource("StandardMaterial3D_fo3dt")
+size = Vector2(1000, 1000)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_uwrxv"]
+data = PackedVector3Array(500, 0, 500, -500, 0, 500, 500, 0, -500, -500, 0, 500, -500, 0, -500, 500, 0, -500)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_37okk"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_lbhrr"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_37okk"]
+shader = ExtResource("2_yqjtg")
+shader_parameter/size = 1.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iywne"]
+bg_color = Color(0.15686275, 0.15686275, 0.15686275, 1)
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+corner_detail = 14
+
+[sub_resource type="Theme" id="Theme_lbhrr"]
+Panel/styles/panel = SubResource("StyleBoxFlat_iywne")
+
+[sub_resource type="Theme" id="Theme_37okk"]
+default_font = ExtResource("3_iywne")
+
+[node name="Game" type="Node3D" unique_id=833938735]
+script = ExtResource("1_lnu2h")
+letter_time = 0.0
+punctuation_time = 0.0
+comma_time = 0.0
+space_time = 0.0
+dialog_wait_time = 0.0
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1193258410]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1619049830]
+environment = SubResource("Environment_lnu2h")
+
+[node name="Player" parent="." unique_id=132662011 instance=ExtResource("1_uwrxv")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=969261638]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=1279481240]
+mesh = SubResource("PlaneMesh_37okk")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1562142076]
+shape = SubResource("ConcavePolygonShape3D_uwrxv")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="." unique_id=575346912]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D2" unique_id=1132131986]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3485203, 0.77097654, 3.1012936)
+mesh = SubResource("CylinderMesh_37okk")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2" unique_id=436460349]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3485203, 0.77097654, 3.1012936)
+shape = SubResource("CylinderShape3D_lbhrr")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=619251981]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=2025381520]
+material = SubResource("ShaderMaterial_37okk")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_behavior_recursive = 1
+color = Color(0, 0, 0, 1)
+
+[node name="DialogPanel" type="Panel" parent="CanvasLayer" unique_id=1090280466]
+visible = false
+anchors_preset = -1
+anchor_left = 0.03
+anchor_top = 0.73
+anchor_right = 0.97
+anchor_bottom = 0.97
+grow_horizontal = 2
+grow_vertical = 0
+theme = SubResource("Theme_lbhrr")
+
+[node name="Dialogs" type="Control" parent="CanvasLayer" unique_id=2132415420]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DialogPhase1" type="Control" parent="CanvasLayer/Dialogs" unique_id=887917437]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Dialogs/DialogPhase1" unique_id=85305838]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.75
+anchor_right = 0.95
+anchor_bottom = 0.95
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_37okk")
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+text = "...О! Вот ты и здесь"
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="CanvasLayer/Dialogs/DialogPhase1" unique_id=118790935]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.75
+anchor_right = 0.95
+anchor_bottom = 0.95
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_37okk")
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+text = "Ну что, вот мы и попали в игровой движок. Но к сожалению, тут пока-что ничего нет."
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="CanvasLayer/Dialogs/DialogPhase1" unique_id=717954949]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.75
+anchor_right = 0.95
+anchor_bottom = 0.95
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_37okk")
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+text = "Для начала стоит добавить самого персонажа. Пока что у нас нет тескстур, так что выбирать будем... из обычных примитивов. Сделай выбор, Стенли!"
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="DialogPhase2" type="Control" parent="CanvasLayer/Dialogs" unique_id=1243622576]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Dialogs/DialogPhase2" unique_id=1355777164]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.75
+anchor_right = 0.95
+anchor_bottom = 0.95
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_37okk")
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+text = "Отлично! Теперь мы видим нашего персонажа. Но к сожалению мы пока не может ходить."
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="CanvasLayer/Dialogs/DialogPhase2" unique_id=698052085]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.75
+anchor_right = 0.95
+anchor_bottom = 0.95
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_37okk")
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+text = "А ведь ходьба - это обязательный элемент для изучения этого безграничного игрового мира."
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="CanvasLayer/Dialogs/DialogPhase2" unique_id=786036603]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.75
+anchor_right = 0.95
+anchor_bottom = 0.95
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_37okk")
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+text = "Давай Стенли, реализуй механику ходьбы! Примени знания из курса Сомана Ракутина на практике!"
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="DialogPhase3" type="Control" parent="CanvasLayer/Dialogs" unique_id=1228677138]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Dialogs/DialogPhase3" unique_id=1258740607]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.75
+anchor_right = 0.95
+anchor_bottom = 0.95
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_37okk")
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+text = "У нас уже что-то полуается! Ноо, нажестся, чего-то не хватает. Не находишь ли ты, Стенли, ту вещь, чсто наш мир довольно пуст? Ни зданий, ни предметов, вообще ничего!"
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="CanvasLayer/Dialogs/DialogPhase3" unique_id=75166894]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.75
+anchor_right = 0.95
+anchor_bottom = 0.95
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_37okk")
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+text = "И какой олух захочет играть в игру, где в мире нет никого, кроме тебя любимого? Надо это исправить"
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="CanvasLayer/Dialogs/DialogPhase3" unique_id=1690535127]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.75
+anchor_right = 0.95
+anchor_bottom = 0.95
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_37okk")
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+text = "Подумай Стенли, каким бы ты хотел видеть этот мир?"
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="DialogPhase4" type="Control" parent="CanvasLayer/Dialogs" unique_id=1599477361]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Dialogs/DialogPhase4" unique_id=722490819]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.75
+anchor_right = 0.95
+anchor_bottom = 0.95
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_37okk")
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+text = "Замечательный выбор! Ноо, кажется чего-то не хватает..."
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="CanvasLayer/Dialogs/DialogPhase4" unique_id=990119337]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.75
+anchor_right = 0.95
+anchor_bottom = 0.95
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_37okk")
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+text = "Хмм... Ну конечно же Стенли, освещение!"
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="CanvasLayer/Dialogs/DialogPhase4" unique_id=1998836042]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.75
+anchor_right = 0.95
+anchor_bottom = 0.95
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_37okk")
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+text = "Получится ли человеку полнощенно погрузится в игру, если его все время будет преследовать этот дурацкий, тусклый серый свет? Конечно же нет!"
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="RichTextLabel5" type="RichTextLabel" parent="CanvasLayer/Dialogs/DialogPhase4" unique_id=534777431]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.75
+anchor_right = 0.95
+anchor_bottom = 0.95
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_37okk")
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+text = "Давай стенли, подумай, какое освещение должно быть у нашей игры?"
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="DialogPhase5" type="Control" parent="CanvasLayer/Dialogs" unique_id=369764541]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Dialogs/DialogPhase5" unique_id=667537339]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.75
+anchor_right = 0.95
+anchor_bottom = 0.95
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_37okk")
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+text = "Посмотри, как сочитается игровое окружение и освещение, неплохо, да?"
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="CanvasLayer/Dialogs/DialogPhase5" unique_id=1277379871]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.75
+anchor_right = 0.95
+anchor_bottom = 0.95
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_37okk")
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+text = "Но мы что-то сильно зациклилиси на визуале, а ведь игра - это не только красивы вид, это еще действия, сражения, сюжет и многое другое"
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="CanvasLayer/Dialogs/DialogPhase5" unique_id=1449325970]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.75
+anchor_right = 0.95
+anchor_bottom = 0.95
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_37okk")
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+text = "Но тебе, Стенли, все-таки до таких вещей еще идти и идти. Так что предлагаю долго не думать, и сделать самое главное - врагае"
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="RichTextLabel5" type="RichTextLabel" parent="CanvasLayer/Dialogs/DialogPhase5" unique_id=115835821]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.75
+anchor_right = 0.95
+anchor_bottom = 0.95
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_37okk")
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+text = "Давай стенли, подумай, какое освещение должно быть у нашей игры?"
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="ChoiceMenu" parent="CanvasLayer" unique_id=1031216120 instance=ExtResource("4_lbhrr")]
+visible = false
+
+[connection signal="create_character_cube_mesh" from="CanvasLayer/ChoiceMenu" to="." method="_on_choice_menu_create_character_cube_mesh"]
+[connection signal="create_character_sphere_mesh" from="CanvasLayer/ChoiceMenu" to="." method="_on_choice_menu_create_character_sphere_mesh"]
+[connection signal="give_walk_ability" from="CanvasLayer/ChoiceMenu" to="." method="_on_choice_menu_give_walk_ability"]
+[connection signal="make_minimal_environment" from="CanvasLayer/ChoiceMenu" to="." method="_on_choice_menu_make_minimal_environment"]
+[connection signal="make_neon_environment" from="CanvasLayer/ChoiceMenu" to="." method="_on_choice_menu_make_neon_environment"]
+[connection signal="set_day_light" from="CanvasLayer/ChoiceMenu" to="." method="_on_choice_menu_set_day_light"]
+[connection signal="set_night_light" from="CanvasLayer/ChoiceMenu" to="." method="_on_choice_menu_set_night_light"]

@@ -1,8 +1,11 @@
 extends Control
 
 @export_group("DialogStats")
-@export var letter_time := 0.07
-@export var space_time := 0.25
+@export var letter_time := 0.05
+@export var space_time := 0.075
+@export var comma_time := 0.185
+@export var punctuation_time := 0.3
+@export var dialog_wait_time := 0.7
 
 @onready var dialogs = $Dialogs
 @onready var transition = $Transition
@@ -32,6 +35,10 @@ func display_text(text: RichTextLabel):
 		
 		if current_char == " ":
 			await get_tree().create_timer(space_time).timeout
+		elif current_char == ",":
+			await get_tree().create_timer(comma_time).timeout
+		elif current_char in [".", "!", "?", "-"]:
+			await get_tree().create_timer(punctuation_time).timeout
 		else:
 			await get_tree().create_timer(letter_time).timeout
 		
@@ -39,7 +46,7 @@ func display_text(text: RichTextLabel):
 			break
 
 	if not skip_button_pressed:
-		await get_tree().create_timer(1.3).timeout
+		await get_tree().create_timer(dialog_wait_time).timeout
 	else:
 		skip_button_pressed = false
 		
