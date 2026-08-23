@@ -10,6 +10,7 @@ extends Control
 @onready var minimal_environment_button = $ChoiceCards/MinimalEnvironmentButton
 @onready var day_light_button = $ChoiceCards/DayLightButton
 @onready var night_light_button = $ChoiceCards/NightLightButton
+@onready var enemy_creation_button = $ChoiceCards/EnemyCreationButton
 
 signal give_walk_ability
 signal create_character_cube_mesh
@@ -18,6 +19,7 @@ signal make_neon_environment
 signal make_minimal_environment
 signal set_day_light
 signal set_night_light
+signal make_enemy_creation
 
 signal choice_done
 
@@ -73,6 +75,12 @@ func toggle_light_choice() -> void:
 	else:
 		day_light_button.show()
 		night_light_button.show()
+		
+func toggle_enemy_choice() -> void:
+	if enemy_creation_button.visible:
+		enemy_creation_button.hide()
+	else:
+		enemy_creation_button.show()
 
 func _on_walk_button_pressed() -> void:
 	give_walk_ability.emit()
@@ -94,3 +102,6 @@ func _on_day_light_button_pressed() -> void:
 
 func _on_night_light_button_pressed() -> void:
 	set_night_light.emit()
+
+func _on_enemy_creation_button_pressed() -> void:
+	make_enemy_creation.emit()

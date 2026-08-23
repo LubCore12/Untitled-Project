@@ -42,7 +42,7 @@ func display_text(text: RichTextLabel):
 		else:
 			await get_tree().create_timer(letter_time).timeout
 		
-		if skip_button_pressed:
+		if skip_button_pressed and text.visible_characters >= 5:
 			break
 
 	if not skip_button_pressed:

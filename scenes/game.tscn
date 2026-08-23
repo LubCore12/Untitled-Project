@@ -59,7 +59,7 @@ space_time = 0.0
 dialog_wait_time = 0.0
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1193258410]
-transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 10.395413, 29.990355)
 shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1619049830]
@@ -67,12 +67,12 @@ environment = SubResource("Environment_lnu2h")
 
 [node name="Player" parent="." unique_id=132662011 instance=ExtResource("1_uwrxv")]
 
-[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=969261638]
+[node name="Floor" type="StaticBody3D" parent="." unique_id=969261638]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=1279481240]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor" unique_id=1279481240]
 mesh = SubResource("PlaneMesh_37okk")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1562142076]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor" unique_id=1562142076]
 shape = SubResource("ConcavePolygonShape3D_uwrxv")
 
 [node name="StaticBody3D2" type="StaticBody3D" parent="." unique_id=575346912]
@@ -84,6 +84,8 @@ mesh = SubResource("CylinderMesh_37okk")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2" unique_id=436460349]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3485203, 0.77097654, 3.1012936)
 shape = SubResource("CylinderShape3D_lbhrr")
+
+[node name="Enemies" type="Node3D" parent="." unique_id=1781416593]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=619251981]
 
@@ -402,7 +404,7 @@ grow_vertical = 2
 theme = SubResource("Theme_37okk")
 theme_override_font_sizes/normal_font_size = 40
 bbcode_enabled = true
-text = "Но мы что-то сильно зациклилиси на визуале, а ведь игра - это не только красивы вид, это еще действия, сражения, сюжет и многое другое"
+text = "Но мы что-то сильно зациклилиси на визуале, а ведь игра - это не только красивый вид, это еще действия, сражения, сюжет и многое другое"
 visible_characters = 0
 visible_ratio = 0.0
 
@@ -418,7 +420,7 @@ grow_vertical = 2
 theme = SubResource("Theme_37okk")
 theme_override_font_sizes/normal_font_size = 40
 bbcode_enabled = true
-text = "Но тебе, Стенли, все-таки до таких вещей еще идти и идти. Так что предлагаю долго не думать, и сделать самое главное - врагае"
+text = "Но тебе, Стенли, все-таки до таких вещей еще идти и идти. Так что предлагаю долго не думать, и сделать самое главное - врагах"
 visible_characters = 0
 visible_ratio = 0.0
 
@@ -434,7 +436,91 @@ grow_vertical = 2
 theme = SubResource("Theme_37okk")
 theme_override_font_sizes/normal_font_size = 40
 bbcode_enabled = true
-text = "Давай стенли, подумай, какое освещение должно быть у нашей игры?"
+text = "Давай, создай самого простого врага, который будет атаковать игрока."
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="DialogPhase6" type="Control" parent="CanvasLayer/Dialogs" unique_id=1609100686]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Dialogs/DialogPhase6" unique_id=1663572758]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.75
+anchor_right = 0.95
+anchor_bottom = 0.95
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_37okk")
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+text = "Отлично, враг преследует игрока! Но, пока что атаки нет, так как мы еще даже не добавили механику здоровья."
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="CanvasLayer/Dialogs/DialogPhase6" unique_id=1334264208]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.75
+anchor_right = 0.95
+anchor_bottom = 0.95
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_37okk")
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+text = "Так давай же добавим здоровье и интерфейс для него!"
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="DialogPhase7" type="Control" parent="CanvasLayer/Dialogs" unique_id=1045905041]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Dialogs/DialogPhase7" unique_id=609435952]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.75
+anchor_right = 0.95
+anchor_bottom = 0.95
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_37okk")
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+text = "Интере"
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="CanvasLayer/Dialogs/DialogPhase7" unique_id=575379654]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.75
+anchor_right = 0.95
+anchor_bottom = 0.95
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_37okk")
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+text = "Так давай же добавим здоровье и интерфейс для него!"
 visible_characters = 0
 visible_ratio = 0.0
 
@@ -444,6 +530,7 @@ visible = false
 [connection signal="create_character_cube_mesh" from="CanvasLayer/ChoiceMenu" to="." method="_on_choice_menu_create_character_cube_mesh"]
 [connection signal="create_character_sphere_mesh" from="CanvasLayer/ChoiceMenu" to="." method="_on_choice_menu_create_character_sphere_mesh"]
 [connection signal="give_walk_ability" from="CanvasLayer/ChoiceMenu" to="." method="_on_choice_menu_give_walk_ability"]
+[connection signal="make_enemy_creation" from="CanvasLayer/ChoiceMenu" to="." method="_on_choice_menu_make_enemy_creation"]
 [connection signal="make_minimal_environment" from="CanvasLayer/ChoiceMenu" to="." method="_on_choice_menu_make_minimal_environment"]
 [connection signal="make_neon_environment" from="CanvasLayer/ChoiceMenu" to="." method="_on_choice_menu_make_neon_environment"]
 [connection signal="set_day_light" from="CanvasLayer/ChoiceMenu" to="." method="_on_choice_menu_set_day_light"]

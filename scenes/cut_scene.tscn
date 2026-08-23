@@ -165,7 +165,7 @@ grow_vertical = 0
 theme = SubResource("Theme_iedig")
 theme_override_font_sizes/normal_font_size = 40
 bbcode_enabled = true
-text = "И в возрасте тридцати семи лет, Стенли понял что он не хочет проживать жизнь обыкновенного, серого офисного клерка. Он понял, что что-то в его жизни должно измениться."
+text = "Он понял, что что-то в его жизни должно измениться."
 visible_characters = 0
 visible_ratio = 0.0
 
@@ -197,7 +197,7 @@ grow_vertical = 0
 theme = SubResource("Theme_iedig")
 theme_override_font_sizes/normal_font_size = 40
 bbcode_enabled = true
-text = "В этот день он уволился с работы, поссорился в женой и променял свою карьеру, на какую-то... детскую мечту. Какая жалость."
+text = "В этот день он уволился с работы, поссорился в женой и променял свою карьеру, на какую-то... детскую мечту."
 visible_characters = 0
 visible_ratio = 0.0
 

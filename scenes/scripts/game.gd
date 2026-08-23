@@ -6,6 +6,8 @@ extends Node3D
 @onready var dialog_panel = $CanvasLayer/DialogPanel
 @onready var dialogs = $CanvasLayer/Dialogs
 @onready var player = $Player
+@onready var enemies = $Enemies
+@onready var enemy_scene = preload("res://scenes/enemy.tscn")
 
 @export_group("DialogStats")
 @export var letter_time := 0.05
@@ -71,6 +73,18 @@ func _ready() -> void:
 	await get_tree().create_timer(2).timeout
 	dialog_panel.show()
 	
+	for label in dialogs.get_child(4).get_children():
+		await display_text(label)
+		
+	dialog_panel.hide()
+	await get_tree().create_timer(0.5).timeout
+	choice_menu.toggle_enemy_choice()
+	choice_menu.show()
+	await choice_menu.choice_done
+	choice_menu.toggle_enemy_choice()
+	await get_tree().create_timer(2).timeout
+	dialog_panel.show()
+	
 func display_text(text: RichTextLabel):
 	text.visible_characters = 0
 	var total_chars = text.get_total_character_count()
@@ -111,3 +125,9 @@ func _on_choice_menu_set_day_light() -> void:
 
 func _on_choice_menu_set_night_light() -> void:
 	pass
+
+func _on_choice_menu_make_enemy_creation() -> void:
+	var enemy = enemy_scene.instantiate()
+	enemy.setup(player)
+	enemy.position.x = -10
+	enemies.add_child(enemy)

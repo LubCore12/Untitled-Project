@@ -193,6 +193,58 @@ shader_parameter/x_pos = 1.8
 shader_parameter/y_pos = 0.0
 shader_parameter/thikness = 0.07
 
+[sub_resource type="Shader" id="Shader_2oyqo"]
+code = "shader_type canvas_item;
+
+uniform float angle = -70.0;
+uniform float x_pos = 1.8;
+uniform float y_pos = 0.0;
+uniform float thikness = 0.07;
+
+void fragment() {
+	vec2 uv = 2. * UV - 1.;
+	
+	float slope = tan(angle);
+	float line = (uv.y + y_pos) - slope * (uv.x + x_pos);
+	float distance_to_line = abs(line) / sqrt(1.0 + pow(slope, 2));
+	float shine_mask = step(distance_to_line, thikness);
+	COLOR.rgb = mix(COLOR.rgb, vec3(1.), shine_mask);
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_axv1t"]
+shader = SubResource("Shader_2oyqo")
+shader_parameter/angle = -70.0
+shader_parameter/x_pos = 1.8
+shader_parameter/y_pos = 0.0
+shader_parameter/thikness = 0.07
+
+[sub_resource type="Shader" id="Shader_jrdjb"]
+code = "shader_type canvas_item;
+
+uniform float angle = -70.0;
+uniform float x_pos = 1.8;
+uniform float y_pos = 0.0;
+uniform float thikness = 0.07;
+
+void fragment() {
+	vec2 uv = 2. * UV - 1.;
+	
+	float slope = tan(angle);
+	float line = (uv.y + y_pos) - slope * (uv.x + x_pos);
+	float distance_to_line = abs(line) / sqrt(1.0 + pow(slope, 2));
+	float shine_mask = step(distance_to_line, thikness);
+	COLOR.rgb = mix(COLOR.rgb, vec3(1.), shine_mask);
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kkagw"]
+shader = SubResource("Shader_jrdjb")
+shader_parameter/angle = -70.0
+shader_parameter/x_pos = 1.8
+shader_parameter/y_pos = 0.0
+shader_parameter/thikness = 0.07
+
 [node name="ChoiceMenu" type="Control" unique_id=1031216120]
 layout_mode = 3
 anchors_preset = 15
@@ -540,6 +592,186 @@ text = "Представь, как хорошо будет сочетаться 
 horizontal_alignment = 1
 autowrap_mode = 2
 
+[node name="EnemyCreationButton" type="Button" parent="ChoiceCards" unique_id=847278461]
+visible = false
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+theme = SubResource("Theme_37okk")
+
+[node name="Panel" type="Panel" parent="ChoiceCards/EnemyCreationButton" unique_id=684675746]
+material = SubResource("ShaderMaterial_axv1t")
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_behavior_recursive = 1
+theme = ExtResource("4_h2egi")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ChoiceCards/EnemyCreationButton/Panel" unique_id=1175650727]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.05
+anchor_right = 0.95
+anchor_bottom = 0.95
+grow_horizontal = 2
+grow_vertical = 2
+mouse_behavior_recursive = 1
+
+[node name="Label" type="Label" parent="ChoiceCards/EnemyCreationButton/Panel/VBoxContainer" unique_id=1907447853]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = SubResource("Theme_fo3dt")
+theme_override_font_sizes/font_size = 45
+text = "Враг"
+
+[node name="Label2" type="Label" parent="ChoiceCards/EnemyCreationButton/Panel/VBoxContainer" unique_id=1568408296]
+layout_mode = 2
+size_flags_vertical = 10
+theme = SubResource("Theme_8c0wf")
+theme_override_font_sizes/font_size = 32
+text = "Первая часть игры, которая добавляет в нее реальный геймплей"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="CircleHealthButton" type="Button" parent="ChoiceCards" unique_id=637318674]
+visible = false
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+theme = SubResource("Theme_37okk")
+
+[node name="Panel" type="Panel" parent="ChoiceCards/CircleHealthButton" unique_id=1936777696]
+material = SubResource("ShaderMaterial_kkagw")
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_behavior_recursive = 1
+theme = ExtResource("4_h2egi")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ChoiceCards/CircleHealthButton/Panel" unique_id=92572741]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.05
+anchor_right = 0.95
+anchor_bottom = 0.95
+grow_horizontal = 2
+grow_vertical = 2
+mouse_behavior_recursive = 1
+
+[node name="Label" type="Label" parent="ChoiceCards/CircleHealthButton/Panel/VBoxContainer" unique_id=1336941468]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = SubResource("Theme_fo3dt")
+theme_override_font_sizes/font_size = 45
+text = "Враг"
+
+[node name="Label2" type="Label" parent="ChoiceCards/CircleHealthButton/Panel/VBoxContainer" unique_id=1608658229]
+layout_mode = 2
+size_flags_vertical = 10
+theme = SubResource("Theme_8c0wf")
+theme_override_font_sizes/font_size = 32
+text = "Первая часть игры, которая добавляет в нее реальный геймплей"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="LineHealthBar" type="Button" parent="ChoiceCards" unique_id=1677500102]
+visible = false
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+theme = SubResource("Theme_37okk")
+
+[node name="Panel" type="Panel" parent="ChoiceCards/LineHealthBar" unique_id=1090503277]
+material = SubResource("ShaderMaterial_kkagw")
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_behavior_recursive = 1
+theme = ExtResource("4_h2egi")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ChoiceCards/LineHealthBar/Panel" unique_id=2081131397]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.05
+anchor_right = 0.95
+anchor_bottom = 0.95
+grow_horizontal = 2
+grow_vertical = 2
+mouse_behavior_recursive = 1
+
+[node name="Label" type="Label" parent="ChoiceCards/LineHealthBar/Panel/VBoxContainer" unique_id=2127198097]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = SubResource("Theme_fo3dt")
+theme_override_font_sizes/font_size = 45
+text = "Враг"
+
+[node name="Label2" type="Label" parent="ChoiceCards/LineHealthBar/Panel/VBoxContainer" unique_id=1498510363]
+layout_mode = 2
+size_flags_vertical = 10
+theme = SubResource("Theme_8c0wf")
+theme_override_font_sizes/font_size = 32
+text = "Первая часть игры, которая добавляет в нее реальный геймплей"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="SphereHealthBar" type="Button" parent="ChoiceCards" unique_id=539123230]
+visible = false
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+theme = SubResource("Theme_37okk")
+
+[node name="Panel" type="Panel" parent="ChoiceCards/SphereHealthBar" unique_id=1781397272]
+material = SubResource("ShaderMaterial_kkagw")
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_behavior_recursive = 1
+theme = ExtResource("4_h2egi")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ChoiceCards/SphereHealthBar/Panel" unique_id=414703171]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.05
+anchor_right = 0.95
+anchor_bottom = 0.95
+grow_horizontal = 2
+grow_vertical = 2
+mouse_behavior_recursive = 1
+
+[node name="Label" type="Label" parent="ChoiceCards/SphereHealthBar/Panel/VBoxContainer" unique_id=1409837327]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = SubResource("Theme_fo3dt")
+theme_override_font_sizes/font_size = 45
+text = "Враг"
+
+[node name="Label2" type="Label" parent="ChoiceCards/SphereHealthBar/Panel/VBoxContainer" unique_id=63405850]
+layout_mode = 2
+size_flags_vertical = 10
+theme = SubResource("Theme_8c0wf")
+theme_override_font_sizes/font_size = 32
+text = "Первая часть игры, которая добавляет в нее реальный геймплей"
+horizontal_alignment = 1
+autowrap_mode = 2
+
 [connection signal="pressed" from="ChoiceCards/WalkButton" to="." method="_on_walk_button_pressed"]
 [connection signal="pressed" from="ChoiceCards/CharacterCubeMeshButton" to="." method="_on_character_cube_mesh_button_pressed"]
 [connection signal="pressed" from="ChoiceCards/CharacterSphereMeshButton" to="." method="_on_character_sphere_mesh_button_pressed"]
@@ -547,3 +779,7 @@ autowrap_mode = 2
 [connection signal="pressed" from="ChoiceCards/MinimalEnvironmentButton" to="." method="_on_minimal_environment_button_pressed"]
 [connection signal="pressed" from="ChoiceCards/DayLightButton" to="." method="_on_day_light_button_pressed"]
 [connection signal="pressed" from="ChoiceCards/NightLightButton" to="." method="_on_night_light_button_pressed"]
+[connection signal="pressed" from="ChoiceCards/EnemyCreationButton" to="." method="_on_enemy_creation_button_pressed"]
+[connection signal="pressed" from="ChoiceCards/CircleHealthButton" to="." method="_on_enemy_creation_button_pressed"]
+[connection signal="pressed" from="ChoiceCards/LineHealthBar" to="." method="_on_enemy_creation_button_pressed"]
+[connection signal="pressed" from="ChoiceCards/SphereHealthBar" to="." method="_on_enemy_creation_button_pressed"]
