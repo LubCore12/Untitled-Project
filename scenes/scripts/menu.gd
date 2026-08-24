@@ -16,8 +16,6 @@ func _ready() -> void:
 		button.material.set_shader_parameter("x_speed", randf_range(1.0, 3.0))
 		button.material.set_shader_parameter("y_speed", randf_range(1.0, 3.0))
 
-
-
 func _on_play_pressed() -> void:
 	GlobalSounds.play_random_pressed_sound()
 	get_tree().change_scene_to_file(cut_scene)

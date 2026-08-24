@@ -583,22 +583,6 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Dialogs/DialogPhase7" unique_id=609435952]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.05
-anchor_top = 0.75
-anchor_right = 0.95
-anchor_bottom = 0.95
-grow_horizontal = 2
-grow_vertical = 2
-theme = SubResource("Theme_37okk")
-theme_override_font_sizes/normal_font_size = 40
-bbcode_enabled = true
-text = "Интереcный выбор."
-visible_characters = 0
-visible_ratio = 0.0
-
 [node name="RichTextLabel3" type="RichTextLabel" parent="CanvasLayer/Dialogs/DialogPhase7" unique_id=575379654]
 layout_mode = 1
 anchors_preset = -1
@@ -611,7 +595,55 @@ grow_vertical = 2
 theme = SubResource("Theme_37okk")
 theme_override_font_sizes/normal_font_size = 40
 bbcode_enabled = true
-text = "Так давай же добавим здоровье и интерфейс для него!"
+text = "Ну что, у тебя уже есть практически полноценная игра, не прекрасно ли это?"
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="CanvasLayer/Dialogs/DialogPhase7" unique_id=2125609829]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.75
+anchor_right = 0.95
+anchor_bottom = 0.95
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_37okk")
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+text = "Но все же кое-что в нахей игре до сих пор, а именно баланса"
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="RichTextLabel5" type="RichTextLabel" parent="CanvasLayer/Dialogs/DialogPhase7" unique_id=449757539]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.75
+anchor_right = 0.95
+anchor_bottom = 0.95
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_37okk")
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+text = "Так что Стенли, попытайся поиграться с настройками, может постарайся добавить новые механики и сделать игру более интересной"
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="RichTextLabel6" type="RichTextLabel" parent="CanvasLayer/Dialogs/DialogPhase7" unique_id=474500727]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.75
+anchor_right = 0.95
+anchor_bottom = 0.95
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_37okk")
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+text = "Удачи!"
 visible_characters = 0
 visible_ratio = 0.0
 
@@ -621,14 +653,42 @@ visible_ratio = 0.0
 visible = false
 
 [connection signal="player_damaged" from="Player" to="." method="_on_player_player_damaged"]
+[connection signal="player_run" from="Player" to="." method="_on_player_player_run"]
+[connection signal="SIX_SEEEEVENAAAAAA" from="CanvasLayer/ChoiceMenu" to="." method="_on_choice_menu_six_seeeevenaaaaaa"]
 [connection signal="add_bottle_health" from="CanvasLayer/ChoiceMenu" to="." method="_on_choice_menu_add_bottle_health"]
 [connection signal="add_circle_health" from="CanvasLayer/ChoiceMenu" to="." method="_on_choice_menu_add_circle_health"]
 [connection signal="add_line_health" from="CanvasLayer/ChoiceMenu" to="." method="_on_choice_menu_add_line_health"]
+[connection signal="best_friend" from="CanvasLayer/ChoiceMenu" to="." method="_on_choice_menu_best_friend"]
+[connection signal="black" from="CanvasLayer/ChoiceMenu" to="." method="_on_choice_menu_black"]
+[connection signal="blind" from="CanvasLayer/ChoiceMenu" to="." method="_on_choice_menu_blind"]
+[connection signal="broken_bone" from="CanvasLayer/ChoiceMenu" to="." method="_on_choice_menu_broken_bone"]
+[connection signal="card_limit" from="CanvasLayer/ChoiceMenu" to="." method="_on_choice_menu_card_limit"]
 [connection signal="create_character_sprite" from="CanvasLayer/ChoiceMenu" to="." method="_on_choice_menu_create_character_sprite"]
+[connection signal="dementia" from="CanvasLayer/ChoiceMenu" to="." method="_on_choice_menu_dementia"]
+[connection signal="disabled" from="CanvasLayer/ChoiceMenu" to="." method="_on_choice_menu_disabled"]
+[connection signal="dyspnea" from="CanvasLayer/ChoiceMenu" to="." method="_on_choice_menu_dyspnea"]
+[connection signal="fat_guy" from="CanvasLayer/ChoiceMenu" to="." method="_on_choice_menu_fat_guy"]
+[connection signal="flash" from="CanvasLayer/ChoiceMenu" to="." method="_on_choice_menu_flash"]
+[connection signal="flashbang" from="CanvasLayer/ChoiceMenu" to="." method="_on_choice_menu_flashbang"]
+[connection signal="gambling" from="CanvasLayer/ChoiceMenu" to="." method="_on_choice_menu_gambling"]
+[connection signal="gamer" from="CanvasLayer/ChoiceMenu" to="." method="_on_choice_menu_gamer"]
 [connection signal="give_walk_ability" from="CanvasLayer/ChoiceMenu" to="." method="_on_choice_menu_give_walk_ability"]
+[connection signal="iron_dude" from="CanvasLayer/ChoiceMenu" to="." method="_on_choice_menu_iron_dude"]
 [connection signal="make_enemy_close_creation" from="CanvasLayer/ChoiceMenu" to="." method="_on_choice_menu_make_enemy_close_creation"]
 [connection signal="make_enemy_long_creation" from="CanvasLayer/ChoiceMenu" to="." method="_on_choice_menu_make_enemy_long_creation"]
 [connection signal="make_rock_environment" from="CanvasLayer/ChoiceMenu" to="." method="_on_choice_menu_make_rock_environment"]
 [connection signal="make_wood_environment" from="CanvasLayer/ChoiceMenu" to="." method="_on_choice_menu_make_wood_environment"]
+[connection signal="perfect" from="CanvasLayer/ChoiceMenu" to="." method="_on_choice_menu_perfect"]
+[connection signal="rage" from="CanvasLayer/ChoiceMenu" to="." method="_on_choice_menu_rage"]
+[connection signal="redeemer" from="CanvasLayer/ChoiceMenu" to="." method="_on_choice_menu_redeemer"]
+[connection signal="serious_punch" from="CanvasLayer/ChoiceMenu" to="." method="_on_choice_menu_serious_punch"]
 [connection signal="set_day_light" from="CanvasLayer/ChoiceMenu" to="." method="_on_choice_menu_set_day_light"]
 [connection signal="set_night_light" from="CanvasLayer/ChoiceMenu" to="." method="_on_choice_menu_set_night_light"]
+[connection signal="sonic" from="CanvasLayer/ChoiceMenu" to="." method="_on_choice_menu_sonic"]
+[connection signal="spawnrate" from="CanvasLayer/ChoiceMenu" to="." method="_on_choice_menu_spawnrate"]
+[connection signal="special_agent" from="CanvasLayer/ChoiceMenu" to="." method="_on_choice_menu_special_agent"]
+[connection signal="student" from="CanvasLayer/ChoiceMenu" to="." method="_on_choice_menu_student"]
+[connection signal="thin" from="CanvasLayer/ChoiceMenu" to="." method="_on_choice_menu_thin"]
+[connection signal="unlucky" from="CanvasLayer/ChoiceMenu" to="." method="_on_choice_menu_unlucky"]
+[connection signal="vampire" from="CanvasLayer/ChoiceMenu" to="." method="_on_choice_menu_vampire"]
+[connection signal="zombie_with_bucket" from="CanvasLayer/ChoiceMenu" to="." method="_on_choice_menu_zombie_with_bucket"]

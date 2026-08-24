@@ -10,10 +10,6 @@ radius = 2.0766363
 
 [node name="Player" type="CharacterBody3D" unique_id=1400254759]
 script = ExtResource("1_3vyb7")
-walk_speed = 4.0
-run_speed = 7.0
-jump_strength = 30.0
-gravity = 1.7
 
 [node name="Shape" type="CollisionShape3D" parent="." unique_id=570095511]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
@@ -22,9 +18,9 @@ shape = SubResource("BoxShape3D_u8vuu")
 [node name="Camera" type="Camera3D" parent="." unique_id=1219416689]
 transform = Transform3D(1, 0, 0, 0, 0.8870109, 0.46174863, 0, -0.46174863, 0.8870109, 0, 3.9164767, 6.8576756)
 
-[node name="Area3D" type="Area3D" parent="." unique_id=1067655231]
+[node name="AttackArea" type="Area3D" parent="." unique_id=1067655231]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1688711294]
+[node name="Shape" type="CollisionShape3D" parent="AttackArea" unique_id=1688711294]
 shape = SubResource("SphereShape3D_odv1g")
 
 [node name="Sprite" type="Sprite3D" parent="." unique_id=959158533]
@@ -32,5 +28,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 visible = false
 texture = ExtResource("2_g2els")
 
-[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
-[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]
+[node name="Timers" type="Node" parent="." unique_id=1335400729]
+
+[node name="StaminaTimer" type="Timer" parent="Timers" unique_id=1870281789]
+wait_time = 1.2
+
+[node name="RageTimer" type="Timer" parent="Timers" unique_id=358892989]
+wait_time = 5.0
+
+[connection signal="body_entered" from="AttackArea" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="AttackArea" to="." method="_on_area_3d_body_exited"]
+[connection signal="timeout" from="Timers/StaminaTimer" to="." method="_on_stamina_timer_timeout"]

@@ -5,10 +5,11 @@
 [ext_resource type="Shader" uid="uid://dev70a6sltn5f" path="res://shaders/circle_bar.gdshader" id="2_sk4pr"]
 [ext_resource type="Shader" uid="uid://s6j0675xdx51" path="res://shaders/bottle_bar.gdshader" id="3_48xfa"]
 [ext_resource type="Shader" uid="uid://bxxcdtxv0lva7" path="res://shaders/vignette.gdshader" id="5_7ctsh"]
+[ext_resource type="Shader" uid="uid://c4nnxhy7g87aw" path="res://shaders/blindness.gdshader" id="6_bkx2g"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_guxnq"]
 shader = ExtResource("1_jkj6h")
-shader_parameter/value = 0.999999977648
+shader_parameter/value = 0.62999998591824
 shader_parameter/background_color = Color(0.13567707, 0.1356771, 0.13567707, 1)
 shader_parameter/health_color = Color(0.8799865, 0.83677167, 0.8445649, 1)
 
@@ -25,6 +26,12 @@ shader_parameter/value = 1.0
 shader_parameter/background_color = Color(0.13725491, 0.13725491, 0.13725491, 1)
 shader_parameter/health_color = Color(0.8784314, 0.8352941, 0.84313726, 1)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7ctsh"]
+shader = ExtResource("1_jkj6h")
+shader_parameter/value = 0.999999977648
+shader_parameter/background_color = Color(0.21549207, 0.21549204, 0.21549201, 1)
+shader_parameter/health_color = Color(1, 1, 1, 1)
+
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_bkx2g"]
 seed = -3
 frequency = 0.0151
@@ -39,6 +46,21 @@ shader = ExtResource("5_7ctsh")
 shader_parameter/strength = 0.0
 shader_parameter/vignette_texture = SubResource("NoiseTexture2D_7ctsh")
 shader_parameter/vignette_color = Color(0.37170312, 1.2333506e-07, 1.4439226e-07, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_wsb5h"]
+noise_type = 3
+seed = 5
+frequency = 0.0001
+fractal_lacunarity = -3.261
+fractal_gain = 1.0
+fractal_weighted_strength = 0.83
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_n31oh"]
+noise = SubResource("FastNoiseLite_wsb5h")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fo3dt"]
+shader = ExtResource("6_bkx2g")
+shader_parameter/blindness_texture = SubResource("NoiseTexture2D_n31oh")
 
 [node name="PlayerUI" type="Control" unique_id=1791843228]
 layout_mode = 3
@@ -82,8 +104,39 @@ custom_maximum_size = Vector2(100, 100)
 layout_mode = 2
 size_flags_horizontal = 3
 
+[node name="StaminaBar" type="ColorRect" parent="." unique_id=561439623]
+visible = false
+material = SubResource("ShaderMaterial_7ctsh")
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.03
+anchor_top = 0.962
+anchor_right = 0.97
+anchor_bottom = 0.97
+grow_horizontal = 2
+grow_vertical = 0
+
 [node name="Vignette" type="ColorRect" parent="." unique_id=1705456403]
 material = SubResource("ShaderMaterial_37okk")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Flashbang" type="ColorRect" parent="." unique_id=460815589]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Blindness" type="ColorRect" parent="." unique_id=868108831]
+visible = false
+material = SubResource("ShaderMaterial_fo3dt")
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
