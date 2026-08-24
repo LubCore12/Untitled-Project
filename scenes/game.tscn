@@ -653,6 +653,7 @@ visible_ratio = 0.0
 visible = false
 
 [connection signal="player_damaged" from="Player" to="." method="_on_player_player_damaged"]
+[connection signal="player_dash_time" from="Player" to="." method="_on_player_player_dash_time"]
 [connection signal="player_run" from="Player" to="." method="_on_player_player_run"]
 [connection signal="SIX_SEEEEVENAAAAAA" from="CanvasLayer/ChoiceMenu" to="." method="_on_choice_menu_six_seeeevenaaaaaa"]
 [connection signal="add_bottle_health" from="CanvasLayer/ChoiceMenu" to="." method="_on_choice_menu_add_bottle_health"]

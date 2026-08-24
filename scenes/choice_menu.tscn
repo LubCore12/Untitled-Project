@@ -1057,6 +1057,7 @@ horizontal_alignment = 1
 autowrap_mode = 2
 
 [node name="CharacterSpriteButton" type="Button" parent="ChoiceCards/StoryChoices" unique_id=25810472]
+visible = false
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
 size_flags_horizontal = 6
@@ -1914,7 +1915,7 @@ layout_mode = 2
 size_flags_vertical = 10
 theme = SubResource("Theme_8c0wf")
 theme_override_font_sizes/font_size = 32
-text = "+20% к урону после убийства на 5 секунд.
+text = "+35% к урону после убийства на 5 секунд.
 -10% к защите."
 horizontal_alignment = 1
 autowrap_mode = 2
@@ -2368,6 +2369,7 @@ horizontal_alignment = 1
 autowrap_mode = 2
 
 [node name="BadChoices" type="HBoxContainer" parent="ChoiceCards" unique_id=1848607151]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -2655,6 +2657,7 @@ horizontal_alignment = 1
 autowrap_mode = 2
 
 [node name="FlashbangButton" type="Button" parent="ChoiceCards/BadChoices" unique_id=1891614772]
+visible = false
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
 size_flags_horizontal = 6

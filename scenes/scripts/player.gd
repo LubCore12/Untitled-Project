@@ -11,20 +11,28 @@ extends CharacterBody3D
 @export var stamina_recovery: float = 20
 @export var jump_stamina: float = 5
 @export var punch_stamina: float = 5
+@export var dash_speed: float = 30
 
 @export_group("Stats")
 @export var damage: float = 10
+@export var dash_damage : float = 20
 @export var max_hp: float = 100
 @export var defend: float = 1
 
 @onready var sprite = $Sprite
 @onready var stamina_timer = $Timers/StaminaTimer
+@onready var dash_timer = $Timers/DashTimer
+@onready var rage_timer = $Timers/RageTimer
 
 var direction: float
 var target_enemy: CharacterBody3D
 var can_walk := false
 var can_attack := false
+var can_dash := false
+var rage_enabled := false
+var rage_active := false
 var is_moving := false
+var is_dashing := false
 var is_stamina_recovery := false
 var is_punch_discard_stamina := false
 var hp: float
@@ -39,6 +47,7 @@ var speed_multiplier := 1.0
 
 signal player_damaged(damage: float)
 signal player_run(stamina: float)
+signal player_dash_time(time: float)
 
 func _ready() -> void:
 	hp = max_hp
@@ -52,7 +61,7 @@ func _physics_process(delta: float) -> void:
 		move()
 	
 func move() -> void:
-	velocity.x = direction * speed
+	velocity.x = direction * speed if not is_dashing else direction * dash_speed
 	velocity.y -= gravity
 	move_and_slide()
 	
@@ -69,10 +78,20 @@ func jump() -> void:
 		player_run.emit(stamina * (1.0 / get_right_max_stamina()))
 		is_moving = true
 	
+func dash() -> void:
+	is_dashing = true
+	can_dash = false
+	dash_timer.start()
+	await get_tree().create_timer(0.06).timeout
+	is_dashing = false
+	
 func get_input(delta) -> void:
 	speed = walk_speed * speed_multiplier
 	direction = Input.get_axis("left", "right")
 	is_moving = direction != 0.0
+	
+	if dash_timer.time_left > 0:
+		player_dash_time.emit((dash_timer.wait_time - dash_timer.time_left) * (1 / dash_timer.wait_time))
 	
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		jump()
@@ -89,6 +108,9 @@ func get_input(delta) -> void:
 					stamina -= punch_stamina
 					attack()
 					player_run.emit(stamina * (1.0 / get_right_max_stamina()))
+	
+	if Input.is_action_just_pressed("dash") and can_dash:
+		dash()
 	
 func recover_stamina(delta) -> void:
 	if not is_moving:
@@ -108,8 +130,21 @@ func start_walking() -> void:
 func start_attack() -> void:
 	can_attack = true
 	
+func start_dashing() -> void:
+	can_dash = true
+	
+func enable_rage() -> void:
+	rage_enabled = true
+	
 func attack():
-	target_enemy.get_damage(get_right_damage())
+	var killed = target_enemy.get_damage(get_right_damage())
+	
+	if killed and rage_enabled:
+		if rage_active:
+			rage_timer.stop()
+		add_damage_multiplier(0.35)
+		rage_active = true
+		rage_timer.start()
 
 func show_sprite() -> void:
 	sprite.show()
@@ -173,3 +208,9 @@ func get_right_defend() -> float:
 	
 func get_right_damage() -> float:
 	return damage * damage_multiplier
+
+func _on_dash_timer_timeout() -> void:
+	can_dash = true
+
+func _on_rage_timer_timeout() -> void:
+	add_damage_multiplier(-0.35)

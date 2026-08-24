@@ -39,6 +39,8 @@ func get_damage(self_damage):
 		collision_layer = 2
 		collision_mask = 2
 		set_physics_process(false)
+		return true
+	return false
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body == player:

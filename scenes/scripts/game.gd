@@ -143,6 +143,9 @@ func _on_player_player_damaged(damage: float) -> void:
 func _on_player_player_run(stamina: float) -> void:
 	player_ui.set_stamina(stamina)
 
+func _on_player_player_dash_time(time: float) -> void:
+	player_ui.set_dash_time(time)
+
 func _on_choice_menu_give_walk_ability() -> void:
 	player.start_walking()
 	player_ui.show_stamina()
@@ -216,7 +219,7 @@ func _on_choice_menu_fat_guy() -> void:
 	player.add_damage_multiplier(-0.15)
 
 func _on_choice_menu_flash() -> void:
-	pass
+	player.start_dashing()
 
 func _on_choice_menu_flashbang() -> void:
 	var tween = create_tween()
@@ -240,7 +243,8 @@ func _on_choice_menu_perfect() -> void:
 	player.add_max_health_multiplier(0.1)
 
 func _on_choice_menu_rage() -> void:
-	pass
+	player.enable_rage()
+	player.add_defend_multiplier(-0.1)
 
 func _on_choice_menu_redeemer() -> void:
 	pass

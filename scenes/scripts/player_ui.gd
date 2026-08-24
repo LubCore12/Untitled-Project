@@ -1,8 +1,10 @@
 extends Control
 
-@onready var line_bar = $VBoxContainer/HealthBarTypes/LineBar
-@onready var circle_bar = $VBoxContainer/HealthBarTypes/CircleBar
-@onready var bottle_bar = $VBoxContainer/HealthBarTypes/BottleBar
+@onready var line_bar = $LeftTopContainer/HealthBarTypes/LineBar
+@onready var circle_bar = $LeftTopContainer/HealthBarTypes/CircleBar
+@onready var bottle_bar = $LeftTopContainer/HealthBarTypes/BottleBar
+@onready var dash_bar = $DashContainer/DashBar
+@onready var dash_label = $DashContainer/State
 @onready var vignette = $Vignette
 @onready var stamina_bar = $StaminaBar
 @onready var blindness = $Blindness
@@ -35,5 +37,14 @@ func show_blindness() -> void:
 	blindness.show()
 	
 func set_stamina(value: float) -> void:
-	var tween = create_tween().parallel()
+	var tween = create_tween()
 	tween.tween_property(stamina_bar.material, "shader_parameter/value", value, 0.3)
+
+func set_dash_time(value: float) -> void:
+	var tween = create_tween()
+	tween.tween_property(dash_bar.material, "shader_parameter/value", value, 0.3)
+	
+	if value == 1.0:
+		dash_label.text = "Ready!"
+	else:
+		dash_label.text = "Loading.."

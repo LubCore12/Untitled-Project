@@ -5,6 +5,7 @@
 [ext_resource type="Shader" uid="uid://dev70a6sltn5f" path="res://shaders/circle_bar.gdshader" id="2_sk4pr"]
 [ext_resource type="Shader" uid="uid://s6j0675xdx51" path="res://shaders/bottle_bar.gdshader" id="3_48xfa"]
 [ext_resource type="Shader" uid="uid://bxxcdtxv0lva7" path="res://shaders/vignette.gdshader" id="5_7ctsh"]
+[ext_resource type="FontFile" uid="uid://c1bb63cxvo6pu" path="res://fonts/Exo2-SemiBold.ttf" id="5_n31oh"]
 [ext_resource type="Shader" uid="uid://c4nnxhy7g87aw" path="res://shaders/blindness.gdshader" id="6_bkx2g"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_guxnq"]
@@ -22,6 +23,15 @@ shader_parameter/health_color = Color(0.8784314, 0.8352941, 0.84313726, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_sk4pr"]
 shader = ExtResource("3_48xfa")
+shader_parameter/value = 1.0
+shader_parameter/background_color = Color(0.13725491, 0.13725491, 0.13725491, 1)
+shader_parameter/health_color = Color(0.8784314, 0.8352941, 0.84313726, 1)
+
+[sub_resource type="Theme" id="Theme_bkx2g"]
+default_font = ExtResource("5_n31oh")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wsb5h"]
+shader = ExtResource("1_jkj6h")
 shader_parameter/value = 1.0
 shader_parameter/background_color = Color(0.13725491, 0.13725491, 0.13725491, 1)
 shader_parameter/health_color = Color(0.8784314, 0.8352941, 0.84313726, 1)
@@ -71,7 +81,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_8isll")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1582138688]
+[node name="LeftTopContainer" type="VBoxContainer" parent="." unique_id=1582138688]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.03
@@ -79,30 +89,54 @@ anchor_top = 0.03
 anchor_right = 0.3
 anchor_bottom = 1.0
 
-[node name="HealthBarTypes" type="HBoxContainer" parent="VBoxContainer" unique_id=211166009]
+[node name="HealthBarTypes" type="HBoxContainer" parent="LeftTopContainer" unique_id=211166009]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="LineBar" type="ColorRect" parent="VBoxContainer/HealthBarTypes" unique_id=2117184087]
+[node name="LineBar" type="ColorRect" parent="LeftTopContainer/HealthBarTypes" unique_id=2117184087]
 visible = false
 material = SubResource("ShaderMaterial_guxnq")
 custom_maximum_size = Vector2(-1, 40)
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="CircleBar" type="ColorRect" parent="VBoxContainer/HealthBarTypes" unique_id=693975217]
+[node name="CircleBar" type="ColorRect" parent="LeftTopContainer/HealthBarTypes" unique_id=693975217]
 visible = false
 material = SubResource("ShaderMaterial_jkj6h")
 custom_maximum_size = Vector2(100, 100)
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="BottleBar" type="ColorRect" parent="VBoxContainer/HealthBarTypes" unique_id=158028984]
+[node name="BottleBar" type="ColorRect" parent="LeftTopContainer/HealthBarTypes" unique_id=158028984]
 visible = false
 material = SubResource("ShaderMaterial_sk4pr")
 custom_maximum_size = Vector2(100, 100)
 layout_mode = 2
 size_flags_horizontal = 3
+
+[node name="DashContainer" type="VBoxContainer" parent="." unique_id=1041799021]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.7
+anchor_top = 0.03
+anchor_right = 0.97
+anchor_bottom = 1.0
+grow_horizontal = 0
+
+[node name="State" type="Label" parent="DashContainer" unique_id=1781372492]
+layout_mode = 2
+theme = SubResource("Theme_bkx2g")
+theme_override_font_sizes/font_size = 32
+text = "Ready!"
+horizontal_alignment = 2
+
+[node name="DashBar" type="ColorRect" parent="DashContainer" unique_id=82712788]
+material = SubResource("ShaderMaterial_wsb5h")
+custom_minimum_size = Vector2(150, 4)
+layout_mode = 2
+size_flags_horizontal = 8
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, 3)
 
 [node name="StaminaBar" type="ColorRect" parent="." unique_id=561439623]
 visible = false
