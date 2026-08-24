@@ -12,23 +12,23 @@
 [ext_resource type="Texture2D" uid="uid://dym03f4x2bkhm" path="res://assets/card_icons/night.svg" id="11_jrdjb"]
 [ext_resource type="Texture2D" uid="uid://iwnctwh6w1jr" path="res://assets/card_icons/enemy.svg" id="12_kkagw"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ila21"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jrdjb"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2gruq"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kkagw"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fo3dt"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r03mh"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bl2r1"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wfj4a"]
 bg_color = Color(1, 1, 1, 0)
 
 [sub_resource type="Theme" id="Theme_37okk"]
-Button/styles/focus = SubResource("StyleBoxFlat_ila21")
-Button/styles/hover = SubResource("StyleBoxFlat_2gruq")
-Button/styles/normal = SubResource("StyleBoxFlat_fo3dt")
-Button/styles/pressed = SubResource("StyleBoxFlat_bl2r1")
+Button/styles/focus = SubResource("StyleBoxFlat_jrdjb")
+Button/styles/hover = SubResource("StyleBoxFlat_kkagw")
+Button/styles/normal = SubResource("StyleBoxFlat_r03mh")
+Button/styles/pressed = SubResource("StyleBoxFlat_wfj4a")
 
 [sub_resource type="Shader" id="Shader_al8qj"]
 code = "shader_type canvas_item;
@@ -865,6 +865,98 @@ text = "Чем-то напоминает круглое здоровье, но �
 horizontal_alignment = 1
 autowrap_mode = 2
 
+[node name="SaveButton" type="Button" parent="ChoiceCards" unique_id=1991144290]
+visible = false
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+theme = SubResource("Theme_37okk")
+
+[node name="Panel" type="Panel" parent="ChoiceCards/SaveButton" unique_id=1401701076]
+material = SubResource("ShaderMaterial_kkagw")
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_behavior_recursive = 1
+theme = ExtResource("4_h2egi")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ChoiceCards/SaveButton/Panel" unique_id=988361297]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.05
+anchor_right = 0.95
+anchor_bottom = 0.95
+grow_horizontal = 2
+grow_vertical = 2
+mouse_behavior_recursive = 1
+
+[node name="Label" type="Label" parent="ChoiceCards/SaveButton/Panel/VBoxContainer" unique_id=197242364]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = SubResource("Theme_fo3dt")
+theme_override_font_sizes/font_size = 45
+text = "Сохранения"
+
+[node name="Label2" type="Label" parent="ChoiceCards/SaveButton/Panel/VBoxContainer" unique_id=1591257640]
+layout_mode = 2
+size_flags_vertical = 10
+theme = SubResource("Theme_8c0wf")
+theme_override_font_sizes/font_size = 32
+text = "Если ты хочешь растянуть игру на несколько дней, выбери это
+(и то, и то бу"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="PauseButton" type="Button" parent="ChoiceCards" unique_id=1505102305]
+visible = false
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+theme = SubResource("Theme_37okk")
+
+[node name="Panel" type="Panel" parent="ChoiceCards/PauseButton" unique_id=1424940051]
+material = SubResource("ShaderMaterial_kkagw")
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_behavior_recursive = 1
+theme = ExtResource("4_h2egi")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ChoiceCards/PauseButton/Panel" unique_id=1283574978]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.05
+anchor_right = 0.95
+anchor_bottom = 0.95
+grow_horizontal = 2
+grow_vertical = 2
+mouse_behavior_recursive = 1
+
+[node name="Label" type="Label" parent="ChoiceCards/PauseButton/Panel/VBoxContainer" unique_id=1914466913]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = SubResource("Theme_fo3dt")
+theme_override_font_sizes/font_size = 45
+text = "Пауза"
+
+[node name="Label2" type="Label" parent="ChoiceCards/PauseButton/Panel/VBoxContainer" unique_id=397998397]
+layout_mode = 2
+size_flags_vertical = 10
+theme = SubResource("Theme_8c0wf")
+theme_override_font_sizes/font_size = 32
+text = "Если ты часто отходишь от компьютера, выбери это
+дет жирно)"
+horizontal_alignment = 1
+autowrap_mode = 2
+
 [connection signal="pressed" from="ChoiceCards/WalkButton" to="." method="_on_walk_button_pressed"]
 [connection signal="pressed" from="ChoiceCards/CharacterSpriteButton" to="." method="_on_character_sprite_button_pressed"]
 [connection signal="pressed" from="ChoiceCards/WoodEnvironmentButton" to="." method="_on_wood_environment_button_pressed"]
@@ -876,3 +968,5 @@ autowrap_mode = 2
 [connection signal="pressed" from="ChoiceCards/CircleHealthButton" to="." method="_on_circle_health_button_pressed"]
 [connection signal="pressed" from="ChoiceCards/LineHealthButton" to="." method="_on_line_health_bar_pressed"]
 [connection signal="pressed" from="ChoiceCards/BottleHealthButton" to="." method="_on_bottle_health_bar_pressed"]
+[connection signal="pressed" from="ChoiceCards/SaveButton" to="." method="_on_save_button_pressed"]
+[connection signal="pressed" from="ChoiceCards/PauseButton" to="." method="_on_pause_button_pressed"]

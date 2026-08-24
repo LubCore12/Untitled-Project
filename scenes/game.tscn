@@ -612,6 +612,8 @@ visible = false
 [connection signal="add_bottle_health" from="CanvasLayer/ChoiceMenu" to="." method="_on_choice_menu_add_bottle_health"]
 [connection signal="add_circle_health" from="CanvasLayer/ChoiceMenu" to="." method="_on_choice_menu_add_circle_health"]
 [connection signal="add_line_health" from="CanvasLayer/ChoiceMenu" to="." method="_on_choice_menu_add_line_health"]
+[connection signal="add_pause" from="CanvasLayer/ChoiceMenu" to="." method="_on_choice_menu_add_pause"]
+[connection signal="add_save" from="CanvasLayer/ChoiceMenu" to="." method="_on_choice_menu_add_save"]
 [connection signal="create_character_sprite" from="CanvasLayer/ChoiceMenu" to="." method="_on_choice_menu_create_character_sprite"]
 [connection signal="give_walk_ability" from="CanvasLayer/ChoiceMenu" to="." method="_on_choice_menu_give_walk_ability"]
 [connection signal="make_enemy_close_creation" from="CanvasLayer/ChoiceMenu" to="." method="_on_choice_menu_make_enemy_close_creation"]

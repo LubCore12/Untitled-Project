@@ -22,24 +22,24 @@ shader_parameter/strength = 0.0
 shader_parameter/x_speed = 0.0
 shader_parameter/y_speed = 0.0
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4ytvr"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g3eks"]
 bg_color = Color(1, 1, 1, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v86rl"]
 bg_color = Color(1, 1, 1, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g3eks"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_13sgg"]
 bg_color = Color(1, 1, 1, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_13sgg"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i6lef"]
 bg_color = Color(1, 1, 1, 1)
 
 [sub_resource type="Theme" id="Theme_sm7t5"]
 default_font = ExtResource("3_4ytvr")
-Button/styles/focus = SubResource("StyleBoxFlat_4ytvr")
+Button/styles/focus = SubResource("StyleBoxFlat_g3eks")
 Button/styles/hover = SubResource("StyleBoxFlat_v86rl")
-Button/styles/normal = SubResource("StyleBoxFlat_g3eks")
-Button/styles/pressed = SubResource("StyleBoxFlat_13sgg")
+Button/styles/normal = SubResource("StyleBoxFlat_13sgg")
+Button/styles/pressed = SubResource("StyleBoxFlat_i6lef")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_g3eks"]
 shader = ExtResource("3_g3eks")
@@ -53,23 +53,23 @@ shader_parameter/strength = 0.0
 shader_parameter/x_speed = 0.0
 shader_parameter/y_speed = 0.0
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fo3dt"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_70i5f"]
 bg_color = Color(1, 1, 1, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mhnvy"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mj5lg"]
 bg_color = Color(1, 1, 1, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ila21"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ufwb2"]
 bg_color = Color(1, 1, 1, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u057j"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6cdou"]
 bg_color = Color(1, 1, 1, 1)
 
 [sub_resource type="Theme" id="Theme_37okk"]
-Button/styles/focus = SubResource("StyleBoxFlat_fo3dt")
-Button/styles/hover = SubResource("StyleBoxFlat_mhnvy")
-Button/styles/normal = SubResource("StyleBoxFlat_ila21")
-Button/styles/pressed = SubResource("StyleBoxFlat_u057j")
+Button/styles/focus = SubResource("StyleBoxFlat_70i5f")
+Button/styles/hover = SubResource("StyleBoxFlat_mj5lg")
+Button/styles/normal = SubResource("StyleBoxFlat_ufwb2")
+Button/styles/pressed = SubResource("StyleBoxFlat_6cdou")
 
 [node name="Menu" type="Control" unique_id=989188303]
 layout_mode = 3
@@ -191,6 +191,7 @@ layout_mode = 1
 [connection signal="pressed" from="ActionButtons/Play" to="." method="_on_play_pressed"]
 [connection signal="mouse_entered" from="ActionButtons/Continue" to="." method="_on_continue_mouse_entered"]
 [connection signal="mouse_exited" from="ActionButtons/Continue" to="." method="_on_continue_mouse_exited"]
+[connection signal="pressed" from="ActionButtons/Continue" to="." method="_on_continue_pressed"]
 [connection signal="mouse_entered" from="ActionButtons/GiveUp" to="." method="_on_give_up_mouse_entered"]
 [connection signal="mouse_exited" from="ActionButtons/GiveUp" to="." method="_on_give_up_mouse_exited"]
 [connection signal="pressed" from="SettingsButton" to="." method="_on_settings_button_pressed"]

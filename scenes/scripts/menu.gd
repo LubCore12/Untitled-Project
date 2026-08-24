@@ -16,9 +16,8 @@ func _ready() -> void:
 		button.material.set_shader_parameter("x_speed", randf_range(1.0, 3.0))
 		button.material.set_shader_parameter("y_speed", randf_range(1.0, 3.0))
 
-
-
 func _on_play_pressed() -> void:
+	SaveManager.is_new_game = true
 	GlobalSounds.play_random_pressed_sound()
 	get_tree().change_scene_to_file(cut_scene)
 
@@ -58,3 +57,7 @@ func _on_give_up_mouse_entered() -> void:
 
 func _on_give_up_mouse_exited() -> void:
 	scale_down_button(give_up_button)
+
+func _on_continue_pressed() -> void:
+	GlobalSounds.play_random_pressed_sound()
+	get_tree().change_scene_to_file(game_scene)

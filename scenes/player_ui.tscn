@@ -2,9 +2,28 @@
 
 [ext_resource type="Script" uid="uid://ddv4ntygufv57" path="res://scenes/scripts/player_ui.gd" id="1_8isll"]
 [ext_resource type="Shader" uid="uid://dobxy1cmc3igh" path="res://shaders/line_bar.gdshader" id="1_jkj6h"]
+[ext_resource type="Texture2D" uid="uid://botc8v1uvs4xb" path="res://assets/pause_vremenno.png" id="2_bkx2g"]
 [ext_resource type="Shader" uid="uid://dev70a6sltn5f" path="res://shaders/circle_bar.gdshader" id="2_sk4pr"]
 [ext_resource type="Shader" uid="uid://s6j0675xdx51" path="res://shaders/bottle_bar.gdshader" id="3_48xfa"]
 [ext_resource type="Shader" uid="uid://bxxcdtxv0lva7" path="res://shaders/vignette.gdshader" id="5_7ctsh"]
+[ext_resource type="Shader" uid="uid://boht8pr4jrfth" path="res://shaders/levitation.gdshader" id="7_g4s8q"]
+[ext_resource type="FontFile" uid="uid://ctcf2j8qyyjrw" path="res://fonts/MisterBrush.ttf" id="8_17uas"]
+[ext_resource type="FontFile" uid="uid://cfkl4jakhub8b" path="res://fonts/Tagesschrift-Regular.ttf" id="9_1c0bc"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_bkx2g"]
+seed = -3
+frequency = 0.0151
+fractal_octaves = 7
+fractal_gain = 0.7
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_7ctsh"]
+noise = SubResource("FastNoiseLite_bkx2g")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_37okk"]
+shader = ExtResource("5_7ctsh")
+shader_parameter/strength = 0.0
+shader_parameter/vignette_texture = SubResource("NoiseTexture2D_7ctsh")
+shader_parameter/vignette_color = Color(0.37170312, 1.2333506e-07, 1.4439226e-07, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_guxnq"]
 shader = ExtResource("1_jkj6h")
@@ -25,20 +44,69 @@ shader_parameter/value = 1.0
 shader_parameter/background_color = Color(0.13725491, 0.13725491, 0.13725491, 1)
 shader_parameter/health_color = Color(0.8784314, 0.8352941, 0.84313726, 1)
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_bkx2g"]
-seed = -3
-frequency = 0.0151
-fractal_octaves = 7
-fractal_gain = 0.7
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2tylp"]
+shader = ExtResource("7_g4s8q")
+shader_parameter/strength = 4.999999932944
+shader_parameter/x_speed = 1.999999977648
+shader_parameter/y_speed = 1.52999998815344
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_7ctsh"]
-noise = SubResource("FastNoiseLite_bkx2g")
+[sub_resource type="Theme" id="Theme_7wyo6"]
+default_font = ExtResource("8_17uas")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_37okk"]
-shader = ExtResource("5_7ctsh")
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_p7wxq"]
+shader = ExtResource("7_g4s8q")
 shader_parameter/strength = 0.0
-shader_parameter/vignette_texture = SubResource("NoiseTexture2D_7ctsh")
-shader_parameter/vignette_color = Color(0.37170312, 1.2333506e-07, 1.4439226e-07, 1)
+shader_parameter/x_speed = 0.0
+shader_parameter/y_speed = 0.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4ytvr"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v86rl"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g3eks"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_13sgg"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Theme" id="Theme_1jr8s"]
+default_font = ExtResource("9_1c0bc")
+Button/styles/focus = SubResource("StyleBoxFlat_4ytvr")
+Button/styles/hover = SubResource("StyleBoxFlat_v86rl")
+Button/styles/normal = SubResource("StyleBoxFlat_g3eks")
+Button/styles/pressed = SubResource("StyleBoxFlat_13sgg")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_y6wb6"]
+shader = ExtResource("7_g4s8q")
+shader_parameter/strength = 0.0
+shader_parameter/x_speed = 0.0
+shader_parameter/y_speed = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hqmfw"]
+shader = ExtResource("7_g4s8q")
+shader_parameter/strength = 0.0
+shader_parameter/x_speed = 0.0
+shader_parameter/y_speed = 0.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fo3dt"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mhnvy"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ila21"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u057j"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Theme" id="Theme_odqdc"]
+Button/styles/focus = SubResource("StyleBoxFlat_fo3dt")
+Button/styles/hover = SubResource("StyleBoxFlat_mhnvy")
+Button/styles/normal = SubResource("StyleBoxFlat_ila21")
+Button/styles/pressed = SubResource("StyleBoxFlat_u057j")
 
 [node name="PlayerUI" type="Control" unique_id=1791843228]
 layout_mode = 3
@@ -49,39 +117,6 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_8isll")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1582138688]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.03
-anchor_top = 0.03
-anchor_right = 0.3
-anchor_bottom = 1.0
-
-[node name="HealthBarTypes" type="HBoxContainer" parent="VBoxContainer" unique_id=211166009]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="LineBar" type="ColorRect" parent="VBoxContainer/HealthBarTypes" unique_id=2117184087]
-visible = false
-material = SubResource("ShaderMaterial_guxnq")
-custom_maximum_size = Vector2(-1, 40)
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="CircleBar" type="ColorRect" parent="VBoxContainer/HealthBarTypes" unique_id=693975217]
-visible = false
-material = SubResource("ShaderMaterial_jkj6h")
-custom_maximum_size = Vector2(100, 100)
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="BottleBar" type="ColorRect" parent="VBoxContainer/HealthBarTypes" unique_id=158028984]
-visible = false
-material = SubResource("ShaderMaterial_sk4pr")
-custom_maximum_size = Vector2(100, 100)
-layout_mode = 2
-size_flags_horizontal = 3
-
 [node name="Vignette" type="ColorRect" parent="." unique_id=1705456403]
 material = SubResource("ShaderMaterial_37okk")
 layout_mode = 1
@@ -90,3 +125,139 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1582138688]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.03
+anchor_top = 0.03
+anchor_right = 0.3
+anchor_bottom = 1.0
+
+[node name="Box" type="HBoxContainer" parent="VBoxContainer" unique_id=1750517160]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 32
+
+[node name="PauseButton" type="Button" parent="VBoxContainer/Box" unique_id=384585193]
+visible = false
+custom_minimum_size = Vector2(50, 50)
+custom_maximum_size = Vector2(50, 50)
+layout_mode = 2
+icon = ExtResource("2_bkx2g")
+flat = true
+expand_icon = true
+
+[node name="HealthBarTypes" type="HBoxContainer" parent="VBoxContainer/Box" unique_id=211166009]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="LineBar" type="ColorRect" parent="VBoxContainer/Box/HealthBarTypes" unique_id=2117184087]
+visible = false
+material = SubResource("ShaderMaterial_guxnq")
+custom_maximum_size = Vector2(-1, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CircleBar" type="ColorRect" parent="VBoxContainer/Box/HealthBarTypes" unique_id=693975217]
+visible = false
+material = SubResource("ShaderMaterial_jkj6h")
+custom_maximum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="BottleBar" type="ColorRect" parent="VBoxContainer/Box/HealthBarTypes" unique_id=158028984]
+visible = false
+material = SubResource("ShaderMaterial_sk4pr")
+custom_maximum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Pause" type="Panel" parent="." unique_id=1431402228]
+visible = false
+layout_mode = 0
+offset_right = 1154.0
+offset_bottom = 648.0
+
+[node name="Label" type="Label" parent="Pause" unique_id=1794940017]
+material = SubResource("ShaderMaterial_2tylp")
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.2
+anchor_right = 0.5
+anchor_bottom = 0.2
+offset_left = -199.0
+offset_top = -57.5
+offset_right = 199.0
+offset_bottom = 57.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_7wyo6")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 100
+text = "ПАУЗА"
+horizontal_alignment = 1
+
+[node name="ActionButtons" type="VBoxContainer" parent="Pause" unique_id=253966788]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.7
+offset_left = -155.5
+offset_top = -109.0
+offset_right = 155.5
+offset_bottom = 109.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Resume" type="Button" parent="Pause/ActionButtons" unique_id=595780842]
+material = SubResource("ShaderMaterial_p7wxq")
+custom_minimum_size = Vector2(200, 70)
+layout_mode = 2
+size_flags_vertical = 3
+theme = SubResource("Theme_1jr8s")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 0.92156863)
+theme_override_font_sizes/font_size = 60
+text = "Продолжить"
+flat = true
+
+[node name="ExitToMenu" type="Button" parent="Pause/ActionButtons" unique_id=1183503155]
+material = SubResource("ShaderMaterial_y6wb6")
+custom_minimum_size = Vector2(200, 70)
+layout_mode = 2
+size_flags_vertical = 3
+theme = SubResource("Theme_1jr8s")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 0.92156863)
+theme_override_font_sizes/font_size = 60
+text = "Выйти в меню"
+flat = true
+
+[node name="GiveUp" type="Button" parent="Pause/ActionButtons" unique_id=902923296]
+material = SubResource("ShaderMaterial_hqmfw")
+layout_mode = 2
+size_flags_vertical = 3
+theme = SubResource("Theme_odqdc")
+theme_override_colors/font_color = Color(0.3882353, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0.3882353, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.3882353, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.3882353, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "Сдаться"
+flat = true
+
+[connection signal="pressed" from="VBoxContainer/Box/PauseButton" to="." method="_on_pause_button_pressed"]
+[connection signal="pressed" from="Pause/ActionButtons/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="Pause/ActionButtons/ExitToMenu" to="." method="_on_exit_to_menu_pressed"]
+[connection signal="pressed" from="Pause/ActionButtons/GiveUp" to="." method="_on_give_up_pressed"]

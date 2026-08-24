@@ -13,6 +13,7 @@ var player: CharacterBody3D
 var direction: float
 var current_speed: float
 var is_in_area: bool
+var idx: int
 
 func setup(body):
 	player = body
@@ -44,6 +45,7 @@ func attack() -> void:
 func get_damage(self_damage):
 	hp -= self_damage
 	if hp <= 0:
+		SaveManager.game_stats["enemies"][idx] = -1
 		collision_layer = 2
 		collision_mask = 2
 		set_physics_process(false)

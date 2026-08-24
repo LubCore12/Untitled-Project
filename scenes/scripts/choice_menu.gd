@@ -14,6 +14,8 @@ extends Control
 @onready var circle_health_button = $ChoiceCards/CircleHealthButton
 @onready var line_health_button = $ChoiceCards/LineHealthButton
 @onready var bottle_health_button = $ChoiceCards/BottleHealthButton
+@onready var pause_button = $ChoiceCards/PauseButton
+@onready var save_button = $ChoiceCards/SaveButton
 
 signal give_walk_ability
 signal create_character_sprite
@@ -26,6 +28,8 @@ signal add_circle_health
 signal add_line_health
 signal add_bottle_health
 signal make_enemy_long_creation
+signal add_pause
+signal add_save
 
 signal choice_done
 
@@ -98,6 +102,14 @@ func toggle_health_choice() -> void:
 		line_health_button.show()
 		bottle_health_button.show()
 
+func toggle_pause_or_save_choice() -> void:
+	if circle_health_button.visible:
+		pause_button.hide()
+		save_button.hide()
+	else:
+		pause_button.show()
+		save_button.show()
+
 func _on_walk_button_pressed() -> void:
 	give_walk_ability.emit()
 
@@ -130,3 +142,9 @@ func _on_bottle_health_bar_pressed() -> void:
 
 func _on_character_sprite_button_pressed() -> void:
 	create_character_sprite.emit()
+
+func _on_pause_button_pressed() -> void:
+	add_pause.emit()
+
+func _on_save_button_pressed() -> void:
+	add_save.emit()
