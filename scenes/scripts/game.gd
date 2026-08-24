@@ -26,8 +26,21 @@ extends Node3D
 var transition_time := 1.0
 
 func _ready() -> void:
-	save_button.connect("pressed", save_game)
-	$Enemies/EnemyClose.setup(player, Vector3(-25.0, 0, 0))
+	for i in range(8):
+		var x = randf_range(-50, 50)
+		var y = randf_range(0, 50)
+		var from = Vector3(x, y, 0)
+		var to = Vector3(x, 0, 0)
+		
+		var query = PhysicsRayQueryParameters3D.create(from, to)
+		var result = get_world_3d().direct_space_state.intersect_ray(query)
+		
+		if result:
+			var enemy = enemy_long_scene.instantiate()
+			enemy.setup(player, result.position)
+			enemies.add_child(enemy)
+			enemy.connect("spawn_arrow", add_arrow)
+		
 	load_game()
 	
 	var tween = create_tween()
@@ -146,6 +159,9 @@ func _ready() -> void:
 		choice_menu.hide()
 		choice_menu.hide_all_choices()
 		await get_tree().create_timer(0.5).timeout
+	
+func add_arrow(arrow):
+	$Arrows.add_child(arrow)
 	
 func display_text(text: RichTextLabel):
 	text.visible_characters = 0

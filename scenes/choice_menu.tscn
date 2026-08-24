@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://ex6lreg86ahq" path="res://assets/card_icons/day.svg" id="10_axv1t"]
 [ext_resource type="Texture2D" uid="uid://dym03f4x2bkhm" path="res://assets/card_icons/night.svg" id="11_jrdjb"]
 [ext_resource type="Texture2D" uid="uid://b7g81fd2ejvcq" path="res://assets/card_icons/dash.svg" id="12_4rvgb"]
+[ext_resource type="Texture2D" uid="uid://dxwpgwd1la4dr" path="res://assets/card_icons/pause.svg" id="12_35qed"]
 [ext_resource type="Texture2D" uid="uid://iwnctwh6w1jr" path="res://assets/card_icons/enemy.svg" id="12_kkagw"]
 [ext_resource type="Texture2D" uid="uid://ch0vl4jfd46w2" path="res://assets/card_icons/punch.svg" id="12_r03mh"]
 [ext_resource type="Texture2D" uid="uid://b24ni6m7kurvb" path="res://assets/card_icons/agent.svg" id="13_0jqir"]
@@ -1647,7 +1648,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 6
 offset_transform_enabled = true
 offset_transform_position = Vector2(0, -20)
-texture = ExtResource("12_kkagw")
+texture = ExtResource("12_35qed")
 
 [node name="Description" type="Label" parent="ChoiceCards/StoryChoices/PauseButton/Panel/VBoxContainer" unique_id=1405506437]
 layout_mode = 2

@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cuca61w1jmxh"
-path.s3tc="res://.godot/imported/rock_texture.jpg-fd2c40d46e20e9b9983d2774d94bc960.s3tc.ctex"
+uid="uid://cvmffdpkyefxj"
+path.s3tc="res://.godot/imported/stone.svg-f0a8af2f303742ad85b9f7ae23a8a579.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/texutres/rock_texture.jpg"
-dest_files=["res://.godot/imported/rock_texture.jpg-fd2c40d46e20e9b9983d2774d94bc960.s3tc.ctex"]
+source_file="res://assets/texutres/stone.svg"
+dest_files=["res://.godot/imported/stone.svg-f0a8af2f303742ad85b9f7ae23a8a579.s3tc.ctex"]
 
 [params]
 
@@ -39,3 +39,6 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=0
+svg/scale=1.0
+editor/scale_with_editor_scale=false
+editor/convert_colors_with_editor_theme=false

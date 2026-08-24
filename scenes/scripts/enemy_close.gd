@@ -10,31 +10,17 @@ extends CharacterBody3D
 @export var hp: float = 100.0
 @export var damage: float = 20.0
 
-var origin_position: float
-var idle_walking_offset := randf_range(8.0, 12.0)
 var player: CharacterBody3D
 var direction: float
 var speed: float
 var is_in_attack_area: bool
 var is_see_player: bool
 var is_dead := false
-var tween
 
 func setup(body, spawn_position):
 	player = body
 	position = spawn_position
-	origin_position = spawn_position.x
 	speed = walk_speed
-	tween = create_tween()
-	tween.set_loops()
-	tween.tween_callback(func(): direction = 1.0)
-	tween.tween_property(self, "position:x", origin_position + idle_walking_offset, 5.0)
-	tween.tween_callback(func(): direction = 0.0)
-	tween.tween_interval(1.5)
-	tween.tween_callback(func(): direction = -1.0)
-	tween.tween_property(self, "position:x", origin_position, 5.0)
-	tween.tween_callback(func(): direction = 0.0)
-	tween.tween_interval(2.7)
 
 func _physics_process(_delta: float) -> void:
 	speed = walk_speed
@@ -49,12 +35,11 @@ func _physics_process(_delta: float) -> void:
 	animate()
 
 func go_to_player() -> void:
-	tween.pause()
 	velocity.x = direction * speed
 	move_and_slide()
 	
 func idle_walking() -> void:
-	tween.play()
+	pass
 	
 func animate() -> void:
 	if direction > 0:

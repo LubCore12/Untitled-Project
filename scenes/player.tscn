@@ -8,9 +8,10 @@
 [ext_resource type="Texture2D" uid="uid://b8xfivhgn2fl" path="res://assets/player_sprites/Run.png" id="4_qlg0r"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_u8vuu"]
+size = Vector3(1, 1.8652344, 1)
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_odv1g"]
-radius = 2.0766363
+[sub_resource type="BoxShape3D" id="BoxShape3D_37okk"]
+size = Vector3(2.8776016, 1.8806458, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ur7pv"]
 atlas = ExtResource("2_qlg0r")
@@ -265,20 +266,25 @@ animations = [{
 }]
 
 [node name="Player" type="CharacterBody3D" unique_id=1400254759]
+collision_layer = 2
+collision_mask = 13
 script = ExtResource("1_3vyb7")
 damage = 70.0
 
 [node name="Shape" type="CollisionShape3D" parent="." unique_id=570095511]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9326172, 0)
 shape = SubResource("BoxShape3D_u8vuu")
 
 [node name="Camera" type="Camera3D" parent="." unique_id=1219416689]
-transform = Transform3D(1, 0, 0, 0, 0.8870109, 0.46174863, 0, -0.46174863, 0.8870109, 0, 3.9164767, 6.8576756)
+transform = Transform3D(1, 0, 0, 0, 0.8870109, 0.46174863, 0, -0.46174863, 0.8870109, 0, 4.0531173, 7.325037)
 
 [node name="AttackArea" type="Area3D" parent="." unique_id=1067655231]
+collision_layer = 2
+collision_mask = 13
 
-[node name="Shape" type="CollisionShape3D" parent="AttackArea" unique_id=1688711294]
-shape = SubResource("SphereShape3D_odv1g")
+[node name="Shape" type="CollisionShape3D" parent="AttackArea" unique_id=1672432735]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.06457901, 0.93096757, 0)
+shape = SubResource("BoxShape3D_37okk")
 
 [node name="Sprite" type="AnimatedSprite3D" parent="." unique_id=1369137029]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 1.95, 0)

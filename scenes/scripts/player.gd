@@ -4,13 +4,13 @@ extends CharacterBody3D
 @export_group("Movement")
 @export var walk_speed: float = 6
 @export var run_speed: float = 9.5
-@export var jump_strength: float = 30
+@export var jump_strength: float = 35
 @export var gravity: float = 1.7
 @export var max_stamina: float = 100
-@export var stamina_usage: float = 30
-@export var stamina_recovery: float = 20
-@export var jump_stamina: float = 5
-@export var punch_stamina: float = 5
+@export var stamina_usage: float = 8
+@export var stamina_recovery: float = 55
+@export var jump_stamina: float = 1.5
+@export var punch_stamina: float = 1.5
 @export var dash_speed: float = 30
 
 @export_group("Stats")
@@ -18,6 +18,7 @@ extends CharacterBody3D
 @export var dash_damage : float = 20
 @export var max_hp: float = 100
 @export var defend: float = 1
+@export var max_jump_count = 2
 
 @onready var sprite = $Sprite
 @onready var stamina_timer = $Timers/StaminaTimer
@@ -37,6 +38,7 @@ var is_jumping := false
 var is_attacking := false
 var is_stamina_recovery := false
 var is_punch_discard_stamina := false
+var jump_count: int
 var hp: float
 var speed: float
 var stamina: float
@@ -55,6 +57,7 @@ func _ready() -> void:
 	hp = max_hp
 	speed = walk_speed
 	stamina = max_stamina
+	jump_count = max_jump_count
 
 func _physics_process(delta: float) -> void:
 	get_input(delta)
@@ -77,9 +80,10 @@ func run(delta) -> void:
 func jump() -> void:
 	if stamina >= jump_stamina and can_walk:
 		sprite.play("jump")
-		velocity.y += jump_strength
+		velocity.y = jump_strength
 		stamina -= jump_stamina
 		player_run.emit(stamina * (1.0 / get_right_max_stamina()))
+		jump_count -= 1
 		is_moving = true
 		is_jumping = true
 	
@@ -100,8 +104,9 @@ func get_input(delta) -> void:
 	
 	if is_on_floor():
 		is_jumping = false
+		jump_count = max_jump_count
 	
-	if Input.is_action_just_pressed("jump") and is_on_floor():
+	if Input.is_action_just_pressed("jump") and jump_count > 0:
 		jump()
 		
 	if Input.is_action_pressed("run") and direction and can_walk:

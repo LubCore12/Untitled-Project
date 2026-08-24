@@ -85,7 +85,7 @@ grow_vertical = 0
 theme = SubResource("Theme_iedig")
 theme_override_font_sizes/normal_font_size = 40
 bbcode_enabled = true
-text = "Это - Стенли. Он обычный офисный работник."
+text = "С чистого листа.. хмм..."
 visible_characters = 0
 visible_ratio = 0.0
 
@@ -101,7 +101,7 @@ grow_vertical = 0
 theme = SubResource("Theme_iedig")
 theme_override_font_sizes/normal_font_size = 40
 bbcode_enabled = true
-text = "Он любит делать игры, он горит этим занятием, но..."
+text = "Интересная тема. Вот правда непонятно, какую игру с ней можно сделать."
 visible_characters = 0
 visible_ratio = 0.0
 
@@ -117,7 +117,7 @@ grow_vertical = 0
 theme = SubResource("Theme_iedig")
 theme_override_font_sizes/normal_font_size = 40
 bbcode_enabled = true
-text = "К сожалению, у него никогда не было возможности и времени для реализации своей мечты - обыкновенной игры."
+text = "В целом-то, с такой темой много придумать много концептов."
 visible_characters = 0
 visible_ratio = 0.0
 
@@ -133,7 +133,7 @@ grow_vertical = 0
 theme = SubResource("Theme_iedig")
 theme_override_font_sizes/normal_font_size = 40
 bbcode_enabled = true
-text = "А ведь он с самого дестсва мечтал создать творение, которым все будут восхищаться и востаргаться геймеры по всему миру."
+text = "Игры про рисование, про новые начинания, рогалик. Точно, рогалик!"
 visible_characters = 0
 visible_ratio = 0.0
 
@@ -149,7 +149,7 @@ grow_vertical = 0
 theme = SubResource("Theme_iedig")
 theme_override_font_sizes/normal_font_size = 40
 bbcode_enabled = true
-text = "И в возрасте тридцати семи лет, Стенли понял что он не хочет проживать жизнь обыкновенного, серого офисного клерка."
+text = "Да, не самая оригинальная тема, но с ней можно попробовать реализовать довольно динамичную и интересную игру."
 visible_characters = 0
 visible_ratio = 0.0
 

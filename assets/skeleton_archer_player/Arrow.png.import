@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bbeqwab38wwtl"
-path.s3tc="res://.godot/imported/wood_texture.jpg-cbbf9b4d12244344fdc75d75e01cfebd.s3tc.ctex"
+uid="uid://c0ctpsw7jxkoi"
+path.s3tc="res://.godot/imported/Arrow.png-ff08e9897a46e58050727f025ebf23f3.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/texutres/wood_texture.jpg"
-dest_files=["res://.godot/imported/wood_texture.jpg-cbbf9b4d12244344fdc75d75e01cfebd.s3tc.ctex"]
+source_file="res://assets/skeleton_archer_player/Arrow.png"
+dest_files=["res://.godot/imported/Arrow.png-ff08e9897a46e58050727f025ebf23f3.s3tc.ctex"]
 
 [params]
 

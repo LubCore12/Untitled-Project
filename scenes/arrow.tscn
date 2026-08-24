@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://ct2rjm23u8qx0"]
+
+[ext_resource type="Script" uid="uid://coiqw4av2q0hq" path="res://scenes/scripts/arrow.gd" id="1_umosx"]
+[ext_resource type="Texture2D" uid="uid://c0ctpsw7jxkoi" path="res://assets/skeleton_archer_player/Arrow.png" id="2_23jat"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_37okk"]
+size = Vector3(0.7581787, 0.06903839, 0.07287598)
+
+[node name="Arrow" type="Area3D" unique_id=1986404726 groups=["arrow"]]
+collision_layer = 8
+collision_mask = 3
+script = ExtResource("1_umosx")
+speed = 12.0
+
+[node name="Sprite" type="Sprite3D" parent="." unique_id=2004645363]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
+texture_filter = 0
+texture = ExtResource("2_23jat")
+
+[node name="Shape" type="CollisionShape3D" parent="." unique_id=791205527]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.04686971, -0.011226654, -0.0049438477)
+shape = SubResource("BoxShape3D_37okk")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

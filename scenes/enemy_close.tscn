@@ -269,13 +269,15 @@ size = Vector3(2.1225815, 2.0409546, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_fo3dt"]
 
 [node name="EnemyClose" type="CharacterBody3D" unique_id=1271975245 groups=["enemy"]]
+collision_layer = 4
+collision_mask = 3
 script = ExtResource("1_7a4ji")
 
 [node name="Timer" type="Timer" parent="." unique_id=700358242]
 autostart = true
 
 [node name="Shape" type="CollisionShape3D" parent="." unique_id=1628307242]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0194702, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("BoxShape3D_4ra3w")
 
 [node name="Sprite" type="AnimatedSprite3D" parent="." unique_id=1204555412]
@@ -286,12 +288,16 @@ animation = &"idle"
 autoplay = "idle"
 
 [node name="AttackArea" type="Area3D" parent="." unique_id=408551951]
+collision_layer = 4
+collision_mask = 3
 
 [node name="Shape" type="CollisionShape3D" parent="AttackArea" unique_id=807886346]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0094566345, 1.0195009, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.009, 1, 0)
 shape = SubResource("BoxShape3D_37okk")
 
 [node name="ViewArea" type="Area3D" parent="." unique_id=1220006292]
+collision_layer = 4
+collision_mask = 3
 
 [node name="Shape" type="CollisionShape3D" parent="ViewArea" unique_id=1485368341]
 transform = Transform3D(15, 0, 0, 0, 15, 0, 0, 0, 1, 0, 1, 0)

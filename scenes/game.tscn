@@ -3,13 +3,12 @@
 [ext_resource type="Script" uid="uid://dhpy0b78pdfxv" path="res://scenes/scripts/game.gd" id="1_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://0keq2j52jcvb" path="res://scenes/player.tscn" id="1_uwrxv"]
 [ext_resource type="Texture2D" uid="uid://de4sqfjwtgvv4" path="res://assets/texutres/bark_texture.png" id="2_0tnpc"]
-[ext_resource type="Texture2D" uid="uid://bbeqwab38wwtl" path="res://assets/texutres/wood_texture.jpg" id="2_gee14"]
 [ext_resource type="Shader" uid="uid://bh0gij6m1gdhs" path="res://shaders/transition.gdshader" id="2_yqjtg"]
+[ext_resource type="Texture2D" uid="uid://cvmffdpkyefxj" path="res://assets/texutres/stone.svg" id="3_0tnpc"]
 [ext_resource type="Texture2D" uid="uid://cmy2yn5d5nwkb" path="res://assets/lamp.png" id="3_gee14"]
 [ext_resource type="FontFile" uid="uid://c64ld6cc2ggth" path="res://fonts/SofiaSans-Regular.ttf" id="3_iywne"]
 [ext_resource type="PackedScene" uid="uid://ck5bnij8waq8q" path="res://scenes/choice_menu.tscn" id="4_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://o4i0n352u43r" path="res://scenes/player_ui.tscn" id="6_p57ef"]
-[ext_resource type="PackedScene" uid="uid://qn575l000y1k" path="res://scenes/enemy_long.tscn" id="6_vtaks"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_uwrxv"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -36,8 +35,9 @@ size = Vector2(100, 20)
 data = PackedVector3Array(50, 0, 10, -50, 0, 10, 50, 0, -10, -50, 0, 10, -50, 0, -10, 50, 0, -10)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_md0e3"]
-albedo_texture = ExtResource("2_gee14")
-uv1_scale = Vector3(24, 24, 24)
+albedo_color = Color(0.4744203, 0.47442007, 0.47442007, 1)
+albedo_texture = ExtResource("3_0tnpc")
+uv1_scale = Vector3(32, 24, 24)
 
 [sub_resource type="BoxMesh" id="BoxMesh_37okk"]
 material = SubResource("StandardMaterial3D_md0e3")
@@ -45,17 +45,14 @@ size = Vector3(100, 100, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vtaks"]
 albedo_texture = ExtResource("2_0tnpc")
-uv1_scale = Vector3(1.5, 1.5, 1)
+uv1_scale = Vector3(24, 2, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_fo3dt"]
 material = SubResource("StandardMaterial3D_vtaks")
-size = Vector3(1, 1, 3.4990234)
+size = Vector3(24.322998, 1, 3.499)
 
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_u5sy4"]
-data = PackedVector3Array(-0.5, 0.5, 1.7494999, 0.5, 0.5, 1.7494999, -0.5, -0.5, 1.7494999, 0.5, 0.5, 1.7494999, 0.5, -0.5, 1.7494999, -0.5, -0.5, 1.7494999, 0.5, 0.5, -1.7494999, -0.5, 0.5, -1.7494999, 0.5, -0.5, -1.7494999, -0.5, 0.5, -1.7494999, -0.5, -0.5, -1.7494999, 0.5, -0.5, -1.7494999, 0.5, 0.5, 1.7494999, 0.5, 0.5, -1.7494999, 0.5, -0.5, 1.7494999, 0.5, 0.5, -1.7494999, 0.5, -0.5, -1.7494999, 0.5, -0.5, 1.7494999, -0.5, 0.5, -1.7494999, -0.5, 0.5, 1.7494999, -0.5, -0.5, -1.7494999, -0.5, 0.5, 1.7494999, -0.5, -0.5, 1.7494999, -0.5, -0.5, -1.7494999, 0.5, 0.5, 1.7494999, -0.5, 0.5, 1.7494999, 0.5, 0.5, -1.7494999, -0.5, 0.5, 1.7494999, -0.5, 0.5, -1.7494999, 0.5, 0.5, -1.7494999, -0.5, -0.5, 1.7494999, 0.5, -0.5, 1.7494999, -0.5, -0.5, -1.7494999, 0.5, -0.5, 1.7494999, 0.5, -0.5, -1.7494999, -0.5, -0.5, -1.7494999)
-
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_gee14"]
-data = PackedVector3Array(-0.5, 0.5, 1.7494999, 0.5, 0.5, 1.7494999, -0.5, -0.5, 1.7494999, 0.5, 0.5, 1.7494999, 0.5, -0.5, 1.7494999, -0.5, -0.5, 1.7494999, 0.5, 0.5, -1.7494999, -0.5, 0.5, -1.7494999, 0.5, -0.5, -1.7494999, -0.5, 0.5, -1.7494999, -0.5, -0.5, -1.7494999, 0.5, -0.5, -1.7494999, 0.5, 0.5, 1.7494999, 0.5, 0.5, -1.7494999, 0.5, -0.5, 1.7494999, 0.5, 0.5, -1.7494999, 0.5, -0.5, -1.7494999, 0.5, -0.5, 1.7494999, -0.5, 0.5, -1.7494999, -0.5, 0.5, 1.7494999, -0.5, -0.5, -1.7494999, -0.5, 0.5, 1.7494999, -0.5, -0.5, 1.7494999, -0.5, -0.5, -1.7494999, 0.5, 0.5, 1.7494999, -0.5, 0.5, 1.7494999, 0.5, 0.5, -1.7494999, -0.5, 0.5, 1.7494999, -0.5, 0.5, -1.7494999, 0.5, 0.5, -1.7494999, -0.5, -0.5, 1.7494999, 0.5, -0.5, 1.7494999, -0.5, -0.5, -1.7494999, 0.5, -0.5, 1.7494999, 0.5, -0.5, -1.7494999, -0.5, -0.5, -1.7494999)
+[sub_resource type="BoxShape3D" id="BoxShape3D_0tnpc"]
+size = Vector3(24.322998, 1, 3.499)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jrdjb"]
 albedo_texture = ExtResource("2_0tnpc")
@@ -65,8 +62,38 @@ uv1_scale = Vector3(12, 1.5, 10)
 material = SubResource("StandardMaterial3D_jrdjb")
 size = Vector3(11.875366, 1, 6.055664)
 
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_0tnpc"]
-data = PackedVector3Array(-5.9377, 0.5, 3.0277998, 5.9377, 0.5, 3.0277998, -5.9377, -0.5, 3.0277998, 5.9377, 0.5, 3.0277998, 5.9377, -0.5, 3.0277998, -5.9377, -0.5, 3.0277998, 5.9377, 0.5, -3.0277998, -5.9377, 0.5, -3.0277998, 5.9377, -0.5, -3.0277998, -5.9377, 0.5, -3.0277998, -5.9377, -0.5, -3.0277998, 5.9377, -0.5, -3.0277998, 5.9377, 0.5, 3.0277998, 5.9377, 0.5, -3.0277998, 5.9377, -0.5, 3.0277998, 5.9377, 0.5, -3.0277998, 5.9377, -0.5, -3.0277998, 5.9377, -0.5, 3.0277998, -5.9377, 0.5, -3.0277998, -5.9377, 0.5, 3.0277998, -5.9377, -0.5, -3.0277998, -5.9377, 0.5, 3.0277998, -5.9377, -0.5, 3.0277998, -5.9377, -0.5, -3.0277998, 5.9377, 0.5, 3.0277998, -5.9377, 0.5, 3.0277998, 5.9377, 0.5, -3.0277998, -5.9377, 0.5, 3.0277998, -5.9377, 0.5, -3.0277998, 5.9377, 0.5, -3.0277998, -5.9377, -0.5, 3.0277998, 5.9377, -0.5, 3.0277998, -5.9377, -0.5, -3.0277998, 5.9377, -0.5, 3.0277998, 5.9377, -0.5, -3.0277998, -5.9377, -0.5, -3.0277998)
+[sub_resource type="BoxShape3D" id="BoxShape3D_vtaks"]
+size = Vector3(11.875366, 1, 6.055664)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u057j"]
+albedo_texture = ExtResource("2_0tnpc")
+uv1_scale = Vector3(20, 1.5, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ila21"]
+material = SubResource("StandardMaterial3D_u057j")
+size = Vector3(18.939575, 1, 3.9506836)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kvpfn"]
+size = Vector3(18.939575, 1, 3.9506836)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0tnpc"]
+albedo_texture = ExtResource("2_0tnpc")
+uv1_scale = Vector3(24, 1.5, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_u057j"]
+material = SubResource("StandardMaterial3D_0tnpc")
+size = Vector3(22.479492, 1, 3.3710938)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dinhu"]
+size = Vector3(22.479492, 1, 3.3710938)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8w2ty"]
+albedo_texture = ExtResource("2_0tnpc")
+uv1_scale = Vector3(20, 1.3, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_bl2r1"]
+material = SubResource("StandardMaterial3D_8w2ty")
+size = Vector3(15.51709, 1, 3.2250977)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_37okk"]
 shader = ExtResource("2_yqjtg")
@@ -124,28 +151,19 @@ shape = SubResource("ConcavePolygonShape3D_vtaks")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.1101048)
 
 [node name="Wall" type="MeshInstance3D" parent="WoodEnvironment" unique_id=1916507809]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00039196014, 0.04963398, -2.9061408)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00039196014, -0.12673092, -2.9061408)
 mesh = SubResource("BoxMesh_37okk")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="WoodEnvironment" unique_id=1928229815]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.161115, 0)
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="WoodEnvironment/StaticBody3D" unique_id=1240052337]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.6348248, 2.1315536, -1.2495117)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.158316, 2.1315541, -1.2495117)
 mesh = SubResource("BoxMesh_fo3dt")
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="WoodEnvironment/StaticBody3D" unique_id=1957858040]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.6348248, 2.1315536, -1.2495117)
-shape = SubResource("ConcavePolygonShape3D_u5sy4")
-
-[node name="StaticBody3D2" type="StaticBody3D" parent="WoodEnvironment" unique_id=604149528]
-
-[node name="MeshInstance3D3" type="MeshInstance3D" parent="WoodEnvironment/StaticBody3D2" unique_id=997065628]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.448553, 4.329687, -1.2495117)
-mesh = SubResource("BoxMesh_fo3dt")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="WoodEnvironment/StaticBody3D2" unique_id=1889492761]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.448553, 4.329687, -1.2495117)
-shape = SubResource("ConcavePolygonShape3D_gee14")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WoodEnvironment/StaticBody3D" unique_id=1712918032]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.158316, 2.1315541, -1.2495117)
+shape = SubResource("BoxShape3D_0tnpc")
 
 [node name="StaticBody3D3" type="StaticBody3D" parent="WoodEnvironment" unique_id=558752333]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.944585, 4.952041, 0)
@@ -154,9 +172,71 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.944585, 4.952041, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.437683, 0, -2.527832)
 mesh = SubResource("BoxMesh_2gruq")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="WoodEnvironment/StaticBody3D3" unique_id=1348661425]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WoodEnvironment/StaticBody3D3" unique_id=2107678324]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.437683, 0, -2.527832)
-shape = SubResource("ConcavePolygonShape3D_0tnpc")
+shape = SubResource("BoxShape3D_vtaks")
+
+[node name="StaticBody3D5" type="StaticBody3D" parent="WoodEnvironment" unique_id=1321269946]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.241031, 18.423927, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="WoodEnvironment/StaticBody3D5" unique_id=876336674]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.437683, 0, -2.527832)
+mesh = SubResource("BoxMesh_2gruq")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WoodEnvironment/StaticBody3D5" unique_id=50865434]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.437683, 0, -2.527832)
+shape = SubResource("BoxShape3D_vtaks")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="WoodEnvironment" unique_id=88547820]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.675371, 13.519908, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="WoodEnvironment/StaticBody3D2" unique_id=581871031]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.969786, 0, -1.4753418)
+mesh = SubResource("BoxMesh_ila21")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WoodEnvironment/StaticBody3D2" unique_id=1328488111]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.969786, 0, -1.4753418)
+shape = SubResource("BoxShape3D_kvpfn")
+
+[node name="StaticBody3D4" type="StaticBody3D" parent="WoodEnvironment" unique_id=1724919871]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.3715553, -6.3461266, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="WoodEnvironment/StaticBody3D4" unique_id=566610170]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.396877, 21.240833, -1.1855469)
+mesh = SubResource("BoxMesh_u057j")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WoodEnvironment/StaticBody3D4" unique_id=1650122670]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.396877, 21.240833, -1.1855469)
+shape = SubResource("BoxShape3D_dinhu")
+
+[node name="StaticBody3D6" type="StaticBody3D" parent="WoodEnvironment" unique_id=555484100]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45.776905, 3.1321201, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="WoodEnvironment/StaticBody3D6" unique_id=663086135]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.396877, 21.240833, -1.1855469)
+mesh = SubResource("BoxMesh_u057j")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WoodEnvironment/StaticBody3D6" unique_id=255649411]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.396877, 21.240833, -1.1855469)
+shape = SubResource("BoxShape3D_dinhu")
+
+[node name="StaticBody3D8" type="StaticBody3D" parent="WoodEnvironment" unique_id=1624416581]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9033012, 18.689743, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="WoodEnvironment/StaticBody3D8" unique_id=71633424]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.396877, 21.240833, -1.1855469)
+mesh = SubResource("BoxMesh_u057j")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WoodEnvironment/StaticBody3D8" unique_id=498671392]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.396877, 21.240833, -1.1855469)
+shape = SubResource("BoxShape3D_dinhu")
+
+[node name="StaticBody3D7" type="StaticBody3D" parent="WoodEnvironment" unique_id=837837532]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.458807, 24.398197, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="WoodEnvironment/StaticBody3D7" unique_id=974723753]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.11445999, 7.989311, -1.1125488)
+mesh = SubResource("BoxMesh_bl2r1")
 
 [node name="Light" type="Node3D" parent="WoodEnvironment" unique_id=1565607683]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.368947, 0)
@@ -179,8 +259,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.75721, 0, -0.07981348)
 
 [node name="Enemies" type="Node3D" parent="." unique_id=1781416593]
 
-[node name="EnemyLong" parent="Enemies" unique_id=1271975245 instance=ExtResource("6_vtaks")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.970643, 0, 0)
+[node name="Arrows" type="Node3D" parent="." unique_id=1717704391]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=619251981]
 
