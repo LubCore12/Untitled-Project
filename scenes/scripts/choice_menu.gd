@@ -14,12 +14,14 @@ extends Control
 @onready var circle_health_button = $ChoiceCards/StoryChoices/CircleHealthButton
 @onready var line_health_button = $ChoiceCards/StoryChoices/LineHealthButton
 @onready var bottle_health_button = $ChoiceCards/StoryChoices/BottleHealthButton
+@onready var pause_button = $ChoiceCards/StoryChoices/PauseButton
 
 @onready var story_choices = $ChoiceCards/StoryChoices
 @onready var bad_choices = $ChoiceCards/BadChoices
 @onready var good_choices = $ChoiceCards/GoodChoices
 
-var bad_button_chance = 4.0;
+var bad_button_chance := 4.0
+var cards_per_choice := 3
 
 signal give_walk_ability
 signal create_character_sprite
@@ -32,6 +34,7 @@ signal add_circle_health
 signal add_line_health
 signal add_bottle_health
 signal make_enemy_long_creation
+signal pause
 
 signal flash
 signal special_agent
@@ -134,6 +137,12 @@ func toggle_health_choice() -> void:
 		line_health_button.show()
 		bottle_health_button.show()
 
+func toggle_pause_choice() -> void:
+	if pause_button.visible:
+		pause_button.hide()
+	else:
+		pause_button.show()
+
 func choice_random_buttons() -> void:
 	story_choices.hide()
 	var chance = randf_range(0.0, 10.0)
@@ -152,7 +161,8 @@ func choice_random_buttons() -> void:
 		var children = good_choices.get_children()
 		children.shuffle()
 		
-		for i in range(3):
+		for i in range(cards_per_choice):
+			cards_per_choice = 3
 			children[i].show()
 			
 func hide_all_choices() -> void:
@@ -169,6 +179,9 @@ func hide_descriptions() -> void:
 
 func add_luck(value: float) -> void:
 	bad_button_chance -= value
+
+func set_four_cards() -> void:
+	cards_per_choice = 4
 
 func _on_walk_button_pressed() -> void:
 	give_walk_ability.emit()
@@ -283,3 +296,6 @@ func _on_gambling_button_pressed() -> void:
 
 func _on_unlucky_button_pressed() -> void:
 	unlucky.emit()
+
+func _on_pause_button_pressed() -> void:
+	pause.emit()

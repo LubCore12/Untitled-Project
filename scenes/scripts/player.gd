@@ -2,8 +2,8 @@ class_name Player
 extends CharacterBody3D
 
 @export_group("Movement")
-@export var walk_speed: float = 4
-@export var run_speed: float = 7
+@export var walk_speed: float = 6
+@export var run_speed: float = 9.5
 @export var jump_strength: float = 30
 @export var gravity: float = 1.7
 @export var max_stamina: float = 100
@@ -26,13 +26,15 @@ extends CharacterBody3D
 
 var direction: float
 var target_enemy: CharacterBody3D
-var can_walk := false
+var can_walk := true
 var can_attack := false
 var can_dash := false
 var rage_enabled := false
 var rage_active := false
 var is_moving := false
 var is_dashing := false
+var is_jumping := false
+var is_attacking := false
 var is_stamina_recovery := false
 var is_punch_discard_stamina := false
 var hp: float
@@ -59,6 +61,7 @@ func _physics_process(delta: float) -> void:
 	recover_stamina(delta)
 	if can_walk:
 		move()
+	animate()
 	
 func move() -> void:
 	velocity.x = direction * speed if not is_dashing else direction * dash_speed
@@ -73,10 +76,12 @@ func run(delta) -> void:
 		
 func jump() -> void:
 	if stamina >= jump_stamina and can_walk:
+		sprite.play("jump")
 		velocity.y += jump_strength
 		stamina -= jump_stamina
 		player_run.emit(stamina * (1.0 / get_right_max_stamina()))
 		is_moving = true
+		is_jumping = true
 	
 func dash() -> void:
 	is_dashing = true
@@ -93,13 +98,19 @@ func get_input(delta) -> void:
 	if dash_timer.time_left > 0:
 		player_dash_time.emit((dash_timer.wait_time - dash_timer.time_left) * (1 / dash_timer.wait_time))
 	
+	if is_on_floor():
+		is_jumping = false
+	
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		jump()
 		
 	if Input.is_action_pressed("run") and direction and can_walk:
 		run(delta)
 		
-	if Input.is_action_just_pressed("attack") and can_attack:
+	if Input.is_action_just_pressed("attack") and can_attack and not is_attacking:
+		sprite.play("attack")
+		is_attacking = true
+		
 		if target_enemy:
 			if not is_punch_discard_stamina:
 				attack()
@@ -108,10 +119,26 @@ func get_input(delta) -> void:
 					stamina -= punch_stamina
 					attack()
 					player_run.emit(stamina * (1.0 / get_right_max_stamina()))
+					
+		await get_tree().create_timer(1.3).timeout
+		is_attacking = false
 	
 	if Input.is_action_just_pressed("dash") and can_dash:
 		dash()
 	
+func animate() -> void:
+	if can_walk:
+		if direction == -1:
+			sprite.flip_h = true 
+		if direction == 1:
+			sprite.flip_h = false
+		
+	if can_walk and not is_jumping and not is_attacking:
+		if direction:
+			sprite.play("run")
+		else:
+			sprite.play("idle")
+		
 func recover_stamina(delta) -> void:
 	if not is_moving:
 		if stamina_timer.is_stopped():
@@ -163,6 +190,7 @@ func get_damage(self_damage):
 		player_damaged.emit(hp * (1.0 / get_right_max_health()))
 		
 		if hp <= 0:
+			sprite.play("death")
 			collision_layer = 2
 			collision_mask = 2
 			set_physics_process(false)

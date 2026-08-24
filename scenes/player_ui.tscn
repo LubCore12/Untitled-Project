@@ -7,10 +7,12 @@
 [ext_resource type="Shader" uid="uid://bxxcdtxv0lva7" path="res://shaders/vignette.gdshader" id="5_7ctsh"]
 [ext_resource type="FontFile" uid="uid://c1bb63cxvo6pu" path="res://fonts/Exo2-SemiBold.ttf" id="5_n31oh"]
 [ext_resource type="Shader" uid="uid://c4nnxhy7g87aw" path="res://shaders/blindness.gdshader" id="6_bkx2g"]
+[ext_resource type="Texture2D" uid="uid://b7ja55f4q2e0d" path="res://assets/ui/pause.png" id="6_wsb5h"]
+[ext_resource type="PackedScene" uid="uid://cx5cxdvbe642d" path="res://scenes/pause.tscn" id="9_g4s8q"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_guxnq"]
 shader = ExtResource("1_jkj6h")
-shader_parameter/value = 0.62999998591824
+shader_parameter/value = 0.999999977648
 shader_parameter/background_color = Color(0.13567707, 0.1356771, 0.13567707, 1)
 shader_parameter/health_color = Color(0.8799865, 0.83677167, 0.8445649, 1)
 
@@ -36,6 +38,24 @@ shader_parameter/value = 1.0
 shader_parameter/background_color = Color(0.13725491, 0.13725491, 0.13725491, 1)
 shader_parameter/health_color = Color(0.8784314, 0.8352941, 0.84313726, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wsb5h"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g4s8q"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_17uas"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1c0bc"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="Theme" id="Theme_n31oh"]
+Button/styles/focus = SubResource("StyleBoxFlat_wsb5h")
+Button/styles/hover = SubResource("StyleBoxFlat_g4s8q")
+Button/styles/normal = SubResource("StyleBoxFlat_17uas")
+Button/styles/pressed = SubResource("StyleBoxFlat_1c0bc")
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7ctsh"]
 shader = ExtResource("1_jkj6h")
 shader_parameter/value = 0.999999977648
@@ -59,7 +79,7 @@ shader_parameter/vignette_color = Color(0.37170312, 1.2333506e-07, 1.4439226e-07
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_wsb5h"]
 noise_type = 3
-seed = 5
+seed = 2
 frequency = 0.0001
 fractal_lacunarity = -3.261
 fractal_gain = 1.0
@@ -90,53 +110,74 @@ anchor_right = 0.3
 anchor_bottom = 1.0
 
 [node name="HealthBarTypes" type="HBoxContainer" parent="LeftTopContainer" unique_id=211166009]
+custom_minimum_size = Vector2(0, 150)
 layout_mode = 2
-size_flags_vertical = 3
+offset_transform_enabled = true
 
 [node name="LineBar" type="ColorRect" parent="LeftTopContainer/HealthBarTypes" unique_id=2117184087]
 visible = false
 material = SubResource("ShaderMaterial_guxnq")
-custom_maximum_size = Vector2(-1, 40)
+custom_maximum_size = Vector2(-1, 60)
 layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="CircleBar" type="ColorRect" parent="LeftTopContainer/HealthBarTypes" unique_id=693975217]
 visible = false
 material = SubResource("ShaderMaterial_jkj6h")
-custom_maximum_size = Vector2(100, 100)
+custom_maximum_size = Vector2(150, 150)
 layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="BottleBar" type="ColorRect" parent="LeftTopContainer/HealthBarTypes" unique_id=158028984]
 visible = false
 material = SubResource("ShaderMaterial_sk4pr")
-custom_maximum_size = Vector2(100, 100)
+custom_maximum_size = Vector2(150, 150)
 layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="DashContainer" type="VBoxContainer" parent="." unique_id=1041799021]
+visible = false
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.7
-anchor_top = 0.03
-anchor_right = 0.97
-anchor_bottom = 1.0
-grow_horizontal = 0
+anchor_left = 0.03
+anchor_top = 0.93
+anchor_right = 0.03
+anchor_bottom = 0.93
+offset_top = -47.0
+offset_right = 518.0
+grow_vertical = 0
+offset_transform_enabled = true
 
 [node name="State" type="Label" parent="DashContainer" unique_id=1781372492]
 layout_mode = 2
 theme = SubResource("Theme_bkx2g")
 theme_override_font_sizes/font_size = 32
 text = "Ready!"
-horizontal_alignment = 2
 
 [node name="DashBar" type="ColorRect" parent="DashContainer" unique_id=82712788]
 material = SubResource("ShaderMaterial_wsb5h")
-custom_minimum_size = Vector2(150, 4)
+custom_minimum_size = Vector2(150, 8)
 layout_mode = 2
-size_flags_horizontal = 8
+size_flags_horizontal = 0
 offset_transform_enabled = true
 offset_transform_position = Vector2(0, 3)
+
+[node name="PauseButton" type="TextureButton" parent="." unique_id=234463410]
+visible = false
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.97
+anchor_top = 0.03
+anchor_right = 0.97
+anchor_bottom = 0.03
+offset_left = -102.400024
+offset_top = 0.6000023
+offset_right = 409.59998
+offset_bottom = 512.6
+scale = Vector2(0.2, 0.2)
+theme = SubResource("Theme_n31oh")
+texture_normal = ExtResource("6_wsb5h")
 
 [node name="StaminaBar" type="ColorRect" parent="." unique_id=561439623]
 visible = false
@@ -149,6 +190,7 @@ anchor_right = 0.97
 anchor_bottom = 0.97
 grow_horizontal = 2
 grow_vertical = 0
+mouse_behavior_recursive = 1
 
 [node name="Vignette" type="ColorRect" parent="." unique_id=1705456403]
 material = SubResource("ShaderMaterial_37okk")
@@ -158,15 +200,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="Flashbang" type="ColorRect" parent="." unique_id=460815589]
-modulate = Color(1, 1, 1, 0)
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+mouse_behavior_recursive = 1
+metadata/_edit_lock_ = true
 
 [node name="Blindness" type="ColorRect" parent="." unique_id=868108831]
 visible = false
@@ -177,3 +212,22 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_behavior_recursive = 1
+metadata/_edit_lock_ = true
+
+[node name="Flashbang" type="ColorRect" parent="." unique_id=460815589]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_behavior_recursive = 1
+metadata/_edit_lock_ = true
+
+[node name="Pause" parent="." unique_id=1794768853 instance=ExtResource("9_g4s8q")]
+visible = false
+layout_mode = 1
+
+[connection signal="pressed" from="PauseButton" to="." method="_on_pause_button_pressed"]

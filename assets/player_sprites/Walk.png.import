@@ -2,21 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://de4sqfjwtgvv4"
-path.s3tc="res://.godot/imported/bark_texture.png-8150199b383c494a754cb7c5ab44fec8.s3tc.ctex"
+uid="uid://dleat8yttvq2u"
+path="res://.godot/imported/Walk.png-34efd173fbacc8e93bd52445abd01992.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/bark_texture.png"
-dest_files=["res://.godot/imported/bark_texture.png-8150199b383c494a754cb7c5ab44fec8.s3tc.ctex"]
+source_file="res://assets/player_sprites/Walk.png"
+dest_files=["res://.godot/imported/Walk.png-34efd173fbacc8e93bd52445abd01992.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0
@@ -24,7 +23,7 @@ compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
@@ -38,4 +37,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1

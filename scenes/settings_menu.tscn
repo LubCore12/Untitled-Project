@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bh7ne5yqiugv7"]
 
-[ext_resource type="Texture2D" uid="uid://bjcw47vumwj40" path="res://assets/close.png" id="1_05p07"]
+[ext_resource type="Texture2D" uid="uid://bjcw47vumwj40" path="res://assets/ui/close.png" id="1_05p07"]
 [ext_resource type="Script" uid="uid://bfmddjmhsqrlt" path="res://scenes/scripts/settings_menu.gd" id="1_cr101"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wswnh"]

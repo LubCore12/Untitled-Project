@@ -2,13 +2,14 @@
 
 [ext_resource type="Script" uid="uid://dhpy0b78pdfxv" path="res://scenes/scripts/game.gd" id="1_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://0keq2j52jcvb" path="res://scenes/player.tscn" id="1_uwrxv"]
-[ext_resource type="Texture2D" uid="uid://de4sqfjwtgvv4" path="res://assets/bark_texture.png" id="2_0tnpc"]
-[ext_resource type="Texture2D" uid="uid://bbeqwab38wwtl" path="res://assets/wood_texture.jpg" id="2_u5sy4"]
+[ext_resource type="Texture2D" uid="uid://de4sqfjwtgvv4" path="res://assets/texutres/bark_texture.png" id="2_0tnpc"]
+[ext_resource type="Texture2D" uid="uid://bbeqwab38wwtl" path="res://assets/texutres/wood_texture.jpg" id="2_gee14"]
 [ext_resource type="Shader" uid="uid://bh0gij6m1gdhs" path="res://shaders/transition.gdshader" id="2_yqjtg"]
 [ext_resource type="Texture2D" uid="uid://cmy2yn5d5nwkb" path="res://assets/lamp.png" id="3_gee14"]
 [ext_resource type="FontFile" uid="uid://c64ld6cc2ggth" path="res://fonts/SofiaSans-Regular.ttf" id="3_iywne"]
 [ext_resource type="PackedScene" uid="uid://ck5bnij8waq8q" path="res://scenes/choice_menu.tscn" id="4_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://o4i0n352u43r" path="res://scenes/player_ui.tscn" id="6_p57ef"]
+[ext_resource type="PackedScene" uid="uid://qn575l000y1k" path="res://scenes/enemy_long.tscn" id="6_vtaks"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_uwrxv"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -31,11 +32,11 @@ uv1_scale = Vector3(32, 4, 1)
 material = SubResource("StandardMaterial3D_fo3dt")
 size = Vector2(100, 20)
 
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_p57ef"]
-data = PackedVector3Array(500, 0, 2.5, -500, 0, 2.5, 500, 0, -2.5, -500, 0, 2.5, -500, 0, -2.5, 500, 0, -2.5)
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_vtaks"]
+data = PackedVector3Array(50, 0, 10, -50, 0, 10, 50, 0, -10, -50, 0, 10, -50, 0, -10, 50, 0, -10)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_md0e3"]
-albedo_texture = ExtResource("2_u5sy4")
+albedo_texture = ExtResource("2_gee14")
 uv1_scale = Vector3(24, 24, 24)
 
 [sub_resource type="BoxMesh" id="BoxMesh_37okk"]
@@ -116,8 +117,8 @@ environment = SubResource("Environment_lnu2h")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Floor" unique_id=1279481240]
 mesh = SubResource("PlaneMesh_37okk")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor" unique_id=1233260330]
-shape = SubResource("ConcavePolygonShape3D_p57ef")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor" unique_id=582797723]
+shape = SubResource("ConcavePolygonShape3D_vtaks")
 
 [node name="WoodEnvironment" type="Node3D" parent="." unique_id=323183304]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.1101048)
@@ -177,6 +178,9 @@ visible = false
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.75721, 0, -0.07981348)
 
 [node name="Enemies" type="Node3D" parent="." unique_id=1781416593]
+
+[node name="EnemyLong" parent="Enemies" unique_id=1271975245 instance=ExtResource("6_vtaks")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.970643, 0, 0)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=619251981]
 
@@ -573,7 +577,7 @@ text = "Так давай же добавим здоровье и интерфе
 visible_characters = 0
 visible_ratio = 0.0
 
-[node name="DialogPhase7" type="Control" parent="CanvasLayer/Dialogs" unique_id=1045905041]
+[node name="DialogPhase7" type="Control" parent="CanvasLayer/Dialogs" unique_id=956487368]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -583,7 +587,81 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="RichTextLabel3" type="RichTextLabel" parent="CanvasLayer/Dialogs/DialogPhase7" unique_id=575379654]
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Dialogs/DialogPhase7" unique_id=725931699]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.75
+anchor_right = 0.95
+anchor_bottom = 0.95
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_37okk")
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+text = "Здоровье есть! Но все еще осталась одна проблема."
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="CanvasLayer/Dialogs/DialogPhase7" unique_id=864280383]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.75
+anchor_right = 0.95
+anchor_bottom = 0.95
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_37okk")
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+text = "Представь, что игрок твоей игры захочет отойти. Например, покушать поспать, сценарий может быть любой."
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="CanvasLayer/Dialogs/DialogPhase7" unique_id=44268907]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.75
+anchor_right = 0.95
+anchor_bottom = 0.95
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_37okk")
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+text = "Но если игроку это понадобится во время игры в нашу игру, то что ему поможет? Правильно - ничего. Поэтому предлагаю добавить паузы и сохранения."
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="RichTextLabel5" type="RichTextLabel" parent="CanvasLayer/Dialogs/DialogPhase7" unique_id=1439734361]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.75
+anchor_right = 0.95
+anchor_bottom = 0.95
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_37okk")
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+text = "Может показаться, что это совершенно незначительное нововведение, так как это игра и не особо долгая. Но перестраховаться стоит."
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="DialogPhase8" type="Control" parent="CanvasLayer/Dialogs" unique_id=1045905041]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="CanvasLayer/Dialogs/DialogPhase8" unique_id=575379654]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.05
@@ -599,7 +677,7 @@ text = "Ну что, у тебя уже есть практически полн
 visible_characters = 0
 visible_ratio = 0.0
 
-[node name="RichTextLabel4" type="RichTextLabel" parent="CanvasLayer/Dialogs/DialogPhase7" unique_id=2125609829]
+[node name="RichTextLabel4" type="RichTextLabel" parent="CanvasLayer/Dialogs/DialogPhase8" unique_id=2125609829]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.05
@@ -611,11 +689,11 @@ grow_vertical = 2
 theme = SubResource("Theme_37okk")
 theme_override_font_sizes/normal_font_size = 40
 bbcode_enabled = true
-text = "Но все же кое-что в нахей игре до сих пор, а именно баланса"
+text = "Но все же кое-что в нахей игре до сих пор, а именно баланса."
 visible_characters = 0
 visible_ratio = 0.0
 
-[node name="RichTextLabel5" type="RichTextLabel" parent="CanvasLayer/Dialogs/DialogPhase7" unique_id=449757539]
+[node name="RichTextLabel5" type="RichTextLabel" parent="CanvasLayer/Dialogs/DialogPhase8" unique_id=449757539]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.05
@@ -627,11 +705,11 @@ grow_vertical = 2
 theme = SubResource("Theme_37okk")
 theme_override_font_sizes/normal_font_size = 40
 bbcode_enabled = true
-text = "Так что Стенли, попытайся поиграться с настройками, может постарайся добавить новые механики и сделать игру более интересной"
+text = "Так что Стенли, попытайся поиграться с настройками, может постарайся добавить новые механики и сделать игру более интересной."
 visible_characters = 0
 visible_ratio = 0.0
 
-[node name="RichTextLabel6" type="RichTextLabel" parent="CanvasLayer/Dialogs/DialogPhase7" unique_id=474500727]
+[node name="RichTextLabel6" type="RichTextLabel" parent="CanvasLayer/Dialogs/DialogPhase8" unique_id=474500727]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.05
@@ -679,6 +757,7 @@ visible = false
 [connection signal="make_enemy_long_creation" from="CanvasLayer/ChoiceMenu" to="." method="_on_choice_menu_make_enemy_long_creation"]
 [connection signal="make_rock_environment" from="CanvasLayer/ChoiceMenu" to="." method="_on_choice_menu_make_rock_environment"]
 [connection signal="make_wood_environment" from="CanvasLayer/ChoiceMenu" to="." method="_on_choice_menu_make_wood_environment"]
+[connection signal="pause" from="CanvasLayer/ChoiceMenu" to="." method="_on_choice_menu_pause"]
 [connection signal="perfect" from="CanvasLayer/ChoiceMenu" to="." method="_on_choice_menu_perfect"]
 [connection signal="rage" from="CanvasLayer/ChoiceMenu" to="." method="_on_choice_menu_rage"]
 [connection signal="redeemer" from="CanvasLayer/ChoiceMenu" to="." method="_on_choice_menu_redeemer"]

@@ -317,6 +317,33 @@ shader_parameter/x_pos = 1.8
 shader_parameter/y_pos = 0.0
 shader_parameter/thikness = 0.07
 
+[sub_resource type="Shader" id="Shader_35qed"]
+code = "shader_type canvas_item;
+
+uniform float angle = -70.0;
+uniform float x_pos = 1.8;
+uniform float y_pos = 0.0;
+uniform float thikness = 0.07;
+
+void fragment() {
+	vec2 uv = 2. * UV - 1.;
+	
+	float slope = tan(angle);
+	float line = (uv.y + y_pos) - slope * (uv.x + x_pos);
+	float distance_to_line = abs(line) / sqrt(1.0 + pow(slope, 2));
+	float shine_mask = step(distance_to_line, thikness);
+	COLOR.rgb = mix(COLOR.rgb, vec3(1.), shine_mask);
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_oeys4"]
+resource_local_to_scene = true
+shader = SubResource("Shader_35qed")
+shader_parameter/angle = -70.0
+shader_parameter/x_pos = 1.8
+shader_parameter/y_pos = 0.0
+shader_parameter/thikness = 0.07
+
 [sub_resource type="Shader" id="Shader_cb2gh"]
 code = "shader_type canvas_item;
 
@@ -1573,6 +1600,61 @@ size_flags_vertical = 10
 theme = SubResource("Theme_8c0wf")
 theme_override_font_sizes/font_size = 32
 text = "Чем-то напоминает круглое здоровье, но с более интересной реализацией в виде бутылки"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="PauseButton" type="Button" parent="ChoiceCards/StoryChoices" unique_id=2106640042]
+visible = false
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+theme = SubResource("Theme_37okk")
+
+[node name="Panel" type="Panel" parent="ChoiceCards/StoryChoices/PauseButton" unique_id=2041746737]
+material = SubResource("ShaderMaterial_oeys4")
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_behavior_recursive = 1
+theme = ExtResource("4_h2egi")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ChoiceCards/StoryChoices/PauseButton/Panel" unique_id=56606019]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.05
+anchor_right = 0.95
+anchor_bottom = 0.95
+grow_horizontal = 2
+grow_vertical = 2
+mouse_behavior_recursive = 1
+
+[node name="Name" type="Label" parent="ChoiceCards/StoryChoices/PauseButton/Panel/VBoxContainer" unique_id=1782110907]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 2
+theme = SubResource("Theme_fo3dt")
+theme_override_font_sizes/font_size = 45
+text = "Пауза"
+
+[node name="Image" type="TextureRect" parent="ChoiceCards/StoryChoices/PauseButton/Panel/VBoxContainer" unique_id=400108006]
+custom_maximum_size = Vector2(300, 300)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, -20)
+texture = ExtResource("12_kkagw")
+
+[node name="Description" type="Label" parent="ChoiceCards/StoryChoices/PauseButton/Panel/VBoxContainer" unique_id=1405506437]
+layout_mode = 2
+size_flags_vertical = 10
+theme = SubResource("Theme_8c0wf")
+theme_override_font_sizes/font_size = 32
+text = "Добавляет очень важный элемент в игру - паузу и сохранения."
 horizontal_alignment = 1
 autowrap_mode = 2
 
@@ -3111,6 +3193,7 @@ autowrap_mode = 2
 [connection signal="pressed" from="ChoiceCards/StoryChoices/CircleHealthButton" to="." method="_on_circle_health_button_pressed"]
 [connection signal="pressed" from="ChoiceCards/StoryChoices/LineHealthButton" to="." method="_on_line_health_bar_pressed"]
 [connection signal="pressed" from="ChoiceCards/StoryChoices/BottleHealthButton" to="." method="_on_bottle_health_bar_pressed"]
+[connection signal="pressed" from="ChoiceCards/StoryChoices/PauseButton" to="." method="_on_pause_button_pressed"]
 [connection signal="pressed" from="ChoiceCards/GoodChoices/FlashButton" to="." method="_on_flash_button_pressed"]
 [connection signal="pressed" from="ChoiceCards/GoodChoices/SpecialAgentButton" to="." method="_on_special_agent_button_pressed"]
 [connection signal="pressed" from="ChoiceCards/GoodChoices/SeriousPunchButton" to="." method="_on_serious_punch_button_pressed"]

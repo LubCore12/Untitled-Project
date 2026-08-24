@@ -4,7 +4,7 @@
 [ext_resource type="FontFile" uid="uid://ctcf2j8qyyjrw" path="res://fonts/MisterBrush.ttf" id="2_mhnvy"]
 [ext_resource type="FontFile" uid="uid://cfkl4jakhub8b" path="res://fonts/Tagesschrift-Regular.ttf" id="3_4ytvr"]
 [ext_resource type="Shader" uid="uid://boht8pr4jrfth" path="res://shaders/levitation.gdshader" id="3_g3eks"]
-[ext_resource type="Texture2D" uid="uid://b85rdp12jyuwp" path="res://assets/settings.png" id="4_mhnvy"]
+[ext_resource type="Texture2D" uid="uid://b85rdp12jyuwp" path="res://assets/ui/settings.png" id="4_mhnvy"]
 [ext_resource type="PackedScene" uid="uid://bh7ne5yqiugv7" path="res://scenes/settings_menu.tscn" id="5_4ytvr"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_13sgg"]

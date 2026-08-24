@@ -14,6 +14,7 @@ extends Node3D
 @onready var night_light = $DirectionalLights/Night
 @onready var enemy_close_scene = preload("res://scenes/enemy_close.tscn")
 @onready var enemy_long_scene = preload("res://scenes/enemy_long.tscn")
+@onready var save_button = $CanvasLayer/PlayerUI/Pause/ButtonsContainer/Save
 
 @export_group("DialogStats")
 @export var letter_time := 0.05
@@ -25,11 +26,29 @@ extends Node3D
 var transition_time := 1.0
 
 func _ready() -> void:
+	save_button.connect("pressed", save_game)
+	$Enemies/EnemyClose.setup(player, Vector3(-25.0, 0, 0))
+	load_game()
+	
 	var tween = create_tween()
 	tween.tween_property(transition.material, "shader_parameter/size", 0.0, transition_time).from(1.0)
 	
 	await get_tree().create_timer(2.0).timeout
 	dialog_panel.show()
+	
+	#if SaveManager.load_game().size():
+		#var stats = SaveManager.load_game()
+		#
+		#player.hp = stats["Health"]
+		#player.stamina = stats["Stamina"]
+		#player.max_health_multiplier = stats["MaxHealthMultiplier"]
+		#player.max_stamina_multiplier = stats["MaxStaminaMultiplier"]
+		#player.speed_multiplier = stats["SpeedMultiplier"]
+		#player.damage_multiplier = stats["DamageMultiplier"]
+		#player.defend_multiplier = stats["DefendMultiplier"]
+	#else:
+		#await get_tree().create_timer(2.0).timeout
+		#dialog_panel.show()
 	
 	for label in dialogs.get_child(0).get_children():
 		await display_text(label)
@@ -103,7 +122,18 @@ func _ready() -> void:
 	await get_tree().create_timer(2).timeout
 	dialog_panel.show()
 	
-	for label in dialogs.get_child(5).get_children():
+	for label in dialogs.get_child(6).get_children():
+		await display_text(label)
+	
+	dialog_panel.hide()
+	await get_tree().create_timer(0.5).timeout
+	choice_menu.toggle_pause_choice()
+	choice_menu.show()
+	await choice_menu.choice_done
+	choice_menu.toggle_pause_choice()
+	await get_tree().create_timer(2).timeout
+	
+	for label in dialogs.get_child(7).get_children():
 		await display_text(label)
 	
 	dialog_panel.hide()
@@ -136,6 +166,18 @@ func display_text(text: RichTextLabel):
 
 	await get_tree().create_timer(dialog_wait_time).timeout
 	text.visible_characters = 0
+
+func save_game() -> void:
+	SaveManager.game_stats["Health"] = player.hp
+	SaveManager.game_stats["Stamina"] = player.stamina
+	SaveManager.game_stats["MaxHealthMultiplier"] = player.max_health_multiplier
+	SaveManager.game_stats["MaxStaminaMultiplier"] = player.max_stamina_multiplier
+	SaveManager.game_stats["DamageMultiplier"] = player.damage_multiplier
+	SaveManager.game_stats["SpeedMultiplier"] = player.speed_multiplier
+	SaveManager.game_stats["DefendMultiplier"] = player.defend_multiplier
+
+func load_game() -> void:
+	pass
 
 func _on_player_player_damaged(damage: float) -> void:
 	player_ui.set_health(damage)
@@ -220,6 +262,7 @@ func _on_choice_menu_fat_guy() -> void:
 
 func _on_choice_menu_flash() -> void:
 	player.start_dashing()
+	player_ui.show_dash()
 
 func _on_choice_menu_flashbang() -> void:
 	var tween = create_tween()
@@ -285,4 +328,7 @@ func _on_choice_menu_unlucky() -> void:
 	choice_menu.add_luck(-1.0)
 
 func _on_choice_menu_card_limit() -> void:
-	pass
+	choice_menu.set_four_cards()
+
+func _on_choice_menu_pause() -> void:
+	player_ui.show_pause_button()
