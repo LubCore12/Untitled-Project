@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://ccey5t03cl2wj" path="res://assets/skeleton_archer_player/Walk.png" id="6_88c65"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4ra3w"]
-size = Vector3(1, 2.0055332, 1)
+size = Vector3(0.6769409, 2.0055332, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rdngf"]
 atlas = ExtResource("2_vlvv2")
@@ -314,7 +314,7 @@ collision_mask = 3
 script = ExtResource("1_c85qa")
 
 [node name="Shape" type="CollisionShape3D" parent="." unique_id=1628307242]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0047617, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.005, 0)
 shape = SubResource("BoxShape3D_4ra3w")
 
 [node name="Sprite" type="AnimatedSprite3D" parent="." unique_id=1198368981]

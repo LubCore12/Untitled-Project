@@ -18,7 +18,7 @@ func _ready() -> void:
 		button.material.set_shader_parameter("y_speed", randf_range(1.0, 3.0))
 
 func _process(delta: float) -> void:
-	menu_music.volume_db = GlobalSounds.min_db_sound + GlobalSounds.music_loud * 30
+	menu_music.volume_db = GlobalSounds.min_music_db_sound + GlobalSounds.music_loud * 30
 
 func _on_play_pressed() -> void:
 	GlobalSounds.play_random_pressed_sound()

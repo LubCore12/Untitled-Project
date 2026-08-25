@@ -24,23 +24,9 @@ extends Node3D
 @export var dialog_wait_time := 0.7
 
 var transition_time := 1.0
+var tutorial_completed := false
 
 func _ready() -> void:
-	for i in range(8):
-		var x = randf_range(-50, 50)
-		var y = randf_range(0, 50)
-		var from = Vector3(x, y, 0)
-		var to = Vector3(x, 0, 0)
-		
-		var query = PhysicsRayQueryParameters3D.create(from, to)
-		var result = get_world_3d().direct_space_state.intersect_ray(query)
-		
-		if result:
-			var enemy = enemy_close_scene.instantiate()
-			enemy.setup(player, result.position)
-			enemies.add_child(enemy)
-			enemy.connect("spawn_arrow", add_arrow)
-		
 	save_button.connect("pressed", save_game)
 	load_game()
 	
@@ -50,65 +36,65 @@ func _ready() -> void:
 	await get_tree().create_timer(2.0).timeout
 	dialog_panel.show()
 		
-	#for label in dialogs.get_child(0).get_children():
-		#await display_text(label)
-		#
-	#dialog_panel.hide()
-	#await get_tree().create_timer(0.5).timeout
-	#choice_menu.toggle_sprite_choice()
-	#choice_menu.show()
-	#await choice_menu.choice_done
-	#choice_menu.toggle_sprite_choice()
-	#await get_tree().create_timer(0.5).timeout
-	#dialog_panel.show()
-	#
-	#for label in dialogs.get_child(1).get_children():
-		#await display_text(label)
-		#
-	#dialog_panel.hide()
-	#await get_tree().create_timer(0.5).timeout
-	#choice_menu.toggle_walk_choice()
-	#choice_menu.show()
-	#await choice_menu.choice_done
-	#choice_menu.toggle_walk_choice()
-	#await get_tree().create_timer(3).timeout
-	#dialog_panel.show()
-	#
-	#for label in dialogs.get_child(2).get_children():
-		#await display_text(label)
-		#
-	#dialog_panel.hide()
-	#await get_tree().create_timer(0.5).timeout
-	#choice_menu.toggle_environment_choice()
-	#choice_menu.show()
-	#await choice_menu.choice_done
-	#choice_menu.toggle_environment_choice()
-	#await get_tree().create_timer(3).timeout
-	#dialog_panel.show()
-	#
-	#for label in dialogs.get_child(3).get_children():
-		#await display_text(label)
-		#
-	#dialog_panel.hide()
-	#await get_tree().create_timer(0.5).timeout
-	#choice_menu.toggle_light_choice()
-	#choice_menu.show()
-	#await choice_menu.choice_done
-	#choice_menu.toggle_light_choice()
-	#await get_tree().create_timer(2).timeout
-	#dialog_panel.show()
+	for label in dialogs.get_child(0).get_children():
+		await display_text(label)
+		
+	dialog_panel.hide()
+	await get_tree().create_timer(0.5).timeout
+	choice_menu.toggle_sprite_choice()
+	choice_menu.show()
+	await choice_menu.choice_done
+	choice_menu.toggle_sprite_choice()
+	await get_tree().create_timer(0.5).timeout
+	dialog_panel.show()
 	
-	#for label in dialogs.get_child(4).get_children():
-		#await display_text(label)
-		#
-	#dialog_panel.hide()
-	#await get_tree().create_timer(0.5).timeout
-	#choice_menu.toggle_enemy_choice()
-	#choice_menu.show()
-	#await choice_menu.choice_done
-	#choice_menu.toggle_enemy_choice()
-	#await get_tree().create_timer(2).timeout
-	#dialog_panel.show()
+	for label in dialogs.get_child(1).get_children():
+		await display_text(label)
+		
+	dialog_panel.hide()
+	await get_tree().create_timer(0.5).timeout
+	choice_menu.toggle_walk_choice()
+	choice_menu.show()
+	await choice_menu.choice_done
+	choice_menu.toggle_walk_choice()
+	await get_tree().create_timer(3).timeout
+	dialog_panel.show()
+	
+	for label in dialogs.get_child(2).get_children():
+		await display_text(label)
+		
+	dialog_panel.hide()
+	await get_tree().create_timer(0.5).timeout
+	choice_menu.toggle_environment_choice()
+	choice_menu.show()
+	await choice_menu.choice_done
+	choice_menu.toggle_environment_choice()
+	await get_tree().create_timer(3).timeout
+	dialog_panel.show()
+	
+	for label in dialogs.get_child(3).get_children():
+		await display_text(label)
+		
+	dialog_panel.hide()
+	await get_tree().create_timer(0.5).timeout
+	choice_menu.toggle_light_choice()
+	choice_menu.show()
+	await choice_menu.choice_done
+	choice_menu.toggle_light_choice()
+	await get_tree().create_timer(2).timeout
+	dialog_panel.show()
+	
+	for label in dialogs.get_child(4).get_children():
+		await display_text(label)
+		
+	dialog_panel.hide()
+	await get_tree().create_timer(0.5).timeout
+	choice_menu.toggle_enemy_choice()
+	choice_menu.show()
+	await choice_menu.choice_done
+	choice_menu.toggle_enemy_choice()
+	await get_tree().create_timer(2).timeout
+	dialog_panel.show()
 	
 	for label in dialogs.get_child(5).get_children():
 		await display_text(label)
@@ -132,21 +118,49 @@ func _ready() -> void:
 	await choice_menu.choice_done
 	choice_menu.toggle_pause_choice()
 	await get_tree().create_timer(2).timeout
+	dialog_panel.show()
 	
 	for label in dialogs.get_child(7).get_children():
 		await display_text(label)
 	
 	dialog_panel.hide()
-	await get_tree().create_timer(0.5).timeout
+	await get_tree().create_timer(1).timeout
 	
-	#for i in range(8):
-		#choice_menu.show()
-		#choice_menu.choice_random_buttons()
-		#await choice_menu.choice_done
-		#choice_menu.hide()
-		#choice_menu.hide_all_choices()
-		#await get_tree().create_timer(0.5).timeout
+	tutorial_completed = true
 	
+	for i in range(8):
+		await get_tree().create_timer(0.75).timeout
+		choice_menu.show()
+		choice_menu.choice_random_buttons()
+		get_tree().paused = true
+		await choice_menu.choice_done
+		choice_menu.hide()
+		choice_menu.hide_all_choices()
+		get_tree().paused = false
+		await player.card_appear
+		
+func _process(_delta: float) -> void:
+	if enemies.get_children().size() < 14 and tutorial_completed:
+		var x = randf_range(-50, 50)
+		var y = randf_range(0, 50)
+		var from = Vector3(x, y, 0)
+		var to = Vector3(x, 0, 0)
+		var far_from_enemies := true
+		
+		var query = PhysicsRayQueryParameters3D.create(from, to)
+		var result = get_world_3d().direct_space_state.intersect_ray(query)
+		
+		if result and player.position.distance_to(result.position) > 15:
+			for group_enemy in get_tree().get_nodes_in_group("enemy"):
+				if group_enemy.position.distance_to(result.position) < 5:
+					far_from_enemies = false
+				
+			if far_from_enemies:
+				var enemy = enemy_close_scene.instantiate()
+				enemy.setup(player, result.position)
+				enemies.add_child(enemy)
+				#enemy.connect("spawn_arrow", add_arrow)
+
 func add_arrow(arrow):
 	$Arrows.add_child(arrow)
 	
@@ -213,26 +227,25 @@ func _on_choice_menu_set_night_light() -> void:
 
 func _on_choice_menu_make_enemy_close_creation() -> void:
 	var enemy = enemy_close_scene.instantiate()
-	enemy.setup(player)
+	enemy.setup(player, player.position - Vector3(10, 0, 0))
 	enemy.position.x = -10
+	player.start_attack()
 	enemies.add_child(enemy)
 
 func _on_choice_menu_make_enemy_long_creation() -> void:
 	var enemy = enemy_long_scene.instantiate()
-	enemy.setup(player)
+	enemy.setup(player, player.position - Vector3(10, 0, 0))
 	enemy.position.x = -10
+	player.start_attack()
 	enemies.add_child(enemy)
 
 func _on_choice_menu_add_bottle_health() -> void:
-	player.start_attack()
 	player_ui.show_bottle()
 
 func _on_choice_menu_add_circle_health() -> void:
-	player.start_attack()
 	player_ui.show_circle()
 
 func _on_choice_menu_add_line_health() -> void:
-	player.start_attack()
 	player_ui.show_line()
 	
 func _on_choice_menu_create_character_sprite() -> void:

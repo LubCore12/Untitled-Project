@@ -1,6 +1,7 @@
 extends Node
 
-const min_db_sound = -25.0;
+const min_music_db_sound = -40.0;
+const min_sfx_db_sound = -25.0;
 var music_loud = 1.0;
 var sfx_loud = 1.0;
 
@@ -18,10 +19,10 @@ var hover_sounds :Array = [
 
 func play_random_pressed_sound() -> void:
 	$PressedSound.stream = pressed_sounds.pick_random()
-	$PressedSound.volume_db = min_db_sound + sfx_loud * 30
+	$PressedSound.volume_db = min_sfx_db_sound + sfx_loud * 30
 	$PressedSound.play()
 	
 func play_random_hover_sound() -> void:
 	$HoverSound.stream = hover_sounds.pick_random()
-	$HoverSound.volume_db = min_db_sound + sfx_loud * 30
+	$HoverSound.volume_db = min_sfx_db_sound + sfx_loud * 30
 	$HoverSound.play()

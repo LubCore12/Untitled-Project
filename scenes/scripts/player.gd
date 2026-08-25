@@ -35,7 +35,7 @@ extends CharacterBody3D
 
 var direction: float
 var target_enemy: CharacterBody3D
-var can_walk := true
+var can_walk := false
 var can_attack := false
 var can_dash := false
 var rage_enabled := false
@@ -53,16 +53,19 @@ var stamina: float
 var bob_time := 0.0
 var camera_default_position: Vector3
 var camera_default_z_rotation: float
+var enemies_killed: int
 
 var damage_multiplier := 1.0
 var max_health_multiplier := 1.0
 var defend_multiplier := 1.0
 var max_stamina_multiplier := 1.0
 var speed_multiplier := 1.0
+var enemies_till_next_card := randi_range(2, 4)
 
 signal player_damaged(damage: float)
 signal player_run(stamina: float)
 signal player_dash_time(time: float)
+signal card_appear
 
 func _ready() -> void:
 	hp = max_hp
@@ -73,9 +76,9 @@ func _ready() -> void:
 	camera_default_z_rotation = camera.rotation.z
 
 func _physics_process(delta: float) -> void:
-	get_input(delta)
 	recover_stamina(delta)
 	if can_walk:
+		get_input(delta)
 		move()
 	animate(delta)
 	
@@ -122,7 +125,7 @@ func get_input(delta) -> void:
 	if Input.is_action_just_pressed("jump") and jump_count > 0:
 		jump()
 		
-	if Input.is_action_pressed("run") and direction and can_walk:
+	if Input.is_action_pressed("run") and direction:
 		run(delta)
 		
 	if Input.is_action_just_pressed("attack") and can_attack and not is_attacking:
@@ -193,14 +196,24 @@ func enable_rage() -> void:
 	
 func attack():
 	await get_tree().create_timer(0.42).timeout
-	var killed = target_enemy.get_damage(get_right_damage())
 	
-	if killed and rage_enabled:
-		if rage_active:
-			rage_timer.stop()
-		add_damage_multiplier(0.35)
-		rage_active = true
-		rage_timer.start()
+	if target_enemy:
+		var killed = target_enemy.get_damage(get_right_damage())
+		
+		if killed:
+			enemies_killed += 1
+			
+			if enemies_killed >= enemies_till_next_card:
+				enemies_killed = 0
+				enemies_till_next_card = randi_range(2, 4)
+				card_appear.emit()
+		
+		if killed and rage_enabled:
+			if rage_active:
+				rage_timer.stop()
+			add_damage_multiplier(0.35)
+			rage_active = true
+			rage_timer.start()
 
 func show_sprite() -> void:
 	sprite.show()

@@ -57,9 +57,9 @@ func animate() -> void:
 
 func attack() -> void:
 	sprite.play("attack")
-	await get_tree().create_timer(0.95).timeout
+	await get_tree().create_timer(1.05).timeout
 	
-	if not is_dead and is_in_attack_area:
+	if not is_dead and is_in_attack_area and sprite.frame == 3 and sprite.animation == "attack":
 		player.get_damage(damage)
 
 func get_damage(self_damage):

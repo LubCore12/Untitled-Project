@@ -152,18 +152,26 @@ func choice_random_buttons() -> void:
 		bad_choices.show()
 		var children = bad_choices.get_children()
 		children.shuffle()
-		
-		for i in range(3):
-			children[i].show()
+		show_cards(children)
 	else:
 		good_choices.show()
 		bad_choices.hide()
 		var children = good_choices.get_children()
 		children.shuffle()
+		show_cards(children)
+	
+func show_cards(children) -> void:
+	for i in range(cards_per_choice):
+		var card = children[i]
+		card.process_mode = PROCESS_MODE_DISABLED
+		card.show()
+			
+	await get_tree().create_timer(1.0).timeout
 		
-		for i in range(cards_per_choice):
-			cards_per_choice = 3
-			children[i].show()
+	for i in range(cards_per_choice):
+		var card = children[i]
+		cards_per_choice = 3
+		card.process_mode = PROCESS_MODE_INHERIT
 			
 func hide_all_choices() -> void:
 	for good in good_choices.get_children():

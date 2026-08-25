@@ -996,6 +996,7 @@ shader_parameter/y_pos = 0.0
 shader_parameter/thikness = 0.07
 
 [node name="ChoiceMenu" type="Control" unique_id=1031216120]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

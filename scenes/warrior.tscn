@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cdciwq8bp7v6k" path="res://assets/skeleton_warrior_sprites/Walk.png" id="6_64u8w"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4ra3w"]
-size = Vector3(1, 2.0389404, 1)
+size = Vector3(0.7159424, 2.0389404, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t0nb1"]
 atlas = ExtResource("2_bwxyh")
@@ -276,7 +276,7 @@ shape = SubResource("BoxShape3D_4ra3w")
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 1.95, 0)
 texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_37okk")
-animation = &"attack"
+animation = &"idle"
 autoplay = "idle"
 
 [node name="AttackArea" type="Area3D" parent="." unique_id=408551951]
