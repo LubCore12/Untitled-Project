@@ -1,9 +1,8 @@
-class_name EnemyLong
+class_name EnemyClose
 extends CharacterBody3D
 
 @onready var timer = $Timer
 @onready var sprite = $Sprite
-@onready var arrow_scene = preload("res://scenes/arrow.tscn")
 
 @export_group("Movement")
 @export var run_speed: float = 2.5
@@ -15,12 +14,8 @@ var player: CharacterBody3D
 var direction: float
 var speed: float
 var is_in_attack_area: bool
-var is_in_shot_area: bool
 var is_see_player: bool
-var is_shooting: bool
 var is_dead := false
-
-signal spawn_arrow(arrow)
 
 func setup(body, spawn_position):
 	player = body
@@ -32,15 +27,8 @@ func _physics_process(_delta: float) -> void:
 	
 	if not is_dead:
 		if is_see_player:
-			if player:
-				direction = (player.position - position).normalized().x if is_see_player else 0.0
-			if is_in_shot_area:
-				if is_in_attack_area:
-					attack()
-				else:
-					shot()
-			else:
-				go_to_player()
+			direction = (player.position - position).normalized().x if is_see_player else 0.0
+			go_to_player()
 		else:
 			idle_walking()
 	animate()
@@ -58,9 +46,9 @@ func animate() -> void:
 	elif direction < 0:
 		sprite.flip_h = true 
 	
-	if not is_in_shot_area and not is_dead:
+	if not is_in_attack_area and not is_dead:
 		if is_see_player:
-			sprite.play("walk")
+			sprite.play("run")
 		else:
 			if direction:
 				sprite.play("walk")
@@ -69,26 +57,18 @@ func animate() -> void:
 
 func attack() -> void:
 	sprite.play("attack")
-	await get_tree().create_timer(0.8).timeout
-	player.get_damage(damage)
+	await get_tree().create_timer(0.95).timeout
 	
-func shot() -> void:
-	velocity.x = direction * walk_speed if sprite.animation == "walk" else 0.0
-	if not is_shooting:
-		is_shooting = true
-		sprite.play("shot")
-		await get_tree().create_timer(2.4).timeout
-		var arrow = arrow_scene.instantiate()
-		spawn_arrow.emit(arrow)
-		arrow.setup(global_position + Vector3(0, 1.6, 0), player)
-		await sprite.animation_finished
-		sprite.play("walk")
-		await get_tree().create_timer(1).timeout
-		is_shooting = false
-	move_and_slide()
+	if not is_dead and is_in_attack_area:
+		player.get_damage(damage)
 
 func get_damage(self_damage):
 	hp -= self_damage
+	
+	var tween = create_tween()
+	tween.tween_property(sprite, "modulate", Color(1, 0, 0, 1), 0.15)
+	tween.tween_property(sprite, "modulate", Color(1, 1, 1, 1), 0.15)
+	
 	if hp <= 0:
 		sprite.play("dead")
 		is_dead = true
@@ -115,18 +95,10 @@ func _on_attack_area_body_exited(body: Node3D) -> void:
 	if body == player:
 		is_in_attack_area = false
 
-func _on_vision_area_body_entered(body: Node3D) -> void:
+func _on_view_area_body_entered(body: Node3D) -> void:
 	if body == player:
 		is_see_player = true
 
-func _on_vision_area_body_exited(body: Node3D) -> void:
+func _on_view_area_body_exited(body: Node3D) -> void:
 	if body == player:
 		is_see_player = false
-
-func _on_shot_area_body_entered(body: Node3D) -> void:
-	if body == player:
-		is_in_shot_area = true
-
-func _on_shot_area_body_exited(body: Node3D) -> void:
-	if body == player:
-		is_in_shot_area = false

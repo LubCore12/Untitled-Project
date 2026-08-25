@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://w75lg0ayxey0"
-path.s3tc="res://.godot/imported/Idle.png-4be08ef5d385e4024e1464af6b263b6f.s3tc.ctex"
+uid="uid://cdupuqaksc3v5"
+path.s3tc="res://.godot/imported/Idle.png-df6bcf9ff6c2c0691dd10bb5b4e30d39.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/skeleton_spear_sprites/Idle.png"
-dest_files=["res://.godot/imported/Idle.png-4be08ef5d385e4024e1464af6b263b6f.s3tc.ctex"]
+source_file="res://assets/skeleton_warrior_sprites/Idle.png"
+dest_files=["res://.godot/imported/Idle.png-df6bcf9ff6c2c0691dd10bb5b4e30d39.s3tc.ctex"]
 
 [params]
 

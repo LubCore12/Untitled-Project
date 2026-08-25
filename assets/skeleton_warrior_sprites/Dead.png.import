@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://kpqetxkhgxe7"
-path.s3tc="res://.godot/imported/Attack.png-cb85a3e53243c827239acc64f2eb0762.s3tc.ctex"
+uid="uid://br2n1ffvidlnf"
+path.s3tc="res://.godot/imported/Dead.png-fff673753aea3462c94c4e703f8bb27e.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/skeleton_spear_sprites/Attack.png"
-dest_files=["res://.godot/imported/Attack.png-cb85a3e53243c827239acc64f2eb0762.s3tc.ctex"]
+source_file="res://assets/skeleton_warrior_sprites/Dead.png"
+dest_files=["res://.godot/imported/Dead.png-fff673753aea3462c94c4e703f8bb27e.s3tc.ctex"]
 
 [params]
 

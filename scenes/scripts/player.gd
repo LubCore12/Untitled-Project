@@ -20,10 +20,18 @@ extends CharacterBody3D
 @export var defend: float = 1
 @export var max_jump_count = 2
 
+@export_group("Camera")
+@export var tilt_amount: float = 1.2
+@export var tilt_speed: float = 8.0
+@export var bob_amplitude_side: float = 0.1
+@export var bob_amplitude_vertical: float = 0.08
+@export var bob_speed: float = 10.0
+
 @onready var sprite = $Sprite
 @onready var stamina_timer = $Timers/StaminaTimer
 @onready var dash_timer = $Timers/DashTimer
 @onready var rage_timer = $Timers/RageTimer
+@onready var camera = $Camera
 
 var direction: float
 var target_enemy: CharacterBody3D
@@ -42,6 +50,9 @@ var jump_count: int
 var hp: float
 var speed: float
 var stamina: float
+var bob_time := 0.0
+var camera_default_position: Vector3
+var camera_default_z_rotation: float
 
 var damage_multiplier := 1.0
 var max_health_multiplier := 1.0
@@ -58,13 +69,15 @@ func _ready() -> void:
 	speed = walk_speed
 	stamina = max_stamina
 	jump_count = max_jump_count
+	camera_default_position = camera.position
+	camera_default_z_rotation = camera.rotation.z
 
 func _physics_process(delta: float) -> void:
 	get_input(delta)
 	recover_stamina(delta)
 	if can_walk:
 		move()
-	animate()
+	animate(delta)
 	
 func move() -> void:
 	velocity.x = direction * speed if not is_dashing else direction * dash_speed
@@ -125,13 +138,13 @@ func get_input(delta) -> void:
 					attack()
 					player_run.emit(stamina * (1.0 / get_right_max_stamina()))
 					
-		await get_tree().create_timer(1.3).timeout
+		await sprite.animation_finished
 		is_attacking = false
 	
 	if Input.is_action_just_pressed("dash") and can_dash:
 		dash()
 	
-func animate() -> void:
+func animate(delta) -> void:
 	if can_walk:
 		if direction == -1:
 			sprite.flip_h = true 
@@ -143,6 +156,16 @@ func animate() -> void:
 			sprite.play("run")
 		else:
 			sprite.play("idle")
+			
+	if direction:
+		camera.rotation_degrees.z = lerp(camera.rotation_degrees.z, -direction * tilt_amount, tilt_speed * delta)
+		
+		bob_time += delta * bob_speed
+		camera.position.x = camera_default_position.x + sin(bob_time) * bob_amplitude_side
+		camera.position.y = camera_default_position.y + abs(sin(bob_time)) * bob_amplitude_vertical
+	else:
+		camera.rotation_degrees.z = lerp(camera.rotation_degrees.z, camera_default_z_rotation, tilt_speed * delta)
+		camera.position = camera.position.lerp(camera_default_position, bob_speed / 2.0 * delta)
 		
 func recover_stamina(delta) -> void:
 	if not is_moving:
@@ -169,6 +192,7 @@ func enable_rage() -> void:
 	rage_enabled = true
 	
 func attack():
+	await get_tree().create_timer(0.42).timeout
 	var killed = target_enemy.get_damage(get_right_damage())
 	
 	if killed and rage_enabled:
@@ -189,15 +213,19 @@ func _on_area_3d_body_exited(body: Node3D) -> void:
 	if body == target_enemy:
 		target_enemy = null
 
-func get_damage(self_damage):
+func get_damage(self_damage):	
 	if can_attack:
+		var tween = create_tween()
+		tween.tween_property(sprite, "modulate", Color(1, 0, 0, 1), 0.15)
+		tween.tween_property(sprite, "modulate", Color(1, 1, 1, 1), 0.15)
+		
 		hp -= self_damage * get_right_defend()
 		player_damaged.emit(hp * (1.0 / get_right_max_health()))
 		
 		if hp <= 0:
 			sprite.play("death")
-			collision_layer = 2
-			collision_mask = 2
+			collision_layer = 16
+			collision_mask = 16
 			set_physics_process(false)
 
 func add_health(value: float) -> void:

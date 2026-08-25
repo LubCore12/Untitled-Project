@@ -14,8 +14,8 @@ func save_game() -> void:
 	else:
 		printerr("saving error")
 
-func load_game() -> Dictionary:
-	if not FileAccess.file_exists(SAVE_PATH):
+func load_game():
+	if not (SAVE_PATH):
 		return {}
 	var file = FileAccess.open(SAVE_PATH, FileAccess.READ)
 	if file:
@@ -28,5 +28,5 @@ func load_game() -> Dictionary:
 			printerr("reading file error")
 	else:
 		printerr("loading error")
-	return {}
+	return 0
 	

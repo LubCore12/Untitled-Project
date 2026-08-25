@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://m4cnq1lggqat"
-path.s3tc="res://.godot/imported/Fall.png-364595998c7e045146ce5e654e0c229a.s3tc.ctex"
+uid="uid://dv3wpxew1kg3f"
+path.s3tc="res://.godot/imported/Attack.png-871928d03b5505f20ddbb6cbd5e6094d.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/skeleton_spear_sprites/Fall.png"
-dest_files=["res://.godot/imported/Fall.png-364595998c7e045146ce5e654e0c229a.s3tc.ctex"]
+source_file="res://assets/skeleton_warrior_sprites/Attack.png"
+dest_files=["res://.godot/imported/Attack.png-871928d03b5505f20ddbb6cbd5e6094d.s3tc.ctex"]
 
 [params]
 

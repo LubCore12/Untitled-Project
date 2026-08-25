@@ -9,12 +9,16 @@ extends Control
 @onready var give_up_button = $ActionButtons/GiveUp
 @onready var pressed_sound = $Sounds/PressedSound
 @onready var hover_sound = $Sounds/HoverSound
+@onready var menu_music = $Sounds/MenuTheme
 
 func _ready() -> void:
 	for button in buttons.get_children():
 		button.material.set_shader_parameter("strength", randf_range(2.0, 5.0))
 		button.material.set_shader_parameter("x_speed", randf_range(1.0, 3.0))
 		button.material.set_shader_parameter("y_speed", randf_range(1.0, 3.0))
+
+func _process(delta: float) -> void:
+	menu_music.volume_db = GlobalSounds.min_db_sound + GlobalSounds.music_loud * 30
 
 func _on_play_pressed() -> void:
 	GlobalSounds.play_random_pressed_sound()

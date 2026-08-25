@@ -33,10 +33,6 @@ region = Rect2(384, 0, 128, 128)
 atlas = ExtResource("2_qlg0r")
 region = Rect2(512, 0, 128, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_dt7fs"]
-atlas = ExtResource("2_qlg0r")
-region = Rect2(640, 0, 128, 128)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_wqfne"]
 atlas = ExtResource("3_tuyoq")
 region = Rect2(0, 0, 128, 128)
@@ -160,11 +156,17 @@ animations = [{
 "texture": SubResource("AtlasTexture_pf23h")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_dt7fs")
+"texture": SubResource("AtlasTexture_pf23h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d2wvv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y4r1p")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"attack",
-"speed": 5.0
+"speed": 7.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -290,8 +292,10 @@ shape = SubResource("BoxShape3D_37okk")
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 1.95, 0)
 texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_37okk")
-animation = &"death"
+animation = &"attack"
 autoplay = "idle"
+frame = 7
+frame_progress = 1.0
 
 [node name="Timers" type="Node" parent="." unique_id=1335400729]
 

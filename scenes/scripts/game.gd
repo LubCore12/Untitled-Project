@@ -12,8 +12,8 @@ extends Node3D
 @onready var rock_environment = $RockEnvironment
 @onready var day_light = $DirectionalLights/Day
 @onready var night_light = $DirectionalLights/Night
-@onready var enemy_close_scene = preload("res://scenes/enemy_close.tscn")
-@onready var enemy_long_scene = preload("res://scenes/enemy_long.tscn")
+@onready var enemy_close_scene = preload("res://scenes/warrior.tscn")
+@onready var enemy_long_scene = preload("res://scenes/archer.tscn")
 @onready var save_button = $CanvasLayer/PlayerUI/Pause/ButtonsContainer/Save
 
 @export_group("DialogStats")
@@ -36,11 +36,12 @@ func _ready() -> void:
 		var result = get_world_3d().direct_space_state.intersect_ray(query)
 		
 		if result:
-			var enemy = enemy_long_scene.instantiate()
+			var enemy = enemy_close_scene.instantiate()
 			enemy.setup(player, result.position)
 			enemies.add_child(enemy)
 			enemy.connect("spawn_arrow", add_arrow)
 		
+	save_button.connect("pressed", save_game)
 	load_game()
 	
 	var tween = create_tween()
@@ -48,80 +49,66 @@ func _ready() -> void:
 	
 	await get_tree().create_timer(2.0).timeout
 	dialog_panel.show()
-	
-	#if SaveManager.load_game().size():
-		#var stats = SaveManager.load_game()
+		
+	#for label in dialogs.get_child(0).get_children():
+		#await display_text(label)
 		#
-		#player.hp = stats["Health"]
-		#player.stamina = stats["Stamina"]
-		#player.max_health_multiplier = stats["MaxHealthMultiplier"]
-		#player.max_stamina_multiplier = stats["MaxStaminaMultiplier"]
-		#player.speed_multiplier = stats["SpeedMultiplier"]
-		#player.damage_multiplier = stats["DamageMultiplier"]
-		#player.defend_multiplier = stats["DefendMultiplier"]
-	#else:
-		#await get_tree().create_timer(2.0).timeout
-		#dialog_panel.show()
+	#dialog_panel.hide()
+	#await get_tree().create_timer(0.5).timeout
+	#choice_menu.toggle_sprite_choice()
+	#choice_menu.show()
+	#await choice_menu.choice_done
+	#choice_menu.toggle_sprite_choice()
+	#await get_tree().create_timer(0.5).timeout
+	#dialog_panel.show()
+	#
+	#for label in dialogs.get_child(1).get_children():
+		#await display_text(label)
+		#
+	#dialog_panel.hide()
+	#await get_tree().create_timer(0.5).timeout
+	#choice_menu.toggle_walk_choice()
+	#choice_menu.show()
+	#await choice_menu.choice_done
+	#choice_menu.toggle_walk_choice()
+	#await get_tree().create_timer(3).timeout
+	#dialog_panel.show()
+	#
+	#for label in dialogs.get_child(2).get_children():
+		#await display_text(label)
+		#
+	#dialog_panel.hide()
+	#await get_tree().create_timer(0.5).timeout
+	#choice_menu.toggle_environment_choice()
+	#choice_menu.show()
+	#await choice_menu.choice_done
+	#choice_menu.toggle_environment_choice()
+	#await get_tree().create_timer(3).timeout
+	#dialog_panel.show()
+	#
+	#for label in dialogs.get_child(3).get_children():
+		#await display_text(label)
+		#
+	#dialog_panel.hide()
+	#await get_tree().create_timer(0.5).timeout
+	#choice_menu.toggle_light_choice()
+	#choice_menu.show()
+	#await choice_menu.choice_done
+	#choice_menu.toggle_light_choice()
+	#await get_tree().create_timer(2).timeout
+	#dialog_panel.show()
 	
-	for label in dialogs.get_child(0).get_children():
-		await display_text(label)
-		
-	dialog_panel.hide()
-	await get_tree().create_timer(0.5).timeout
-	choice_menu.toggle_sprite_choice()
-	choice_menu.show()
-	await choice_menu.choice_done
-	choice_menu.toggle_sprite_choice()
-	await get_tree().create_timer(0.5).timeout
-	dialog_panel.show()
-	
-	for label in dialogs.get_child(1).get_children():
-		await display_text(label)
-		
-	dialog_panel.hide()
-	await get_tree().create_timer(0.5).timeout
-	choice_menu.toggle_walk_choice()
-	choice_menu.show()
-	await choice_menu.choice_done
-	choice_menu.toggle_walk_choice()
-	await get_tree().create_timer(3).timeout
-	dialog_panel.show()
-	
-	for label in dialogs.get_child(2).get_children():
-		await display_text(label)
-		
-	dialog_panel.hide()
-	await get_tree().create_timer(0.5).timeout
-	choice_menu.toggle_environment_choice()
-	choice_menu.show()
-	await choice_menu.choice_done
-	choice_menu.toggle_environment_choice()
-	await get_tree().create_timer(3).timeout
-	dialog_panel.show()
-	
-	for label in dialogs.get_child(3).get_children():
-		await display_text(label)
-		
-	dialog_panel.hide()
-	await get_tree().create_timer(0.5).timeout
-	choice_menu.toggle_light_choice()
-	choice_menu.show()
-	await choice_menu.choice_done
-	choice_menu.toggle_light_choice()
-	await get_tree().create_timer(2).timeout
-	dialog_panel.show()
-	
-	for label in dialogs.get_child(4).get_children():
-		await display_text(label)
-		
-	dialog_panel.hide()
-	await get_tree().create_timer(0.5).timeout
-	choice_menu.toggle_enemy_choice()
-	choice_menu.show()
-	await choice_menu.choice_done
-	choice_menu.toggle_enemy_choice()
-	await get_tree().create_timer(2).timeout
-	dialog_panel.show()
+	#for label in dialogs.get_child(4).get_children():
+		#await display_text(label)
+		#
+	#dialog_panel.hide()
+	#await get_tree().create_timer(0.5).timeout
+	#choice_menu.toggle_enemy_choice()
+	#choice_menu.show()
+	#await choice_menu.choice_done
+	#choice_menu.toggle_enemy_choice()
+	#await get_tree().create_timer(2).timeout
+	#dialog_panel.show()
 	
 	for label in dialogs.get_child(5).get_children():
 		await display_text(label)
@@ -152,13 +139,13 @@ func _ready() -> void:
 	dialog_panel.hide()
 	await get_tree().create_timer(0.5).timeout
 	
-	for i in range(8):
-		choice_menu.show()
-		choice_menu.choice_random_buttons()
-		await choice_menu.choice_done
-		choice_menu.hide()
-		choice_menu.hide_all_choices()
-		await get_tree().create_timer(0.5).timeout
+	#for i in range(8):
+		#choice_menu.show()
+		#choice_menu.choice_random_buttons()
+		#await choice_menu.choice_done
+		#choice_menu.hide()
+		#choice_menu.hide_all_choices()
+		#await get_tree().create_timer(0.5).timeout
 	
 func add_arrow(arrow):
 	$Arrows.add_child(arrow)
@@ -193,7 +180,11 @@ func save_game() -> void:
 	SaveManager.game_stats["DefendMultiplier"] = player.defend_multiplier
 
 func load_game() -> void:
-	pass
+	if SaveManager.load_game():
+		print(123)
+	else:
+		await get_tree().create_timer(2.0).timeout
+		dialog_panel.show()
 
 func _on_player_player_damaged(damage: float) -> void:
 	player_ui.set_health(damage)
