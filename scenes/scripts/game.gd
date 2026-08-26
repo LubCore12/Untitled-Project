@@ -9,27 +9,32 @@ extends Node3D
 @onready var enemies = $Enemies
 @onready var player_ui = $CanvasLayer/PlayerUI
 @onready var wood_environment = $WoodEnvironment
-@onready var rock_environment = $RockEnvironment
+@onready var rock_environment = $StoneEnvironment
 @onready var day_light = $DirectionalLights/Day
 @onready var night_light = $DirectionalLights/Night
-@onready var enemy_close_scene = preload("res://scenes/warrior.tscn")
-@onready var enemy_long_scene = preload("res://scenes/archer.tscn")
-@onready var save_button = $CanvasLayer/PlayerUI/Pause/ButtonsContainer/Save
+@onready var game_music = $GameMusic
+@onready var warrior = preload("res://scenes/warrior.tscn")
+@onready var archer = preload("res://scenes/archer.tscn")
+@onready var rock_wall = preload("res://assets/texutres/rock_wall.jpg")
+@onready var rock_floor = preload("res://assets/texutres/rock_floor.jpg")
+@onready var wood_wall = preload("res://assets/texutres/wood_wall.jpg")
+@onready var wood_floor = preload("res://assets/texutres/wood_floor.png")
 
 @export_group("DialogStats")
-@export var letter_time := 0.05
-@export var punctuation_time := 0.3
-@export var comma_time := 0.185
-@export var space_time := 0.125
+@export var letter_time := 0.03
+@export var punctuation_time := 0.18
+@export var comma_time := 0.1
+@export var space_time := 0.07
 @export var dialog_wait_time := 0.7
 
 var transition_time := 1.0
 var tutorial_completed := false
+var is_skipped := false
 
 func _ready() -> void:
-	save_button.connect("pressed", save_game)
-	load_game()
+	game_music.volume_db = GlobalSounds.min_music_db_sound + GlobalSounds.music_loud * 20
 	
+	await get_tree().create_timer(0.5).timeout
 	var tween = create_tween()
 	tween.tween_property(transition.material, "shader_parameter/size", 0.0, transition_time).from(1.0)
 	
@@ -124,9 +129,10 @@ func _ready() -> void:
 		await display_text(label)
 	
 	dialog_panel.hide()
-	await get_tree().create_timer(1).timeout
+	await get_tree().create_timer(3).timeout
 	
 	tutorial_completed = true
+	game_music.play()
 	
 	for i in range(8):
 		await get_tree().create_timer(0.75).timeout
@@ -156,10 +162,17 @@ func _process(_delta: float) -> void:
 					far_from_enemies = false
 				
 			if far_from_enemies:
-				var enemy = enemy_close_scene.instantiate()
-				enemy.setup(player, result.position)
-				enemies.add_child(enemy)
-				#enemy.connect("spawn_arrow", add_arrow)
+				var random_mosnter = randf_range(0.0, 10.0)
+				
+				if random_mosnter <= 4:
+					var enemy = archer.instantiate()
+					enemy.setup(player, result.position)
+					enemies.add_child(enemy)
+					enemy.connect("spawn_arrow", add_arrow)
+				else:
+					var enemy = warrior.instantiate()
+					enemy.setup(player, result.position)
+					enemies.add_child(enemy)
 
 func add_arrow(arrow):
 	$Arrows.add_child(arrow)
@@ -180,8 +193,15 @@ func display_text(text: RichTextLabel):
 			await get_tree().create_timer(punctuation_time).timeout
 		else:
 			await get_tree().create_timer(letter_time).timeout
+			
+		if is_skipped and text.visible_characters >= 5:
+			break
 
-	await get_tree().create_timer(dialog_wait_time).timeout
+	if not is_skipped:
+		await get_tree().create_timer(dialog_wait_time).timeout
+	else:
+		is_skipped = false
+
 	text.visible_characters = 0
 
 func save_game() -> void:
@@ -192,13 +212,6 @@ func save_game() -> void:
 	SaveManager.game_stats["DamageMultiplier"] = player.damage_multiplier
 	SaveManager.game_stats["SpeedMultiplier"] = player.speed_multiplier
 	SaveManager.game_stats["DefendMultiplier"] = player.defend_multiplier
-
-func load_game() -> void:
-	if SaveManager.load_game():
-		print(123)
-	else:
-		await get_tree().create_timer(2.0).timeout
-		dialog_panel.show()
 
 func _on_player_player_damaged(damage: float) -> void:
 	player_ui.set_health(damage)
@@ -214,9 +227,41 @@ func _on_choice_menu_give_walk_ability() -> void:
 	player_ui.show_stamina()
 
 func _on_choice_menu_make_rock_environment() -> void:
+	for wall in rock_environment.get_node("Wall").get_children():
+		var material = StandardMaterial3D.new()
+		var texture = rock_wall
+		material.albedo_texture = texture
+		material.uv1_triplanar = true
+		material.uv1_scale = Vector3(0.25, 0.25, 0.25)
+		material.albedo_color = Color("4c509c")
+		wall.get_child(0).material_override = material
+	for floor in rock_environment.get_node("Floor").get_children():
+		var material = StandardMaterial3D.new()
+		var texture = rock_floor
+		material.albedo_texture = texture
+		material.uv1_triplanar = true
+		material.albedo_color = Color("7d7d7d")
+		material.uv1_scale = Vector3(0.25, 0.25, 0.25)
+		floor.get_child(0).material_override = material
 	rock_environment.show()
 
 func _on_choice_menu_make_wood_environment() -> void:
+	for wall in wood_environment.get_node("Wall").get_children():
+		var material = StandardMaterial3D.new()
+		var texture = wood_wall
+		material.albedo_texture = texture
+		material.uv1_triplanar = true
+		material.uv1_scale = Vector3(0.5, 0.5, 0.5)
+		material.albedo_color = Color("d5d300")
+		wall.get_child(0).material_override = material
+	for floor in wood_environment.get_node("Floor").get_children():
+		var material = StandardMaterial3D.new()
+		var texture = wood_floor
+		material.albedo_texture = texture
+		material.uv1_triplanar = true
+		material.uv1_scale = Vector3(0.25, 0.25, 0.25)
+		material.albedo_color = Color("ffb230")
+		floor.get_child(0).material_override = material
 	wood_environment.show()
 
 func _on_choice_menu_set_day_light() -> void:
@@ -226,17 +271,18 @@ func _on_choice_menu_set_night_light() -> void:
 	night_light.show()
 
 func _on_choice_menu_make_enemy_close_creation() -> void:
-	var enemy = enemy_close_scene.instantiate()
-	enemy.setup(player, player.position - Vector3(10, 0, 0))
+	var enemy = warrior.instantiate()
+	enemy.setup(player, Vector3(-10, 0, 0))
 	enemy.position.x = -10
 	player.start_attack()
 	enemies.add_child(enemy)
 
 func _on_choice_menu_make_enemy_long_creation() -> void:
-	var enemy = enemy_long_scene.instantiate()
-	enemy.setup(player, player.position - Vector3(10, 0, 0))
+	var enemy = archer.instantiate()
+	enemy.setup(player, Vector3(-10, 0, 0))
 	enemy.position.x = -10
 	player.start_attack()
+	enemy.connect("spawn_arrow", add_arrow)
 	enemies.add_child(enemy)
 
 func _on_choice_menu_add_bottle_health() -> void:
@@ -336,6 +382,7 @@ func _on_choice_menu_thin() -> void:
 
 func _on_choice_menu_vampire() -> void:
 	player.add_health(player.get_right_max_health() * 0.15)
+	_on_player_player_damaged(-player.get_right_max_health() * 0.15)
 
 func _on_choice_menu_zombie_with_bucket() -> void:
 	player.add_defend_multiplier(0.2)
@@ -352,3 +399,6 @@ func _on_choice_menu_card_limit() -> void:
 
 func _on_choice_menu_pause() -> void:
 	player_ui.show_pause_button()
+
+func _on_skip_button_pressed() -> void:
+	is_skipped = true

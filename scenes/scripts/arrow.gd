@@ -6,12 +6,17 @@ extends Node3D
 @export var damage: float = 15
 
 @onready var sprite = $Sprite
+@onready var arrow_sound = $ArrowSound
 
 var target_position
 var to_player: Vector2
 var player
 var direction: Vector2
 var gravity: float
+
+func _ready() -> void:
+	arrow_sound.volume_db = GlobalSounds.min_sfx_db_sound + GlobalSounds.sfx_loud * 25
+	arrow_sound.play()
 
 func setup(spawn_position, target) -> void:
 	target_position = target.global_position + Vector3(0, 1.6, 0)
@@ -23,8 +28,8 @@ func setup(spawn_position, target) -> void:
 	direction = to_player.normalized()
 	rotation.z = to_player.angle()
 	
-	position.x = spawn_position.x + direction.x * 2
-	position.y = spawn_position.y + direction.y * 2
+	position.x = spawn_position.x + direction.x
+	position.y = spawn_position.y + direction.y
 	
 func _physics_process(delta: float) -> void:
 	gravity += gravitation_strength * delta

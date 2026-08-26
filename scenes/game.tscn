@@ -2,13 +2,14 @@
 
 [ext_resource type="Script" uid="uid://dhpy0b78pdfxv" path="res://scenes/scripts/game.gd" id="1_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://0keq2j52jcvb" path="res://scenes/player.tscn" id="1_uwrxv"]
-[ext_resource type="Texture2D" uid="uid://de4sqfjwtgvv4" path="res://assets/texutres/bark_texture.png" id="2_0tnpc"]
+[ext_resource type="Texture2D" uid="uid://j5ryugivhu25" path="res://assets/texutres/wood_wall.jpg" id="2_0tnpc"]
 [ext_resource type="Shader" uid="uid://bh0gij6m1gdhs" path="res://shaders/transition.gdshader" id="2_yqjtg"]
-[ext_resource type="Texture2D" uid="uid://cvmffdpkyefxj" path="res://assets/texutres/stone.svg" id="3_0tnpc"]
+[ext_resource type="Texture2D" uid="uid://dhb6f60m76kvk" path="res://assets/texutres/wood_floor.png" id="3_0tnpc"]
 [ext_resource type="Texture2D" uid="uid://cmy2yn5d5nwkb" path="res://assets/lamp.png" id="3_gee14"]
 [ext_resource type="FontFile" uid="uid://c64ld6cc2ggth" path="res://fonts/SofiaSans-Regular.ttf" id="3_iywne"]
 [ext_resource type="PackedScene" uid="uid://ck5bnij8waq8q" path="res://scenes/choice_menu.tscn" id="4_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://o4i0n352u43r" path="res://scenes/player_ui.tscn" id="6_p57ef"]
+[ext_resource type="AudioStream" uid="uid://0qvl4edsma5k" path="res://sounds/hazardous metal.mp3" id="10_vtaks"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_uwrxv"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -22,10 +23,43 @@ background_mode = 2
 sky = SubResource("Sky_yqjtg")
 glow_enabled = true
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fo3dt"]
-albedo_color = Color(1, 0.86052245, 0.81341904, 1)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b5fsu"]
+albedo_color = Color(0.83536065, 0.8258832, 0, 1)
 albedo_texture = ExtResource("2_0tnpc")
-uv1_scale = Vector3(32, 4, 1)
+uv1_scale = Vector3(0.5, 0.5, 0.5)
+uv1_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_8w2ty"]
+material = SubResource("StandardMaterial3D_b5fsu")
+size = Vector3(31.10968, 51.637302, 11.776337)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ir15t"]
+size = Vector3(31.10968, 50.363823, 11.776337)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ca42v"]
+size = Vector3(31.10968, 50.363823, 11.776337)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_md0e3"]
+albedo_color = Color(0.8352941, 0.827451, 0, 1)
+albedo_texture = ExtResource("2_0tnpc")
+uv1_scale = Vector3(0.5, 0.5, 0.5)
+uv1_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_37okk"]
+material = SubResource("StandardMaterial3D_md0e3")
+size = Vector3(100, 100, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_b5fsu"]
+size = Vector3(161.17422, 15.634766, 7.2021027)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rysoc"]
+size = Vector3(161.17422, 15.444336, 12.675446)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fo3dt"]
+albedo_color = Color(1, 0.69803923, 0.1882353, 1)
+albedo_texture = ExtResource("3_0tnpc")
+uv1_scale = Vector3(0.25, 0.25, 0.25)
+uv1_triplanar = true
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_37okk"]
 material = SubResource("StandardMaterial3D_fo3dt")
@@ -34,18 +68,12 @@ size = Vector2(100, 20)
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_vtaks"]
 data = PackedVector3Array(50, 0, 10, -50, 0, 10, 50, 0, -10, -50, 0, 10, -50, 0, -10, 50, 0, -10)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_md0e3"]
-albedo_color = Color(0.4744203, 0.47442007, 0.47442007, 1)
-albedo_texture = ExtResource("3_0tnpc")
-uv1_scale = Vector3(32, 24, 24)
-
-[sub_resource type="BoxMesh" id="BoxMesh_37okk"]
-material = SubResource("StandardMaterial3D_md0e3")
-size = Vector3(100, 100, 1)
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vtaks"]
-albedo_texture = ExtResource("2_0tnpc")
-uv1_scale = Vector3(24, 2, 1)
+albedo_color = Color(1, 0.69803923, 0.1882353, 1)
+albedo_texture = ExtResource("3_0tnpc")
+uv1_scale = Vector3(0.25, 0.25, 0.25)
+uv1_triplanar = true
+uv1_triplanar_sharpness = 1.0092492
 
 [sub_resource type="BoxMesh" id="BoxMesh_fo3dt"]
 material = SubResource("StandardMaterial3D_vtaks")
@@ -55,19 +83,23 @@ size = Vector3(24.322998, 1, 3.499)
 size = Vector3(24.322998, 1, 3.499)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jrdjb"]
-albedo_texture = ExtResource("2_0tnpc")
-uv1_scale = Vector3(12, 1.5, 10)
+albedo_color = Color(1, 0.69803923, 0.1882353, 1)
+albedo_texture = ExtResource("3_0tnpc")
+uv1_scale = Vector3(0.25, 0.25, 0.25)
+uv1_triplanar = true
 
 [sub_resource type="BoxMesh" id="BoxMesh_2gruq"]
 material = SubResource("StandardMaterial3D_jrdjb")
-size = Vector3(11.875366, 1, 6.055664)
+size = Vector3(11.875366, 1, 4.175659)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vtaks"]
-size = Vector3(11.875366, 1, 6.055664)
+size = Vector3(11.875366, 1, 5.2469482)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u057j"]
-albedo_texture = ExtResource("2_0tnpc")
-uv1_scale = Vector3(20, 1.5, 1)
+albedo_color = Color(1, 0.69803923, 0.1882353, 1)
+albedo_texture = ExtResource("3_0tnpc")
+uv1_scale = Vector3(0.25, 0.25, 0.25)
+uv1_triplanar = true
 
 [sub_resource type="BoxMesh" id="BoxMesh_ila21"]
 material = SubResource("StandardMaterial3D_u057j")
@@ -77,19 +109,23 @@ size = Vector3(18.939575, 1, 3.9506836)
 size = Vector3(18.939575, 1, 3.9506836)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0tnpc"]
-albedo_texture = ExtResource("2_0tnpc")
-uv1_scale = Vector3(24, 1.5, 1)
+albedo_color = Color(1, 0.69803923, 0.1882353, 1)
+albedo_texture = ExtResource("3_0tnpc")
+uv1_scale = Vector3(0.25, 0.25, 0.25)
+uv1_triplanar = true
 
 [sub_resource type="BoxMesh" id="BoxMesh_u057j"]
 material = SubResource("StandardMaterial3D_0tnpc")
-size = Vector3(22.479492, 1, 3.3710938)
+size = Vector3(22.479492, 1, 4.2719727)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_dinhu"]
-size = Vector3(22.479492, 1, 3.3710938)
+size = Vector3(22.479492, 1, 4.258789)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8w2ty"]
-albedo_texture = ExtResource("2_0tnpc")
-uv1_scale = Vector3(20, 1.3, 1)
+albedo_color = Color(1, 0.69803923, 0.1882353, 1)
+albedo_texture = ExtResource("3_0tnpc")
+uv1_scale = Vector3(0.25, 0.25, 0.25)
+uv1_triplanar = true
 
 [sub_resource type="BoxMesh" id="BoxMesh_bl2r1"]
 material = SubResource("StandardMaterial3D_8w2ty")
@@ -100,15 +136,6 @@ size = Vector3(15.51709, 1, 3.2250977)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_trtic"]
 size = Vector3(15.51709, 1, 3.2250977)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b5fsu"]
-albedo_color = Color(0.4745098, 0.4745098, 0.4745098, 1)
-albedo_texture = ExtResource("3_0tnpc")
-uv1_scale = Vector3(7, 10, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_8w2ty"]
-material = SubResource("StandardMaterial3D_b5fsu")
-size = Vector3(31.10968, 50.363823, 11.776337)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_37okk"]
 shader = ExtResource("2_yqjtg")
@@ -130,17 +157,13 @@ default_font = ExtResource("3_iywne")
 
 [node name="Game" type="Node3D" unique_id=833938735]
 script = ExtResource("1_lnu2h")
-letter_time = 0.0
-punctuation_time = 0.0
-comma_time = 0.0
-space_time = 0.0
-dialog_wait_time = 0.0
 
 [node name="DirectionalLights" type="Node3D" parent="." unique_id=243151245]
 
 [node name="Night" type="DirectionalLight3D" parent="DirectionalLights" unique_id=1193258410]
 transform = Transform3D(-0.8660254, 0.08682416, -0.49240392, -0.49309474, -0.31141257, 0.8123299, -0.0828109, 0.9463001, 0.3125037, 0, 55.350777, 11.56872)
-light_color = Color(1.1792034e-06, 0.33317125, 0.33317128, 1)
+visible = false
+light_color = Color(0.24664962, 0.25654125, 0.46984565, 1)
 light_energy = 2.0
 shadow_enabled = true
 
@@ -154,356 +177,757 @@ shadow_enabled = true
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1619049830]
 environment = SubResource("Environment_lnu2h")
 
-[node name="Floor" type="StaticBody3D" parent="." unique_id=969261638]
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor" unique_id=1279481240]
-mesh = SubResource("PlaneMesh_37okk")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor" unique_id=582797723]
-shape = SubResource("ConcavePolygonShape3D_vtaks")
-
-[node name="WoodEnvironment" type="Node3D" parent="." unique_id=323183304]
+[node name="StoneEnvironment" type="Node3D" parent="." unique_id=323183304]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.1101048)
+visible = false
 
-[node name="Wall" type="MeshInstance3D" parent="WoodEnvironment" unique_id=1916507809]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00039196014, -0.12673092, -2.9061408)
+[node name="Wall" type="Node3D" parent="StoneEnvironment" unique_id=1582758063]
+
+[node name="StaticBody3D11" type="StaticBody3D" parent="StoneEnvironment/Wall" unique_id=74211393]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StoneEnvironment/Wall/StaticBody3D11" unique_id=490608551]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -65.54658, 24.426565, 2.9351146)
+mesh = SubResource("BoxMesh_8w2ty")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StoneEnvironment/Wall/StaticBody3D11" unique_id=724955851]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -65.54658, 24.426565, 2.9351146)
+shape = SubResource("BoxShape3D_ir15t")
+
+[node name="StaticBody3D12" type="StaticBody3D" parent="StoneEnvironment/Wall" unique_id=1409527813]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 130.99687, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StoneEnvironment/Wall/StaticBody3D12" unique_id=738975830]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -65.54658, 24.426565, 2.9351146)
+mesh = SubResource("BoxMesh_8w2ty")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StoneEnvironment/Wall/StaticBody3D12" unique_id=311098038]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -65.54658, 24.426565, 2.9351146)
+shape = SubResource("BoxShape3D_ca42v")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="StoneEnvironment/Wall" unique_id=148859051]
+
+[node name="Wall" type="MeshInstance3D" parent="StoneEnvironment/Wall/StaticBody3D" unique_id=1916507809]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00039196014, 0.71030974, -2.9061408)
 mesh = SubResource("BoxMesh_37okk")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="WoodEnvironment" unique_id=1928229815]
+[node name="StaticBody3D2" type="StaticBody3D" parent="StoneEnvironment/Wall" unique_id=1508145948]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StoneEnvironment/Wall/StaticBody3D2" unique_id=731501803]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.018661499, 58.465794, 0.21352172)
+mesh = SubResource("BoxMesh_b5fsu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StoneEnvironment/Wall/StaticBody3D2" unique_id=1335872850]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.018661499, 58.56101, 2.9501932)
+shape = SubResource("BoxShape3D_rysoc")
+
+[node name="Floor" type="Node3D" parent="StoneEnvironment" unique_id=668822275]
+
+[node name="Floor" type="StaticBody3D" parent="StoneEnvironment/Floor" unique_id=969261638]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.1101048)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StoneEnvironment/Floor/Floor" unique_id=1279481240]
+mesh = SubResource("PlaneMesh_37okk")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StoneEnvironment/Floor/Floor" unique_id=582797723]
+shape = SubResource("ConcavePolygonShape3D_vtaks")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="StoneEnvironment/Floor" unique_id=1928229815]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.161115, 0)
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="WoodEnvironment/StaticBody3D" unique_id=1240052337]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.158316, 2.1315541, -1.2495117)
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StoneEnvironment/Floor/StaticBody3D" unique_id=1240052337]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.158316, 2.1315541, -1.387105)
 mesh = SubResource("BoxMesh_fo3dt")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="WoodEnvironment/StaticBody3D" unique_id=1712918032]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StoneEnvironment/Floor/StaticBody3D" unique_id=1712918032]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.158316, 2.1315541, -1.2495117)
 shape = SubResource("BoxShape3D_0tnpc")
 
-[node name="StaticBody3D3" type="StaticBody3D" parent="WoodEnvironment" unique_id=558752333]
+[node name="StaticBody3D3" type="StaticBody3D" parent="StoneEnvironment/Floor" unique_id=558752333]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.944585, 4.952041, 0)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="WoodEnvironment/StaticBody3D3" unique_id=71736713]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.437683, 0, -2.527832)
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StoneEnvironment/Floor/StaticBody3D3" unique_id=71736713]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.437683, 0, -1.1335449)
 mesh = SubResource("BoxMesh_2gruq")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="WoodEnvironment/StaticBody3D3" unique_id=2107678324]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.437683, 0, -2.527832)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StoneEnvironment/Floor/StaticBody3D3" unique_id=2107678324]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.437683, 0, -1.3847656)
 shape = SubResource("BoxShape3D_vtaks")
 
-[node name="StaticBody3D5" type="StaticBody3D" parent="WoodEnvironment" unique_id=1321269946]
+[node name="StaticBody3D5" type="StaticBody3D" parent="StoneEnvironment/Floor" unique_id=1321269946]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.241031, 18.423927, 0)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="WoodEnvironment/StaticBody3D5" unique_id=876336674]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.437683, 0, -2.527832)
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StoneEnvironment/Floor/StaticBody3D5" unique_id=876336674]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.437683, 0, -1.6099067)
 mesh = SubResource("BoxMesh_2gruq")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="WoodEnvironment/StaticBody3D5" unique_id=50865434]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.437683, 0, -2.527832)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StoneEnvironment/Floor/StaticBody3D5" unique_id=50865434]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.437683, 0, -2.0538812)
 shape = SubResource("BoxShape3D_vtaks")
 
-[node name="StaticBody3D2" type="StaticBody3D" parent="WoodEnvironment" unique_id=88547820]
+[node name="StaticBody3D2" type="StaticBody3D" parent="StoneEnvironment/Floor" unique_id=88547820]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.675371, 13.519908, 0)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="WoodEnvironment/StaticBody3D2" unique_id=581871031]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.969786, 0, -1.4753418)
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StoneEnvironment/Floor/StaticBody3D2" unique_id=581871031]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.969786, 0, -1.4223422)
 mesh = SubResource("BoxMesh_ila21")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="WoodEnvironment/StaticBody3D2" unique_id=1328488111]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StoneEnvironment/Floor/StaticBody3D2" unique_id=1328488111]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.969786, 0, -1.4753418)
 shape = SubResource("BoxShape3D_kvpfn")
 
-[node name="StaticBody3D4" type="StaticBody3D" parent="WoodEnvironment" unique_id=1724919871]
+[node name="StaticBody3D4" type="StaticBody3D" parent="StoneEnvironment/Floor" unique_id=1724919871]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.3715553, -6.3461266, 0)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="WoodEnvironment/StaticBody3D4" unique_id=566610170]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StoneEnvironment/Floor/StaticBody3D4" unique_id=566610170]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.396877, 21.240833, -1.1855469)
 mesh = SubResource("BoxMesh_u057j")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="WoodEnvironment/StaticBody3D4" unique_id=1650122670]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StoneEnvironment/Floor/StaticBody3D4" unique_id=1650122670]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.396877, 21.240833, -1.1855469)
 shape = SubResource("BoxShape3D_dinhu")
 
-[node name="StaticBody3D10" type="StaticBody3D" parent="WoodEnvironment" unique_id=1072103885]
+[node name="StaticBody3D10" type="StaticBody3D" parent="StoneEnvironment/Floor" unique_id=1072103885]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.46542, 17.620249, 0)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="WoodEnvironment/StaticBody3D10" unique_id=59458613]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StoneEnvironment/Floor/StaticBody3D10" unique_id=59458613]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.396877, 21.240833, -1.1855469)
 mesh = SubResource("BoxMesh_u057j")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="WoodEnvironment/StaticBody3D10" unique_id=1736002663]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StoneEnvironment/Floor/StaticBody3D10" unique_id=1736002663]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.396877, 21.240833, -1.1855469)
 shape = SubResource("BoxShape3D_dinhu")
 
-[node name="StaticBody3D6" type="StaticBody3D" parent="WoodEnvironment" unique_id=555484100]
+[node name="StaticBody3D6" type="StaticBody3D" parent="StoneEnvironment/Floor" unique_id=555484100]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45.776905, 3.1321201, 0)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="WoodEnvironment/StaticBody3D6" unique_id=663086135]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StoneEnvironment/Floor/StaticBody3D6" unique_id=663086135]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.396877, 21.240833, -1.1855469)
 mesh = SubResource("BoxMesh_u057j")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="WoodEnvironment/StaticBody3D6" unique_id=255649411]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StoneEnvironment/Floor/StaticBody3D6" unique_id=255649411]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.396877, 21.240833, -1.1855469)
 shape = SubResource("BoxShape3D_dinhu")
 
-[node name="StaticBody3D8" type="StaticBody3D" parent="WoodEnvironment" unique_id=1624416581]
+[node name="StaticBody3D8" type="StaticBody3D" parent="StoneEnvironment/Floor" unique_id=1624416581]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9033012, 18.689743, 0)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="WoodEnvironment/StaticBody3D8" unique_id=71633424]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StoneEnvironment/Floor/StaticBody3D8" unique_id=71633424]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.396877, 21.240833, -1.1855469)
 mesh = SubResource("BoxMesh_u057j")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="WoodEnvironment/StaticBody3D8" unique_id=498671392]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StoneEnvironment/Floor/StaticBody3D8" unique_id=498671392]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.396877, 21.240833, -1.1855469)
 shape = SubResource("BoxShape3D_dinhu")
 
-[node name="StaticBody3D7" type="StaticBody3D" parent="WoodEnvironment" unique_id=837837532]
+[node name="StaticBody3D7" type="StaticBody3D" parent="StoneEnvironment/Floor" unique_id=837837532]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.458807, 24.398197, 0)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="WoodEnvironment/StaticBody3D7" unique_id=974723753]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.11445999, 7.989311, -1.1125488)
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StoneEnvironment/Floor/StaticBody3D7" unique_id=974723753]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.11445999, 7.989311, -1.1613953)
 mesh = SubResource("BoxMesh_bl2r1")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="WoodEnvironment/StaticBody3D7" unique_id=814886229]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StoneEnvironment/Floor/StaticBody3D7" unique_id=814886229]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.11445999, 7.989311, -1.1125488)
 shape = SubResource("BoxShape3D_kvuet")
 
-[node name="StaticBody3D9" type="StaticBody3D" parent="WoodEnvironment" unique_id=286485929]
+[node name="StaticBody3D9" type="StaticBody3D" parent="StoneEnvironment/Floor" unique_id=286485929]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.71189, 22.034008, 0)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="WoodEnvironment/StaticBody3D9" unique_id=260270235]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.11445999, 7.989311, -1.1125488)
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StoneEnvironment/Floor/StaticBody3D9" unique_id=260270235]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.11445999, 7.989311, -1.1849468)
 mesh = SubResource("BoxMesh_bl2r1")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="WoodEnvironment/StaticBody3D9" unique_id=1983293757]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StoneEnvironment/Floor/StaticBody3D9" unique_id=1983293757]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.11445999, 7.989311, -1.1125488)
 shape = SubResource("BoxShape3D_trtic")
 
-[node name="StaticBody3D11" type="StaticBody3D" parent="WoodEnvironment" unique_id=74211393]
+[node name="Lights" type="Node3D" parent="StoneEnvironment" unique_id=489309678]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="WoodEnvironment/StaticBody3D11" unique_id=490608551]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -65.54658, 24.426565, 2.9351146)
-mesh = SubResource("BoxMesh_8w2ty")
-
-[node name="StaticBody3D12" type="StaticBody3D" parent="WoodEnvironment" unique_id=1409527813]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 130.99687, 0, 0)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="WoodEnvironment/StaticBody3D12" unique_id=738975830]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -65.54658, 24.426565, 2.9351146)
-mesh = SubResource("BoxMesh_8w2ty")
-
-[node name="Light" type="Node3D" parent="WoodEnvironment" unique_id=1565607683]
+[node name="Light" type="Node3D" parent="StoneEnvironment/Lights" unique_id=1565607683]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.368947, 0)
 
-[node name="SpotLight3D" type="SpotLight3D" parent="WoodEnvironment/Light" unique_id=391141703]
+[node name="SpotLight3D" type="SpotLight3D" parent="StoneEnvironment/Lights/Light" unique_id=391141703]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.320662, 3.7103195, 8.405696)
 light_color = Color(0.951559, 0.87017196, 0.43783352, 1)
 light_energy = 2.3
 spot_range = 18.585
 spot_attenuation = 0.06
 
-[node name="Sprite3D" type="Sprite3D" parent="WoodEnvironment/Light" unique_id=128153967]
+[node name="Sprite3D" type="Sprite3D" parent="StoneEnvironment/Lights/Light" unique_id=128153967]
 transform = Transform3D(-0.2, 0, 0, 0, -0.2, 0, 0, 0, -0.2, 8.50758, 5.1000085, -2.3317297)
 texture = ExtResource("3_gee14")
 
-[node name="Light2" type="Node3D" parent="WoodEnvironment" unique_id=802039346]
+[node name="Light2" type="Node3D" parent="StoneEnvironment/Lights" unique_id=802039346]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.155315, 21.193565, 0)
 
-[node name="SpotLight3D" type="SpotLight3D" parent="WoodEnvironment/Light2" unique_id=1420076432]
+[node name="SpotLight3D" type="SpotLight3D" parent="StoneEnvironment/Lights/Light2" unique_id=1420076432]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.320662, 3.7103195, 8.405696)
 light_color = Color(0.951559, 0.87017196, 0.43783352, 1)
 light_energy = 2.3
 spot_range = 18.585
 spot_attenuation = 0.06
 
-[node name="Sprite3D" type="Sprite3D" parent="WoodEnvironment/Light2" unique_id=1193787974]
+[node name="Sprite3D" type="Sprite3D" parent="StoneEnvironment/Lights/Light2" unique_id=1193787974]
 transform = Transform3D(-0.2, 0, 0, 0, -0.2, 0, 0, 0, -0.2, 8.50758, 5.1000085, -2.3317297)
 texture = ExtResource("3_gee14")
 
-[node name="Light3" type="Node3D" parent="WoodEnvironment" unique_id=1507727298]
+[node name="Light3" type="Node3D" parent="StoneEnvironment/Lights" unique_id=1507727298]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40.8175, 21.193565, 0)
 
-[node name="SpotLight3D" type="SpotLight3D" parent="WoodEnvironment/Light3" unique_id=375182306]
+[node name="SpotLight3D" type="SpotLight3D" parent="StoneEnvironment/Lights/Light3" unique_id=375182306]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.320662, 3.7103195, 8.405696)
 light_color = Color(0.951559, 0.87017196, 0.43783352, 1)
 light_energy = 2.3
 spot_range = 18.585
 spot_attenuation = 0.06
 
-[node name="Sprite3D" type="Sprite3D" parent="WoodEnvironment/Light3" unique_id=1513430689]
+[node name="Sprite3D" type="Sprite3D" parent="StoneEnvironment/Lights/Light3" unique_id=1513430689]
 transform = Transform3D(-0.2, 0, 0, 0, -0.2, 0, 0, 0, -0.2, 8.50758, 5.1000085, -2.3317297)
 texture = ExtResource("3_gee14")
 
-[node name="Light4" type="Node3D" parent="WoodEnvironment" unique_id=1924916506]
+[node name="Light4" type="Node3D" parent="StoneEnvironment/Lights" unique_id=1924916506]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40.8175, 2.0885696, 0)
 
-[node name="SpotLight3D" type="SpotLight3D" parent="WoodEnvironment/Light4" unique_id=1548919137]
+[node name="SpotLight3D" type="SpotLight3D" parent="StoneEnvironment/Lights/Light4" unique_id=1548919137]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.320662, 3.7103195, 8.405696)
 light_color = Color(0.951559, 0.87017196, 0.43783352, 1)
 light_energy = 2.3
 spot_range = 18.585
 spot_attenuation = 0.06
 
-[node name="Sprite3D" type="Sprite3D" parent="WoodEnvironment/Light4" unique_id=1269192860]
+[node name="Sprite3D" type="Sprite3D" parent="StoneEnvironment/Lights/Light4" unique_id=1269192860]
 transform = Transform3D(-0.2, 0, 0, 0, -0.2, 0, 0, 0, -0.2, 8.50758, 5.1000085, -2.3317297)
 texture = ExtResource("3_gee14")
 
-[node name="Light5" type="Node3D" parent="WoodEnvironment" unique_id=1241063760]
+[node name="Light5" type="Node3D" parent="StoneEnvironment/Lights" unique_id=1241063760]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.827866, 35.056816, 0)
 
-[node name="SpotLight3D" type="SpotLight3D" parent="WoodEnvironment/Light5" unique_id=969468069]
+[node name="SpotLight3D" type="SpotLight3D" parent="StoneEnvironment/Lights/Light5" unique_id=969468069]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.320662, 3.7103195, 8.405696)
 light_color = Color(0.951559, 0.87017196, 0.43783352, 1)
 light_energy = 2.3
 spot_range = 18.585
 spot_attenuation = 0.06
 
-[node name="Sprite3D" type="Sprite3D" parent="WoodEnvironment/Light5" unique_id=303551093]
+[node name="Sprite3D" type="Sprite3D" parent="StoneEnvironment/Lights/Light5" unique_id=303551093]
 transform = Transform3D(-0.2, 0, 0, 0, -0.2, 0, 0, 0, -0.2, 8.50758, 5.1000085, -2.3317297)
 texture = ExtResource("3_gee14")
 
-[node name="Light6" type="Node3D" parent="WoodEnvironment" unique_id=1439147107]
+[node name="Light6" type="Node3D" parent="StoneEnvironment/Lights" unique_id=1439147107]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.2142, 35.056816, 0)
 
-[node name="SpotLight3D" type="SpotLight3D" parent="WoodEnvironment/Light6" unique_id=1031248637]
+[node name="SpotLight3D" type="SpotLight3D" parent="StoneEnvironment/Lights/Light6" unique_id=1031248637]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.320662, 3.7103195, 8.405696)
 light_color = Color(0.951559, 0.87017196, 0.43783352, 1)
 light_energy = 2.3
 spot_range = 18.585
 spot_attenuation = 0.06
 
-[node name="Sprite3D" type="Sprite3D" parent="WoodEnvironment/Light6" unique_id=1423642361]
+[node name="Sprite3D" type="Sprite3D" parent="StoneEnvironment/Lights/Light6" unique_id=1423642361]
 transform = Transform3D(-0.2, 0, 0, 0, -0.2, 0, 0, 0, -0.2, 8.50758, 5.1000085, -2.3317297)
 texture = ExtResource("3_gee14")
 
-[node name="Light7" type="Node3D" parent="WoodEnvironment" unique_id=1882522449]
+[node name="Light7" type="Node3D" parent="StoneEnvironment/Lights" unique_id=1882522449]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.32906, 14.190788, 0)
 
-[node name="SpotLight3D" type="SpotLight3D" parent="WoodEnvironment/Light7" unique_id=468554834]
+[node name="SpotLight3D" type="SpotLight3D" parent="StoneEnvironment/Lights/Light7" unique_id=468554834]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.320662, 3.7103195, 8.405696)
 light_color = Color(0.951559, 0.87017196, 0.43783352, 1)
 light_energy = 2.3
 spot_range = 18.585
 spot_attenuation = 0.06
 
-[node name="Sprite3D" type="Sprite3D" parent="WoodEnvironment/Light7" unique_id=1399388881]
+[node name="Sprite3D" type="Sprite3D" parent="StoneEnvironment/Lights/Light7" unique_id=1399388881]
 transform = Transform3D(-0.2, 0, 0, 0, -0.2, 0, 0, 0, -0.2, 8.50758, 5.1000085, -2.3317297)
 texture = ExtResource("3_gee14")
 
-[node name="Light8" type="Node3D" parent="WoodEnvironment" unique_id=1092841783]
+[node name="Light8" type="Node3D" parent="StoneEnvironment/Lights" unique_id=1092841783]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.6675816, 24.537685, 0)
 
-[node name="SpotLight3D" type="SpotLight3D" parent="WoodEnvironment/Light8" unique_id=1548492082]
+[node name="SpotLight3D" type="SpotLight3D" parent="StoneEnvironment/Lights/Light8" unique_id=1548492082]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.320662, 3.7103195, 8.405696)
 light_color = Color(0.951559, 0.87017196, 0.43783352, 1)
 light_energy = 2.3
 spot_range = 18.585
 spot_attenuation = 0.06
 
-[node name="Sprite3D" type="Sprite3D" parent="WoodEnvironment/Light8" unique_id=957004638]
+[node name="Sprite3D" type="Sprite3D" parent="StoneEnvironment/Lights/Light8" unique_id=957004638]
 transform = Transform3D(-0.2, 0, 0, 0, -0.2, 0, 0, 0, -0.2, 8.50758, 5.1000085, -2.3317297)
 texture = ExtResource("3_gee14")
 
-[node name="Light10" type="Node3D" parent="WoodEnvironment" unique_id=1128156706]
+[node name="Light10" type="Node3D" parent="StoneEnvironment/Lights" unique_id=1128156706]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 52.37731, 24.537685, 11.220154)
 
-[node name="SpotLight3D" type="SpotLight3D" parent="WoodEnvironment/Light10" unique_id=1824303212]
+[node name="SpotLight3D" type="SpotLight3D" parent="StoneEnvironment/Lights/Light10" unique_id=1824303212]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.320662, 3.7103195, 8.405696)
 light_color = Color(0.951559, 0.87017196, 0.43783352, 1)
 light_energy = 2.3
 spot_range = 18.585
 spot_attenuation = 0.06
 
-[node name="Sprite3D" type="Sprite3D" parent="WoodEnvironment/Light10" unique_id=1271079369]
+[node name="Sprite3D" type="Sprite3D" parent="StoneEnvironment/Lights/Light10" unique_id=1271079369]
 transform = Transform3D(-0.2, 0, 0, 0, -0.2, 0, 0, 0, -0.2, 8.50758, 5.1000085, -2.3317297)
 texture = ExtResource("3_gee14")
 
-[node name="Light11" type="Node3D" parent="WoodEnvironment" unique_id=1879632506]
+[node name="Light11" type="Node3D" parent="StoneEnvironment/Lights" unique_id=1879632506]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 52.37731, 6.3616886, 11.220154)
 
-[node name="SpotLight3D" type="SpotLight3D" parent="WoodEnvironment/Light11" unique_id=1906835784]
+[node name="SpotLight3D" type="SpotLight3D" parent="StoneEnvironment/Lights/Light11" unique_id=1906835784]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.320662, 3.7103195, 8.405696)
 light_color = Color(0.951559, 0.87017196, 0.43783352, 1)
 light_energy = 2.3
 spot_range = 18.585
 spot_attenuation = 0.06
 
-[node name="Sprite3D" type="Sprite3D" parent="WoodEnvironment/Light11" unique_id=1160044651]
+[node name="Sprite3D" type="Sprite3D" parent="StoneEnvironment/Lights/Light11" unique_id=1160044651]
 transform = Transform3D(-0.2, 0, 0, 0, -0.2, 0, 0, 0, -0.2, 8.50758, 5.1000085, -2.3317297)
 texture = ExtResource("3_gee14")
 
-[node name="Light12" type="Node3D" parent="WoodEnvironment" unique_id=180811337]
+[node name="Light12" type="Node3D" parent="StoneEnvironment/Lights" unique_id=180811337]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 52.37731, 38.975586, 11.220154)
 
-[node name="SpotLight3D" type="SpotLight3D" parent="WoodEnvironment/Light12" unique_id=663037701]
+[node name="SpotLight3D" type="SpotLight3D" parent="StoneEnvironment/Lights/Light12" unique_id=663037701]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.320662, 3.7103195, 8.405696)
 light_color = Color(0.951559, 0.87017196, 0.43783352, 1)
 light_energy = 2.3
 spot_range = 18.585
 spot_attenuation = 0.06
 
-[node name="Sprite3D" type="Sprite3D" parent="WoodEnvironment/Light12" unique_id=378691487]
+[node name="Sprite3D" type="Sprite3D" parent="StoneEnvironment/Lights/Light12" unique_id=378691487]
 transform = Transform3D(-0.2, 0, 0, 0, -0.2, 0, 0, 0, -0.2, 8.50758, 5.1000085, -2.3317297)
 texture = ExtResource("3_gee14")
 
-[node name="Light13" type="Node3D" parent="WoodEnvironment" unique_id=411927227]
+[node name="Light13" type="Node3D" parent="StoneEnvironment/Lights" unique_id=411927227]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -70.38285, 38.975586, 11.220154)
 
-[node name="SpotLight3D" type="SpotLight3D" parent="WoodEnvironment/Light13" unique_id=1053106738]
+[node name="SpotLight3D" type="SpotLight3D" parent="StoneEnvironment/Lights/Light13" unique_id=1053106738]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.320662, 3.7103195, 8.405696)
 light_color = Color(0.951559, 0.87017196, 0.43783352, 1)
 light_energy = 2.3
 spot_range = 18.585
 spot_attenuation = 0.06
 
-[node name="Sprite3D" type="Sprite3D" parent="WoodEnvironment/Light13" unique_id=1714558005]
+[node name="Sprite3D" type="Sprite3D" parent="StoneEnvironment/Lights/Light13" unique_id=1714558005]
 transform = Transform3D(-0.2, 0, 0, 0, -0.2, 0, 0, 0, -0.2, 8.50758, 5.1000085, -2.3317297)
 texture = ExtResource("3_gee14")
 
-[node name="Light14" type="Node3D" parent="WoodEnvironment" unique_id=1206321260]
+[node name="Light14" type="Node3D" parent="StoneEnvironment/Lights" unique_id=1206321260]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -70.38285, 22.20935, 11.220154)
 
-[node name="SpotLight3D" type="SpotLight3D" parent="WoodEnvironment/Light14" unique_id=2075635013]
+[node name="SpotLight3D" type="SpotLight3D" parent="StoneEnvironment/Lights/Light14" unique_id=2075635013]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.320662, 3.7103195, 8.405696)
 light_color = Color(0.951559, 0.87017196, 0.43783352, 1)
 light_energy = 2.3
 spot_range = 18.585
 spot_attenuation = 0.06
 
-[node name="Sprite3D" type="Sprite3D" parent="WoodEnvironment/Light14" unique_id=1347352977]
+[node name="Sprite3D" type="Sprite3D" parent="StoneEnvironment/Lights/Light14" unique_id=1347352977]
 transform = Transform3D(-0.2, 0, 0, 0, -0.2, 0, 0, 0, -0.2, 8.50758, 5.1000085, -2.3317297)
 texture = ExtResource("3_gee14")
 
-[node name="Light15" type="Node3D" parent="WoodEnvironment" unique_id=1680568364]
+[node name="Light15" type="Node3D" parent="StoneEnvironment/Lights" unique_id=1680568364]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -70.38285, 6.241375, 11.220154)
 
-[node name="SpotLight3D" type="SpotLight3D" parent="WoodEnvironment/Light15" unique_id=1358135799]
+[node name="SpotLight3D" type="SpotLight3D" parent="StoneEnvironment/Lights/Light15" unique_id=1358135799]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.320662, 3.7103195, 8.405696)
 light_color = Color(0.951559, 0.87017196, 0.43783352, 1)
 light_energy = 2.3
 spot_range = 18.585
 spot_attenuation = 0.06
 
-[node name="Sprite3D" type="Sprite3D" parent="WoodEnvironment/Light15" unique_id=1094855386]
+[node name="Sprite3D" type="Sprite3D" parent="StoneEnvironment/Lights/Light15" unique_id=1094855386]
 transform = Transform3D(-0.2, 0, 0, 0, -0.2, 0, 0, 0, -0.2, 8.50758, 5.1000085, -2.3317297)
 texture = ExtResource("3_gee14")
 
-[node name="Light9" type="Node3D" parent="WoodEnvironment" unique_id=2117884592]
+[node name="Light9" type="Node3D" parent="StoneEnvironment/Lights" unique_id=2117884592]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.6675816, 24.537685, 0)
 
-[node name="SpotLight3D" type="SpotLight3D" parent="WoodEnvironment/Light9" unique_id=728505383]
+[node name="SpotLight3D" type="SpotLight3D" parent="StoneEnvironment/Lights/Light9" unique_id=728505383]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.320662, 3.7103195, 8.405696)
 light_color = Color(0.951559, 0.87017196, 0.43783352, 1)
 light_energy = 2.3
 spot_range = 18.585
 spot_attenuation = 0.06
 
-[node name="Sprite3D" type="Sprite3D" parent="WoodEnvironment/Light9" unique_id=787942110]
+[node name="Sprite3D" type="Sprite3D" parent="StoneEnvironment/Lights/Light9" unique_id=787942110]
 transform = Transform3D(-0.2, 0, 0, 0, -0.2, 0, 0, 0, -0.2, 8.50758, 5.1000085, -2.3317297)
 texture = ExtResource("3_gee14")
 
-[node name="RockEnvironment" type="Node3D" parent="." unique_id=1068915544]
+[node name="WoodEnvironment" type="Node3D" parent="." unique_id=1907125260]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.1101048)
 visible = false
+
+[node name="Wall" type="Node3D" parent="WoodEnvironment" unique_id=60683495]
+
+[node name="StaticBody3D11" type="StaticBody3D" parent="WoodEnvironment/Wall" unique_id=1982144375]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="WoodEnvironment/Wall/StaticBody3D11" unique_id=1335079223]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -65.54658, 24.426565, 2.9351146)
+mesh = SubResource("BoxMesh_8w2ty")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WoodEnvironment/Wall/StaticBody3D11" unique_id=2002811923]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -65.54658, 24.426565, 2.9351146)
+shape = SubResource("BoxShape3D_ir15t")
+
+[node name="StaticBody3D12" type="StaticBody3D" parent="WoodEnvironment/Wall" unique_id=783155299]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 130.99687, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="WoodEnvironment/Wall/StaticBody3D12" unique_id=854573179]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -65.54658, 24.426565, 2.9351146)
+mesh = SubResource("BoxMesh_8w2ty")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WoodEnvironment/Wall/StaticBody3D12" unique_id=2052078815]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -65.54658, 24.426565, 2.9351146)
+shape = SubResource("BoxShape3D_ca42v")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="WoodEnvironment/Wall" unique_id=987074824]
+
+[node name="Wall" type="MeshInstance3D" parent="WoodEnvironment/Wall/StaticBody3D" unique_id=1101409263]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00039196014, 0.71030974, -2.9061408)
+mesh = SubResource("BoxMesh_37okk")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="WoodEnvironment/Wall" unique_id=415148046]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="WoodEnvironment/Wall/StaticBody3D2" unique_id=689360334]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.018661499, 58.56101, 2.9501932)
+mesh = SubResource("BoxMesh_b5fsu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WoodEnvironment/Wall/StaticBody3D2" unique_id=1886800510]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.018661499, 58.56101, 2.9501932)
+shape = SubResource("BoxShape3D_rysoc")
+
+[node name="Floor" type="Node3D" parent="WoodEnvironment" unique_id=1648635478]
+
+[node name="Floor" type="StaticBody3D" parent="WoodEnvironment/Floor" unique_id=2049315499]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.1101048)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="WoodEnvironment/Floor/Floor" unique_id=890993889]
+mesh = SubResource("PlaneMesh_37okk")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WoodEnvironment/Floor/Floor" unique_id=918859936]
+shape = SubResource("ConcavePolygonShape3D_vtaks")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="WoodEnvironment/Floor" unique_id=1961463522]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.161115, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="WoodEnvironment/Floor/StaticBody3D" unique_id=260381530]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.158316, 2.1315541, -1.387105)
+mesh = SubResource("BoxMesh_fo3dt")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WoodEnvironment/Floor/StaticBody3D" unique_id=598196725]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.158316, 2.1315541, -1.2495117)
+shape = SubResource("BoxShape3D_0tnpc")
+
+[node name="StaticBody3D3" type="StaticBody3D" parent="WoodEnvironment/Floor" unique_id=1105449275]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.944585, 4.952041, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="WoodEnvironment/Floor/StaticBody3D3" unique_id=1006054170]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.437683, 0, -1.1335449)
+mesh = SubResource("BoxMesh_2gruq")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WoodEnvironment/Floor/StaticBody3D3" unique_id=537032284]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.437683, 0, -1.3847656)
+shape = SubResource("BoxShape3D_vtaks")
+
+[node name="StaticBody3D5" type="StaticBody3D" parent="WoodEnvironment/Floor" unique_id=648555933]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.241031, 18.423927, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="WoodEnvironment/Floor/StaticBody3D5" unique_id=1608007821]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.437683, 0, -1.6099067)
+mesh = SubResource("BoxMesh_2gruq")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WoodEnvironment/Floor/StaticBody3D5" unique_id=859912945]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.437683, 0, -2.7925897)
+shape = SubResource("BoxShape3D_vtaks")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="WoodEnvironment/Floor" unique_id=1435817850]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.675371, 13.519908, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="WoodEnvironment/Floor/StaticBody3D2" unique_id=2127040394]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.969786, 0, -1.4223422)
+mesh = SubResource("BoxMesh_ila21")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WoodEnvironment/Floor/StaticBody3D2" unique_id=1003333115]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.969786, 0, -1.4753418)
+shape = SubResource("BoxShape3D_kvpfn")
+
+[node name="StaticBody3D4" type="StaticBody3D" parent="WoodEnvironment/Floor" unique_id=766992344]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.3715553, -6.3461266, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="WoodEnvironment/Floor/StaticBody3D4" unique_id=685278996]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.396877, 21.240833, -1.1855469)
+mesh = SubResource("BoxMesh_u057j")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WoodEnvironment/Floor/StaticBody3D4" unique_id=1592295682]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.396877, 21.240833, -1.1855469)
+shape = SubResource("BoxShape3D_dinhu")
+
+[node name="StaticBody3D10" type="StaticBody3D" parent="WoodEnvironment/Floor" unique_id=407525303]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.46542, 17.620249, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="WoodEnvironment/Floor/StaticBody3D10" unique_id=920179661]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.396877, 21.240833, -1.1855469)
+mesh = SubResource("BoxMesh_u057j")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WoodEnvironment/Floor/StaticBody3D10" unique_id=936597669]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.396877, 21.240833, -1.1855469)
+shape = SubResource("BoxShape3D_dinhu")
+
+[node name="StaticBody3D6" type="StaticBody3D" parent="WoodEnvironment/Floor" unique_id=465716678]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45.776905, 3.1321201, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="WoodEnvironment/Floor/StaticBody3D6" unique_id=1869972197]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.396877, 21.240833, -1.1855469)
+mesh = SubResource("BoxMesh_u057j")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WoodEnvironment/Floor/StaticBody3D6" unique_id=1587522043]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.396877, 21.240833, -1.1855469)
+shape = SubResource("BoxShape3D_dinhu")
+
+[node name="StaticBody3D8" type="StaticBody3D" parent="WoodEnvironment/Floor" unique_id=139235424]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9033012, 18.689743, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="WoodEnvironment/Floor/StaticBody3D8" unique_id=1265935401]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.396877, 21.240833, -1.1855469)
+mesh = SubResource("BoxMesh_u057j")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WoodEnvironment/Floor/StaticBody3D8" unique_id=1406249997]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.396877, 21.240833, -1.1855469)
+shape = SubResource("BoxShape3D_dinhu")
+
+[node name="StaticBody3D7" type="StaticBody3D" parent="WoodEnvironment/Floor" unique_id=310428185]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.458807, 24.398197, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="WoodEnvironment/Floor/StaticBody3D7" unique_id=2095170077]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.11445999, 7.989311, -1.1613953)
+mesh = SubResource("BoxMesh_bl2r1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WoodEnvironment/Floor/StaticBody3D7" unique_id=876671492]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.11445999, 7.989311, -1.1125488)
+shape = SubResource("BoxShape3D_kvuet")
+
+[node name="StaticBody3D9" type="StaticBody3D" parent="WoodEnvironment/Floor" unique_id=751881950]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.71189, 22.034008, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="WoodEnvironment/Floor/StaticBody3D9" unique_id=1237521282]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.11445999, 7.989311, -1.1849468)
+mesh = SubResource("BoxMesh_bl2r1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WoodEnvironment/Floor/StaticBody3D9" unique_id=143561348]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.11445999, 7.989311, -1.1125488)
+shape = SubResource("BoxShape3D_trtic")
+
+[node name="Lights" type="Node3D" parent="WoodEnvironment" unique_id=1286779984]
+
+[node name="Light" type="Node3D" parent="WoodEnvironment/Lights" unique_id=59803592]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.368947, 0)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="WoodEnvironment/Lights/Light" unique_id=2091922389]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.320662, 3.7103195, 8.405696)
+light_color = Color(0.951559, 0.87017196, 0.43783352, 1)
+light_energy = 2.3
+spot_range = 18.585
+spot_attenuation = 0.06
+
+[node name="Sprite3D" type="Sprite3D" parent="WoodEnvironment/Lights/Light" unique_id=1748366438]
+transform = Transform3D(-0.2, 0, 0, 0, -0.2, 0, 0, 0, -0.2, 8.50758, 5.1000085, -2.3317297)
+texture = ExtResource("3_gee14")
+
+[node name="Light2" type="Node3D" parent="WoodEnvironment/Lights" unique_id=1965540365]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.155315, 21.193565, 0)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="WoodEnvironment/Lights/Light2" unique_id=1069414349]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.320662, 3.7103195, 8.405696)
+light_color = Color(0.951559, 0.87017196, 0.43783352, 1)
+light_energy = 2.3
+spot_range = 18.585
+spot_attenuation = 0.06
+
+[node name="Sprite3D" type="Sprite3D" parent="WoodEnvironment/Lights/Light2" unique_id=974251329]
+transform = Transform3D(-0.2, 0, 0, 0, -0.2, 0, 0, 0, -0.2, 8.50758, 5.1000085, -2.3317297)
+texture = ExtResource("3_gee14")
+
+[node name="Light3" type="Node3D" parent="WoodEnvironment/Lights" unique_id=397184011]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40.8175, 21.193565, 0)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="WoodEnvironment/Lights/Light3" unique_id=48701820]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.320662, 3.7103195, 8.405696)
+light_color = Color(0.951559, 0.87017196, 0.43783352, 1)
+light_energy = 2.3
+spot_range = 18.585
+spot_attenuation = 0.06
+
+[node name="Sprite3D" type="Sprite3D" parent="WoodEnvironment/Lights/Light3" unique_id=862864718]
+transform = Transform3D(-0.2, 0, 0, 0, -0.2, 0, 0, 0, -0.2, 8.50758, 5.1000085, -2.3317297)
+texture = ExtResource("3_gee14")
+
+[node name="Light4" type="Node3D" parent="WoodEnvironment/Lights" unique_id=2045485807]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40.8175, 2.0885696, 0)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="WoodEnvironment/Lights/Light4" unique_id=1033200699]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.320662, 3.7103195, 8.405696)
+light_color = Color(0.951559, 0.87017196, 0.43783352, 1)
+light_energy = 2.3
+spot_range = 18.585
+spot_attenuation = 0.06
+
+[node name="Sprite3D" type="Sprite3D" parent="WoodEnvironment/Lights/Light4" unique_id=44685486]
+transform = Transform3D(-0.2, 0, 0, 0, -0.2, 0, 0, 0, -0.2, 8.50758, 5.1000085, -2.3317297)
+texture = ExtResource("3_gee14")
+
+[node name="Light5" type="Node3D" parent="WoodEnvironment/Lights" unique_id=65569420]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.827866, 35.056816, 0)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="WoodEnvironment/Lights/Light5" unique_id=1950754347]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.320662, 3.7103195, 8.405696)
+light_color = Color(0.951559, 0.87017196, 0.43783352, 1)
+light_energy = 2.3
+spot_range = 18.585
+spot_attenuation = 0.06
+
+[node name="Sprite3D" type="Sprite3D" parent="WoodEnvironment/Lights/Light5" unique_id=1211482531]
+transform = Transform3D(-0.2, 0, 0, 0, -0.2, 0, 0, 0, -0.2, 8.50758, 5.1000085, -2.3317297)
+texture = ExtResource("3_gee14")
+
+[node name="Light6" type="Node3D" parent="WoodEnvironment/Lights" unique_id=1196736415]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.2142, 35.056816, 0)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="WoodEnvironment/Lights/Light6" unique_id=676706000]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.320662, 3.7103195, 8.405696)
+light_color = Color(0.951559, 0.87017196, 0.43783352, 1)
+light_energy = 2.3
+spot_range = 18.585
+spot_attenuation = 0.06
+
+[node name="Sprite3D" type="Sprite3D" parent="WoodEnvironment/Lights/Light6" unique_id=1656183222]
+transform = Transform3D(-0.2, 0, 0, 0, -0.2, 0, 0, 0, -0.2, 8.50758, 5.1000085, -2.3317297)
+texture = ExtResource("3_gee14")
+
+[node name="Light7" type="Node3D" parent="WoodEnvironment/Lights" unique_id=103803132]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.32906, 14.190788, 0)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="WoodEnvironment/Lights/Light7" unique_id=1321050827]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.320662, 3.7103195, 8.405696)
+light_color = Color(0.951559, 0.87017196, 0.43783352, 1)
+light_energy = 2.3
+spot_range = 18.585
+spot_attenuation = 0.06
+
+[node name="Sprite3D" type="Sprite3D" parent="WoodEnvironment/Lights/Light7" unique_id=55252307]
+transform = Transform3D(-0.2, 0, 0, 0, -0.2, 0, 0, 0, -0.2, 8.50758, 5.1000085, -2.3317297)
+texture = ExtResource("3_gee14")
+
+[node name="Light8" type="Node3D" parent="WoodEnvironment/Lights" unique_id=1526542303]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.6675816, 24.537685, 0)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="WoodEnvironment/Lights/Light8" unique_id=36012880]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.320662, 3.7103195, 8.405696)
+light_color = Color(0.951559, 0.87017196, 0.43783352, 1)
+light_energy = 2.3
+spot_range = 18.585
+spot_attenuation = 0.06
+
+[node name="Sprite3D" type="Sprite3D" parent="WoodEnvironment/Lights/Light8" unique_id=559573433]
+transform = Transform3D(-0.2, 0, 0, 0, -0.2, 0, 0, 0, -0.2, 8.50758, 5.1000085, -2.3317297)
+texture = ExtResource("3_gee14")
+
+[node name="Light10" type="Node3D" parent="WoodEnvironment/Lights" unique_id=2088816985]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 52.37731, 24.537685, 11.220154)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="WoodEnvironment/Lights/Light10" unique_id=482335831]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.320662, 3.7103195, 8.405696)
+light_color = Color(0.951559, 0.87017196, 0.43783352, 1)
+light_energy = 2.3
+spot_range = 18.585
+spot_attenuation = 0.06
+
+[node name="Sprite3D" type="Sprite3D" parent="WoodEnvironment/Lights/Light10" unique_id=877621727]
+transform = Transform3D(-0.2, 0, 0, 0, -0.2, 0, 0, 0, -0.2, 8.50758, 5.1000085, -2.3317297)
+texture = ExtResource("3_gee14")
+
+[node name="Light11" type="Node3D" parent="WoodEnvironment/Lights" unique_id=1918082896]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 52.37731, 6.3616886, 11.220154)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="WoodEnvironment/Lights/Light11" unique_id=2026086442]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.320662, 3.7103195, 8.405696)
+light_color = Color(0.951559, 0.87017196, 0.43783352, 1)
+light_energy = 2.3
+spot_range = 18.585
+spot_attenuation = 0.06
+
+[node name="Sprite3D" type="Sprite3D" parent="WoodEnvironment/Lights/Light11" unique_id=1571402867]
+transform = Transform3D(-0.2, 0, 0, 0, -0.2, 0, 0, 0, -0.2, 8.50758, 5.1000085, -2.3317297)
+texture = ExtResource("3_gee14")
+
+[node name="Light12" type="Node3D" parent="WoodEnvironment/Lights" unique_id=562418282]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 52.37731, 38.975586, 11.220154)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="WoodEnvironment/Lights/Light12" unique_id=1061496852]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.320662, 3.7103195, 8.405696)
+light_color = Color(0.951559, 0.87017196, 0.43783352, 1)
+light_energy = 2.3
+spot_range = 18.585
+spot_attenuation = 0.06
+
+[node name="Sprite3D" type="Sprite3D" parent="WoodEnvironment/Lights/Light12" unique_id=1266923778]
+transform = Transform3D(-0.2, 0, 0, 0, -0.2, 0, 0, 0, -0.2, 8.50758, 5.1000085, -2.3317297)
+texture = ExtResource("3_gee14")
+
+[node name="Light13" type="Node3D" parent="WoodEnvironment/Lights" unique_id=193974494]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -70.38285, 38.975586, 11.220154)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="WoodEnvironment/Lights/Light13" unique_id=1390863389]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.320662, 3.7103195, 8.405696)
+light_color = Color(0.951559, 0.87017196, 0.43783352, 1)
+light_energy = 2.3
+spot_range = 18.585
+spot_attenuation = 0.06
+
+[node name="Sprite3D" type="Sprite3D" parent="WoodEnvironment/Lights/Light13" unique_id=395770708]
+transform = Transform3D(-0.2, 0, 0, 0, -0.2, 0, 0, 0, -0.2, 8.50758, 5.1000085, -2.3317297)
+texture = ExtResource("3_gee14")
+
+[node name="Light14" type="Node3D" parent="WoodEnvironment/Lights" unique_id=1343395223]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -70.38285, 22.20935, 11.220154)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="WoodEnvironment/Lights/Light14" unique_id=1645368185]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.320662, 3.7103195, 8.405696)
+light_color = Color(0.951559, 0.87017196, 0.43783352, 1)
+light_energy = 2.3
+spot_range = 18.585
+spot_attenuation = 0.06
+
+[node name="Sprite3D" type="Sprite3D" parent="WoodEnvironment/Lights/Light14" unique_id=1329688011]
+transform = Transform3D(-0.2, 0, 0, 0, -0.2, 0, 0, 0, -0.2, 8.50758, 5.1000085, -2.3317297)
+texture = ExtResource("3_gee14")
+
+[node name="Light15" type="Node3D" parent="WoodEnvironment/Lights" unique_id=896032201]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -70.38285, 6.241375, 11.220154)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="WoodEnvironment/Lights/Light15" unique_id=1643614509]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.320662, 3.7103195, 8.405696)
+light_color = Color(0.951559, 0.87017196, 0.43783352, 1)
+light_energy = 2.3
+spot_range = 18.585
+spot_attenuation = 0.06
+
+[node name="Sprite3D" type="Sprite3D" parent="WoodEnvironment/Lights/Light15" unique_id=659377491]
+transform = Transform3D(-0.2, 0, 0, 0, -0.2, 0, 0, 0, -0.2, 8.50758, 5.1000085, -2.3317297)
+texture = ExtResource("3_gee14")
+
+[node name="Light9" type="Node3D" parent="WoodEnvironment/Lights" unique_id=1819961408]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.6675816, 24.537685, 0)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="WoodEnvironment/Lights/Light9" unique_id=125530173]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.320662, 3.7103195, 8.405696)
+light_color = Color(0.951559, 0.87017196, 0.43783352, 1)
+light_energy = 2.3
+spot_range = 18.585
+spot_attenuation = 0.06
+
+[node name="Sprite3D" type="Sprite3D" parent="WoodEnvironment/Lights/Light9" unique_id=321038841]
+transform = Transform3D(-0.2, 0, 0, 0, -0.2, 0, 0, 0, -0.2, 8.50758, 5.1000085, -2.3317297)
+texture = ExtResource("3_gee14")
 
 [node name="Player" parent="." unique_id=132662011 instance=ExtResource("1_uwrxv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.75721, 0, -0.07981348)
@@ -565,7 +989,7 @@ grow_vertical = 2
 theme = SubResource("Theme_37okk")
 theme_override_font_sizes/normal_font_size = 40
 bbcode_enabled = true
-text = "...О! Вот ты и здесь"
+text = "...Так, вот я и в движке."
 visible_characters = 0
 visible_ratio = 0.0
 
@@ -581,23 +1005,7 @@ grow_vertical = 2
 theme = SubResource("Theme_37okk")
 theme_override_font_sizes/normal_font_size = 40
 bbcode_enabled = true
-text = "Ну что, вот мы и попали в игровой движок. Но к сожалению, тут пока-что ничего нет."
-visible_characters = 0
-visible_ratio = 0.0
-
-[node name="RichTextLabel3" type="RichTextLabel" parent="CanvasLayer/Dialogs/DialogPhase1" unique_id=717954949]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.05
-anchor_top = 0.75
-anchor_right = 0.95
-anchor_bottom = 0.95
-grow_horizontal = 2
-grow_vertical = 2
-theme = SubResource("Theme_37okk")
-theme_override_font_sizes/normal_font_size = 40
-bbcode_enabled = true
-text = "Для начала стоит добавить самого персонажа. Пока что у нас нет тескстур, так что выбирать будем... из обычных примитивов. Сделай выбор, Стенли!"
+text = "С чего бы начать.. Пожалуй, для начала добавлю спрайт игрока. В целом, можно просто взять его на итче."
 visible_characters = 0
 visible_ratio = 0.0
 
@@ -623,7 +1031,7 @@ grow_vertical = 2
 theme = SubResource("Theme_37okk")
 theme_override_font_sizes/normal_font_size = 40
 bbcode_enabled = true
-text = "Отлично! Теперь мы видим нашего персонажа. Но к сожалению мы пока не может ходить."
+text = "Так, игрок есть, но пока он не может ничего делать."
 visible_characters = 0
 visible_ratio = 0.0
 
@@ -639,23 +1047,7 @@ grow_vertical = 2
 theme = SubResource("Theme_37okk")
 theme_override_font_sizes/normal_font_size = 40
 bbcode_enabled = true
-text = "А ведь ходьба - это обязательный элемент для изучения этого безграничного игрового мира."
-visible_characters = 0
-visible_ratio = 0.0
-
-[node name="RichTextLabel4" type="RichTextLabel" parent="CanvasLayer/Dialogs/DialogPhase2" unique_id=786036603]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.05
-anchor_top = 0.75
-anchor_right = 0.95
-anchor_bottom = 0.95
-grow_horizontal = 2
-grow_vertical = 2
-theme = SubResource("Theme_37okk")
-theme_override_font_sizes/normal_font_size = 40
-bbcode_enabled = true
-text = "Давай Стенли, реализуй механику ходьбы! Примени знания из курса Сомана Ракутина на практике!"
+text = "Тогда сейчас добавлю механику ходьбы."
 visible_characters = 0
 visible_ratio = 0.0
 
@@ -681,7 +1073,7 @@ grow_vertical = 2
 theme = SubResource("Theme_37okk")
 theme_override_font_sizes/normal_font_size = 40
 bbcode_enabled = true
-text = "У нас уже что-то полуается! Ноо, нажестся, чего-то не хватает. Не находишь ли ты, Стенли, ту вещь, чсто наш мир довольно пуст? Ни зданий, ни предметов, вообще ничего!"
+text = "Фух, все. Как по мне, получилось неплохо."
 visible_characters = 0
 visible_ratio = 0.0
 
@@ -697,23 +1089,7 @@ grow_vertical = 2
 theme = SubResource("Theme_37okk")
 theme_override_font_sizes/normal_font_size = 40
 bbcode_enabled = true
-text = "И какой олух захочет играть в игру, где в мире нет никого, кроме тебя любимого? Надо это исправить"
-visible_characters = 0
-visible_ratio = 0.0
-
-[node name="RichTextLabel4" type="RichTextLabel" parent="CanvasLayer/Dialogs/DialogPhase3" unique_id=1690535127]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.05
-anchor_top = 0.75
-anchor_right = 0.95
-anchor_bottom = 0.95
-grow_horizontal = 2
-grow_vertical = 2
-theme = SubResource("Theme_37okk")
-theme_override_font_sizes/normal_font_size = 40
-bbcode_enabled = true
-text = "Подумай Стенли, каким бы ты хотел видеть этот мир?"
+text = "Раз уж добавил возможность ходьбы игроку, стоит занятся созданием самого мира."
 visible_characters = 0
 visible_ratio = 0.0
 
@@ -739,7 +1115,7 @@ grow_vertical = 2
 theme = SubResource("Theme_37okk")
 theme_override_font_sizes/normal_font_size = 40
 bbcode_enabled = true
-text = "Замечательный выбор! Ноо, кажется чего-то не хватает..."
+text = "Окей, что-то уже есть. На основе этого можно сделать и другие вещи."
 visible_characters = 0
 visible_ratio = 0.0
 
@@ -755,39 +1131,7 @@ grow_vertical = 2
 theme = SubResource("Theme_37okk")
 theme_override_font_sizes/normal_font_size = 40
 bbcode_enabled = true
-text = "Хмм... Ну конечно же Стенли, освещение!"
-visible_characters = 0
-visible_ratio = 0.0
-
-[node name="RichTextLabel4" type="RichTextLabel" parent="CanvasLayer/Dialogs/DialogPhase4" unique_id=1998836042]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.05
-anchor_top = 0.75
-anchor_right = 0.95
-anchor_bottom = 0.95
-grow_horizontal = 2
-grow_vertical = 2
-theme = SubResource("Theme_37okk")
-theme_override_font_sizes/normal_font_size = 40
-bbcode_enabled = true
-text = "Получится ли человеку полнощенно погрузится в игру, если его все время будет преследовать этот дурацкий, тусклый серый свет? Конечно же нет!"
-visible_characters = 0
-visible_ratio = 0.0
-
-[node name="RichTextLabel5" type="RichTextLabel" parent="CanvasLayer/Dialogs/DialogPhase4" unique_id=534777431]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.05
-anchor_top = 0.75
-anchor_right = 0.95
-anchor_bottom = 0.95
-grow_horizontal = 2
-grow_vertical = 2
-theme = SubResource("Theme_37okk")
-theme_override_font_sizes/normal_font_size = 40
-bbcode_enabled = true
-text = "Давай стенли, подумай, какое освещение должно быть у нашей игры?"
+text = "Пока что можно занятся светом. С ним игра явно станет чуть атмосфернее."
 visible_characters = 0
 visible_ratio = 0.0
 
@@ -813,7 +1157,7 @@ grow_vertical = 2
 theme = SubResource("Theme_37okk")
 theme_override_font_sizes/normal_font_size = 40
 bbcode_enabled = true
-text = "Посмотри, как сочитается игровое окружение и освещение, неплохо, да?"
+text = "Так, с миром пока что закончу."
 visible_characters = 0
 visible_ratio = 0.0
 
@@ -829,7 +1173,7 @@ grow_vertical = 2
 theme = SubResource("Theme_37okk")
 theme_override_font_sizes/normal_font_size = 40
 bbcode_enabled = true
-text = "Но мы что-то сильно зациклилиси на визуале, а ведь игра - это не только красивый вид, это еще действия, сражения, сюжет и многое другое"
+text = "Так как это рогалик, стоит добавить какого-нибудь врага."
 visible_characters = 0
 visible_ratio = 0.0
 
@@ -845,23 +1189,7 @@ grow_vertical = 2
 theme = SubResource("Theme_37okk")
 theme_override_font_sizes/normal_font_size = 40
 bbcode_enabled = true
-text = "Но тебе, Стенли, все-таки до таких вещей еще идти и идти. Так что предлагаю долго не думать, и сделать самое главное - врагах"
-visible_characters = 0
-visible_ratio = 0.0
-
-[node name="RichTextLabel5" type="RichTextLabel" parent="CanvasLayer/Dialogs/DialogPhase5" unique_id=115835821]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.05
-anchor_top = 0.75
-anchor_right = 0.95
-anchor_bottom = 0.95
-grow_horizontal = 2
-grow_vertical = 2
-theme = SubResource("Theme_37okk")
-theme_override_font_sizes/normal_font_size = 40
-bbcode_enabled = true
-text = "Давай, создай самого простого врага, который будет атаковать игрока."
+text = "Может, сделать скелета? Ближника и дальника."
 visible_characters = 0
 visible_ratio = 0.0
 
@@ -887,7 +1215,7 @@ grow_vertical = 2
 theme = SubResource("Theme_37okk")
 theme_override_font_sizes/normal_font_size = 40
 bbcode_enabled = true
-text = "Отлично, враг преследует игрока! Но, пока что атаки нет, так как мы еще даже не добавили механику здоровья."
+text = "Так, враг есть. Но что-то я совсем забыл про здоровье."
 visible_characters = 0
 visible_ratio = 0.0
 
@@ -903,7 +1231,7 @@ grow_vertical = 2
 theme = SubResource("Theme_37okk")
 theme_override_font_sizes/normal_font_size = 40
 bbcode_enabled = true
-text = "Так давай же добавим здоровье и интерфейс для него!"
+text = "По-хорошему, для него стоит добавить какое-то отображение."
 visible_characters = 0
 visible_ratio = 0.0
 
@@ -929,7 +1257,7 @@ grow_vertical = 2
 theme = SubResource("Theme_37okk")
 theme_override_font_sizes/normal_font_size = 40
 bbcode_enabled = true
-text = "Здоровье есть! Но все еще осталась одна проблема."
+text = "Все, с этим закончил. В целом, игра уже выглядит неплохо."
 visible_characters = 0
 visible_ratio = 0.0
 
@@ -945,7 +1273,7 @@ grow_vertical = 2
 theme = SubResource("Theme_37okk")
 theme_override_font_sizes/normal_font_size = 40
 bbcode_enabled = true
-text = "Представь, что игрок твоей игры захочет отойти. Например, покушать поспать, сценарий может быть любой."
+text = "Но стоит добавить и какую-то техническую часть. Например, меню паузы."
 visible_characters = 0
 visible_ratio = 0.0
 
@@ -961,23 +1289,7 @@ grow_vertical = 2
 theme = SubResource("Theme_37okk")
 theme_override_font_sizes/normal_font_size = 40
 bbcode_enabled = true
-text = "Но если игроку это понадобится во время игры в нашу игру, то что ему поможет? Правильно - ничего. Поэтому предлагаю добавить паузы и сохранения."
-visible_characters = 0
-visible_ratio = 0.0
-
-[node name="RichTextLabel5" type="RichTextLabel" parent="CanvasLayer/Dialogs/DialogPhase7" unique_id=1439734361]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.05
-anchor_top = 0.75
-anchor_right = 0.95
-anchor_bottom = 0.95
-grow_horizontal = 2
-grow_vertical = 2
-theme = SubResource("Theme_37okk")
-theme_override_font_sizes/normal_font_size = 40
-bbcode_enabled = true
-text = "Может показаться, что это совершенно незначительное нововведение, так как это игра и не особо долгая. Но перестраховаться стоит."
+text = "В целом, это будет несложно, но может помочь, если игроку надо будет отойти."
 visible_characters = 0
 visible_ratio = 0.0
 
@@ -1003,7 +1315,7 @@ grow_vertical = 2
 theme = SubResource("Theme_37okk")
 theme_override_font_sizes/normal_font_size = 40
 bbcode_enabled = true
-text = "Ну что, у тебя уже есть практически полноценная игра, не прекрасно ли это?"
+text = "Отлично, в целом, игра уже есть. Но все-таки это рогалик, так что стоит добавить в игру какой-то незначительный элемент геймплея."
 visible_characters = 0
 visible_ratio = 0.0
 
@@ -1019,7 +1331,7 @@ grow_vertical = 2
 theme = SubResource("Theme_37okk")
 theme_override_font_sizes/normal_font_size = 40
 bbcode_enabled = true
-text = "Но все же кое-что в нахей игре до сих пор, а именно баланса."
+text = "Можно попробовать сделать карточки улучшений. В целом, неплохая идея."
 visible_characters = 0
 visible_ratio = 0.0
 
@@ -1035,7 +1347,7 @@ grow_vertical = 2
 theme = SubResource("Theme_37okk")
 theme_override_font_sizes/normal_font_size = 40
 bbcode_enabled = true
-text = "Так что Стенли, попытайся поиграться с настройками, может постарайся добавить новые механики и сделать игру более интересной."
+text = "..."
 visible_characters = 0
 visible_ratio = 0.0
 
@@ -1051,23 +1363,55 @@ grow_vertical = 2
 theme = SubResource("Theme_37okk")
 theme_override_font_sizes/normal_font_size = 40
 bbcode_enabled = true
-text = "Удачи!"
+text = "...Так, все, карточки есть."
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="RichTextLabel7" type="RichTextLabel" parent="CanvasLayer/Dialogs/DialogPhase8" unique_id=596038157]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.75
+anchor_right = 0.95
+anchor_bottom = 0.95
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_37okk")
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+text = "Так, теперь осталось самое главное: выложить игру на itch и присоединить к джему."
 visible_characters = 0
 visible_ratio = 0.0
 
 [node name="PlayerUI" parent="CanvasLayer" unique_id=1791843228 instance=ExtResource("6_p57ef")]
 
+[node name="SkipButton" type="Button" parent="CanvasLayer" unique_id=660764733]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = -1
+anchor_left = 0.03
+anchor_top = 0.73
+anchor_right = 0.97
+anchor_bottom = 0.97
+offset_top = -8.0
+grow_horizontal = 2
+grow_vertical = 0
+
 [node name="ChoiceMenu" parent="CanvasLayer" unique_id=1031216120 instance=ExtResource("4_lbhrr")]
 visible = false
+
+[node name="GameMusic" type="AudioStreamPlayer" parent="." unique_id=1906582058]
+process_mode = 3
+stream = ExtResource("10_vtaks")
+parameters/looping = true
 
 [connection signal="player_damaged" from="Player" to="." method="_on_player_player_damaged"]
 [connection signal="player_dash_time" from="Player" to="." method="_on_player_player_dash_time"]
 [connection signal="player_run" from="Player" to="." method="_on_player_player_run"]
+[connection signal="pressed" from="CanvasLayer/SkipButton" to="." method="_on_skip_button_pressed"]
 [connection signal="SIX_SEEEEVENAAAAAA" from="CanvasLayer/ChoiceMenu" to="." method="_on_choice_menu_six_seeeevenaaaaaa"]
 [connection signal="add_bottle_health" from="CanvasLayer/ChoiceMenu" to="." method="_on_choice_menu_add_bottle_health"]
 [connection signal="add_circle_health" from="CanvasLayer/ChoiceMenu" to="." method="_on_choice_menu_add_circle_health"]
 [connection signal="add_line_health" from="CanvasLayer/ChoiceMenu" to="." method="_on_choice_menu_add_line_health"]
-[connection signal="best_friend" from="CanvasLayer/ChoiceMenu" to="." method="_on_choice_menu_best_friend"]
 [connection signal="black" from="CanvasLayer/ChoiceMenu" to="." method="_on_choice_menu_black"]
 [connection signal="blind" from="CanvasLayer/ChoiceMenu" to="." method="_on_choice_menu_blind"]
 [connection signal="broken_bone" from="CanvasLayer/ChoiceMenu" to="." method="_on_choice_menu_broken_bone"]
@@ -1090,12 +1434,10 @@ visible = false
 [connection signal="pause" from="CanvasLayer/ChoiceMenu" to="." method="_on_choice_menu_pause"]
 [connection signal="perfect" from="CanvasLayer/ChoiceMenu" to="." method="_on_choice_menu_perfect"]
 [connection signal="rage" from="CanvasLayer/ChoiceMenu" to="." method="_on_choice_menu_rage"]
-[connection signal="redeemer" from="CanvasLayer/ChoiceMenu" to="." method="_on_choice_menu_redeemer"]
 [connection signal="serious_punch" from="CanvasLayer/ChoiceMenu" to="." method="_on_choice_menu_serious_punch"]
 [connection signal="set_day_light" from="CanvasLayer/ChoiceMenu" to="." method="_on_choice_menu_set_day_light"]
 [connection signal="set_night_light" from="CanvasLayer/ChoiceMenu" to="." method="_on_choice_menu_set_night_light"]
 [connection signal="sonic" from="CanvasLayer/ChoiceMenu" to="." method="_on_choice_menu_sonic"]
-[connection signal="spawnrate" from="CanvasLayer/ChoiceMenu" to="." method="_on_choice_menu_spawnrate"]
 [connection signal="special_agent" from="CanvasLayer/ChoiceMenu" to="." method="_on_choice_menu_special_agent"]
 [connection signal="student" from="CanvasLayer/ChoiceMenu" to="." method="_on_choice_menu_student"]
 [connection signal="thin" from="CanvasLayer/ChoiceMenu" to="." method="_on_choice_menu_thin"]

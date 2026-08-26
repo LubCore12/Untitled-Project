@@ -11,7 +11,7 @@ extends CharacterBody3D
 @export var stamina_recovery: float = 55
 @export var jump_stamina: float = 1.5
 @export var punch_stamina: float = 1.5
-@export var dash_speed: float = 30
+@export var dash_speed: float = 40
 
 @export_group("Stats")
 @export var damage: float = 10
@@ -32,6 +32,7 @@ extends CharacterBody3D
 @onready var dash_timer = $Timers/DashTimer
 @onready var rage_timer = $Timers/RageTimer
 @onready var camera = $Camera
+@onready var attack_sound = $AttackSound
 
 var direction: float
 var target_enemy: CharacterBody3D
@@ -74,6 +75,7 @@ func _ready() -> void:
 	jump_count = max_jump_count
 	camera_default_position = camera.position
 	camera_default_z_rotation = camera.rotation.z
+	attack_sound.volume_db = GlobalSounds.min_sfx_db_sound + GlobalSounds.sfx_loud * 30
 
 func _physics_process(delta: float) -> void:
 	recover_stamina(delta)
@@ -171,7 +173,7 @@ func animate(delta) -> void:
 		camera.position = camera.position.lerp(camera_default_position, bob_speed / 2.0 * delta)
 		
 func recover_stamina(delta) -> void:
-	if not is_moving:
+	if not is_moving and not is_jumping:
 		if stamina_timer.is_stopped():
 			stamina_timer.start()
 	else:
@@ -198,6 +200,7 @@ func attack():
 	await get_tree().create_timer(0.42).timeout
 	
 	if target_enemy:
+		attack_sound.play()
 		var killed = target_enemy.get_damage(get_right_damage())
 		
 		if killed:

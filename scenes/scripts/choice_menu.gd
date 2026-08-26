@@ -44,7 +44,6 @@ signal vampire
 signal rage
 signal zombie_with_bucket
 signal perfect
-signal redeemer
 signal fat_guy
 signal SIX_SEEEEVENAAAAAA
 signal sonic
@@ -52,12 +51,10 @@ signal card_limit
 signal gambling
 
 signal broken_bone
-signal spawnrate
 signal thin
 signal disabled
 signal blind
 signal flashbang
-signal best_friend
 signal dementia
 signal dyspnea
 signal black
@@ -248,8 +245,6 @@ func _on_zombie_with_bucket_button_pressed() -> void:
 func _on_perfect_button_pressed() -> void:
 	perfect.emit()
 
-func _on_redeemer_button_pressed() -> void:
-	redeemer.emit()
 
 func _on_fat_guy_button_pressed() -> void:
 	fat_guy.emit()
@@ -263,9 +258,6 @@ func _on_sonic_button_pressed() -> void:
 func _on_broken_bone_button_pressed() -> void:
 	broken_bone.emit()
 
-func _on_spawnrate_button_pressed() -> void:
-	spawnrate.emit()
-
 func _on_thin_button_pressed() -> void:
 	thin.emit()
 
@@ -277,9 +269,6 @@ func _on_blind_button_pressed() -> void:
 	
 func _on_flashbang_button_pressed() -> void:
 	flashbang.emit()
-
-func _on_best_friend_button_pressed() -> void:
-	best_friend.emit()
 
 func _on_dementia_button_pressed() -> void:
 	dementia.emit()

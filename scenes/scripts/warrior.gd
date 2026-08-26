@@ -9,6 +9,7 @@ extends CharacterBody3D
 @export var walk_speed: float = 2.5
 @export var hp: float = 100.0
 @export var damage: float = 20.0
+@export var gravity: float = -14
 
 var player: CharacterBody3D
 var direction: float
@@ -32,6 +33,8 @@ func _physics_process(_delta: float) -> void:
 		else:
 			idle_walking()
 	animate()
+	
+	velocity.y = gravity
 
 func go_to_player() -> void:
 	velocity.x = direction * speed
@@ -50,14 +53,11 @@ func animate() -> void:
 		if is_see_player:
 			sprite.play("run")
 		else:
-			if direction:
-				sprite.play("walk")
-			else:
-				sprite.play("idle")
+			sprite.play("idle")
 
 func attack() -> void:
 	sprite.play("attack")
-	await get_tree().create_timer(1.05).timeout
+	await get_tree().create_timer(0.8).timeout
 	
 	if not is_dead and is_in_attack_area and sprite.frame == 3 and sprite.animation == "attack":
 		player.get_damage(damage)

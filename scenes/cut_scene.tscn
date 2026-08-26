@@ -23,6 +23,7 @@ shader = ExtResource("2_ascsr")
 shader_parameter/size = 0.0
 
 [node name="CutScene" type="Control" unique_id=1329905073]
+process_mode = 1
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -165,39 +166,7 @@ grow_vertical = 0
 theme = SubResource("Theme_iedig")
 theme_override_font_sizes/normal_font_size = 40
 bbcode_enabled = true
-text = "Он понял, что что-то в его жизни должно измениться."
-visible_characters = 0
-visible_ratio = 0.0
-
-[node name="We\'veKnownEachOtherForSoLong" type="RichTextLabel" parent="Dialogs" unique_id=675703750]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.05
-anchor_top = 0.75
-anchor_right = 0.95
-anchor_bottom = 0.95
-grow_horizontal = 2
-grow_vertical = 0
-theme = SubResource("Theme_iedig")
-theme_override_font_sizes/normal_font_size = 40
-bbcode_enabled = true
-text = "Именно в этот момент Стенли вспомнил о своей давней мечте, которой суждено было не сбыться, но именно в этот день все изменилось."
-visible_characters = 0
-visible_ratio = 0.0
-
-[node name="YourHeart\'sBeenAchingButYou\'reTooShyToSayIt" type="RichTextLabel" parent="Dialogs" unique_id=1165914770]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.05
-anchor_top = 0.75
-anchor_right = 0.95
-anchor_bottom = 0.95
-grow_horizontal = 2
-grow_vertical = 0
-theme = SubResource("Theme_iedig")
-theme_override_font_sizes/normal_font_size = 40
-bbcode_enabled = true
-text = "В этот день он уволился с работы, поссорился в женой и променял свою карьеру, на какую-то... детскую мечту."
+text = "Ладно, тогда пора приступить к самой разработке..."
 visible_characters = 0
 visible_ratio = 0.0
 

@@ -5,7 +5,6 @@ extends Control
 @onready var settings_menu = $SettingsMenu
 @onready var buttons = $ActionButtons
 @onready var play_button = $ActionButtons/Play
-@onready var continue_button = $ActionButtons/Continue
 @onready var give_up_button = $ActionButtons/GiveUp
 @onready var pressed_sound = $Sounds/PressedSound
 @onready var hover_sound = $Sounds/HoverSound
@@ -17,7 +16,7 @@ func _ready() -> void:
 		button.material.set_shader_parameter("x_speed", randf_range(1.0, 3.0))
 		button.material.set_shader_parameter("y_speed", randf_range(1.0, 3.0))
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	menu_music.volume_db = GlobalSounds.min_music_db_sound + GlobalSounds.music_loud * 30
 
 func _on_play_pressed() -> void:
@@ -48,12 +47,6 @@ func _on_play_mouse_entered() -> void:
 
 func _on_play_mouse_exited() -> void:
 	scale_down_button(play_button)
-
-func _on_continue_mouse_entered() -> void:
-	scale_up_button(continue_button)
-
-func _on_continue_mouse_exited() -> void:
-	scale_down_button(continue_button)
 
 func _on_give_up_mouse_entered() -> void:
 	scale_up_button(give_up_button)

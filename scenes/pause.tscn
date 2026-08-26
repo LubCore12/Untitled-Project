@@ -83,6 +83,7 @@ grow_vertical = 2
 [node name="Continue" type="Button" parent="ButtonsContainer" unique_id=1252554340]
 custom_minimum_size = Vector2(0, 120)
 layout_mode = 2
+size_flags_vertical = 4
 theme = SubResource("Theme_fo3dt")
 theme_override_colors/font_color = Color(0.875, 0.875, 0.875, 1)
 theme_override_colors/font_pressed_color = Color(0.40220365, 0.40220362, 0.4022036, 1)
@@ -90,17 +91,6 @@ theme_override_colors/font_hover_color = Color(0.6671405, 0.66714036, 0.66714036
 theme_override_colors/icon_focus_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 45
 text = "Продолжить"
-
-[node name="Save" type="Button" parent="ButtonsContainer" unique_id=2035535590]
-custom_minimum_size = Vector2(0, 120)
-layout_mode = 2
-theme = SubResource("Theme_fo3dt")
-theme_override_colors/font_color = Color(0.875, 0.875, 0.875, 1)
-theme_override_colors/font_pressed_color = Color(0.40220365, 0.40220362, 0.4022036, 1)
-theme_override_colors/font_hover_color = Color(0.6671405, 0.66714036, 0.66714036, 1)
-theme_override_colors/icon_focus_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 45
-text = "Сохранить"
 
 [node name="Exit" type="Button" parent="ButtonsContainer" unique_id=769206153]
 custom_minimum_size = Vector2(0, 120)

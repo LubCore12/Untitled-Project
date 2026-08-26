@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dgnjt3kg1gw28" path="res://assets/player_sprites/Jump.png" id="3_dqkch"]
 [ext_resource type="Texture2D" uid="uid://dypyy1q4agb77" path="res://assets/player_sprites/Dead.png" id="3_tuyoq"]
 [ext_resource type="Texture2D" uid="uid://b8xfivhgn2fl" path="res://assets/player_sprites/Run.png" id="4_qlg0r"]
+[ext_resource type="AudioStream" uid="uid://k3s0i72yefth" path="res://sounds/PlayerAttackSFX.mp3" id="7_fjrip"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_u8vuu"]
 size = Vector3(0.51882935, 1.8652344, 1)
@@ -301,15 +302,18 @@ frame_progress = 1.0
 [node name="Timers" type="Node" parent="." unique_id=1335400729]
 
 [node name="StaminaTimer" type="Timer" parent="Timers" unique_id=1870281789]
-wait_time = 1.2
+wait_time = 0.2
 
 [node name="DashTimer" type="Timer" parent="Timers" unique_id=1063211083]
-wait_time = 6.0
+wait_time = 1.2
 one_shot = true
 
 [node name="RageTimer" type="Timer" parent="Timers" unique_id=225784235]
 wait_time = 5.0
 one_shot = true
+
+[node name="AttackSound" type="AudioStreamPlayer" parent="." unique_id=60598362]
+stream = ExtResource("7_fjrip")
 
 [connection signal="body_entered" from="AttackArea" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="AttackArea" to="." method="_on_area_3d_body_exited"]

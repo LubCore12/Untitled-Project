@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://coiqw4av2q0hq" path="res://scenes/scripts/arrow.gd" id="1_umosx"]
 [ext_resource type="Texture2D" uid="uid://c0ctpsw7jxkoi" path="res://assets/skeleton_archer_player/Arrow.png" id="2_23jat"]
+[ext_resource type="AudioStream" uid="uid://ds7wpngf4mtei" path="res://sounds/ArrowSFX.mp3" id="3_q8ifc"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_37okk"]
 size = Vector3(0.7581787, 0.06903839, 0.07287598)
@@ -20,5 +21,8 @@ texture = ExtResource("2_23jat")
 [node name="Shape" type="CollisionShape3D" parent="." unique_id=791205527]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.04686971, -0.011226654, -0.0049438477)
 shape = SubResource("BoxShape3D_37okk")
+
+[node name="ArrowSound" type="AudioStreamPlayer" parent="." unique_id=588541731]
+stream = ExtResource("3_q8ifc")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

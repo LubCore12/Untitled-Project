@@ -6,16 +6,19 @@
 [ext_resource type="Texture2D" uid="uid://bekspov68sk0e" path="res://assets/card_icons/firstSteps.svg" id="4_al8qj"]
 [ext_resource type="Theme" uid="uid://bqeshx52nxy27" path="res://themes/card_theme.tres" id="4_h2egi"]
 [ext_resource type="Texture2D" uid="uid://cu0gjoauqmfen" path="res://assets/card_icons/cube.svg" id="5_2djck"]
-[ext_resource type="Texture2D" uid="uid://dk6jrnsce1lad" path="res://assets/card_icons/neonNew.svg" id="8_bigfd"]
-[ext_resource type="Texture2D" uid="uid://cse01h3kcady6" path="res://assets/card_icons/minimalism.svg" id="9_2oyqo"]
+[ext_resource type="Texture2D" uid="uid://d3cyle717x6oe" path="res://assets/texutres/rock_wall.jpg" id="5_35qed"]
+[ext_resource type="Texture2D" uid="uid://j5ryugivhu25" path="res://assets/texutres/wood_wall.jpg" id="7_208mi"]
 [ext_resource type="Texture2D" uid="uid://ex6lreg86ahq" path="res://assets/card_icons/day.svg" id="10_axv1t"]
 [ext_resource type="Texture2D" uid="uid://dym03f4x2bkhm" path="res://assets/card_icons/night.svg" id="11_jrdjb"]
 [ext_resource type="Texture2D" uid="uid://b7g81fd2ejvcq" path="res://assets/card_icons/dash.svg" id="12_4rvgb"]
 [ext_resource type="Texture2D" uid="uid://dxwpgwd1la4dr" path="res://assets/card_icons/pause.svg" id="12_35qed"]
+[ext_resource type="Texture2D" uid="uid://b80m7kectqmd2" path="res://assets/card_icons/health_line.png" id="12_208mi"]
 [ext_resource type="Texture2D" uid="uid://iwnctwh6w1jr" path="res://assets/card_icons/enemy.svg" id="12_kkagw"]
+[ext_resource type="Texture2D" uid="uid://ojo8byubqn8w" path="res://assets/card_icons/circle_hp.png" id="12_oeys4"]
 [ext_resource type="Texture2D" uid="uid://ch0vl4jfd46w2" path="res://assets/card_icons/punch.svg" id="12_r03mh"]
 [ext_resource type="Texture2D" uid="uid://b24ni6m7kurvb" path="res://assets/card_icons/agent.svg" id="13_0jqir"]
 [ext_resource type="Texture2D" uid="uid://bth6y21igbvho" path="res://assets/card_icons/burmaldak.svg" id="13_r03mh"]
+[ext_resource type="Texture2D" uid="uid://rs5w537ujhjx" path="res://assets/card_icons/cock.svg" id="14_opeus"]
 [ext_resource type="Texture2D" uid="uid://drn38dcvaww3d" path="res://assets/card_icons/rage.svg" id="14_wfj4a"]
 [ext_resource type="Texture2D" uid="uid://d4noj6y36pr1i" path="res://assets/card_icons/bucket.svg" id="15_a2q6r"]
 [ext_resource type="Texture2D" uid="uid://33csdbybfj6j" path="res://assets/card_icons/metal.svg" id="15_b32xk"]
@@ -1184,14 +1187,14 @@ size_flags_horizontal = 4
 size_flags_vertical = 6
 offset_transform_enabled = true
 offset_transform_position = Vector2(0, -20)
-texture = ExtResource("8_bigfd")
+texture = ExtResource("7_208mi")
 
 [node name="Description" type="Label" parent="ChoiceCards/StoryChoices/WoodEnvironmentButton/Panel/VBoxContainer" unique_id=605040007]
 layout_mode = 2
 size_flags_vertical = 10
 theme = SubResource("Theme_8c0wf")
 theme_override_font_sizes/font_size = 32
-text = "Дерево - это довольно атмосферный материал, который модет дополнить практически любую игру."
+text = "Дерево - это довольно атмосферный материал, который может дополнить практически любую игру."
 horizontal_alignment = 1
 autowrap_mode = 2
 
@@ -1238,15 +1241,15 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
 offset_transform_enabled = true
-offset_transform_position = Vector2(-20, -20)
-texture = ExtResource("9_2oyqo")
+offset_transform_position = Vector2(0, -20)
+texture = ExtResource("5_35qed")
 
 [node name="Description" type="Label" parent="ChoiceCards/StoryChoices/RockEnvironmentButton/Panel/VBoxContainer" unique_id=555042334]
 layout_mode = 2
 size_flags_vertical = 10
 theme = SubResource("Theme_8c0wf")
 theme_override_font_sizes/font_size = 32
-text = "Камень - это довольно мрачный материал, который идеально подходит под игры с магической, темной тематикой."
+text = "Камень - это мрачный материал. Идеально подходит под игры с темной тематикой."
 horizontal_alignment = 1
 autowrap_mode = 2
 
@@ -1506,6 +1509,15 @@ theme = SubResource("Theme_fo3dt")
 theme_override_font_sizes/font_size = 45
 text = "Круглое здоровье"
 
+[node name="Image" type="TextureRect" parent="ChoiceCards/StoryChoices/CircleHealthButton/Panel/VBoxContainer" unique_id=195867376]
+custom_maximum_size = Vector2(300, 300)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, 20)
+texture = ExtResource("12_oeys4")
+
 [node name="Description" type="Label" parent="ChoiceCards/StoryChoices/CircleHealthButton/Panel/VBoxContainer" unique_id=1608658229]
 layout_mode = 2
 size_flags_vertical = 10
@@ -1551,6 +1563,15 @@ theme = SubResource("Theme_fo3dt")
 theme_override_font_sizes/font_size = 45
 text = "Полоска"
 
+[node name="Image" type="TextureRect" parent="ChoiceCards/StoryChoices/LineHealthButton/Panel/VBoxContainer" unique_id=761749375]
+custom_maximum_size = Vector2(300, 300)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, 20)
+texture = ExtResource("12_208mi")
+
 [node name="Description" type="Label" parent="ChoiceCards/StoryChoices/LineHealthButton/Panel/VBoxContainer" unique_id=1498510363]
 layout_mode = 2
 size_flags_vertical = 10
@@ -1595,6 +1616,15 @@ size_flags_horizontal = 4
 theme = SubResource("Theme_fo3dt")
 theme_override_font_sizes/font_size = 45
 text = "Колба"
+
+[node name="Image" type="TextureRect" parent="ChoiceCards/StoryChoices/BottleHealthButton/Panel/VBoxContainer" unique_id=1784642487]
+custom_maximum_size = Vector2(200, 272.109)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, 30)
+texture = ExtResource("14_opeus")
 
 [node name="Description" type="Label" parent="ChoiceCards/StoryChoices/BottleHealthButton/Panel/VBoxContainer" unique_id=63405850]
 layout_mode = 2

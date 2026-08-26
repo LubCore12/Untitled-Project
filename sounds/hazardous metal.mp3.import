@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://0qvl4edsma5k"
+path="res://.godot/imported/hazardous metal.mp3-25905b8e669565bf35cef0470c6fafb0.mp3str"
+
+[deps]
+
+source_file="res://sounds/hazardous metal.mp3"
+dest_files=["res://.godot/imported/hazardous metal.mp3-25905b8e669565bf35cef0470c6fafb0.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

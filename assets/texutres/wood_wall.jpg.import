@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://de4sqfjwtgvv4"
-path.s3tc="res://.godot/imported/bark_texture.png-01d329842f1b8eeabab7b5afdfc924d6.s3tc.ctex"
+uid="uid://j5ryugivhu25"
+path.s3tc="res://.godot/imported/wood_wall.jpg-7a00f931dda7f184fdbeeddd4879c6a7.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/texutres/bark_texture.png"
-dest_files=["res://.godot/imported/bark_texture.png-01d329842f1b8eeabab7b5afdfc924d6.s3tc.ctex"]
+source_file="res://assets/texutres/wood_wall.jpg"
+dest_files=["res://.godot/imported/wood_wall.jpg-7a00f931dda7f184fdbeeddd4879c6a7.s3tc.ctex"]
 
 [params]
 

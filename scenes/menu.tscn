@@ -42,12 +42,6 @@ Button/styles/hover = SubResource("StyleBoxFlat_v86rl")
 Button/styles/normal = SubResource("StyleBoxFlat_g3eks")
 Button/styles/pressed = SubResource("StyleBoxFlat_13sgg")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_g3eks"]
-shader = ExtResource("3_g3eks")
-shader_parameter/strength = 0.0
-shader_parameter/x_speed = 0.0
-shader_parameter/y_speed = 0.0
-
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_v86rl"]
 shader = ExtResource("3_g3eks")
 shader_parameter/strength = 0.0
@@ -137,19 +131,6 @@ theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 60
 text = "Create"
 
-[node name="Continue" type="Button" parent="ActionButtons" unique_id=2025708863]
-material = SubResource("ShaderMaterial_g3eks")
-custom_minimum_size = Vector2(200, 70)
-layout_mode = 2
-size_flags_vertical = 3
-theme = SubResource("Theme_sm7t5")
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 60
-text = "Continue"
-
 [node name="GiveUp" type="Button" parent="ActionButtons" unique_id=345237241]
 material = SubResource("ShaderMaterial_v86rl")
 layout_mode = 2
@@ -160,7 +141,7 @@ theme_override_colors/font_focus_color = Color(0.3882353, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0.3882353, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0.3882353, 0, 0, 1)
 theme_override_font_sizes/font_size = 40
-text = "Give up"
+text = "Don't create"
 
 [node name="SettingsButton" type="TextureButton" parent="." unique_id=1199232727]
 layout_mode = 1
@@ -196,8 +177,6 @@ parameters/looping = true
 [connection signal="mouse_entered" from="ActionButtons/Play" to="." method="_on_play_mouse_entered"]
 [connection signal="mouse_exited" from="ActionButtons/Play" to="." method="_on_play_mouse_exited"]
 [connection signal="pressed" from="ActionButtons/Play" to="." method="_on_play_pressed"]
-[connection signal="mouse_entered" from="ActionButtons/Continue" to="." method="_on_continue_mouse_entered"]
-[connection signal="mouse_exited" from="ActionButtons/Continue" to="." method="_on_continue_mouse_exited"]
 [connection signal="mouse_entered" from="ActionButtons/GiveUp" to="." method="_on_give_up_mouse_entered"]
 [connection signal="mouse_exited" from="ActionButtons/GiveUp" to="." method="_on_give_up_mouse_exited"]
 [connection signal="pressed" from="SettingsButton" to="." method="_on_settings_button_pressed"]
