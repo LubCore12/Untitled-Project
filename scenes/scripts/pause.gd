@@ -7,5 +7,5 @@ func _on_continue_pressed() -> void:
 	hide()
 
 func _on_exit_pressed() -> void:
-	get_tree().change_scene_to_file(menu_scene)
 	get_tree().paused = false
+	get_tree().change_scene_to_file(menu_scene)

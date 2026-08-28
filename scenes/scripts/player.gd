@@ -10,11 +10,11 @@ extends CharacterBody3D
 @export var stamina_usage: float = 8
 @export var stamina_recovery: float = 55
 @export var jump_stamina: float = 1.5
-@export var punch_stamina: float = 1.5
+@export var punch_stamina: float = 35
 @export var dash_speed: float = 40
 
 @export_group("Stats")
-@export var damage: float = 10
+@export var damage: float = 30
 @export var dash_damage : float = 20
 @export var max_hp: float = 100
 @export var defend: float = 1
@@ -41,6 +41,7 @@ var can_attack := false
 var can_dash := false
 var rage_enabled := false
 var rage_active := false
+var vampire := false
 var is_moving := false
 var is_dashing := false
 var is_jumping := false
@@ -196,6 +197,9 @@ func start_dashing() -> void:
 func enable_rage() -> void:
 	rage_enabled = true
 	
+func enable_vampire_mode() -> void:
+	vampire = true
+	
 func attack():
 	await get_tree().create_timer(0.42).timeout
 	
@@ -203,20 +207,36 @@ func attack():
 		attack_sound.play()
 		var killed = target_enemy.get_damage(get_right_damage())
 		
-		if killed:
-			enemies_killed += 1
-			
-			if enemies_killed >= enemies_till_next_card:
-				enemies_killed = 0
-				enemies_till_next_card = randi_range(2, 4)
-				card_appear.emit()
-		
 		if killed and rage_enabled:
 			if rage_active:
 				rage_timer.stop()
 			add_damage_multiplier(0.35)
 			rage_active = true
 			rage_timer.start()
+
+			if vampire:
+				hp += get_right_max_health() * 0.15
+				
+				if hp > get_right_max_health():
+					hp = get_right_max_health()
+					
+				player_damaged.emit(hp * (1.0 / get_right_max_health()))
+		
+		elif killed:
+			enemies_killed += 1
+			
+			if enemies_killed >= enemies_till_next_card:
+				enemies_killed = 0
+				enemies_till_next_card = randi_range(2, 4)
+				card_appear.emit()
+				
+			if vampire:
+				hp += get_right_max_health() * 0.15
+				
+				if hp > get_right_max_health():
+					hp = get_right_max_health()
+					
+				player_damaged.emit(hp * (1.0 / get_right_max_health()))
 
 func show_sprite() -> void:
 	sprite.show()
@@ -243,12 +263,6 @@ func get_damage(self_damage):
 			collision_layer = 16
 			collision_mask = 16
 			set_physics_process(false)
-
-func add_health(value: float) -> void:
-	hp += value
-	
-	if hp > get_right_max_health():
-		hp = get_right_max_health()
 
 func add_damage_multiplier(value: float) -> void:
 	damage_multiplier += value

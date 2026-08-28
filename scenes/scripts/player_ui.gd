@@ -1,5 +1,6 @@
 extends Control
 
+@onready var bars = $LeftTopContainer/HealthBarTypes
 @onready var line_bar = $LeftTopContainer/HealthBarTypes/LineBar
 @onready var circle_bar = $LeftTopContainer/HealthBarTypes/CircleBar
 @onready var bottle_bar = $LeftTopContainer/HealthBarTypes/BottleBar
@@ -29,8 +30,8 @@ func show_bottle() -> void:
 
 func set_health(value: float) -> void:
 	var tween = create_tween().parallel()
-	if current_bar:
-		tween.tween_property(current_bar.material, "shader_parameter/value", value, 0.3)
+	for bar in bars.get_children():
+		tween.tween_property(bar.material, "shader_parameter/value", value, 0.3)
 	tween.tween_property(vignette.material, "shader_parameter/strength", 1.0 - value, 0.4)
 	
 func show_stamina() -> void:

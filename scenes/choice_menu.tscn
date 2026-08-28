@@ -23,18 +23,15 @@
 [ext_resource type="Texture2D" uid="uid://d4noj6y36pr1i" path="res://assets/card_icons/bucket.svg" id="15_a2q6r"]
 [ext_resource type="Texture2D" uid="uid://33csdbybfj6j" path="res://assets/card_icons/metal.svg" id="15_b32xk"]
 [ext_resource type="Texture2D" uid="uid://deax7emfv1naa" path="res://assets/card_icons/ideal.svg" id="16_jnvme"]
-[ext_resource type="Texture2D" uid="uid://te1mevaec4i0" path="res://assets/card_icons/redeemer.svg" id="17_cb2gh"]
 [ext_resource type="Texture2D" uid="uid://civtobyjhkgnx" path="res://assets/card_icons/fat.svg" id="18_3fn43"]
 [ext_resource type="Texture2D" uid="uid://bn1l3apwlcofs" path="res://assets/card_icons/67.svg" id="19_v5d2q"]
 [ext_resource type="Texture2D" uid="uid://5ylmn2q08kik" path="res://assets/card_icons/sonic.svg" id="20_eiu3a"]
 [ext_resource type="Texture2D" uid="uid://b7k0ecqklc6xn" path="res://assets/card_icons/fracture.svg" id="23_x5i6y"]
 [ext_resource type="Texture2D" uid="uid://clpjq700flig7" path="res://assets/card_icons/cardLimit.svg" id="24_6eaxf"]
 [ext_resource type="Texture2D" uid="uid://b37cybg8mdma0" path="res://assets/card_icons/thin.svg" id="24_6idyf"]
-[ext_resource type="Texture2D" uid="uid://coamr04adbmm7" path="res://assets/card_icons/eldenRing.svg" id="24_453tc"]
 [ext_resource type="Texture2D" uid="uid://dbicnlpiw2fh5" path="res://assets/card_icons/posCardHigher.svg" id="25_b5e78"]
 [ext_resource type="Texture2D" uid="uid://phhvkomvo35i" path="res://assets/card_icons/disabled.svg" id="25_xwlrl"]
 [ext_resource type="Texture2D" uid="uid://bwmx04wvkjxra" path="res://assets/card_icons/blindness.svg" id="26_xwlrl"]
-[ext_resource type="Texture2D" uid="uid://l563vektapkf" path="res://assets/card_icons/bob.svg" id="28_6jrsi"]
 [ext_resource type="Texture2D" uid="uid://dlw4tq8be21jx" path="res://assets/card_icons/dementia.svg" id="29_01ap0"]
 [ext_resource type="Texture2D" uid="uid://b8mfqlh4s5go4" path="res://assets/card_icons/asthma.svg" id="30_oau5p"]
 [ext_resource type="Texture2D" uid="uid://bjau040f216vg" path="res://assets/card_icons/flashbang.svg" id="31_gxpq5"]
@@ -530,32 +527,6 @@ shader_parameter/x_pos = 1.8
 shader_parameter/y_pos = 0.0
 shader_parameter/thikness = 0.07
 
-[sub_resource type="Shader" id="Shader_0jqir"]
-code = "shader_type canvas_item;
-
-uniform float angle = -70.0;
-uniform float x_pos = 1.8;
-uniform float y_pos = 0.0;
-uniform float thikness = 0.07;
-
-void fragment() {
-	vec2 uv = 2. * UV - 1.;
-	
-	float slope = tan(angle);
-	float line = (uv.y + y_pos) - slope * (uv.x + x_pos);
-	float distance_to_line = abs(line) / sqrt(1.0 + pow(slope, 2));
-	float shine_mask = step(distance_to_line, thikness);
-	COLOR.rgb = mix(COLOR.rgb, vec3(1.), shine_mask);
-}
-"
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_f5a2k"]
-shader = SubResource("Shader_0jqir")
-shader_parameter/angle = -70.0
-shader_parameter/x_pos = 1.8
-shader_parameter/y_pos = 0.0
-shader_parameter/thikness = 0.07
-
 [sub_resource type="Shader" id="Shader_r03mh"]
 code = "shader_type canvas_item;
 
@@ -712,32 +683,6 @@ shader_parameter/x_pos = 1.8
 shader_parameter/y_pos = 0.0
 shader_parameter/thikness = 0.07
 
-[sub_resource type="Shader" id="Shader_xwlrl"]
-code = "shader_type canvas_item;
-
-uniform float angle = -70.0;
-uniform float x_pos = 1.8;
-uniform float y_pos = 0.0;
-uniform float thikness = 0.07;
-
-void fragment() {
-	vec2 uv = 2. * UV - 1.;
-	
-	float slope = tan(angle);
-	float line = (uv.y + y_pos) - slope * (uv.x + x_pos);
-	float distance_to_line = abs(line) / sqrt(1.0 + pow(slope, 2));
-	float shine_mask = step(distance_to_line, thikness);
-	COLOR.rgb = mix(COLOR.rgb, vec3(1.), shine_mask);
-}
-"
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_6jrsi"]
-shader = SubResource("Shader_xwlrl")
-shader_parameter/angle = -70.0
-shader_parameter/x_pos = 1.8
-shader_parameter/y_pos = 0.0
-shader_parameter/thikness = 0.07
-
 [sub_resource type="Shader" id="Shader_453tc"]
 code = "shader_type canvas_item;
 
@@ -811,32 +756,6 @@ void fragment() {
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_b5e78"]
 shader = SubResource("Shader_b32xk")
-shader_parameter/angle = -70.0
-shader_parameter/x_pos = 1.8
-shader_parameter/y_pos = 0.0
-shader_parameter/thikness = 0.07
-
-[sub_resource type="Shader" id="Shader_6eaxf"]
-code = "shader_type canvas_item;
-
-uniform float angle = -70.0;
-uniform float x_pos = 1.8;
-uniform float y_pos = 0.0;
-uniform float thikness = 0.07;
-
-void fragment() {
-	vec2 uv = 2. * UV - 1.;
-	
-	float slope = tan(angle);
-	float line = (uv.y + y_pos) - slope * (uv.x + x_pos);
-	float distance_to_line = abs(line) / sqrt(1.0 + pow(slope, 2));
-	float shine_mask = step(distance_to_line, thikness);
-	COLOR.rgb = mix(COLOR.rgb, vec3(1.), shine_mask);
-}
-"
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_n5n8k"]
-shader = SubResource("Shader_6eaxf")
 shader_parameter/angle = -70.0
 shader_parameter/x_pos = 1.8
 shader_parameter/y_pos = 0.0
@@ -2148,61 +2067,6 @@ text = "+10% к урону
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="RedeemerButton" type="Button" parent="ChoiceCards/GoodChoices" unique_id=1105104696]
-visible = false
-custom_minimum_size = Vector2(500, 0)
-layout_mode = 2
-size_flags_horizontal = 6
-theme = SubResource("Theme_37okk")
-
-[node name="Panel" type="Panel" parent="ChoiceCards/GoodChoices/RedeemerButton" unique_id=903430385]
-material = SubResource("ShaderMaterial_f5a2k")
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_behavior_recursive = 1
-theme = ExtResource("4_h2egi")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="ChoiceCards/GoodChoices/RedeemerButton/Panel" unique_id=1150791479]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.05
-anchor_top = 0.05
-anchor_right = 0.95
-anchor_bottom = 0.95
-grow_horizontal = 2
-grow_vertical = 2
-mouse_behavior_recursive = 1
-
-[node name="Label" type="Label" parent="ChoiceCards/GoodChoices/RedeemerButton/Panel/VBoxContainer" unique_id=254610122]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 2
-theme = SubResource("Theme_fo3dt")
-theme_override_font_sizes/font_size = 45
-text = "Redeemer"
-
-[node name="Image" type="TextureRect" parent="ChoiceCards/GoodChoices/RedeemerButton/Panel/VBoxContainer" unique_id=312480570]
-custom_maximum_size = Vector2(300, 300)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 6
-offset_transform_enabled = true
-offset_transform_position = Vector2(-20, -40)
-texture = ExtResource("17_cb2gh")
-
-[node name="Description" type="Label" parent="ChoiceCards/GoodChoices/RedeemerButton/Panel/VBoxContainer" unique_id=520827047]
-layout_mode = 2
-size_flags_vertical = 10
-theme = SubResource("Theme_8c0wf")
-theme_override_font_sizes/font_size = 32
-text = "При убийстве враго добавляет пулю, которую можно выстрелить на ПКМ."
-horizontal_alignment = 1
-autowrap_mode = 2
-
 [node name="FatGuyButton" type="Button" parent="ChoiceCards/GoodChoices" unique_id=993135567]
 visible = false
 custom_minimum_size = Vector2(500, 0)
@@ -2548,61 +2412,6 @@ text = "-10% к макс. здоровью
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="SpawnrateButton" type="Button" parent="ChoiceCards/BadChoices" unique_id=1814009457]
-visible = false
-custom_minimum_size = Vector2(500, 0)
-layout_mode = 2
-size_flags_horizontal = 6
-theme = SubResource("Theme_37okk")
-
-[node name="Panel" type="Panel" parent="ChoiceCards/BadChoices/SpawnrateButton" unique_id=1001210319]
-material = SubResource("ShaderMaterial_6jrsi")
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_behavior_recursive = 1
-theme = ExtResource("4_h2egi")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="ChoiceCards/BadChoices/SpawnrateButton/Panel" unique_id=51784139]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.05
-anchor_top = 0.05
-anchor_right = 0.95
-anchor_bottom = 0.95
-grow_horizontal = 2
-grow_vertical = 2
-mouse_behavior_recursive = 1
-
-[node name="Name" type="Label" parent="ChoiceCards/BadChoices/SpawnrateButton/Panel/VBoxContainer" unique_id=595084888]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 2
-theme = SubResource("Theme_fo3dt")
-theme_override_font_sizes/font_size = 45
-text = "Dark Souls"
-
-[node name="Image" type="TextureRect" parent="ChoiceCards/BadChoices/SpawnrateButton/Panel/VBoxContainer" unique_id=1560422506]
-custom_maximum_size = Vector2(300, 300)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 6
-offset_transform_enabled = true
-offset_transform_position = Vector2(-35, -30)
-texture = ExtResource("24_453tc")
-
-[node name="Description" type="Label" parent="ChoiceCards/BadChoices/SpawnrateButton/Panel/VBoxContainer" unique_id=261983675]
-layout_mode = 2
-size_flags_vertical = 10
-theme = SubResource("Theme_8c0wf")
-theme_override_font_sizes/font_size = 32
-text = "+30% к частоте появления врагов"
-horizontal_alignment = 1
-autowrap_mode = 2
-
 [node name="ThinButton" type="Button" parent="ChoiceCards/BadChoices" unique_id=50802735]
 visible = false
 custom_minimum_size = Vector2(500, 0)
@@ -2822,61 +2631,6 @@ size_flags_vertical = 10
 theme = SubResource("Theme_8c0wf")
 theme_override_font_sizes/font_size = 32
 text = "Делает свет невероятно ярким. Ослепительно-восхитительно"
-horizontal_alignment = 1
-autowrap_mode = 2
-
-[node name="BestFriendButton" type="Button" parent="ChoiceCards/BadChoices" unique_id=916534797]
-visible = false
-custom_minimum_size = Vector2(500, 0)
-layout_mode = 2
-size_flags_horizontal = 6
-theme = SubResource("Theme_37okk")
-
-[node name="Panel" type="Panel" parent="ChoiceCards/BadChoices/BestFriendButton" unique_id=250967603]
-material = SubResource("ShaderMaterial_n5n8k")
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_behavior_recursive = 1
-theme = ExtResource("4_h2egi")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="ChoiceCards/BadChoices/BestFriendButton/Panel" unique_id=643085734]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.05
-anchor_top = 0.05
-anchor_right = 0.95
-anchor_bottom = 0.95
-grow_horizontal = 2
-grow_vertical = 2
-mouse_behavior_recursive = 1
-
-[node name="Name" type="Label" parent="ChoiceCards/BadChoices/BestFriendButton/Panel/VBoxContainer" unique_id=2047988068]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 2
-theme = SubResource("Theme_fo3dt")
-theme_override_font_sizes/font_size = 45
-text = "Это Боб!"
-
-[node name="Image" type="TextureRect" parent="ChoiceCards/BadChoices/BestFriendButton/Panel/VBoxContainer" unique_id=2021721786]
-custom_maximum_size = Vector2(300, 300)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 6
-offset_transform_enabled = true
-offset_transform_position = Vector2(-20, -50)
-texture = ExtResource("28_6jrsi")
-
-[node name="Description" type="Label" parent="ChoiceCards/BadChoices/BestFriendButton/Panel/VBoxContainer" unique_id=1549867209]
-layout_mode = 2
-size_flags_vertical = 10
-theme = SubResource("Theme_8c0wf")
-theme_override_font_sizes/font_size = 32
-text = "Спавним бессмертного врага. Но урон и скорость у него сильно понижены"
 horizontal_alignment = 1
 autowrap_mode = 2
 
@@ -3234,19 +2988,16 @@ autowrap_mode = 2
 [connection signal="pressed" from="ChoiceCards/GoodChoices/RageButton" to="." method="_on_rage_button_pressed"]
 [connection signal="pressed" from="ChoiceCards/GoodChoices/ZombieWithBucketButton" to="." method="_on_zombie_with_bucket_button_pressed"]
 [connection signal="pressed" from="ChoiceCards/GoodChoices/PerfectButton" to="." method="_on_perfect_button_pressed"]
-[connection signal="pressed" from="ChoiceCards/GoodChoices/RedeemerButton" to="." method="_on_redeemer_button_pressed"]
 [connection signal="pressed" from="ChoiceCards/GoodChoices/FatGuyButton" to="." method="_on_fat_guy_button_pressed"]
 [connection signal="pressed" from="ChoiceCards/GoodChoices/67Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="ChoiceCards/GoodChoices/SonicButton" to="." method="_on_sonic_button_pressed"]
 [connection signal="pressed" from="ChoiceCards/GoodChoices/CardLimitButton" to="." method="_on_card_limit_button_pressed"]
 [connection signal="pressed" from="ChoiceCards/GoodChoices/GamblingButton" to="." method="_on_gambling_button_pressed"]
 [connection signal="pressed" from="ChoiceCards/BadChoices/BrokenBoneButton" to="." method="_on_broken_bone_button_pressed"]
-[connection signal="pressed" from="ChoiceCards/BadChoices/SpawnrateButton" to="." method="_on_spawnrate_button_pressed"]
 [connection signal="pressed" from="ChoiceCards/BadChoices/ThinButton" to="." method="_on_thin_button_pressed"]
 [connection signal="pressed" from="ChoiceCards/BadChoices/DisabledButton" to="." method="_on_disabled_button_pressed"]
 [connection signal="pressed" from="ChoiceCards/BadChoices/BlindButton" to="." method="_on_blind_button_pressed"]
 [connection signal="pressed" from="ChoiceCards/BadChoices/FlashbangButton" to="." method="_on_flashbang_button_pressed"]
-[connection signal="pressed" from="ChoiceCards/BadChoices/BestFriendButton" to="." method="_on_best_friend_button_pressed"]
 [connection signal="pressed" from="ChoiceCards/BadChoices/DementiaButton" to="." method="_on_dementia_button_pressed"]
 [connection signal="pressed" from="ChoiceCards/BadChoices/DyspneaButton" to="." method="_on_dyspnea_button_pressed"]
 [connection signal="pressed" from="ChoiceCards/BadChoices/BlackButton" to="." method="_on_black_button_pressed"]

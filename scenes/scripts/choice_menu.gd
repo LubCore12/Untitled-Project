@@ -19,6 +19,8 @@ extends Control
 @onready var story_choices = $ChoiceCards/StoryChoices
 @onready var bad_choices = $ChoiceCards/BadChoices
 @onready var good_choices = $ChoiceCards/GoodChoices
+@onready var bad_choices_cards = $ChoiceCards/BadChoices.get_children()
+@onready var good_choices_cards = $ChoiceCards/GoodChoices.get_children()
 
 var bad_button_chance := 4.0
 var cards_per_choice := 3
@@ -147,27 +149,24 @@ func choice_random_buttons() -> void:
 	if chance <= bad_button_chance:
 		good_choices.hide()
 		bad_choices.show()
-		var children = bad_choices.get_children()
-		children.shuffle()
-		show_cards(children)
+		bad_choices_cards.shuffle()
+		show_cards(bad_choices_cards)
 	else:
 		good_choices.show()
 		bad_choices.hide()
-		var children = good_choices.get_children()
-		children.shuffle()
-		show_cards(children)
+		good_choices_cards.shuffle()
+		show_cards(good_choices_cards)
 	
-func show_cards(children) -> void:
+func show_cards(choice_cards) -> void:
 	for i in range(cards_per_choice):
-		var card = children[i]
+		var card = choice_cards[i]
 		card.process_mode = PROCESS_MODE_DISABLED
 		card.show()
 			
 	await get_tree().create_timer(1.0).timeout
 		
 	for i in range(cards_per_choice):
-		var card = children[i]
-		cards_per_choice = 3
+		var card = choice_cards[i]
 		card.process_mode = PROCESS_MODE_INHERIT
 			
 func hide_all_choices() -> void:
@@ -223,76 +222,99 @@ func _on_character_sprite_button_pressed() -> void:
 
 func _on_flash_button_pressed() -> void:
 	flash.emit()
+	good_choices_cards.erase($ChoiceCards/GoodChoices/FlashButton)
 
 func _on_special_agent_button_pressed() -> void:
 	special_agent.emit()
+	good_choices_cards.erase($ChoiceCards/GoodChoices/SpecialAgentButton)
 	
 func _on_serious_punch_button_pressed() -> void:
 	serious_punch.emit()
+	good_choices_cards.erase($ChoiceCards/GoodChoices/SeriousPunchButton)
 
 func _on_iron_dude_button_pressed() -> void:
 	iron_dude.emit()
+	good_choices_cards.erase($ChoiceCards/GoodChoices/IronDudeButton)
 
 func _on_vampire_button_pressed() -> void:
 	vampire.emit()
+	good_choices_cards.erase($ChoiceCards/GoodChoices/VampireButton)
 	
 func _on_rage_button_pressed() -> void:
 	rage.emit()
+	good_choices_cards.erase($ChoiceCards/GoodChoices/RageButton)
 
 func _on_zombie_with_bucket_button_pressed() -> void:
 	zombie_with_bucket.emit()
+	good_choices_cards.erase($ChoiceCards/GoodChoices/ZombieWithBucketButton)
 
 func _on_perfect_button_pressed() -> void:
 	perfect.emit()
-
+	good_choices_cards.erase($ChoiceCards/GoodChoices/PerfectButton)
 
 func _on_fat_guy_button_pressed() -> void:
 	fat_guy.emit()
+	good_choices_cards.erase($ChoiceCards/GoodChoices/FatGuyButton)
 
 func _on_button_pressed() -> void:
 	SIX_SEEEEVENAAAAAA.emit()
+	good_choices_cards.erase($"ChoiceCards/GoodChoices/67Button")
 
 func _on_sonic_button_pressed() -> void:
 	sonic.emit()
+	good_choices_cards.erase($ChoiceCards/GoodChoices/SonicButton)
 
 func _on_broken_bone_button_pressed() -> void:
 	broken_bone.emit()
+	bad_choices_cards.erase($ChoiceCards/BadChoices/BrokenBoneButton)
 
 func _on_thin_button_pressed() -> void:
 	thin.emit()
+	bad_choices_cards.erase($ChoiceCards/BadChoices/ThinButton)
 
 func _on_disabled_button_pressed() -> void:
 	disabled.emit()
+	bad_choices_cards.erase($ChoiceCards/BadChoices/DisabledButton)
 
 func _on_blind_button_pressed() -> void:
 	blind.emit()
+	bad_choices_cards.erase($ChoiceCards/BadChoices/BlindButton)
 	
 func _on_flashbang_button_pressed() -> void:
 	flashbang.emit()
+	bad_choices_cards.erase($ChoiceCards/BadChoices/FlashbangButton)
 
 func _on_dementia_button_pressed() -> void:
 	dementia.emit()
+	bad_choices_cards.erase($ChoiceCards/BadChoices/DementiaButton)
 
 func _on_dyspnea_button_pressed() -> void:
 	dyspnea.emit()
+	bad_choices_cards.erase($ChoiceCards/BadChoices/DyspneaButton)
 
 func _on_black_button_pressed() -> void:
 	black.emit()
+	bad_choices_cards.erase($ChoiceCards/BadChoices/BlackButton)
 
 func _on_student_button_pressed() -> void:
 	student.emit()
+	bad_choices_cards.erase($ChoiceCards/BadChoices/StudentButton)
 
 func _on_gamer_button_pressed() -> void:
 	gamer.emit()
+	bad_choices_cards.erase($ChoiceCards/BadChoices/GamerButton)
 
 func _on_card_limit_button_pressed() -> void:
 	card_limit.emit()
+	good_choices_cards.erase($ChoiceCards/GoodChoices/CardLimitButton)
 
 func _on_gambling_button_pressed() -> void:
 	gambling.emit()
+	good_choices_cards.erase($ChoiceCards/GoodChoices/GamblingButton)
 
 func _on_unlucky_button_pressed() -> void:
 	unlucky.emit()
+	bad_choices_cards.erase($ChoiceCards/BadChoices/UnluckyButton)
 
 func _on_pause_button_pressed() -> void:
 	pause.emit()

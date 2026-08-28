@@ -28,8 +28,8 @@ func setup(spawn_position, target) -> void:
 	direction = to_player.normalized()
 	rotation.z = to_player.angle()
 	
-	position.x = spawn_position.x + direction.x
-	position.y = spawn_position.y + direction.y
+	position.x = spawn_position.x + direction.x * 0.5
+	position.y = spawn_position.y + direction.y * 0.5
 	
 func _physics_process(delta: float) -> void:
 	gravity += gravitation_strength * delta

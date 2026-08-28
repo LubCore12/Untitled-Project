@@ -381,8 +381,7 @@ func _on_choice_menu_thin() -> void:
 	player.add_max_health_multiplier(-0.2)
 
 func _on_choice_menu_vampire() -> void:
-	player.add_health(player.get_right_max_health() * 0.15)
-	_on_player_player_damaged(-player.get_right_max_health() * 0.15)
+	player.enambe_vampire_mode()
 
 func _on_choice_menu_zombie_with_bucket() -> void:
 	player.add_defend_multiplier(0.2)
